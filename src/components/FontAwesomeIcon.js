@@ -43,11 +43,9 @@ class FontAwesomeIcon extends React.Component {
   }
 
   render () {
-    const params = Object.assign({},
-      this._classList().length > 0 && {classes: this._classList()},
-      this._transformDirectives() && {transform: this._transformDirectives()}
-    )
-    const {abstract} = fontawesome.icon(this.props.iconDefinition || this._iconConfig(), params)
+    const classes = this._classList().length > 0 ? {classes: this._classList()} : {}
+    const transform = this._transformDirectives() ? {transform: this._transformDirectives()} : {}
+    const {abstract} = fontawesome.icon(this.props.iconDefinition || this._iconConfig(), { ...classes, ...transform })
     const convertCurry = convert.bind(null, React.createElement)
     
     return convertCurry(abstract[0])

@@ -14,9 +14,9 @@
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-0.0.10.tgz#3ce3ca261c17e223745058f27fe7acf84f5cbf49"
 
-"@fortawesome/react-fontawesome@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.0.4.tgz#2cd2a776f10c592941f88f6aa0bbd6ca7a48818b"
+"@fortawesome/react-fontawesome@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.0.5.tgz#7389d62574ab6c988f3f4a4c82c2e4fc40af5bbe"
   dependencies:
     camelcase "^4.1.0"
 

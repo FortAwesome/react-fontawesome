@@ -14,25 +14,25 @@ class App extends Component {
         <h1>
           <FontAwesomeIcon pack="fab" name="font-awesome" />
           <FontAwesomeIcon pack="fas" name="coffee" />
-          <FontAwesomeIcon pack="fas" name="cog" spin={true} fixed-width={false} />
+          <FontAwesomeIcon pack="fas" name="cog" spin fixed-width={false} />
           <FontAwesomeIcon pack="fab" name="fort-awesome" size="4x" />
-          <FontAwesomeIcon pack="fas" name="spinner" pulse={true} fixed-width={true} />
+          <FontAwesomeIcon pack="fas" name="spinner" pulse fixed-width />
           <FontAwesomeIcon pack="fab" name="fort-awesome" rotation={90} />
           <FontAwesomeIcon pack="fab" name="internet-explorer" flip="both" />
         </h1>
         <div>
           <p>
-            <FontAwesomeIcon pack="fas" name="quote-left" size="2x" border={true} pull="left" />...tomorrow we 
+            <FontAwesomeIcon pack="fas" name="quote-left" size="2x" border pull="left" />...tomorrow we 
             will run faster, stretch out our arms farther...And then one fine morning&mdash; So we beat on, boats 
             against the current, borne back ceaselessly into the past.
           </p>
         </div>
         <div>
           <ul className="fa-ul">
-            <li><FontAwesomeIcon pack="fas" name="check-square" list-item={true} />List icons</li>
-            <li><FontAwesomeIcon pack="fas" name="check-square" list-item={true} />can be used</li>
-            <li><FontAwesomeIcon pack="fas" name="square" list-item={true} />as bullets</li>
-            <li><FontAwesomeIcon pack="fas" name="square" list-item={true} />in lists</li>
+            <li><FontAwesomeIcon pack="fas" name="check-square" list-item />List icons</li>
+            <li><FontAwesomeIcon pack="fas" name="check-square" list-item />can be used</li>
+            <li><FontAwesomeIcon pack="fas" name="square" list-item />as bullets</li>
+            <li><FontAwesomeIcon pack="fas" name="square" list-item />in lists</li>
           </ul>
         </div>
         <div>
