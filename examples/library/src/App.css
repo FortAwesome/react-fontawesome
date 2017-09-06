@@ -1,0 +1,23 @@
+.App {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+.App div {
+  margin-bottom: 10px;
+}
+
+.App p {
+  display: inline-block;
+  width: 250px;
+  text-align: left;
+}
+
+.App ul {
+  display: inline-block;
+  width: 250px;
+  text-align: left;
+}

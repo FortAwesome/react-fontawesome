@@ -9,7 +9,9 @@ export default {
     'react'
   ],
   globals: {
-    '@fortawesome/fontawesome': 'FontAwesome'
+    '@fortawesome/fontawesome': 'FontAwesome',
+    'react': 'React',
+    'prop-types': 'PropTypes'
   },
   input: 'src/index.js',
   name: 'react-fontawesome',

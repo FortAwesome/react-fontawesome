@@ -1,6 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
-  "version": "0.0.1",
+  "description": "Official React component for Font Awesome 5",
+  "version": "0.0.4",
   "main": "index.js",
   "contributors": [
     "Travis Chase <travis@fontawesome.com>",
@@ -8,8 +9,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "npm run build.main",
-    "build.main": "rollup -c rollup.config.js",
+    "build": "rollup -c rollup.config.js",
     "test": "jest"
   },
   "peerDependencies": {
@@ -30,5 +30,8 @@
     "rollup-plugin-buble": "^0.15.0",
     "rollup-plugin-commonjs": "^8.2.0",
     "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "dependencies": {
+    "camelcase": "^4.1.0"
   }
 }
