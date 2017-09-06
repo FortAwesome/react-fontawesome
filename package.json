@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome 5",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "main": "index.js",
   "contributors": [
     "Travis Chase <travis@fontawesome.com>",

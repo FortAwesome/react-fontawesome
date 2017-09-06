@@ -3,22 +3,16 @@ import fontawesome from '@fortawesome/fontawesome'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+const packNames = {
+  brands: 'fab',
+  light: 'fal',
+  regular: 'far',
+  solid: 'fas'
+}
+
 class FontAwesomeIcon extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      packNames: {
-        brands: 'fab',
-        light: 'fal',
-        regular: 'far',
-        solid: 'fas'
-      }
-    }
-  }
-
   _prefix () {
-    return this.state.packNames[this.props.pack] || this.props.pack
+    return packNames[this.props.pack] || this.props.pack
   }
 
   _iconConfig () {
