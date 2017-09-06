@@ -4,7 +4,9 @@ import buble from 'rollup-plugin-buble'
 
 export default {
   external: [
-    '@fortawesome/fontawesome'
+    '@fortawesome/fontawesome',
+    'prop-types',
+    'react'
   ],
   globals: {
     '@fortawesome/fontawesome': 'FontAwesome'

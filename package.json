@@ -2,7 +2,10 @@
   "name": "@fortawesome/react-fontawesome",
   "version": "0.0.1",
   "main": "index.js",
-  "author": "Travis Chase <travis@travischase.me>",
+  "contributors": [
+    "Travis Chase <travis@fontawesome.com>",
+    "Rob Madole <rob@fontawesome.com>"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "npm run build.main",
