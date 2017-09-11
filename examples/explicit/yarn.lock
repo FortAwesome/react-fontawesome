@@ -2,17 +2,17 @@
 # yarn lockfile v1
 
 
-"@fortawesome/fontawesome-solid@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-solid/-/fontawesome-solid-0.0.10.tgz#29a0cd7e01a1850d3fc28d6a6da2b30b57a1d3d9"
+"@fortawesome/fontawesome-free-solid@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-0.0.12.tgz#0a7ec4543919e48e1a8cf3ebb84bb6feee7ec017"
 
-"@fortawesome/fontawesome@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-0.0.10.tgz#3ce3ca261c17e223745058f27fe7acf84f5cbf49"
+"@fortawesome/fontawesome@0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-0.0.13.tgz#1394d1471e232e0ae3678047421f69cff0b117e7"
 
-"@fortawesome/react-fontawesome@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.0.5.tgz#7389d62574ab6c988f3f4a4c82c2e4fc40af5bbe"
+"@fortawesome/react-fontawesome@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.0.6.tgz#be6c5567ead8d8323f81b310e2e3a77776e2c4ae"
   dependencies:
     camelcase "^4.1.0"
 

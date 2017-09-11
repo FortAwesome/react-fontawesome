@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/fontawesome-solid'
+import { faCoffee } from '@fortawesome/fontawesome-free-solid'
 import './App.css';
 
 class App extends Component {
