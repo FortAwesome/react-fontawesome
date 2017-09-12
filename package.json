@@ -1,8 +1,13 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome 5",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "index.js",
+  "homepage": "https://github.com/FortAwesome/react-fontawesome",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FortAwesome/react-fontawesome.git"
+  },
   "contributors": [
     "Travis Chase <travis@fontawesome.com>",
     "Rob Madole <rob@fontawesome.com>"
@@ -10,6 +15,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c rollup.config.js",
+    "dist": "NODE_ENV=production npm run build",
     "test": "jest"
   },
   "peerDependencies": {
