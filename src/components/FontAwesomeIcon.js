@@ -3,67 +3,94 @@ import fontawesome from '@fortawesome/fontawesome'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const packNames = {
-  brands: 'fab',
-  light: 'fal',
-  regular: 'far',
-  solid: 'fas'
+let PRODUCTION = false
+
+try {
+  PRODUCTION = process.env.NODE_ENV === 'production'
+} catch (e) { }
+
+function objectWithKey (key, value) {
+  return ((Array.isArray(value) && value.length > 0) || (!Array.isArray(value) && value)) ? {[key]: value} : {}
 }
 
-class FontAwesomeIcon extends React.Component {
-  _prefix () {
-    return packNames[this.props.pack] || this.props.pack
+function classList (props) {
+  let classes = {
+    'fa-spin': props.spin,
+    'fa-pulse': props.pulse,
+    'fa-fw': props.fixedWidth,
+    'fa-border': props.border,
+    'fa-li': props.listItem,
+    'fa-flip-horizontal': props.flip === 'horizontal' || props.flip === 'both',
+    'fa-flip-vertical': props.flip === 'vertical' || props.flip === 'both',
+    [`fa-${props.size}`]: props.size !== null,
+    [`fa-rotate-${props.rotation}`]: props.rotation !== null,
+    [`fa-pull-${props.pull}`]: props.pull !== null
   }
 
-  _iconConfig () {
-    return { prefix: this._prefix(), iconName: this.props.name }
+  return Object.keys(classes)
+    .map(key => classes[key] ? key : null)
+    .filter(key => key)
+}
+
+function normalizeIconArgs (icon) {
+  if (icon === null) {
+    return null
   }
 
-  _classList () {
-    let classes = {
-      'fa-spin': this.props.spin,
-      'fa-pulse': this.props.pulse,
-      'fa-fw': this.props.fixedWidth,
-      'fa-border': this.props.border,
-      'fa-li': this.props.listItem,
-      'fa-flip-horizontal': this.props.flip === 'horizontal' || this.props.flip === 'both',
-      'fa-flip-vertical': this.props.flip === 'vertical' || this.props.flip === 'both',
-      [`fa-${this.props.size}`]: this.props.size !== null,
-      [`fa-rotate-${this.props.rotation}`]: this.props.rotation !== null,
-      [`fa-pull-${this.props.pull}`]: this.props.pull !== null
+  if (typeof icon === 'object' && icon.prefix && icon.iconName) {
+    return icon
+  }
+
+  if (Array.isArray(icon) && icon.length === 2) {
+    return { prefix: icon[0], iconName: icon[1] }
+  }
+
+  if (typeof icon === 'string') {
+    return { prefix: 'fas', iconName: icon }
+  }
+}
+
+function FontAwesomeIcon (props) {
+  const { icon: iconArgs, compose: composeArgs, symbol } = props
+
+  const icon = normalizeIconArgs(iconArgs)
+  const classes = objectWithKey('classes', classList(props))
+  const transform = objectWithKey('transform', (typeof props.transform === 'string') ? fontawesome.parse.transform(props.transform) : props.transform)
+  const compose = objectWithKey('compose', normalizeIconArgs(composeArgs))
+
+  const renderedIcon = fontawesome.icon(icon, {
+    ...classes,
+    ...transform,
+    ...compose,
+    symbol
+  })
+
+  if (!renderedIcon) {
+    if (!PRODUCTION && console && typeof console.error === 'function') {
+      console.error('Could not find icon', icon)
     }
 
-    return Object.keys(classes)
-      .map(key => classes[key] ? key : null)
-      .filter(key => key)
+    return null
   }
 
-  _transformDirectives () {
-    return (typeof this.props.transform === 'string') ? fontawesome.parse.transform(this.props.transform) : this.props.transform
-  }
+  const {abstract} = renderedIcon
+  const convertCurry = convert.bind(null, React.createElement)
 
-  render () {
-    const classes = this._classList().length > 0 ? {classes: this._classList()} : {}
-    const transform = this._transformDirectives() ? {transform: this._transformDirectives()} : {}
-    const {abstract} = fontawesome.icon(this.props.iconDefinition || this._iconConfig(), { ...classes, ...transform })
-    const convertCurry = convert.bind(null, React.createElement)
-    
-    return convertCurry(abstract[0])
-  }
+  return convertCurry(abstract[0])
 }
 
 FontAwesomeIcon.propTypes = {
   border: PropTypes.bool,
-  
+
+  compose: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
+
   fixedWidth: PropTypes.bool,
 
   flip: PropTypes.oneOf(['horizontal', 'vertical', 'both']),
 
-  iconDefinition: PropTypes.object,
+  icon: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
 
   listItem: PropTypes.bool,
-
-  pack: PropTypes.string,
 
   pull: PropTypes.oneOf(['right', 'left']),
 
@@ -77,22 +104,25 @@ FontAwesomeIcon.propTypes = {
 
   spin: PropTypes.bool,
 
+  symbol: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+
   transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 }
 
 FontAwesomeIcon.defaultProps = {
   border: false,
+  compose: null,
   fixedWidth: false,
   flip: null,
-  iconDefinition: null,
+  icon: null,
   listItem: false,
-  pack: 'fa',
   pull: null,
   pulse: false,
   name: '',
   rotation: null,
   size: null,
   spin: false,
+  symbol: false,
   transform: null
 }
 
