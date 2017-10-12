@@ -7,54 +7,64 @@ const packNames = {
   brands: 'fab',
   light: 'fal',
   regular: 'far',
-  solid: 'fas'
+  solid: 'fas',
 }
+const convertCurry = convert.bind(null, React.createElement)
 
 class FontAwesomeIcon extends React.Component {
-  _prefix () {
+  _prefix() {
     return packNames[this.props.pack] || this.props.pack
   }
 
-  _iconConfig () {
+  _iconConfig() {
     return { prefix: this._prefix(), iconName: this.props.name }
   }
 
-  _classList () {
+  _classList() {
     let classes = {
       'fa-spin': this.props.spin,
       'fa-pulse': this.props.pulse,
       'fa-fw': this.props.fixedWidth,
       'fa-border': this.props.border,
       'fa-li': this.props.listItem,
-      'fa-flip-horizontal': this.props.flip === 'horizontal' || this.props.flip === 'both',
-      'fa-flip-vertical': this.props.flip === 'vertical' || this.props.flip === 'both',
+      'fa-flip-horizontal':
+        this.props.flip === 'horizontal' || this.props.flip === 'both',
+      'fa-flip-vertical':
+        this.props.flip === 'vertical' || this.props.flip === 'both',
       [`fa-${this.props.size}`]: this.props.size !== null,
       [`fa-rotate-${this.props.rotation}`]: this.props.rotation !== null,
-      [`fa-pull-${this.props.pull}`]: this.props.pull !== null
+      [`fa-pull-${this.props.pull}`]: this.props.pull !== null,
     }
 
     return Object.keys(classes)
-      .map(key => classes[key] ? key : null)
+      .map(key => (classes[key] ? key : null))
       .filter(key => key)
   }
 
-  _transformDirectives () {
-    return (typeof this.props.transform === 'string') ? fontawesome.parse.transform(this.props.transform) : this.props.transform
+  _transformDirectives() {
+    return typeof this.props.transform === 'string'
+      ? fontawesome.parse.transform(this.props.transform)
+      : this.props.transform
   }
 
-  render () {
-    const classes = this._classList().length > 0 ? {classes: this._classList()} : {}
-    const transform = this._transformDirectives() ? {transform: this._transformDirectives()} : {}
-    const {abstract} = fontawesome.icon(this.props.iconDefinition || this._iconConfig(), { ...classes, ...transform })
-    const convertCurry = convert.bind(null, React.createElement)
-    
+  render() {
+    const classes =
+      this._classList().length > 0 ? { classes: this._classList() } : {}
+    const transform = this._transformDirectives()
+      ? { transform: this._transformDirectives() }
+      : {}
+    const { abstract } = fontawesome.icon(
+      this.props.iconDefinition || this._iconConfig(),
+      { ...classes, ...transform }
+    )
+
     return convertCurry(abstract[0])
   }
 }
 
 FontAwesomeIcon.propTypes = {
   border: PropTypes.bool,
-  
+
   fixedWidth: PropTypes.bool,
 
   flip: PropTypes.oneOf(['horizontal', 'vertical', 'both']),
@@ -73,11 +83,25 @@ FontAwesomeIcon.propTypes = {
 
   rotation: PropTypes.oneOf([90, 180, 270]),
 
-  size: PropTypes.oneOf(['lg', 'xs', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),
+  size: PropTypes.oneOf([
+    'lg',
+    'xs',
+    'sm',
+    '1x',
+    '2x',
+    '3x',
+    '4x',
+    '5x',
+    '6x',
+    '7x',
+    '8x',
+    '9x',
+    '10x',
+  ]),
 
   spin: PropTypes.bool,
 
-  transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+  transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 FontAwesomeIcon.defaultProps = {
@@ -93,7 +117,7 @@ FontAwesomeIcon.defaultProps = {
   rotation: null,
   size: null,
   spin: false,
-  transform: null
+  transform: null,
 }
 
 export default FontAwesomeIcon
