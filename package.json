@@ -19,6 +19,7 @@
     "test": "jest"
   },
   "peerDependencies": {
+
     "@fortawesome/fontawesome": ">=0.0.18",
     "prop-types": "^15.5.10",
     "react": "^16.0.0"
