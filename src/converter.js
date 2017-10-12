@@ -1,26 +1,29 @@
 import camelCase from 'camelcase'
 
-function capitalize (val) {
-  return val.charAt(0).toUpperCase() + val.slice(1);
+function capitalize(val) {
+  return val.charAt(0).toUpperCase() + val.slice(1)
 }
 
-function styleToObject (style) {
-  return style.split(';')
-    .map(s => s.trim() )
-    .filter(s => s)
-    .reduce((acc, pair) => {
-      const i = pair.indexOf(':')
-      const prop = camelCase(pair.slice(0, i))
-      const value = pair.slice(i + 1).trim()
-      
-      prop.startsWith('webkit') ? acc[capitalize(prop)] = value : acc[prop] = value
-      
-      return acc
-    }, {})
+function styleToObject(style) {
+  return style.split(';').reduce((acc, rawPair) => {
+    const pair = rawPair.trim()
+    if (!pair) return acc
+    const i = pair.indexOf(':')
+    const prop = camelCase(pair.slice(0, i))
+    const value = pair.slice(i + 1).trim()
+
+    prop.startsWith('webkit')
+      ? (acc[capitalize(prop)] = value)
+      : (acc[prop] = value)
+
+    return acc
+  }, {})
 }
 
-function convert (createElement, element) {
-  const children = (element.children || []).map(convert.bind(null, createElement))
+function convert(createElement, element) {
+  const children = (element.children || []).map(
+    convert.bind(null, createElement)
+  )
 
   if (element.attributes.hasOwnProperty('class')) {
     element.attributes['className'] = element.attributes['class']
@@ -37,6 +40,8 @@ function convert (createElement, element) {
         break
       case 'style':
         element.attributes['style'] = styleToObject(val)
+        break
+      default:
         break
     }
   })
