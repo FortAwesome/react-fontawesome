@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome 5",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "index.js",
   "homepage": "https://github.com/FortAwesome/react-fontawesome",
   "repository": {
@@ -19,26 +19,26 @@
     "test": "jest"
   },
   "peerDependencies": {
-    "@fortawesome/fontawesome": "^0.0.13",
+    "@fortawesome/fontawesome": ">=0.0.18",
     "prop-types": "^15.5.10",
-    "react": "^15.6.1"
+    "react": "^16.0.0"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome": "0.0.13",
+    "@fortawesome/fontawesome": "0.0.18",
     "babel-jest": "^21.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "jest": "^21.0.1",
     "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-test-renderer": "^15.6.1",
-    "rollup": "^0.49.2",
+    "react": "16.0.0",
+    "react-test-renderer": "16.0.0",
+    "rollup": "0.50.0",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.0",
     "rollup-plugin-node-resolve": "^3.0.0"
   },
   "dependencies": {
-    "camelcase": "^4.1.0"
+    "humps": "^2.0.1"
   }
 }
