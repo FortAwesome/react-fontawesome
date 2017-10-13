@@ -22,12 +22,12 @@ function styleToObject (style) {
 function convert (createElement, element) {
   const children = (element.children || []).map(convert.bind(null, createElement))
 
-  if (element.attributes.hasOwnProperty('class')) {
+  if (element.attributes && element.attributes.hasOwnProperty('class')) {
     element.attributes['className'] = element.attributes['class']
     delete element.attributes['class']
   }
 
-  Object.keys(element.attributes).forEach(key => {
+  Object.keys(element.attributes || {}).forEach(key => {
     const val = element.attributes[key]
 
     switch (key) {
