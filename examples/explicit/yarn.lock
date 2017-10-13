@@ -10,11 +10,11 @@
   version "0.0.18"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-0.0.18.tgz#90a18b499468ab2da3a7a1cbeb922cb3fa900e3d"
 
-"@fortawesome/react-fontawesome@0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.0.7.tgz#f5936b3f2222539258c249a2a5fe804fe3dfaf36"
+"@fortawesome/react-fontawesome@0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.0.8.tgz#d08f80eb9b78cba0c9d7ae98bc48bec499076ee1"
   dependencies:
-    camelcase "^4.1.0"
+    humps "^2.0.1"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -3114,6 +3114,10 @@ http-signature@~1.2.0:
 https-browserify@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
+
+humps@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/humps/-/humps-2.0.1.tgz#dd02ea6081bd0568dc5d073184463957ba9ef9aa"
 
 iconv-lite@0.4.13:
   version "0.4.13"
