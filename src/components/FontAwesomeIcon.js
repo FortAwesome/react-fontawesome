@@ -51,10 +51,10 @@ function normalizeIconArgs (icon) {
 }
 
 function FontAwesomeIcon (props) {
-  const { icon: iconArgs, compose: composeArgs, symbol } = props
+  const { icon: iconArgs, compose: composeArgs, symbol, className } = props
 
   const icon = normalizeIconArgs(iconArgs)
-  const classes = objectWithKey('classes', classList(props))
+  const classes = objectWithKey('classes', [...classList(props), ...className.split(' ')])
   const transform = objectWithKey('transform', (typeof props.transform === 'string') ? fontawesome.parse.transform(props.transform) : props.transform)
   const compose = objectWithKey('compose', normalizeIconArgs(composeArgs))
 
@@ -82,6 +82,8 @@ function FontAwesomeIcon (props) {
 FontAwesomeIcon.propTypes = {
   border: PropTypes.bool,
 
+  className: PropTypes.string,
+  
   compose: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
 
   fixedWidth: PropTypes.bool,
@@ -111,6 +113,7 @@ FontAwesomeIcon.propTypes = {
 
 FontAwesomeIcon.defaultProps = {
   border: false,
+  className: '',
   compose: null,
   fixedWidth: false,
   flip: null,
