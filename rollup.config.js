@@ -32,6 +32,9 @@ export default {
         "react",
         "stage-3"
       ],
+      plugins: [
+        "external-helpers"
+      ],
       exclude: 'node_modules/**'
     })
   ]
