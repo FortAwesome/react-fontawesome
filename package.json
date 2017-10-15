@@ -19,7 +19,6 @@
     "test": "jest"
   },
   "peerDependencies": {
-
     "@fortawesome/fontawesome": ">=0.0.18",
     "prop-types": "^15.5.10",
     "react": "^16.0.0"
@@ -27,6 +26,7 @@
   "devDependencies": {
     "@fortawesome/fontawesome": "0.0.18",
     "babel-jest": "^21.0.0",
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
