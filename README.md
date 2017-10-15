@@ -149,6 +149,12 @@ Pull left or right:
 <FontAwesomeIcon icon="spinner" pull="right" />
 ```
 
+Your own class names:
+
+```javascript
+<FontAwesomeIcon icon="spinner" className="highlight" />
+```
+
 ### Advanced
 
 Power Transforms:
