@@ -30,6 +30,10 @@ function convert (createElement, element) {
         element.attributes['className'] = val
         delete element.attributes['class']
         break
+      case 'clip-path':
+        element.attributes['clipPath'] = val
+        delete element.attributes['clip-path']
+        break
       case 'style':
         element.attributes['style'] = styleToObject(val)
         break

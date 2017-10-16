@@ -176,7 +176,7 @@ describe('compose', () => {
     const vm = mount({ icon: faCoffee, compose: faCircle })
 
     expect(vm.children.length).toBe(2)
-    expect(vm.children[1].props.hasOwnProperty('clip-path')).toBeTruthy()
+    expect(vm.children[1].props.hasOwnProperty('clipPath')).toBeTruthy()
   })
 })
 
