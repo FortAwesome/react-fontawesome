@@ -151,6 +151,12 @@ test('using spin', () => {
   expect(vm.props.className.includes('fa-spin')).toBeTruthy()
 })
 
+test('using className', () => {
+  const vm = mount({ icon: faCoffee, className: 'highlight' })
+
+  expect(vm.props.className.includes('highlight')).toBeTruthy()
+})
+
 describe('using transform', () => {
   test('string', () => {
     const vm = mount({ icon: faCoffee, transform: 'grow-40 left-4 rotate-15' })
