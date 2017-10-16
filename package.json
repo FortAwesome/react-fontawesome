@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome 5",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "index.js",
   "homepage": "https://github.com/FortAwesome/react-fontawesome",
   "repository": {
