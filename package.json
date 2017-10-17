@@ -24,7 +24,7 @@
     "react": "^15.6.1"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome": "0.0.13",
+    "@fortawesome/fontawesome": "0.0.18",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^21.0.0",
     "babel-preset-es2015": "^6.24.1",
