@@ -12,35 +12,35 @@ class App extends Component {
     return (
       <div className="App">
         <h1>
-          <FontAwesomeIcon pack="fab" name="font-awesome" />
-          <FontAwesomeIcon pack="fas" name="coffee" />
-          <FontAwesomeIcon pack="fas" name="cog" spin fixed-width={false} />
-          <FontAwesomeIcon pack="fab" name="fort-awesome" size="4x" />
-          <FontAwesomeIcon pack="fas" name="spinner" pulse fixed-width />
-          <FontAwesomeIcon pack="fab" name="fort-awesome" rotation={90} />
-          <FontAwesomeIcon pack="fab" name="internet-explorer" flip="both" />
+          <FontAwesomeIcon icon={["fab", "font-awesome"]} />
+          <FontAwesomeIcon icon={["fas", "coffee"]} />
+          <FontAwesomeIcon icon={["fas", "cog"]} spin fixed-width={false} />
+          <FontAwesomeIcon icon={["fab", "fort-awesome"]} size="4x" />
+          <FontAwesomeIcon icon={["fas", "spinner"]} pulse fixed-width />
+          <FontAwesomeIcon icon={["fab", "fort-awesome"]} rotation={90} />
+          <FontAwesomeIcon icon={["fab", "internet-explorer"]} flip="both" />
         </h1>
         <div>
           <p>
-            <FontAwesomeIcon pack="fas" name="quote-left" size="2x" border pull="left" />...tomorrow we 
-            will run faster, stretch out our arms farther...And then one fine morning&mdash; So we beat on, boats 
+            <FontAwesomeIcon icon={["fas", "quote-left"]} size="2x" border pull="left" />...tomorrow we
+            will run faster, stretch out our arms farther...And then one fine morning&mdash; So we beat on, boats
             against the current, borne back ceaselessly into the past.
           </p>
         </div>
         <div>
           <ul className="fa-ul">
-            <li><FontAwesomeIcon pack="fas" name="check-square" list-item />List icons</li>
-            <li><FontAwesomeIcon pack="fas" name="check-square" list-item />can be used</li>
-            <li><FontAwesomeIcon pack="fas" name="square" list-item />as bullets</li>
-            <li><FontAwesomeIcon pack="fas" name="square" list-item />in lists</li>
+            <li><FontAwesomeIcon icon={["fas", "check-square"]} list-item />List icons</li>
+            <li><FontAwesomeIcon icon={["fas", "check-square"]} list-item />can be used</li>
+            <li><FontAwesomeIcon icon={["fas", "square"]} list-item />as bullets</li>
+            <li><FontAwesomeIcon icon={["fas", "square"]} list-item />in lists</li>
           </ul>
         </div>
         <div>
           <span>
-            <FontAwesomeIcon pack="fab" name="font-awesome" transform="grow-40 left-4 rotate-15" />
+            <FontAwesomeIcon icon={["fab", "font-awesome"]} transform="grow-40 left-4 rotate-15" />
           </span>
           <span style={{paddingLeft: '50px'}}>
-            <FontAwesomeIcon pack="fab" name="font-awesome" transform={{ flipX: false, flipY: false, rotate: 15, size: 56, x: -4, y: 0 }} />
+            <FontAwesomeIcon icon={["fab", "font-awesome"]} transform={{ flipX: false, flipY: false, rotate: 15, size: 56, x: -4, y: 0 }} />
           </span>
         </div>
       </div>

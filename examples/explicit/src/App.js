@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>
-          <FontAwesomeIcon iconDefinition={faCoffee} />
+          <FontAwesomeIcon icon={faCoffee} />
         </h1>
       </div>
     );

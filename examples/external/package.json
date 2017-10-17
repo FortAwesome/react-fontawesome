@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome": "0.0.13",
-    "@fortawesome/react-fontawesome": "0.0.6",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-scripts": "1.0.13"
+    "@fortawesome/fontawesome": "0.0.18",
+    "@fortawesome/react-fontawesome": "0.0.8",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.14"
   },
   "scripts": {
     "start": "react-scripts start",
