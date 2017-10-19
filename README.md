@@ -39,7 +39,7 @@ Explicit prefix (note the Vue bind shorthand because this uses an array):
 Explicit icon definition (this is pseudo-code, see examples below for more detail):
 
 ```javascript
-import { faCoffee } from '@fortawesome/fontawesome-free-solid'
+import { faCoffee } from '@fortawesome/fontawesome-free-solid';
 
 <FontAwesomeIcon icon={faCoffee} />
 ```
@@ -54,14 +54,14 @@ Import the specific icons that you need:
 
 ```javascript
 import ReactDOM from 'react-dom';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/fontawesome-free-solid'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/fontawesome-free-solid';
 
 const element = (
-  <FontAwesomeIcon icon={faCoffee}>
+  <FontAwesomeIcon icon={faCoffee} />
 )
 
-ReactDOM.render(element, document.body)
+ReactDOM.render(element, document.body);
 ```
 
 It can be tedious to always import the icons individually so a library can be
@@ -73,11 +73,11 @@ App.js
 
 ```javascript
 import ReactDOM from 'react-dom';
-import fontawesome from '@fortawesome/fontawesome'
-import brands from '@fortawesome/fontawesome-free-brands'
-import { faSpinner } from '@fortawesome/fontawesome-free-solid'
+import fontawesome from '@fortawesome/fontawesome';
+import brands from '@fortawesome/fontawesome-free-brands';
+import { faSpinner } from '@fortawesome/fontawesome-free-solid';
 
-fontawesome.library.add(brands, faSpinner)
+fontawesome.library.add(brands, faSpinner);
 
 const element = (
   <div id="app">
@@ -86,7 +86,7 @@ const element = (
     <!-- Using another style needs a prefix in the following array format -->
     <FontAwesomeIcon icon={['fab', 'font-awesome']} />
   </div>
-)
+);
 ```
 
 ## Features
