@@ -18,7 +18,7 @@ $ yarn add @fortawesome/fontawesome
 $ yarn add @fortawesome/react-fontawesome
 ```
 
-## Usag
+## Usage
 
 ### The basics
 
@@ -58,7 +58,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/fontawesome-free-solid'
 
 const element = (
-  <FontAwesomeIcon icon={faCoffee}>
+  <FontAwesomeIcon icon={faCoffee} />
 )
 
 ReactDOM.render(element, document.body)
