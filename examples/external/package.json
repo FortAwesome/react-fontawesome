@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome": "0.0.18",
-    "@fortawesome/react-fontawesome": "0.0.8",
+    "@fortawesome/fontawesome": "0.0.20",
+    "@fortawesome/react-fontawesome": "0.0.11",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14"
