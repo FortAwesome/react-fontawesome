@@ -1,13 +1,8 @@
 import convert from '../converter'
 import fontawesome from '@fortawesome/fontawesome'
+import log from '../logger'
 import PropTypes from 'prop-types'
 import React from 'react'
-
-let PRODUCTION = false
-
-try {
-  PRODUCTION = process.env.NODE_ENV === 'production'
-} catch (e) { }
 
 function objectWithKey (key, value) {
   return ((Array.isArray(value) && value.length > 0) || (!Array.isArray(value) && value)) ? {[key]: value} : {}
@@ -65,25 +60,24 @@ function FontAwesomeIcon (props) {
     symbol
   })
 
-  if (!renderedIcon) {
-    if (!PRODUCTION && console && typeof console.error === 'function') {
-      console.error('Could not find icon', icon)
-    }
-
-    return null
-  }
+  if (!renderedIcon) return log('Could not find icon', icon)
 
   const {abstract} = renderedIcon
   const convertCurry = convert.bind(null, React.createElement)
+  const extraProps = {}
 
-  return convertCurry(abstract[0])
+  Object.keys(props).forEach(key => {
+    if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) extraProps[key] = props[key]
+  })
+
+  return convertCurry(abstract[0], extraProps)
 }
 
 FontAwesomeIcon.propTypes = {
   border: PropTypes.bool,
 
   className: PropTypes.string,
-  
+
   compose: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
 
   fixedWidth: PropTypes.bool,

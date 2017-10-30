@@ -38,10 +38,11 @@ function mount (props = {}) {
 }
 
 test('using pack and name', () => {
-  const vm = mount({ icon: ['fas', 'coffee'] })
+  const vm = mount({ icon: ['fas', 'coffee'], style: { backgroundColor: 'white' } })
 
   expect(vm.type).toBe('svg')
   expect(vm.props.className.includes('fa-coffee')).toBeTruthy()
+  expect(vm.props.style).toEqual({ backgroundColor: 'white' })
 })
 
 test('using pack common names', () => {
@@ -159,9 +160,9 @@ test('using className', () => {
 
 describe('using transform', () => {
   test('string', () => {
-    const vm = mount({ icon: faCoffee, transform: 'grow-40 left-4 rotate-15' })
+    const vm = mount({ icon: faCoffee, transform: 'grow-40 left-4 rotate-15', style: { backgroundColor: 'white' } })
 
-    expect(vm.props.style).toEqual({ transformOrigin: "0.375em 0.5em" })
+    expect(vm.props.style).toEqual({ backgroundColor: 'white', transformOrigin: '0.375em 0.5em' })
   })
 
   test('object', () => {
