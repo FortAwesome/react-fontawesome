@@ -28,9 +28,9 @@ export default {
     babel({
       babelrc: false,
       presets: [
-        ["es2015", { "modules": false }], 
-        "react",
-        "stage-3"
+        ["es2015", { "modules": false }],
+        "stage-3",
+        "react"
       ],
       plugins: [
         "external-helpers"
