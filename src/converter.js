@@ -19,30 +19,34 @@ function styleToObject (style) {
     }, {})
 }
 
-function convert (createElement, element) {
+function convert (createElement, element, extraProps = {}) {
   const children = (element.children || []).map(convert.bind(null, createElement))
 
-  Object.keys(element.attributes || {}).forEach(key => {
+  const mixins = Object.keys(element.attributes || {}).reduce((acc, key) => {
     const val = element.attributes[key]
 
     switch (key) {
       case 'class':
-        element.attributes['className'] = val
+        acc.attrs['className'] = val
         delete element.attributes['class']
         break
-      case 'clip-path':
-        element.attributes['clipPath'] = val
-        delete element.attributes['clip-path']
-        break
       case 'style':
-        element.attributes['style'] = styleToObject(val)
+        acc.attrs['style'] = styleToObject(val)
         break
+      default:
+        acc.attrs[humps.camelize(key)] = val
     }
-  })
+
+    return acc
+  }, { attrs: {} })
+
+  const { style: existingStyle = {}, ...remaining } = extraProps
+
+  mixins.attrs['style'] = { ...mixins.attrs['style'], ...existingStyle }
 
   return createElement(
     element.tag,
-    element.attributes,
+    { ...mixins.attrs, ...remaining},
     ...children
   )
 }
