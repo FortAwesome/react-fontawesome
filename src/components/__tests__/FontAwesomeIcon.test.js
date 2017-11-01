@@ -42,6 +42,8 @@ test('using pack and name', () => {
 
   expect(vm.type).toBe('svg')
   expect(vm.props.className.includes('fa-coffee')).toBeTruthy()
+  expect(vm.props['aria-hidden']).toBe("true")
+  expect(vm.props['data-icon']).toBe("coffee")
   expect(vm.props.style).toEqual({ backgroundColor: 'white' })
 })
 

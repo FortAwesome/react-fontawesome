@@ -34,7 +34,11 @@ function convert (createElement, element, extraProps = {}) {
         acc.attrs['style'] = styleToObject(val)
         break
       default:
-        acc.attrs[humps.camelize(key)] = val
+        if (key.indexOf('aria-') === 0 || key.indexOf('data-') === 0) {
+          acc.attrs[key.toLowerCase()] = val
+        } else {
+          acc.attrs[humps.camelize(key)] = val
+        }
     }
 
     return acc
