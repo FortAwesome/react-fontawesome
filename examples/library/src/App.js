@@ -14,9 +14,9 @@ class App extends Component {
         <h1>
           <FontAwesomeIcon icon={["fab", "font-awesome"]} />
           <FontAwesomeIcon icon={["fas", "coffee"]} />
-          <FontAwesomeIcon icon={["fas", "cog"]} spin fixed-width={false} />
+          <FontAwesomeIcon icon={["fas", "cog"]} spin fixedWidth={false} />
           <FontAwesomeIcon icon={["fab", "fort-awesome"]} size="4x" />
-          <FontAwesomeIcon icon={["fas", "spinner"]} pulse fixed-width />
+          <FontAwesomeIcon icon={["fas", "spinner"]} pulse fixedWidth />
           <FontAwesomeIcon icon={["fab", "fort-awesome"]} rotation={90} />
           <FontAwesomeIcon icon={["fab", "internet-explorer"]} flip="both" />
         </h1>
@@ -29,10 +29,10 @@ class App extends Component {
         </div>
         <div>
           <ul className="fa-ul">
-            <li><FontAwesomeIcon icon={["fas", "check-square"]} list-item />List icons</li>
-            <li><FontAwesomeIcon icon={["fas", "check-square"]} list-item />can be used</li>
-            <li><FontAwesomeIcon icon={["fas", "square"]} list-item />as bullets</li>
-            <li><FontAwesomeIcon icon={["fas", "square"]} list-item />in lists</li>
+            <li><FontAwesomeIcon icon={["fas", "check-square"]} listItem />List icons</li>
+            <li><FontAwesomeIcon icon={["fas", "check-square"]} listItem />can be used</li>
+            <li><FontAwesomeIcon icon={["fas", "square"]} listItem />as bullets</li>
+            <li><FontAwesomeIcon icon={["fas", "square"]} listItem />in lists</li>
           </ul>
         </div>
         <div>

@@ -4,10 +4,10 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome": "0.0.20",
-    "@fortawesome/react-fontawesome": "0.0.11",
+    "@fortawesome/react-fontawesome": "0.0.12",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.16"
   },
   "scripts": {
     "start": "react-scripts start",
