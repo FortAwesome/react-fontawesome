@@ -74,6 +74,7 @@ App.js
 ```javascript
 import ReactDOM from 'react-dom';
 import fontawesome from '@fortawesome/fontawesome'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import brands from '@fortawesome/fontawesome-free-brands'
 import { faSpinner } from '@fortawesome/fontawesome-free-solid'
 
