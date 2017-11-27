@@ -168,7 +168,7 @@ Power Transforms:
 Composition:
 
 ```javascript
-<FontAwesomeIcon icon="coffee" compose={['far', 'circle']} />
+<FontAwesomeIcon icon="coffee" mask={['far', 'circle']} />
 ```
 
 Symbols:

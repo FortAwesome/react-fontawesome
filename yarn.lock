@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@fortawesome/fontawesome@0.0.20":
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-0.0.20.tgz#a86f7161fbe3c3ae4210a3fae50c34c78b49402b"
+"@fortawesome/fontawesome@0.0.22":
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-0.0.22.tgz#ea533f9bb4edb0dd2b4bc2b7c78d1a2aa0319430"
 
 abab@^1.0.3:
   version "1.0.4"
