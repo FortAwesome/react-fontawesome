@@ -2,6 +2,7 @@ import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '../FontAwesomeIcon'
 import React from 'react'
 import renderer from 'react-test-renderer'
+import {listen, clearListeners} from "../../logger";
 
 const faCoffee = {
   prefix: 'fas',
@@ -37,6 +38,10 @@ function mount (props = {}) {
   return component.toJSON()
 }
 
+afterEach(() => {
+  clearListeners();
+});
+
 test('using pack and name', () => {
   const vm = mount({ icon: ['fas', 'coffee'], style: { backgroundColor: 'white' } })
 
@@ -52,6 +57,16 @@ test('using pack common names', () => {
 
   expect(vm.type).toBe('svg')
   expect(vm.props.className.includes('fa-coffee')).toBeTruthy()
+})
+
+test('using pack common names not added to library', () => {
+  const loggerCallback = jest.fn()
+  const loggerCallbackKey = `${Math.random()}-${Math.random()}-${Math.random()}`
+  listen(loggerCallbackKey, loggerCallback)
+  const vm = mount({ icon: 'spinner' })
+  expect(vm).toBeNull()
+  expect(loggerCallback.mock.calls.length).toBe(1)
+  expect(loggerCallback.mock.calls[0][0]).toEqual(expect.stringContaining('Could not find icon'))
 })
 
 test('using icon', () => {
