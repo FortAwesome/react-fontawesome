@@ -28,7 +28,7 @@ export function clearListeners(){
 }
 
 export default function (...args) {
-  if(TEST) {
+  if(TEST && Object.keys(listeners).length > 0) {
     Object.keys(listeners).forEach(function(key){listeners[key](...args)});
   }
   else if (!PRODUCTION && console && typeof console.error === 'function') {
