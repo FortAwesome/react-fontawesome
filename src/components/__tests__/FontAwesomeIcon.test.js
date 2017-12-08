@@ -2,6 +2,8 @@ import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '../FontAwesomeIcon'
 import React from 'react'
 import renderer from 'react-test-renderer'
+import log from "../../logger"
+jest.mock("../../logger")
 
 const faCoffee = {
   prefix: 'fas',
@@ -52,6 +54,13 @@ test('using pack common names', () => {
 
   expect(vm.type).toBe('svg')
   expect(vm.props.className.includes('fa-coffee')).toBeTruthy()
+})
+
+test('using pack common names not added to library', () => {
+  const vm = mount({ icon: 'spinner' })
+  expect(vm).toBeNull()
+  expect(log.mock.calls.length).toBe(1)
+  expect(log.mock.calls[0][0]).toEqual(expect.stringContaining('Could not find icon'))
 })
 
 test('using icon', () => {
