@@ -60,7 +60,10 @@ function FontAwesomeIcon (props) {
     symbol
   })
 
-  if (!renderedIcon) return log('Could not find icon', icon)
+  if (!renderedIcon){
+    log('Could not find icon', icon)
+    return null
+  }
 
   const {abstract} = renderedIcon
   const convertCurry = convert.bind(null, React.createElement)
