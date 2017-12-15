@@ -24,8 +24,8 @@ You can use Font Awesome icons in your React components as simply as this:
 ```
 
 That simple usage is made possible when you add the `"coffee"` icon,
- to the _library_, or when load
-icon bundles _externally_ that include the icon.
+ to the _library_, or when _externally_ loading
+icon bundles that include the icon.
 
 These are two of the three ways you can use
 Font Awesome 5 with React.
