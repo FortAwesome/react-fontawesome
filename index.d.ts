@@ -1,19 +1,32 @@
-declare module 'localreactfontawesome' {
-  export type FontAwesomeIconMask = Object | any[] | string;
+declare module '@fortawesome/react-fontawesome' {
+  export type FontAwesomeIconMask = object | any[] | string;
 
   export type FontAwesomeIconFlip = 'horizontal' | 'vertical' | 'both';
 
-  export type FontAwesomeIconIcon = Object | any[] | string;
+  export type FontAwesomeIconIcon = object | any[] | string;
 
   export type FontAwesomeIconPull = 'right' | 'left';
 
   export type FontAwesomeIconRotation = 90 | 180 | 270;
 
-  export type FontAwesomeIconSize = 'lg' | 'xs' | 'sm' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
+  export type FontAwesomeIconSize =
+    | 'lg'
+    | 'xs'
+    | 'sm'
+    | '1x'
+    | '2x'
+    | '3x'
+    | '4x'
+    | '5x'
+    | '6x'
+    | '7x'
+    | '8x'
+    | '9x'
+    | '10x';
 
   export type FontAwesomeIconSymbol = boolean | string;
 
-  export type FontAwesomeIconTransform = string | Object;
+  export type FontAwesomeIconTransform = string | object;
 
   export interface FontAwesomeIconProps {
     border?: boolean;
@@ -33,6 +46,7 @@ declare module 'localreactfontawesome' {
     transform?: FontAwesomeIconTransform;
   }
 
-  export default function FontAwesomeIcon(props: FontAwesomeIconProps): JSX.Element;
-
+  export default function FontAwesomeIcon(
+    props: FontAwesomeIconProps
+  ): JSX.Element;
 }
