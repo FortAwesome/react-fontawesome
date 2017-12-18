@@ -279,7 +279,7 @@ Spin and pulse animation:
 Fixed width:
 
 ```javascript
-<FontAwesomeIcon icon="spinner" fixed-width />
+<FontAwesomeIcon icon="spinner" fixedWidth />
 ```
 
 Border:
@@ -291,7 +291,7 @@ Border:
 List items:
 
 ```javascript
-<FontAwesomeIcon icon="spinner" list-item />
+<FontAwesomeIcon icon="spinner" listItem />
 ```
 
 Flip horizontally, vertically, or both:
