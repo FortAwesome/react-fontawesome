@@ -75,7 +75,7 @@ Now, a simple React component might look like this:
 ```javascript
 import ReactDOM from 'react-dom';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/fontawesome-free-solid'
+import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
 
 const element = (
   <FontAwesomeIcon icon={faCoffee} />
@@ -131,7 +131,8 @@ import ReactDOM from 'react-dom';
 import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import brands from '@fortawesome/fontawesome-free-brands'
-import { faCheckSquare, faCoffee } from '@fortawesome/fontawesome-free-solid'
+import faCheckSquare from '@fortawesome/fontawesome-free-solid/faCheckSquare'
+import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
 
 fontawesome.library.add(brands, faCheckSquare, faCoffee)
 ```
@@ -182,9 +183,9 @@ const Gadget = () => (
   <div>
     <FontAwesomeIcon icon="check-square"/>
     Popular gadgets come from vendors like:
-      <FontAwesomeIcon icon={["fab","apple"]}/>
-      <FontAwesomeIcon icon={["fab","microsoft"]}/>
-      <FontAwesomeIcon icon={["fab","google"]}/>
+      <FontAwesomeIcon icon={["fab", "apple"]}/>
+      <FontAwesomeIcon icon={["fab", "microsoft"]}/>
+      <FontAwesomeIcon icon={["fab", "google"]}/>
   </div>
 )
 
