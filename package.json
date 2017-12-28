@@ -3,6 +3,7 @@
   "description": "Official React component for Font Awesome 5",
   "version": "0.0.17",
   "main": "index.js",
+  "types": "index.d.ts",
   "homepage": "https://github.com/FortAwesome/react-fontawesome",
   "repository": {
     "type": "git",
@@ -16,7 +17,8 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "dist": "cross-env NODE_ENV=production npm run build",
-    "test": "jest"
+    "test": "jest",
+    "clean": "rm -f index.js"
   },
   "peerDependencies": {
     "@fortawesome/fontawesome": ">=1.1.0",
