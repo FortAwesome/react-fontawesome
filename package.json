@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome": ">=1.0.0",
+    "@types/react": "^16.0.31",
     "babel-jest": "^21.0.0",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-es2015": "^6.24.1",
