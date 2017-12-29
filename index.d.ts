@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import { CSSProperties } from 'react';
 import {
     Transform,
     IconProp,
@@ -23,7 +24,7 @@ export interface Props {
     rotate?: RotateProp;
     transform?: string | Transform;
     symbol?: boolean | string;
-    style?: React.CSSProperties;
+    style?: CSSProperties;
 }
 export default function FontAwesomeIcon(props: Props): JSX.Element;
 
