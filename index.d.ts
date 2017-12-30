@@ -6,7 +6,8 @@ import {
   FlipProp,
   SizeProp,
   PullProp,
-  RotateProp
+  RotateProp,
+  FaSymbol
 } from "@fortawesome/fontawesome";
 
 export interface Props {
@@ -23,7 +24,7 @@ export interface Props {
   pull?: PullProp;
   rotate?: RotateProp;
   transform?: string | Transform;
-  symbol?: boolean | string;
+  symbol?: FaSymbol;
   style?: CSSProperties;
 }
 export default function FontAwesomeIcon(props: Props): JSX.Element;
