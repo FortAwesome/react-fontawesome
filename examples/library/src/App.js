@@ -19,6 +19,7 @@ class App extends Component {
           <FontAwesomeIcon icon={["fas", "spinner"]} pulse fixedWidth />
           <FontAwesomeIcon icon={["fab", "fort-awesome"]} rotation={90} />
           <FontAwesomeIcon icon={["fab", "internet-explorer"]} flip="both" />
+          <FontAwesomeIcon icon={["fab", "fort-awesome"]} inverse />
         </h1>
         <div>
           <p>

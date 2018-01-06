@@ -82,6 +82,12 @@ test('using fixedWidth', () => {
   expect(vm.props.className.includes('fa-fw')).toBeTruthy()
 })
 
+test('using inverse', () => {
+  const vm = mount({ icon: faCoffee, inverse: true })
+
+  expect(vm.props.className.includes('fa-inverse')).toBeTruthy()
+})
+
 describe('using flip', () => {
   test('horizontal', () => {
     const vm = mount({ icon: faCoffee, flip: "horizontal" })
