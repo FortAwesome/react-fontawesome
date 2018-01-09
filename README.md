@@ -355,3 +355,37 @@ Symbols:
 <FontAwesomeIcon icon="edit" symbol />
 <FontAwesomeIcon icon="edit" symbol="edit-icon" />
 ```
+
+
+## TypeScript Usage
+TypeScript definitions are included with the library. They're exported as a namespace. 
+
+There are a number of enums you can access: 
+ - Rotation
+ - Flip
+ - Size
+ - Pull
+ 
+ You can use their string or numeric counterparts, too. For example `pull` has an enum `Pull.Left` which has a string value of 'left', you can use the string value if you wish. 
+
+```typescript
+  import * as FontAwesomeIcon from '@fortawesome/react-fontawesome';
+  // ...
+  <FontAwesomeIcon.Icon
+    border={true}
+    className={'some-class'}
+    mask={'fas fa-comment'}
+    transform={'shrink-10 up-.5'}
+    rotation={FontAwesomeIcon.Rotation.NinetyDegrees}
+    fixedWidth={true}
+    flip={FontAwesomeIcon.Flip.Horizontal} // or flip={'horizontal'}
+    size={FontAwesomeIcon.Size.Large}
+    spin={false}
+    icon={'far fa-rocket'}
+    listItem={false}
+    pulse={false}
+    name={'Hello'}
+    symbol={false}
+    pull={FontAwesomeIcon.Pull.Left}
+  />;
+```
