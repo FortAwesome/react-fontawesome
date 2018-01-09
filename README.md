@@ -1,5 +1,7 @@
 # react-fontawesome
 
+[![npm](https://img.shields.io/npm/v/@fortawesome/react-fontawesome.svg?style=flat-square)](https://www.npmjs.com/package/@fortawesome/react-fontawesome)
+
 Font Awesome 5 React component
 
 ## Installation
