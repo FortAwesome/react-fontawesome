@@ -1,5 +1,5 @@
-import fontawesome from '@fortawesome/fontawesome'
-import FontAwesomeIcon from '../FontAwesomeIcon'
+import * as fontawesome from '@fortawesome/fontawesome'
+import { FontAwesomeIcon } from '../FontAwesomeIcon'
 import React from 'react'
 import renderer from 'react-test-renderer'
 import log from "../../logger"

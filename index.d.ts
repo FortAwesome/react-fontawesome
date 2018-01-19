@@ -10,6 +10,8 @@ import {
   FaSymbol
 } from "@fortawesome/fontawesome";
 
+export function FontAwesomeIcon(props: Props): JSX.Element;
+
 export interface Props {
   icon: IconProp;
   mask?: IconProp;
@@ -27,4 +29,3 @@ export interface Props {
   symbol?: FaSymbol;
   style?: CSSProperties;
 }
-export default function FontAwesomeIcon(props: Props): JSX.Element;
