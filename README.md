@@ -352,7 +352,7 @@ Symbols:
 <FontAwesomeIcon icon="edit" symbol="edit-icon" />
 ```
 
-### Type Script
+### TypeScript
 
 Typings are included in this package. However, most types are defined in the
 underlying API library, <span style="whitespace:nowrap;">`@fortawesome/fontawesome`</span>.
