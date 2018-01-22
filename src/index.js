@@ -1,6 +1,4 @@
-import fontawesome from '@fortawesome/fontawesome'
-import FontAwesomeIcon from './components/FontAwesomeIcon'
+import { noAuto } from '@fortawesome/fontawesome'
+export { default as FontAwesomeIcon } from './components/FontAwesomeIcon'
 
-fontawesome.noAuto()
-
-export default FontAwesomeIcon
+noAuto()
