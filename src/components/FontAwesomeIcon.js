@@ -1,5 +1,5 @@
 import convert from '../converter'
-import fontawesome from '@fortawesome/fontawesome'
+import { icon, parse } from '@fortawesome/fontawesome'
 import log from '../logger'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -45,15 +45,15 @@ function normalizeIconArgs (icon) {
   }
 }
 
-function FontAwesomeIcon (props) {
+export default function FontAwesomeIcon (props) {
   const { icon: iconArgs, mask: maskArgs, symbol, className } = props
 
-  const icon = normalizeIconArgs(iconArgs)
+  const iconLookup = normalizeIconArgs(iconArgs)
   const classes = objectWithKey('classes', [...classList(props), ...className.split(' ')])
-  const transform = objectWithKey('transform', (typeof props.transform === 'string') ? fontawesome.parse.transform(props.transform) : props.transform)
+  const transform = objectWithKey('transform', (typeof props.transform === 'string') ? parse.transform(props.transform) : props.transform)
   const mask = objectWithKey('mask', normalizeIconArgs(maskArgs))
 
-  const renderedIcon = fontawesome.icon(icon, {
+  const renderedIcon = icon(iconLookup, {
     ...classes,
     ...transform,
     ...mask,
@@ -61,7 +61,7 @@ function FontAwesomeIcon (props) {
   })
 
   if (!renderedIcon) {
-    log('Could not find icon', icon)
+    log('Could not find icon', iconLookup)
     return null
   }
 
@@ -97,8 +97,6 @@ FontAwesomeIcon.propTypes = {
 
   pulse: PropTypes.bool,
 
-  name: PropTypes.string,
-
   rotation: PropTypes.oneOf([90, 180, 270]),
 
   size: PropTypes.oneOf(['lg', 'xs', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),
@@ -120,12 +118,9 @@ FontAwesomeIcon.defaultProps = {
   listItem: false,
   pull: null,
   pulse: false,
-  name: '',
   rotation: null,
   size: null,
   spin: false,
   symbol: false,
   transform: null
 }
-
-export default FontAwesomeIcon

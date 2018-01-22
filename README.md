@@ -96,9 +96,9 @@ $ yarn add @fortawesome/fontawesome-free-solid
 Now, a simple React component might look like this:
 
 ```javascript
-import ReactDOM from 'react-dom'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
+import ReactDOM from 'react-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/fontawesome-free-solid/faCoffee'
 
 const element = <FontAwesomeIcon icon={faCoffee} />
 
@@ -106,7 +106,7 @@ ReactDOM.render(element, document.body)
 ```
 
 Notice that the `faCoffee` icon is imported from
-<span style="white-space:nowrap;">`@fortawesome/fontawesome-free-solid`</span> as an object and then
+<span style="white-space:nowrap;">`@fortawesome/fontawesome-free-solid/faCoffee`</span> as an object and then
 provided to the `icon` prop as an object.
 
 Explicitly importing icons like this allows us to subset Font Awesome's
@@ -149,21 +149,21 @@ $ yarn add @fortawesome/fontawesome-free-brands
 In `App.js`, where our app is initialized:
 
 ```javascript
-import ReactDOM from 'react-dom'
-import fontawesome from '@fortawesome/fontawesome'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import brands from '@fortawesome/fontawesome-free-brands'
-import faCheckSquare from '@fortawesome/fontawesome-free-solid/faCheckSquare'
-import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
+import ReactDOM from 'react-dom';
+import { library } from '@fortawesome/fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fab } from '@fortawesome/fontawesome-free-brands'
+import { faCheckSquare } from '@fortawesome/fontawesome-free-solid/faCheckSquare'
+import { faCoffee } from '@fortawesome/fontawesome-free-solid/faCoffee'
 
-fontawesome.library.add(brands, faCheckSquare, faCoffee)
+library.add(fab, faCheckSquare, faCoffee)
 ```
 
 OK, so what's happening here?
 
-In our call to <span style="white-space:nowrap;">`fontawesome.library.add()`</span> we're passing
+In our call to <span style="white-space:nowrap;">`library.add()`</span> we're passing
 
-* `brands`: which represents _all_ of the brand icons in
+* `fab`: which represents _all_ of the brand icons in
   <span style="white-space:nowrap;">`@fortawesome/fontawesome-free-brands`</span>.
   So any of the brand icons in that package may be referenced by icon name
   as a string anywhere else in our app.
@@ -180,7 +180,7 @@ We'll make `Beverage.js` a functional component:
 
 ```javascript
 import React from 'react'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Beverage = () => (
   <div>
@@ -188,8 +188,6 @@ const Beverage = () => (
     Favorite beverage: <FontAwesomeIcon icon="coffee" />
   </div>
 )
-
-export default Beverage
 ```
 
 There's one another piece of magic that's happening in the
@@ -201,9 +199,9 @@ Now suppose `Gadget.js` looks like this:
 
 ```javascript
 import React from 'react'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Gadget = () => (
+export const Gadget = () => (
   <div>
     <FontAwesomeIcon icon="check-square" />
     Popular gadgets come from vendors like:
@@ -212,8 +210,6 @@ const Gadget = () => (
     <FontAwesomeIcon icon={['fab', 'google']} />
   </div>
 )
-
-export default Gadget
 ```
 
 Notice:
@@ -224,8 +220,8 @@ Notice:
   it by name in multiple components.
 * We used the `"apple"`, `"microsoft"`, and `"google"` brand icons, which were
   never explicitly _individually_ imported, but they're available to us by
-  name as strings because `brands` was added to our library in `App.js`, and
-  `brands` includes all of those icons.
+  name as strings because `fab` was added to our library in `App.js`, and
+  `fab` includes all of those icons.
 * We added the `fab` prefix to reference those brand icons.
 
 Adding a prefix—and the syntax we used to do it—are new. So what's

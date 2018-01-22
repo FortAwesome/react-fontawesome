@@ -1,2 +1,5 @@
 node_modules
 .DS_Store
+# Ignore only the top-level index.js file because it's built by rollup.
+# But don't ignore index.js in sub-directories, like those in the examples.
+/index.js
