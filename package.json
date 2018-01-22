@@ -68,5 +68,9 @@
     "humps": "^2.0.1",
     "prop-types": "^15.5.7"
   },
-  "files": ["index.js", "index.es.js"]
+  "files": [
+    "index.js",
+    "index.es.js",
+    "index.d.ts"
+  ]
 }
