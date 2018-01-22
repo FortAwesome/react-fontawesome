@@ -66,7 +66,6 @@ export default function FontAwesomeIcon (props) {
   }
 
   const {abstract} = renderedIcon
-  const convertCurry = convert.bind(null, React.createElement)
   const extraProps = {}
 
   Object.keys(props).forEach(key => {
@@ -124,3 +123,5 @@ FontAwesomeIcon.defaultProps = {
   symbol: false,
   transform: null
 }
+
+const convertCurry = convert.bind(null, React.createElement)
