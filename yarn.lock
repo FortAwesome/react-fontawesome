@@ -54,9 +54,19 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@fortawesome/fontawesome@>=1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.0.0.tgz#ef48b981c117e6ff6d99ac9a1275038b0f7c4996"
+"@fortawesome/fontawesome-common-types@^0.1.2-1":
+  version "0.1.2-1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.2-1.tgz#9d0f82ed9d97ed847d78274a19a2ab79c55cda47"
+
+"@fortawesome/fontawesome@^1.2.0-2":
+  version "1.2.0-2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.2.0-2.tgz#1bd2436c2cfe5e9048279caf6c9be5a1bcbb1192"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.1.2-1"
+
+"@types/react@^16.0.31":
+  version "16.0.31"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.31.tgz#5285da62f3ac62b797f6d0729a1d6181f3180c3e"
 
 abab@^1.0.3:
   version "1.0.4"

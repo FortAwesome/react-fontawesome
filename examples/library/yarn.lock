@@ -2,21 +2,31 @@
 # yarn lockfile v1
 
 
-"@fortawesome/fontawesome-free-brands@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-brands/-/fontawesome-free-brands-5.0.1.tgz#d1f485bc5311814b7dfb725b7e037a4623674555"
+"@fortawesome/fontawesome-common-types@^0.1.2-1":
+  version "0.1.2-1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.2-1.tgz#9d0f82ed9d97ed847d78274a19a2ab79c55cda47"
 
-"@fortawesome/fontawesome-free-solid@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.0.1.tgz#1a635b065268ca0b80ee7cc4073f10b7fec0012f"
+"@fortawesome/fontawesome-free-brands@^5.1.0":
+  version "5.1.0-3"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-brands/-/fontawesome-free-brands-5.1.0-3.tgz#27efbae1bd80fb9deb10022e2834e16f08a73480"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.1.2-1"
 
-"@fortawesome/fontawesome@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.0.1.tgz#8ac60e1e7b437889baf9c9d6e3a61ef3b637170d"
+"@fortawesome/fontawesome-free-solid@^5.1.0":
+  version "5.1.0-3"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.1.0-3.tgz#60e6e1cc7588b933a570bcfc9eb78b9cadda451a"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.1.2-1"
 
-"@fortawesome/react-fontawesome@^0.0.15":
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.0.15.tgz#dddaf1b702607d5150c512ada9c51ed2fc72fd41"
+"@fortawesome/fontawesome@^1.2.0":
+  version "1.2.0-2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.2.0-2.tgz#1bd2436c2cfe5e9048279caf6c9be5a1bcbb1192"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.1.2-1"
+
+"@fortawesome/react-fontawesome@^0.1.0":
+  version "0.0.18-1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.0.18-1.tgz#54feacac5cfe7e774dcbe3df5efe7cc31bb6cf00"
   dependencies:
     humps "^2.0.1"
 
