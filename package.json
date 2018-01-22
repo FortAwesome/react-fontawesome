@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome 5",
-  "version": "0.1.0-1",
+  "version": "0.1.0-2",
   "main": "index.js",
   "types": "index.d.ts",
   "homepage": "https://github.com/FortAwesome/react-fontawesome",
@@ -48,7 +48,7 @@
     "humps": "^2.0.1"
   },
   "files": [
-    "index.js",
-    "index.d.ts"
+    "./index.js",
+    "./index.d.ts"
   ]
 }
