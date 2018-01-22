@@ -45,7 +45,7 @@ function normalizeIconArgs (icon) {
   }
 }
 
-export function FontAwesomeIcon (props) {
+export default function FontAwesomeIcon (props) {
   const { icon: iconArgs, mask: maskArgs, symbol, className } = props
 
   const iconLookup = normalizeIconArgs(iconArgs)

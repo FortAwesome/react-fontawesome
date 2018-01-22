@@ -1,4 +1,4 @@
 import { noAuto } from '@fortawesome/fontawesome'
-export { FontAwesomeIcon } from './components/FontAwesomeIcon'
+export { default as FontAwesomeIcon } from './components/FontAwesomeIcon'
 
 noAuto()
