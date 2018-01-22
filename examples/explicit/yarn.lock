@@ -19,8 +19,8 @@
     "@fortawesome/fontawesome-common-types" "^0.1.2-1"
 
 "@fortawesome/react-fontawesome@^0.1.0":
-  version "0.0.18-1"
-  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.0.18-1.tgz#54feacac5cfe7e774dcbe3df5efe7cc31bb6cf00"
+  version "0.1.0-1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.1.0-1.tgz#dc8fa3c28c49b5092d0a9d705beec23e3f1dd13a"
   dependencies:
     humps "^2.0.1"
 
