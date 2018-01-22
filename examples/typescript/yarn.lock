@@ -7,8 +7,8 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.2-1.tgz#9d0f82ed9d97ed847d78274a19a2ab79c55cda47"
 
 "@fortawesome/fontawesome-free-solid@^5.1.0":
-  version "5.1.0-2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.1.0-2.tgz#1c1a3aeefaaa733cbcadf997ea7bbbb945799aa3"
+  version "5.1.0-3"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.1.0-3.tgz#60e6e1cc7588b933a570bcfc9eb78b9cadda451a"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.1.2-1"
 
@@ -18,9 +18,9 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.1.2-1"
 
-"@fortawesome/react-fontawesome@^0.0.17":
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.0.17.tgz#69abd135523187044f533cadc5458f829d43961f"
+"@fortawesome/react-fontawesome@^0.1.0":
+  version "0.0.18-1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.0.18-1.tgz#54feacac5cfe7e774dcbe3df5efe7cc31bb6cf00"
   dependencies:
     humps "^2.0.1"
 
