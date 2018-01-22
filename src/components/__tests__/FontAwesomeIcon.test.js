@@ -1,4 +1,4 @@
-import fontawesome from '@fortawesome/fontawesome'
+import * as fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '../FontAwesomeIcon'
 import React from 'react'
 import renderer from 'react-test-renderer'
