@@ -386,3 +386,58 @@ Layering:
   <FontAwesomeIcon icon="check" inverse transform="shrink-6" />
 </span>
 ```
+
+### TypeScript
+
+Typings are included in this package. However, most types are defined in the
+underlying API library, <span style="whitespace:nowrap;">`@fortawesome/fontawesome`</span>.
+
+Suppose that in one module, you add all `fas` icons to the library:
+```
+import { library } from '@fortawesome/fontawesome'
+import { fas } from '@fortawesome/fontawesome-free-solid'
+
+library.add(fas)
+
+// ...
+```
+
+Then suppose that in another module, you have some code that looks up
+one of the icons in the library. The `import` statement below imports two types
+and one function:
+
+```
+import { IconLookup, IconDefinition, findIconDefinition } from '@fortawesome/fontawesome'
+
+const coffeeLookup: IconLookup = { prefix: 'fas', iconName: 'coffee' }
+const coffeeIconDefinition: IconDefinition = findIconDefinition(coffeeLookup)
+
+// ...
+
+export class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+          <h1>
+              <FontAwesomeIcon icon={coffeeIconDefinition} />
+          </h1>
+      </div>
+    );
+  }
+}
+```
+NOTE: You wouldn't normally declare intermediate objects like `coffeeLookup`
+just to look up an icon. So this is cumbersome and needlessly verbose for
+such a simple example. The purpose here is just to show how you might
+import type definitions and use them in declarations when it _does_ make
+sense to do so.
+
+Several types, including `IconLookup` and `IconDefinition`, appearing above,
+ actually originate from the
+<span style="whitespace:nowrap;">`@fortawesome/fontawesome-common-types`</span>
+package. They are re-exported from both <span style="whitespace:nowrap;">`@fortawesome/fontawesome`</span>
+and <span style="whitespace:nowrap;">`@fortawesome/fontawesome-free-solid`</span>
+(and other icon packs). This is just to make importing more convenient in
+some cases.
+Refer to the `index.d.ts` in any module to see which types it exports.
+>>>>>>> add more documentation and more verbose example for TypeScript (#55)
