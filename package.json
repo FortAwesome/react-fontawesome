@@ -22,12 +22,12 @@
     "clean": "rm -f index.js"
   },
   "peerDependencies": {
-    "@fortawesome/fontawesome": ">=1.2.0",
+    "@fortawesome/fontawesome": "^1.2.0-2",
     "prop-types": "^15.5.10",
     "react": "^16.0.0"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome": ">=1.2.0",
+    "@fortawesome/fontawesome": "^1.2.0-2",
     "@types/react": "^16.0.31",
     "babel-jest": "^21.0.0",
     "babel-plugin-external-helpers": "^6.22.0",
