@@ -20,6 +20,7 @@ export interface Props {
   pulse?: boolean;
   border?: boolean;
   fixedWidth?: boolean;
+  inverse?: boolean;
   listItem?: boolean;
   flip?: FlipProp;
   size?: SizeProp;
