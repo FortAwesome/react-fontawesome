@@ -1,5 +1,7 @@
 # react-fontawesome
 
+[![npm](https://img.shields.io/npm/v/@fortawesome/react-fontawesome.svg?style=flat-square)](https://www.npmjs.com/package/@fortawesome/react-fontawesome)
+
 Font Awesome 5 React component
 
 ## Installation
@@ -74,8 +76,8 @@ Now, a simple React component might look like this:
 
 ```javascript
 import ReactDOM from 'react-dom';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/fontawesome-free-solid/faCoffee'
 
 const element = (
   <FontAwesomeIcon icon={faCoffee} />
@@ -85,7 +87,7 @@ ReactDOM.render(element, document.body)
 ```
 
 Notice that the `faCoffee` icon is imported from
-<span style="white-space:nowrap;">`@fortawesome/fontawesome-free-solid`</span> as an object and then
+<span style="white-space:nowrap;">`@fortawesome/fontawesome-free-solid/faCoffee`</span> as an object and then
 provided to the `icon` prop as an object.
 
 Explicitly importing icons like this allows us to subset Font Awesome's
@@ -128,19 +130,19 @@ In `App.js`, where our app is initialized:
 
 ```javascript
 import ReactDOM from 'react-dom';
-import fontawesome from '@fortawesome/fontawesome'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import brands from '@fortawesome/fontawesome-free-brands'
-import faCheckSquare from '@fortawesome/fontawesome-free-solid/faCheckSquare'
-import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
+import { library } from '@fortawesome/fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fab } from '@fortawesome/fontawesome-free-brands'
+import { faCheckSquare } from '@fortawesome/fontawesome-free-solid/faCheckSquare'
+import { faCoffee } from '@fortawesome/fontawesome-free-solid/faCoffee'
 
-fontawesome.library.add(brands, faCheckSquare, faCoffee)
+library.add(fab, faCheckSquare, faCoffee)
 ```
 
 OK, so what's happening here?
 
-In our call to <span style="white-space:nowrap;">`fontawesome.library.add()`</span> we're passing
-* `brands`: which represents _all_ of the brand icons in
+In our call to <span style="white-space:nowrap;">`library.add()`</span> we're passing
+* `fab`: which represents _all_ of the brand icons in
 <span style="white-space:nowrap;">`@fortawesome/fontawesome-free-brands`</span>.
 So any of the brand icons in that package may be referenced by icon name
 as a string anywhere else in our app.
@@ -156,16 +158,14 @@ component, and when you use it, supply the icon prop an icon name as a string.
 We'll make `Beverage.js` a functional component:
 ```javascript
 import React from 'react'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Beverage = () => (
+export const Beverage = () => (
     <div>
         <FontAwesomeIcon icon="check-square"/>
         Favorite beverage: <FontAwesomeIcon icon="coffee"/>
     </div>
 )
-
-export default Beverage
 ```
 
 There's one another piece of magic that's happening in the
@@ -177,9 +177,9 @@ Now suppose `Gadget.js` looks like this:
 
 ```javascript
 import React from 'react'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Gadget = () => (
+export const Gadget = () => (
   <div>
     <FontAwesomeIcon icon="check-square"/>
     Popular gadgets come from vendors like:
@@ -188,8 +188,6 @@ const Gadget = () => (
       <FontAwesomeIcon icon={["fab", "google"]}/>
   </div>
 )
-
-export default Gadget
 ```
 
 Notice:
@@ -199,8 +197,8 @@ that icon in `App.js`, and adding it to the library, we've managed to use
 it by name in multiple components.
 * We used the `"apple"`, `"microsoft"`, and `"google"` brand icons, which were
 never explicitly _individually_ imported, but they're available to us by
-name as strings because `brands` was added to our library in `App.js`, and
-`brands` includes all of those icons.
+name as strings because `fab` was added to our library in `App.js`, and
+`fab` includes all of those icons.
 * We added the `fab` prefix to reference those brand icons.
 
 Adding a prefix—and the syntax we used to do it—are new. So what's
@@ -359,3 +357,57 @@ Symbols:
 <FontAwesomeIcon icon="edit" symbol />
 <FontAwesomeIcon icon="edit" symbol="edit-icon" />
 ```
+
+### TypeScript
+
+Typings are included in this package. However, most types are defined in the
+underlying API library, <span style="whitespace:nowrap;">`@fortawesome/fontawesome`</span>.
+
+Suppose that in one module, you add all `fas` icons to the library:
+```
+import { library } from '@fortawesome/fontawesome'
+import { fas } from '@fortawesome/fontawesome-free-solid'
+
+library.add(fas)
+
+// ...
+```
+
+Then suppose that in another module, you have some code that looks up
+one of the icons in the library. The `import` statement below imports two types
+and one function:
+
+```
+import { IconLookup, IconDefinition, findIconDefinition } from '@fortawesome/fontawesome'
+
+const coffeeLookup: IconLookup = { prefix: 'fas', iconName: 'coffee' }
+const coffeeIconDefinition: IconDefinition = findIconDefinition(coffeeLookup)
+
+// ...
+
+export class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+          <h1>
+              <FontAwesomeIcon icon={coffeeIconDefinition} />
+          </h1>
+      </div>
+    );
+  }
+}
+```
+NOTE: You wouldn't normally declare intermediate objects like `coffeeLookup`
+just to look up an icon. So this is cumbersome and needlessly verbose for
+such a simple example. The purpose here is just to show how you might
+import type definitions and use them in declarations when it _does_ make
+sense to do so.
+
+Several types, including `IconLookup` and `IconDefinition`, appearing above,
+ actually originate from the
+<span style="whitespace:nowrap;">`@fortawesome/fontawesome-common-types`</span>
+package. They are re-exported from both <span style="whitespace:nowrap;">`@fortawesome/fontawesome`</span>
+and <span style="whitespace:nowrap;">`@fortawesome/fontawesome-free-solid`</span>
+(and other icon packs). This is just to make importing more convenient in
+some cases.
+Refer to the `index.d.ts` in any module to see which types it exports.

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import fontawesome from '@fortawesome/fontawesome'
-import brands from '@fortawesome/fontawesome-free-brands'
+import { library } from '@fortawesome/fontawesome'
+import { fab } from '@fortawesome/fontawesome-free-brands'
 import { faCoffee, faCog, faSpinner, faQuoteLeft, faSquare, faCheckSquare } from '@fortawesome/fontawesome-free-solid'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './App.css';
 
-fontawesome.library.add(brands, faCoffee, faCog, faSpinner, faQuoteLeft, faSquare, faCheckSquare)
+library.add(fab, faCoffee, faCog, faSpinner, faQuoteLeft, faSquare, faCheckSquare)
 
 class App extends Component {
   render() {
