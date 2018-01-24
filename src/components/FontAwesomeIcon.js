@@ -13,6 +13,7 @@ function classList (props) {
     'fa-spin': props.spin,
     'fa-pulse': props.pulse,
     'fa-fw': props.fixedWidth,
+    'fa-inverse': props.inverse,
     'fa-border': props.border,
     'fa-li': props.listItem,
     'fa-flip-horizontal': props.flip === 'horizontal' || props.flip === 'both',
@@ -86,6 +87,8 @@ FontAwesomeIcon.propTypes = {
 
   fixedWidth: PropTypes.bool,
 
+  inverse: PropTypes.bool,
+
   flip: PropTypes.oneOf(['horizontal', 'vertical', 'both']),
 
   icon: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
@@ -112,6 +115,7 @@ FontAwesomeIcon.defaultProps = {
   className: '',
   mask: null,
   fixedWidth: false,
+  inverse: false,
   flip: null,
   icon: null,
   listItem: false,
