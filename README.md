@@ -355,3 +355,13 @@ Symbols:
 <FontAwesomeIcon icon="edit" symbol />
 <FontAwesomeIcon icon="edit" symbol="edit-icon" />
 ```
+
+
+Layering:
+
+```javascript
+<span className="fa-layers fa-fw">
+  <FontAwesomeIcon icon="square" color="green"/>
+  <FontAwesomeIcon icon="check" inverse transform="shrink-6"/>
+</span>
+```
