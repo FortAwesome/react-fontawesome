@@ -15,10 +15,16 @@ export default {
   },
   input: 'src/index.js',
   name: 'react-fontawesome',
-  output: {
-    format: 'umd',
-    file: 'index.js'
-  },
+  output: [
+    {
+      format: 'umd',
+      file: 'index.js'
+    },
+    {
+      format: 'es',
+      file: 'index.es.js'
+    }
+  ],
   plugins: [
     resolve({
       jsnext: true,

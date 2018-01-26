@@ -3,6 +3,8 @@
   "description": "Official React component for Font Awesome 5",
   "version": "0.0.17",
   "main": "index.js",
+  "module": "index.es.js",
+  "jsnext:main": "index.es.js",
   "homepage": "https://github.com/FortAwesome/react-fontawesome",
   "repository": {
     "type": "git",
@@ -57,5 +59,9 @@
   },
   "dependencies": {
     "humps": "^2.0.1"
-  }
+  },
+  "files": [
+    "index.js",
+    "index.es.js"
+  ]
 }
