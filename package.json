@@ -17,6 +17,8 @@
     "build": "rollup -c rollup.config.js",
     "dist": "cross-env NODE_ENV=production npm run build",
     "lint": "eslint src",
+    "prettier": "pretty-quick src --staged",
+    "precommit": "yarn lint && yarn prettier",
     "test": "jest"
   },
   "peerDependencies": {
@@ -41,7 +43,10 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.5.1",
     "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3",
     "jest": "^21.0.1",
+    "prettier": "1.10.2",
+    "pretty-quick": "^1.2.2",
     "prop-types": "^15.5.10",
     "react": "16.0.0",
     "react-test-renderer": "16.0.0",
