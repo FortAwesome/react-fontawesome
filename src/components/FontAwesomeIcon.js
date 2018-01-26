@@ -60,7 +60,7 @@ function FontAwesomeIcon (props) {
     symbol
   })
 
-  if (!renderedIcon){
+  if (!renderedIcon) {
     log('Could not find icon', icon)
     return null
   }

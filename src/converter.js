@@ -1,12 +1,12 @@
 import humps from 'humps'
 
 function capitalize (val) {
-  return val.charAt(0).toUpperCase() + val.slice(1);
+  return val.charAt(0).toUpperCase() + val.slice(1)
 }
 
 function styleToObject (style) {
   return style.split(';')
-    .map(s => s.trim() )
+    .map(s => s.trim())
     .filter(s => s)
     .reduce((acc, pair) => {
       const i = pair.indexOf(':')
@@ -50,7 +50,7 @@ function convert (createElement, element, extraProps = {}) {
 
   return createElement(
     element.tag,
-    { ...mixins.attrs, ...remaining},
+    { ...mixins.attrs, ...remaining },
     ...children
   )
 }
