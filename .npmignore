@@ -1,1 +1,6 @@
 .babelrc
+.travis.yml
+rollup.config.js
+examples
+__mocks__
+__tests__
