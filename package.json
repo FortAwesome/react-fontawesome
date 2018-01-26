@@ -54,5 +54,9 @@
   },
   "dependencies": {
     "humps": "^2.0.1"
-  }
+  },
+  "files": [
+    "./index.js",
+    "./index.es.js"
+  ]
 }
