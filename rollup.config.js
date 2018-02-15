@@ -3,14 +3,10 @@ import commonJs from 'rollup-plugin-commonjs'
 import babel from 'rollup-plugin-babel'
 
 export default {
-  external: [
-    '@fortawesome/fontawesome',
-    'prop-types',
-    'react'
-  ],
+  external: ['@fortawesome/fontawesome', 'prop-types', 'react'],
   globals: {
     '@fortawesome/fontawesome': 'FontAwesome',
-    'react': 'React',
+    react: 'React',
     'prop-types': 'PropTypes'
   },
   input: 'src/index.js',
@@ -33,14 +29,8 @@ export default {
     commonJs(),
     babel({
       babelrc: false,
-      presets: [
-        ["es2015", { "modules": false }],
-        "stage-3",
-        "react"
-      ],
-      plugins: [
-        "external-helpers"
-      ],
+      presets: [['env', { modules: false }], 'stage-3', 'react'],
+      plugins: ['external-helpers'],
       exclude: 'node_modules/**'
     })
   ]
