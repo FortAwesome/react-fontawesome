@@ -21,6 +21,7 @@
     "lint": "eslint src",
     "prettier": "pretty-quick src --staged",
     "precommit": "yarn lint && yarn prettier",
+    "prepack": "yarn dist",
     "test": "jest"
   },
   "peerDependencies": {
@@ -60,8 +61,5 @@
   "dependencies": {
     "humps": "^2.0.1"
   },
-  "files": [
-    "index.js",
-    "index.es.js"
-  ]
+  "files": ["index.js", "index.es.js"]
 }
