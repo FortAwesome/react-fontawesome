@@ -19,7 +19,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "dist": "cross-env NODE_ENV=production npm run build",
+    "dist": "cross-env NODE_ENV=production yarn build",
     "lint": "eslint src",
     "prettier": "pretty-quick src --staged",
     "precommit": "yarn lint && yarn prettier",
