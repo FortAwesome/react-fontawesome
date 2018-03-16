@@ -27,12 +27,12 @@
     "clean": "rm -f index.js"
   },
   "peerDependencies": {
-    "@fortawesome/fontawesome": "^1.2.0-2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
     "prop-types": "^15.5.10",
     "react": "^16.0.0"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome": "^1.2.0-2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
     "@types/react": "^16.0.31",
     "babel-eslint": "^8.2.1",
     "babel-core": "^6.26.0",

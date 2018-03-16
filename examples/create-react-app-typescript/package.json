@@ -3,9 +3,9 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome": "^1.2.0",
-    "@fortawesome/fontawesome-free-solid": "^5.1.0",
-    "@fortawesome/react-fontawesome": "^0.1.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-4",
+    "@fortawesome/react-fontawesome": "^0.1.0-4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts-ts": "2.8.0"
