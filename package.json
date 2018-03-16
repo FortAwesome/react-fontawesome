@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome 5",
-  "version": "0.1.0-3",
+  "version": "0.1.0-4",
   "main": "index.js",
   "module": "index.es.js",
   "jsnext:main": "index.es.js",
@@ -22,7 +22,8 @@
     "dist": "cross-env NODE_ENV=production npm run build",
     "lint": "eslint src",
     "prettier": "pretty-quick src --staged",
-    "precommit": "yarn lint && yarn prettier",
+    "precommit": "npm run lint && npm run prettier",
+    "prepack": "npm run dist",
     "test": "jest",
     "clean": "rm -f index.js"
   },

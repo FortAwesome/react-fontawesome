@@ -80,11 +80,11 @@
 
 "@fortawesome/fontawesome-common-types@^0.2.0-2":
   version "0.2.0-2"
-  resolved "https://npm.fontawesome.com/A9BE694E-CAA4-48EE-8C1A-07C2895389EA/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.0-2.tgz#40a38dd8a206885cf3a4c3459589374538d0d21e"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.0-2.tgz#40a38dd8a206885cf3a4c3459589374538d0d21e"
 
 "@fortawesome/fontawesome-svg-core@^1.2.0-7":
   version "1.2.0-7"
-  resolved "https://npm.fontawesome.com/A9BE694E-CAA4-48EE-8C1A-07C2895389EA/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.0-7.tgz#1bbe0d087c101ab76d7680f3c8928411c348ab5b"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.0-7.tgz#1bbe0d087c101ab76d7680f3c8928411c348ab5b"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.0-2"
 
