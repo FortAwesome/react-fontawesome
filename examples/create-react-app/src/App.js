@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { library } from '@fortawesome/fontawesome'
-import { fab } from '@fortawesome/fontawesome-free-brands'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import {
   faCoffee,
   faCog,
@@ -8,9 +8,8 @@ import {
   faQuoteLeft,
   faSquare,
   faCheckSquare
-} from '@fortawesome/fontawesome-free-solid'
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import './App.css'
 
 library.add(
   fab,
@@ -25,68 +24,67 @@ library.add(
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>
-          <FontAwesomeIcon icon={['fab', 'font-awesome']} />
-          <FontAwesomeIcon icon={faCoffee} />
-          <FontAwesomeIcon icon={['fas', 'cog']} spin fixedWidth={false} />
-          <FontAwesomeIcon icon={['fab', 'fort-awesome']} size="4x" />
-          <FontAwesomeIcon icon={['fas', 'spinner']} pulse fixedWidth />
-          <FontAwesomeIcon icon={['fab', 'fort-awesome']} rotation={90} />
-          <FontAwesomeIcon icon={['fab', 'internet-explorer']} flip="both" />
-          <FontAwesomeIcon icon={['fab', 'fort-awesome']} inverse />
-        </h1>
-        <div>
-          <p>
-            <FontAwesomeIcon
-              icon={['fas', 'quote-left']}
-              size="2x"
-              border
-              pull="left"
-            />...tomorrow we will run faster, stretch out our arms farther...And
-            then one fine morning&mdash; So we beat on, boats against the
-            current, borne back ceaselessly into the past.
-          </p>
-        </div>
-        <div>
-          <ul className="fa-ul">
-            <li>
-              <FontAwesomeIcon icon={['fas', 'check-square']} listItem />List
-              icons
-            </li>
-            <li>
-              <FontAwesomeIcon icon={['fas', 'check-square']} listItem />can be
-              used
-            </li>
-            <li>
-              <FontAwesomeIcon icon={['fas', 'square']} listItem />as bullets
-            </li>
-            <li>
-              <FontAwesomeIcon icon={['fas', 'square']} listItem />in lists
-            </li>
-          </ul>
-        </div>
-        <div>
-          <span>
-            <FontAwesomeIcon
-              icon={['fab', 'font-awesome']}
-              transform="grow-40 left-4 rotate-15"
-            />
-          </span>
-          <span style={{ paddingLeft: '50px' }}>
-            <FontAwesomeIcon
-              icon={['fab', 'font-awesome']}
-              transform={{
-                flipX: false,
-                flipY: false,
-                rotate: 15,
-                size: 56,
-                x: -4,
-                y: 0
-              }}
-            />
-          </span>
-        </div>
+      <div id="app">
+        <main className="w-100 min-vh-100 bg-gray8 white sans-serif pa6 flex flex-column justify-center items-center">
+          <div className="mw8 center overflow-hidden">
+            <h2 className="tc ttu tracked3 b f2 mt0 mb2 teal0 o-30">
+              react-fontawesome
+            </h2>
+
+            <ul className="list ma0 pa0 flex flex-row flex-wrap teal4">
+              <li className="pv3 ph2 ma0 link grow">
+                <FontAwesomeIcon icon={['fab', 'font-awesome']} size="4x" />
+              </li>
+              <li className="pv3 ph2 ma0 link grow">
+                <FontAwesomeIcon icon={faCoffee} size="4x" />
+              </li>
+              <li className="pv3 ph2 ma0 link grow">
+                <FontAwesomeIcon
+                  icon={['fas', 'cog']}
+                  spin
+                  fixedWidth={false}
+                  size="4x"
+                />
+              </li>
+              <li className="pv3 ph2 ma0 link grow">
+                <FontAwesomeIcon
+                  icon={['fas', 'spinner']}
+                  pulse
+                  fixedWidth
+                  size="4x"
+                />
+              </li>
+              <li className="pv3 ph2 ma0 link grow">
+                <FontAwesomeIcon
+                  icon={['fab', 'fort-awesome']}
+                  rotation={90}
+                  size="4x"
+                />
+              </li>
+              <li className="pv3 ph2 ma0 link grow">
+                <FontAwesomeIcon
+                  icon={['fab', 'internet-explorer']}
+                  flip="both"
+                  size="4x"
+                />
+              </li>
+              <li className="pv3 ph2 ma0 link grow">
+                <FontAwesomeIcon
+                  icon={['fab', 'fort-awesome']}
+                  inverse
+                  size="4x"
+                />
+              </li>
+              <li className="pv3 ph2 ma0 link grow">
+                <FontAwesomeIcon
+                  icon={['fab', 'font-awesome']}
+                  size="4x"
+                  transform="left-1 rotate-15"
+                />
+              </li>
+            </ul>
+          </div>
+        </main>
       </div>
     )
   }
