@@ -13,6 +13,7 @@
     "jsdoc-format": true,
     "jsx-no-lambda": false,
     "jsx-no-multiline-js": false,
+    "jsx-boolean-value": false,
     "label-position": true,
     "max-line-length": [true, 120],
     "member-ordering": [
@@ -55,7 +56,7 @@
     ],
     "quotemark": [true, "single", "jsx-double"],
     "radix": true,
-    "semicolon": [true, "always"],
+    "semicolon": [false],
     "switch-default": true,
 
     "trailing-comma": [false],
