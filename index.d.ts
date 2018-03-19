@@ -25,7 +25,7 @@ export interface Props {
   flip?: FlipProp
   size?: SizeProp
   pull?: PullProp
-  rotate?: RotateProp
+  rotation?: RotateProp
   transform?: string | Transform
   symbol?: FaSymbol
   style?: CSSProperties
