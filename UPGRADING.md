@@ -26,6 +26,8 @@ _All packages are in the [@fortawesome NPM scope](https://www.npmjs.com/search?q
 
 (1) Old packages have now been deprecated. They are still available but will only receive high priority patch release fixes.
 
+**You'll need to update your package.json file with the renamed packages and new versions.**
+
 ### No more default imports
 
 Recently we spent a good deal of time supporting TypeScript to enable us to
