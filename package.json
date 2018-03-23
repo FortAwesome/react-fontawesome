@@ -26,8 +26,8 @@
   },
   "peerDependencies": {
     "@fortawesome/fontawesome": ">=1.1.0",
-    "prop-types": "^15.5.10",
-    "react": "^16.0.0"
+    "prop-types": "15.x",
+    "react": "16.x"
   },
   "devDependencies": {
     "@fortawesome/fontawesome": ">=1.0.0",
