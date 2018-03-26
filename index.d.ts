@@ -29,4 +29,5 @@ export interface Props {
   transform?: string | Transform;
   symbol?: FaSymbol;
   style?: CSSProperties;
+  color?: string;
 }
