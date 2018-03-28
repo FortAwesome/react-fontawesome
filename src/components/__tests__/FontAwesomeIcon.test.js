@@ -1,4 +1,4 @@
-import * as fontawesome from '@fortawesome/fontawesome'
+import * as fontawesome from '@fortawesome/fontawesome-svg-core'
 import FontAwesomeIcon from '../FontAwesomeIcon'
 import React from 'react'
 import renderer from 'react-test-renderer'
@@ -32,16 +32,17 @@ const faCircle = {
 
 fontawesome.library.add(faCoffee, faCircle)
 
-function mount (props = {}) {
-  const component = renderer.create(
-    <FontAwesomeIcon {...props} />
-  )
+function mount(props = {}) {
+  const component = renderer.create(<FontAwesomeIcon {...props} />)
 
   return component.toJSON()
 }
 
 test('using pack and name', () => {
-  const vm = mount({ icon: ['fas', 'coffee'], style: { backgroundColor: 'white' } })
+  const vm = mount({
+    icon: ['fas', 'coffee'],
+    style: { backgroundColor: 'white' }
+  })
 
   expect(vm.type).toBe('svg')
   expect(vm.props.className.includes('fa-coffee')).toBeTruthy()
@@ -61,7 +62,9 @@ test('using pack common names not added to library', () => {
   const vm = mount({ icon: 'spinner' })
   expect(vm).toBeNull()
   expect(log.mock.calls.length).toBe(1)
-  expect(log.mock.calls[0][0]).toEqual(expect.stringContaining('Could not find icon'))
+  expect(log.mock.calls[0][0]).toEqual(
+    expect.stringContaining('Could not find icon')
+  )
 })
 
 test('using icon', () => {
@@ -157,17 +160,40 @@ describe('using rotation', () => {
 })
 
 test('using size', () => {
-  ['lg', 'xs', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x'].forEach(size => {
+  ;[
+    'lg',
+    'xs',
+    'sm',
+    '1x',
+    '2x',
+    '3x',
+    '4x',
+    '5x',
+    '6x',
+    '7x',
+    '8x',
+    '9x',
+    '10x'
+  ].forEach(size => {
     const vm = mount({ icon: faCoffee, size: size })
 
     expect(vm.props.className.includes(`fa-${size}`)).toBeTruthy()
   })
 })
 
-test('using spin', () => {
-  const vm = mount({ icon: faCoffee, spin: true })
+describe('using spin', () => {
+  test('setting spin prop to true adds fa-spin class', () => {
+    const vm = mount({ icon: faCoffee, spin: true })
 
-  expect(vm.props.className.includes('fa-spin')).toBeTruthy()
+    expect(vm.props.className.includes('fa-spin')).toBeTruthy()
+  })
+
+  test('setting spin prop to false after setting it to true results in no fa-spin class', () => {
+    let vm = mount({ icon: faCoffee, spin: true })
+    expect(vm.props.className.includes('fa-spin')).toBeTruthy()
+    vm = mount({ icon: faCoffee, spin: false })
+    expect(vm.props.className.includes('fa-spin')).toBeFalsy()
+  })
 })
 
 test('using className', () => {
@@ -178,13 +204,30 @@ test('using className', () => {
 
 describe('using transform', () => {
   test('string', () => {
-    const vm = mount({ icon: faCoffee, transform: 'grow-40 left-4 rotate-15', style: { backgroundColor: 'white' } })
+    const vm = mount({
+      icon: faCoffee,
+      transform: 'grow-40 left-4 rotate-15',
+      style: { backgroundColor: 'white' }
+    })
 
-    expect(vm.props.style).toEqual({ backgroundColor: 'white', transformOrigin: '0.375em 0.5em' })
+    expect(vm.props.style).toEqual({
+      backgroundColor: 'white',
+      transformOrigin: '0.375em 0.5em'
+    })
   })
 
   test('object', () => {
-    const vm = mount({ icon: faCoffee, transform: { flipX: false, flipY: false, rotate: 15, size: 56, x: -4, y: 0 } })
+    const vm = mount({
+      icon: faCoffee,
+      transform: {
+        flipX: false,
+        flipY: false,
+        rotate: 15,
+        size: 56,
+        x: -4,
+        y: 0
+      }
+    })
 
     expect(vm.props.style).toEqual({ transformOrigin: '0.375em 0.5em' })
   })
@@ -209,14 +252,12 @@ describe('symbol', () => {
   test('will not create a symbol', () => {
     mount({ icon: faCoffee })
 
-    expect(spy.mock.calls[0][1].symbol)
-      .toBe(false)
+    expect(spy.mock.calls[0][1].symbol).toBe(false)
   })
 
   test('will create a symbol', () => {
     mount({ icon: faCoffee, symbol: 'coffee-icon' })
 
-    expect(spy.mock.calls[0][1].symbol)
-      .toBe('coffee-icon')
+    expect(spy.mock.calls[0][1].symbol).toBe('coffee-icon')
   })
 })
