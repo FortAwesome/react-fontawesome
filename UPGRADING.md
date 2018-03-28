@@ -61,6 +61,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import library.add(fas, faTwitter)
 ```
 
+This is also a valid way to import icons that works if your tool does not support tree shaking:
+
+```javascript
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
+```
+
 ### Improved support for tree shaking
 
 Tree shaking is now functional by default and no additional configuration is required to make it work.

@@ -267,6 +267,26 @@ The `icon` prop expects a single object:
 * Or it could be an `Array` of strings, where the first element is a prefix,
   and the second element is the icon name: `{["fab", "apple"]}`
 
+### Processing `<i>` tags into `<svg>` using Font Awesome
+
+A basic installation of [Font Awesome](https://fontawesome.com/get-started) has
+the ability to automatically transform `<i class="fas fa-coffee"></i>` into
+`<svg class="...">...</svg>` icons. This technology works with the browser's
+DOM, [`requestAnimationFrame`][raf], and [`MutationObserver`][mo].
+
+When using the `@fortawesome/fontawesome-svg-core` package this **behavior is
+disabled by default**. This project uses that package so you will have to
+explicitly enable it like this:
+
+```javascript
+import { dom } from '@fortawesome/fontawesome-svg-core'
+
+dom.watch() // This will kick of the initial replacement of i to svg tags and configure a MutationObserver
+```
+
+[raf]: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+[mo]: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
+
 ## Features
 
 The following features are available as [part of Font Awesome](https://fontawesome.com/how-to-use/svg-with-js).
@@ -386,7 +406,7 @@ underlying API library, `@fortawesome/fontawesome-svg-core`.
 
 Suppose that in one module, you add all `fas` icons to the library:
 
-```
+```typescript
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 
@@ -399,8 +419,12 @@ Then suppose that in another module, you have some code that looks up
 one of the icons in the library. The `import` statement below imports two types
 and one function:
 
-```
-import { IconLookup, IconDefinition, findIconDefinition } from '@fortawesome/fontawesome-svg-core'
+```typescript
+import {
+  IconLookup,
+  IconDefinition,
+  findIconDefinition
+} from '@fortawesome/fontawesome-svg-core'
 
 const coffeeLookup: IconLookup = { prefix: 'fas', iconName: 'coffee' }
 const coffeeIconDefinition: IconDefinition = findIconDefinition(coffeeLookup)
@@ -415,7 +439,7 @@ export class App extends React.Component {
           <FontAwesomeIcon icon={coffeeIconDefinition} />
         </h1>
       </div>
-    );
+    )
   }
 }
 ```
