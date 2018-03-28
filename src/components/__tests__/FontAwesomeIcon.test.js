@@ -181,10 +181,19 @@ test('using size', () => {
   })
 })
 
-test('using spin', () => {
-  const vm = mount({ icon: faCoffee, spin: true })
+describe('using spin', () => {
+  test('setting spin prop to true adds fa-spin class', () => {
+    const vm = mount({ icon: faCoffee, spin: true })
 
-  expect(vm.props.className.includes('fa-spin')).toBeTruthy()
+    expect(vm.props.className.includes('fa-spin')).toBeTruthy()
+  })
+
+  test('setting spin prop to false after setting it to true results in no fa-spin class', () => {
+    let vm = mount({ icon: faCoffee, spin: true })
+    expect(vm.props.className.includes('fa-spin')).toBeTruthy()
+    vm = mount({ icon: faCoffee, spin: false })
+    expect(vm.props.className.includes('fa-spin')).toBeFalsy()
+  })
 })
 
 test('using className', () => {
