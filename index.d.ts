@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react'
 import {
   Transform,
   IconProp,
@@ -8,25 +8,25 @@ import {
   PullProp,
   RotateProp,
   FaSymbol
-} from "@fortawesome/fontawesome";
+} from '@fortawesome/fontawesome-svg-core'
 
-export function FontAwesomeIcon(props: Props): JSX.Element;
+export function FontAwesomeIcon(props: Props): JSX.Element
 
 export interface Props {
-  icon: IconProp;
-  mask?: IconProp;
-  className?: string;
-  spin?: boolean;
-  pulse?: boolean;
-  border?: boolean;
-  fixedWidth?: boolean;
-  inverse?: boolean;
-  listItem?: boolean;
-  flip?: FlipProp;
-  size?: SizeProp;
-  pull?: PullProp;
-  rotate?: RotateProp;
-  transform?: string | Transform;
-  symbol?: FaSymbol;
-  style?: CSSProperties;
+  icon: IconProp
+  mask?: IconProp
+  className?: string
+  spin?: boolean
+  pulse?: boolean
+  border?: boolean
+  fixedWidth?: boolean
+  inverse?: boolean
+  listItem?: boolean
+  flip?: FlipProp
+  size?: SizeProp
+  pull?: PullProp
+  rotation?: RotateProp
+  transform?: string | Transform
+  symbol?: FaSymbol
+  style?: CSSProperties
 }

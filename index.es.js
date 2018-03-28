@@ -1,28 +1,14 @@
-import { icon, noAuto, parse } from '@fortawesome/fontawesome';
+import { icon, parse } from '@fortawesome/fontawesome-svg-core';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
-
-
-
-
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
 var humps = createCommonjsModule(function (module) {
-// =========
-// = humps =
-// =========
-// Underscore-to-camelCase converter (and vice versa)
-// for strings and object keys
-
-// humps is copyright © 2012+ Dom Christie
-// Released under the MIT license.
-
-
 (function(global) {
 
   var _processKeys = function(convert, obj, options) {
@@ -162,135 +148,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
 };
 
-
-
-
-
-var asyncGenerator = function () {
-  function AwaitValue(value) {
-    this.value = value;
-  }
-
-  function AsyncGenerator(gen) {
-    var front, back;
-
-    function send(key, arg) {
-      return new Promise(function (resolve, reject) {
-        var request = {
-          key: key,
-          arg: arg,
-          resolve: resolve,
-          reject: reject,
-          next: null
-        };
-
-        if (back) {
-          back = back.next = request;
-        } else {
-          front = back = request;
-          resume(key, arg);
-        }
-      });
-    }
-
-    function resume(key, arg) {
-      try {
-        var result = gen[key](arg);
-        var value = result.value;
-
-        if (value instanceof AwaitValue) {
-          Promise.resolve(value.value).then(function (arg) {
-            resume("next", arg);
-          }, function (arg) {
-            resume("throw", arg);
-          });
-        } else {
-          settle(result.done ? "return" : "normal", result.value);
-        }
-      } catch (err) {
-        settle("throw", err);
-      }
-    }
-
-    function settle(type, value) {
-      switch (type) {
-        case "return":
-          front.resolve({
-            value: value,
-            done: true
-          });
-          break;
-
-        case "throw":
-          front.reject(value);
-          break;
-
-        default:
-          front.resolve({
-            value: value,
-            done: false
-          });
-          break;
-      }
-
-      front = front.next;
-
-      if (front) {
-        resume(front.key, front.arg);
-      } else {
-        back = null;
-      }
-    }
-
-    this._invoke = send;
-
-    if (typeof gen.return !== "function") {
-      this.return = undefined;
-    }
-  }
-
-  if (typeof Symbol === "function" && Symbol.asyncIterator) {
-    AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
-      return this;
-    };
-  }
-
-  AsyncGenerator.prototype.next = function (arg) {
-    return this._invoke("next", arg);
-  };
-
-  AsyncGenerator.prototype.throw = function (arg) {
-    return this._invoke("throw", arg);
-  };
-
-  AsyncGenerator.prototype.return = function (arg) {
-    return this._invoke("return", arg);
-  };
-
-  return {
-    wrap: function (fn) {
-      return function () {
-        return new AsyncGenerator(fn.apply(this, arguments));
-      };
-    },
-    await: function (value) {
-      return new AwaitValue(value);
-    }
-  };
-}();
-
-
-
-
-
-
-
-
-
-
-
-
-
 var defineProperty = function (obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
@@ -320,18 +177,6 @@ var _extends = Object.assign || function (target) {
   return target;
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
 var objectWithoutProperties = function (obj, keys) {
   var target = {};
 
@@ -343,26 +188,6 @@ var objectWithoutProperties = function (obj, keys) {
 
   return target;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var toConsumableArray = function (arr) {
   if (Array.isArray(arr)) {
@@ -437,13 +262,13 @@ try {
   PRODUCTION = process.env.NODE_ENV === 'production';
 } catch (e) {}
 
-var log = function () {
+function log () {
   if (!PRODUCTION && console && typeof console.error === 'function') {
     var _console;
 
     (_console = console).error.apply(_console, arguments);
   }
-};
+}
 
 function objectWithKey(key, value) {
   return Array.isArray(value) && value.length > 0 || !Array.isArray(value) && value ? defineProperty({}, key, value) : {};
@@ -456,6 +281,7 @@ function classList(props) {
     'fa-spin': props.spin,
     'fa-pulse': props.pulse,
     'fa-fw': props.fixedWidth,
+    'fa-inverse': props.inverse,
     'fa-border': props.border,
     'fa-li': props.listItem,
     'fa-flip-horizontal': props.flip === 'horizontal' || props.flip === 'both',
@@ -510,11 +336,12 @@ function FontAwesomeIcon(props) {
 
   var abstract = renderedIcon.abstract;
 
-  var convertCurry = convert.bind(null, React.createElement);
   var extraProps = {};
 
   Object.keys(props).forEach(function (key) {
-    if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) extraProps[key] = props[key];
+    if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
+      extraProps[key] = props[key];
+    }
   });
 
   return convertCurry(abstract[0], extraProps);
@@ -530,6 +357,8 @@ FontAwesomeIcon.propTypes = {
   mask: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
 
   fixedWidth: PropTypes.bool,
+
+  inverse: PropTypes.bool,
 
   flip: PropTypes.oneOf(['horizontal', 'vertical', 'both']),
 
@@ -557,6 +386,7 @@ FontAwesomeIcon.defaultProps = {
   className: '',
   mask: null,
   fixedWidth: false,
+  inverse: false,
   flip: null,
   icon: null,
   listItem: false,
@@ -569,6 +399,6 @@ FontAwesomeIcon.defaultProps = {
   transform: null
 };
 
-noAuto();
+var convertCurry = convert.bind(null, React.createElement);
 
 export { FontAwesomeIcon };

@@ -2,7 +2,36 @@
 
 [![npm](https://img.shields.io/npm/v/@fortawesome/react-fontawesome.svg?style=flat-square)](https://www.npmjs.com/package/@fortawesome/react-fontawesome)
 
-Font Awesome 5 React component
+> Font Awesome 5 React component using SVG with JS
+
+Hey there! We're glad you're here...
+
+#### Upgrading Font Awesome?
+
+If you've used Font Awesome in the past (version 4 or older) there are some
+things that you should learn before you dive in.
+
+> https://fontawesome.com/how-to-use/upgrading-from-4
+
+#### Get started
+
+This package is for integrating with React. If you aren't using React then it's
+not going to help you. Head over to our "Get Started" page for some guidance.
+
+> https://fontawesome.com/get-started
+
+#### Learn about our new SVG implementation
+
+This package, under the hood, uses SVG with JS and the `@fortawesome/fontawesome-svg-core` library. This implementation differs drastically from
+the web fonts implementation that was used in version 4 and older of Font Awesome. You might head over there to learn about how it works.
+
+> https://fontawesome.com/how-to-use/svg-with-js
+
+#### Going from 0.0.x to 0.1.0
+
+See [UPGRADING.md](./UPGRADING.md).
+
+You might also be interested in the larger umbrella project [UPGRADING.md](https://github.com/FortAwesome/Font-Awesome/blob/master/UPGRADING.md)
 
 <!-- toc -->
 
@@ -27,15 +56,39 @@ The pre-release is at a **release candidate** level and we could use your help t
 ## Installation
 
 ```
-$ npm i --save @fortawesome/fontawesome
+$ npm i --save @fortawesome/fontawesome-svg-core
+$ npm i --save @fortawesome/free-solid-svg-icons
 $ npm i --save @fortawesome/react-fontawesome
 ```
 
-or
+## Add more styles or Pro icons
+
+Brands are separated into their own style and for customers upgrading from
+version 4 to 5 we have a limited number of Regular icons available.
+
+**Visit [fontawesome.com/icons](https://fontawesome.com/icons) to search for free and Pro icons**
 
 ```
-$ yarn add @fortawesome/fontawesome
-$ yarn add @fortawesome/react-fontawesome
+$ npm i --save @fortawesome/free-brands-svg-icons
+$ npm i --save @fortawesome/free-regular-svg-icons
+```
+
+If you are a [Font Awesome Pro](https://fontawesome.com/pro) subscriber you can install Pro packages.
+
+```
+$ npm i --save @fortawesome/pro-solid-svg-icons
+$ npm i --save @fortawesome/pro-regular-svg-icons
+$ npm i --save @fortawesome/pro-light-svg-icons
+```
+
+Using the Pro packages requires [additional configuration](https://fontawesome.com/how-to-use/js-component-packages).
+
+## or with Yarn
+
+```
+$ yarn add @fortawesome/fontawesome-svg-core
+$ yarn add @fortawesome/free-solid-svg-icons
+$ yarn add @fortawesome/vue-fontawesome
 ```
 
 ## Usage
@@ -46,59 +99,47 @@ You can use Font Awesome icons in your React components as simply as this:
 <FontAwesomeIcon icon="coffee" />
 ```
 
-That simple usage is made possible when you add the `"coffee"` icon,
-to the _library_, or when _externally_ loading
-icon bundles that include the icon.
+That simple usage is made possible when you add the `"coffee"` icon, to the
+_library_.
 
-These are two of the three ways you can use
-Font Awesome 5 with React.
-We'll summarize all three ways briefly and then get into the
-details of each below.
+This is one of the two ways you can use Font Awesome 5 with React. We'll
+summarize all three ways briefly and then get into the details of each below.
 
 1. **Explicit Import**
 
-   Allows icons to be subsetted, optimizing your final bundle. Only the
-   icons you import are included in the bundle.
-   However, explicitly importing icons into each of many components
-   in your app might become tedious, so you may want to build a library.
+   Allows icons to be subsetted, optimizing your final bundle. Only the icons
+   you import are included in the bundle. However, explicitly importing icons
+   into each of many components in your app might become tedious, so you may
+   want to build a library.
 
-2. **Build a Library**
+2.  **Build a Library**
 
-   Explicitly import icons just once in some init module. Then add them
-   to the library. Then reference any of them by icon name as a string
-   from any component. No need to import the icons into each component
-   once they're in the library.
-
-3. **External Loading**
-
-   If you're in a situation where the icons have
-   been loaded externally, outside of your React component with a
-   `<script>` tag, then your React component can reference those icons
-   instead of doing its own import. You reference them from your React
-   component just as if you'd added them to the library: using the
-   icons names as strings.
+   Explicitly import icons just once in some init module. Then add them to the
+   library. Then reference any of them by icon name as a string from any
+   component. No need to import the icons into each component once they're in
+   the library.
 
 ### Explicit Import
 
-For this example, we'll also reference the <span style="white-space:nowrap;">`@fortawesome/fontawesome-free-solid`</span>
+For this example, we'll also reference the `@fortawesome/free-solid-svg-icons`
 module, so make sure you've added it to the project as well:
 
 ```
-$ npm i --save @fortawesome/fontawesome-free-solid
+$ npm i --save @fortawesome/free-solid-svg-icons
 ```
 
 or
 
 ```
-$ yarn add @fortawesome/fontawesome-free-solid
+$ yarn add @fortawesome/free-solid-svg-icons
 ```
 
 Now, a simple React component might look like this:
 
 ```javascript
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/fontawesome-free-solid/faCoffee'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 const element = <FontAwesomeIcon icon={faCoffee} />
 
@@ -106,8 +147,8 @@ ReactDOM.render(element, document.body)
 ```
 
 Notice that the `faCoffee` icon is imported from
-<span style="white-space:nowrap;">`@fortawesome/fontawesome-free-solid/faCoffee`</span> as an object and then
-provided to the `icon` prop as an object.
+`@fortawesome/free-solid-svg-icons` as an object and then provided to the
+`icon` prop as an object.
 
 Explicitly importing icons like this allows us to subset Font Awesome's
 thousands of icons to include only those you use in your final bundled file.
@@ -117,44 +158,39 @@ thousands of icons to include only those you use in your final bundled file.
 You probably want to use our icons in more than one component in your app,
 right?
 
-But with explicit importing, it could
-become tedious to import into each of your app's components every icon
-you want to reference in that component.
+But with explicit importing, it could become tedious to import into each of
+your app's components every icon you want to reference in that component.
 
-So, add them to the _library_. Do this setup once in some initializing
-module of your app, adding all of the icons you'll use in your app's
-React components.
+So, add them to the _library_. Do this setup once in some initializing module
+of your app, adding all of the icons you'll use in your app's React components.
 
-Suppose `App.js` initializes my app,
-including the library. For this example, we'll add two individual icons,
-`faCheckSquare` and `faCoffee`. We also add all of the brands in
-<span style="white-space:nowrap;">`@fortawesome/fontawesome-free-brands`</span>.
-This example would illustrate the benefits of building a library
-even more clearly if it involved fifty or a hundred icons, but we'll
-keep the example brief and leave it to your imagination as to how this
-might scale up with lots of icons.
+Suppose `App.js` initializes my app, including the library. For this example,
+we'll add two individual icons, `faCheckSquare` and `faCoffee`. We also add all
+of the brands in `@fortawesome/free-brands-svg-icons`. This example would
+illustrate the benefits of building a library even more clearly if it involved
+fifty or a hundred icons, but we'll keep the example brief and leave it to your
+imagination as to how this might scale up with lots of icons.
 
-Don't forget to add `@fortawesome/fontawesome-free-brands`:
+Don't forget to add `@fortawesome/free-brands-svg-icons`:
 
 ```
-$ npm i --save @fortawesome/fontawesome-free-brands
+$ npm i --save @fortawesome/free-brands-svg-icons
 ```
 
 or
 
 ```
-$ yarn add @fortawesome/fontawesome-free-brands
+$ yarn add @fortawesome/free-brands-svg-icons
 ```
 
 In `App.js`, where our app is initialized:
 
 ```javascript
-import ReactDOM from 'react-dom';
-import { library } from '@fortawesome/fontawesome'
+import ReactDOM from 'react-dom'
+import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { fab } from '@fortawesome/fontawesome-free-brands'
-import { faCheckSquare } from '@fortawesome/fontawesome-free-solid/faCheckSquare'
-import { faCoffee } from '@fortawesome/fontawesome-free-solid/faCoffee'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 library.add(fab, faCheckSquare, faCoffee)
 ```
@@ -164,7 +200,7 @@ OK, so what's happening here?
 In our call to <span style="white-space:nowrap;">`library.add()`</span> we're passing
 
 * `fab`: which represents _all_ of the brand icons in
-  <span style="white-space:nowrap;">`@fortawesome/fontawesome-free-brands`</span>.
+  <span style="white-space:nowrap;">`@fortawesome/free-brands-svg-icons`</span>.
   So any of the brand icons in that package may be referenced by icon name
   as a string anywhere else in our app.
   For example: `"apple"`, `"microsoft"`, or `"google"`.
@@ -182,7 +218,7 @@ We'll make `Beverage.js` a functional component:
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Beverage = () => (
+export const Beverage = () => (
   <div>
     <FontAwesomeIcon icon="check-square" />
     Favorite beverage: <FontAwesomeIcon icon="coffee" />
@@ -190,10 +226,10 @@ const Beverage = () => (
 )
 ```
 
-There's one another piece of magic that's happening in the
-background when providing icon names as strings like this: the `fas` prefix
-(for Font Awesome Solid) is being inferred as the default. Later, we'll look at what
-that means and how we can do something different than the default.
+There's one another piece of magic that's happening in the background when
+providing icon names as strings like this: the `fas` prefix (for Font Awesome
+Solid) is being inferred as the default. Later, we'll look at what that means
+and how we can do something different than the default.
 
 Now suppose `Gadget.js` looks like this:
 
@@ -227,19 +263,17 @@ Notice:
 Adding a prefix—and the syntax we used to do it—are new. So what's
 going on here?
 
-First, recall when we introduced
-<span style="whitespace:nowrap;">`<FontAwesomeIcon icon="coffee"/>`</span>
-and learned that a prefix of `fas` was being added to `"coffee"` by default.
+First, recall when we introduced `<FontAwesomeIcon icon="coffee"/>` and learned
+that a prefix of `fas` was being added to `"coffee"` by default.
 
-The `"check-square"` icon is getting a default prefix of `fas` here too,
-which is what we want, because that icon also lives in the
-<span style="whitespace:nowrap;">`@fortawesome/fontawesome-free-solid`</span>
-package.
+The `"check-square"` icon is getting a default prefix of `fas` here too, which
+is what we want, because that icon also lives in the
+`@fortawesome/free-solid-svg-icons` package.
 
 However, the `"apple"`, `"microsoft"`, and `"google"` brand icons live in the
-package <span style="whitespace:nowrap;">`@fortawesome/fontawesome-free-brands`</span>.
-So we need to specify a different prefix for them—not the default `fas`,
-but `fab`, for Font Awesome _Brand_.
+package `@fortawesome/free-brands-svg-icons`. So we need to specify a
+different prefix for them—not the default `fas`, but `fab`, for Font Awesome
+_Brand_.
 
 When specifying a prefix with an icon name, both are given as strings.
 
@@ -249,41 +283,44 @@ The `icon` prop expects a single object:
 
 * It could be an icon object, like `{faCoffee}`.
 * It could a string object, like `"coffee"`.
+  (The curly braces around a string object supplied to a prop are optional,
+  so we've omitted them.)
+* Or it could be an `Array` of strings, where the first element is a prefix,
+  and the second element is the icon name: `{["fab", "apple"]}`
 
-  (The curly braces around a string object supplied to a prop are
-  optional, so we've omitted them.)
+### Processing `<i>` tags into `<svg>` using Font Awesome
 
-* Or it could be an `Array` of strings, where the first element is a
-  prefix, and the second element is the icon name: `{["fab", "apple"]}`
+Our hope and intention is that React users will use this package (`react-fontawesome`)
+when using Font Awesome. This component leverages React's architecture and philosophy.
 
-### External Loading
+However, **if you cannot use these components everywhere in your app and still
+have `<i>` tags on your page that need to be converted to `<svg>` tags we can
+still help you**.
 
-There are some scenarios where you may want your React components to
-reference icons that have already been loaded globally with a `<script>`
-tag.
+A basic installation of [Font Awesome](https://fontawesome.com/get-started) has
+the ability to automatically transform `<i class="fas fa-coffee"></i>` into
+`<svg class="...">...</svg>` icons. This technology works with the browser's
+DOM, [`requestAnimationFrame`][raf], and [`MutationObserver`][mo].
 
-For example: a web site that is not a Single Page App. Maybe
-it involves a theme or template that makes use of Font Awesome icons by
-sourcing them in via `<script>` tag. Now you come along to add one or
-more React components to that web site. Instead of explicitly importing
-icons again into your components, you could reference the icons that
-have already been externally loaded.
+When using the `@fortawesome/fontawesome-svg-core` package this **behavior is
+disabled by default**. (We would _highly_ recommend you use `FontAwesomeIcon`
+if you can) This project uses that core package so you will have to explicitly
+enable it like this:
 
-Suppose your React component is mounted in a DOM that has the following
-in its `<head>`:
-
-```
- <script src="https://example.com/fontawesome-free-solid.js"></script>
-```
-
-Now you can reference any of the icons from within your React components
-as if you'd added them to the library:
+To configure the core library to convert non-React'ified parts of your App:
 
 ```javascript
-<FontAwesomeIcon icon="coffee" />
+import { dom } from '@fortawesome/fontawesome-svg-core'
+
+dom.watch() // This will kick of the initial replacement of i to svg tags and configure a MutationObserver
 ```
 
+[raf]: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+[mo]: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
+
 ## Features
+
+The following features are available as [part of Font Awesome](https://fontawesome.com/how-to-use/svg-with-js).
 
 In the following code snippets, we'll use the shortcut notation for the
 icons—referencing the icons by their names as strings.
@@ -396,12 +433,13 @@ Layering:
 ### TypeScript
 
 Typings are included in this package. However, most types are defined in the
-underlying API library, <span style="whitespace:nowrap;">`@fortawesome/fontawesome`</span>.
+underlying API library, `@fortawesome/fontawesome-svg-core`.
 
 Suppose that in one module, you add all `fas` icons to the library:
-```
-import { library } from '@fortawesome/fontawesome'
-import { fas } from '@fortawesome/fontawesome-free-solid'
+
+```typescript
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 library.add(fas)
 
@@ -412,8 +450,12 @@ Then suppose that in another module, you have some code that looks up
 one of the icons in the library. The `import` statement below imports two types
 and one function:
 
-```
-import { IconLookup, IconDefinition, findIconDefinition } from '@fortawesome/fontawesome'
+```typescript
+import {
+  IconLookup,
+  IconDefinition,
+  findIconDefinition
+} from '@fortawesome/fontawesome-svg-core'
 
 const coffeeLookup: IconLookup = { prefix: 'fas', iconName: 'coffee' }
 const coffeeIconDefinition: IconDefinition = findIconDefinition(coffeeLookup)
@@ -424,26 +466,23 @@ export class App extends React.Component {
   render() {
     return (
       <div className="App">
-          <h1>
-              <FontAwesomeIcon icon={coffeeIconDefinition} />
-          </h1>
+        <h1>
+          <FontAwesomeIcon icon={coffeeIconDefinition} />
+        </h1>
       </div>
-    );
+    )
   }
 }
 ```
+
 NOTE: You wouldn't normally declare intermediate objects like `coffeeLookup`
-just to look up an icon. So this is cumbersome and needlessly verbose for
-such a simple example. The purpose here is just to show how you might
-import type definitions and use them in declarations when it _does_ make
-sense to do so.
+just to look up an icon. So this is cumbersome and needlessly verbose for such
+a simple example. The purpose here is just to show how you might import type
+definitions and use them in declarations when it _does_ make sense to do so.
 
 Several types, including `IconLookup` and `IconDefinition`, appearing above,
- actually originate from the
-<span style="whitespace:nowrap;">`@fortawesome/fontawesome-common-types`</span>
-package. They are re-exported from both <span style="whitespace:nowrap;">`@fortawesome/fontawesome`</span>
-and <span style="whitespace:nowrap;">`@fortawesome/fontawesome-free-solid`</span>
-(and other icon packs). This is just to make importing more convenient in
-some cases.
-Refer to the `index.d.ts` in any module to see which types it exports.
->>>>>>> add more documentation and more verbose example for TypeScript (#55)
+actually originate from the `@fortawesome/fontawesome-common-types` package.
+They are re-exported from both `@fortawesome/fontawesome-svg-core` and
+`@fortawesome/free-solid-svg-icons` (and other icon packs). This is just to
+make importing more convenient in some cases. Refer to the `index.d.ts` in any
+module to see which types it exports.
