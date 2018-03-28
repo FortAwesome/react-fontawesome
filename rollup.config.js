@@ -2,21 +2,26 @@ import resolve from 'rollup-plugin-node-resolve'
 import commonJs from 'rollup-plugin-commonjs'
 import babel from 'rollup-plugin-babel'
 
+const name = 'react-fontawesome'
+const globals = {
+  '@fortawesome/fontawesome-svg-core': 'FontAwesome',
+  react: 'React',
+  'prop-types': 'PropTypes'
+}
+
 export default {
   external: ['@fortawesome/fontawesome-svg-core', 'prop-types', 'react'],
-  globals: {
-    '@fortawesome/fontawesome-svg-core': 'FontAwesome',
-    react: 'React',
-    'prop-types': 'PropTypes'
-  },
   input: 'src/index.js',
-  name: 'react-fontawesome',
   output: [
     {
+      name,
+      globals,
       format: 'umd',
       file: 'index.js'
     },
     {
+      name,
+      globals,
       format: 'es',
       file: 'index.es.js'
     }
@@ -29,7 +34,18 @@ export default {
     commonJs(),
     babel({
       babelrc: false,
-      presets: [['es2015', { modules: false }], 'stage-3', 'react'],
+      presets: [
+        [
+          'env',
+          {
+            debug: true,
+            targets: { browsers: ['> 1%', 'last 2 versions', 'ie > 9'] },
+            modules: false
+          }
+        ],
+        'stage-3',
+        'react'
+      ],
       plugins: ['external-helpers'],
       exclude: 'node_modules/**'
     })
