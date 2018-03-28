@@ -85,19 +85,19 @@ _library_.
 This is one of the two ways you can use Font Awesome 5 with React. We'll
 summarize all three ways briefly and then get into the details of each below.
 
-1. **Explicit Import**
+1.  **Explicit Import**
 
-   Allows icons to be subsetted, optimizing your final bundle. Only the icons
-   you import are included in the bundle. However, explicitly importing icons
-   into each of many components in your app might become tedious, so you may
-   want to build a library.
+    Allows icons to be subsetted, optimizing your final bundle. Only the icons
+    you import are included in the bundle. However, explicitly importing icons
+    into each of many components in your app might become tedious, so you may
+    want to build a library.
 
-2. **Build a Library**
+2.  **Build a Library**
 
-   Explicitly import icons just once in some init module. Then add them to the
-   library. Then reference any of them by icon name as a string from any
-   component. No need to import the icons into each component once they're in
-   the library.
+    Explicitly import icons just once in some init module. Then add them to the
+    library. Then reference any of them by icon name as a string from any
+    component. No need to import the icons into each component once they're in
+    the library.
 
 ### Explicit Import
 
@@ -269,14 +269,24 @@ The `icon` prop expects a single object:
 
 ### Processing `<i>` tags into `<svg>` using Font Awesome
 
+Our hope and intention is that React users will use this package (`react-fontawesome`)
+when using Font Awesome. This component leverages React's architecture and philosophy.
+
+However, **if you cannot use these components everywhere in your app and still
+have `<i>` tags on your page that need to be converted to `<svg>` tags we can
+still help you**.
+
 A basic installation of [Font Awesome](https://fontawesome.com/get-started) has
 the ability to automatically transform `<i class="fas fa-coffee"></i>` into
 `<svg class="...">...</svg>` icons. This technology works with the browser's
 DOM, [`requestAnimationFrame`][raf], and [`MutationObserver`][mo].
 
 When using the `@fortawesome/fontawesome-svg-core` package this **behavior is
-disabled by default**. This project uses that package so you will have to
-explicitly enable it like this:
+disabled by default**. (We would _highly_ recommend you use `FontAwesomeIcon`
+if you can) This project uses that core package so you will have to explicitly
+enable it like this:
+
+To configure the core library to convert non-React'ified parts of your App:
 
 ```javascript
 import { dom } from '@fortawesome/fontawesome-svg-core'
