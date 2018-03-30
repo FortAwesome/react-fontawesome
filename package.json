@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome 5",
-  "version": "0.1.0-7",
+  "version": "0.1.0-8",
   "main": "index.js",
   "module": "index.es.js",
   "jsnext:main": "index.es.js",
@@ -41,6 +41,7 @@
     "babel-eslint": "^8.2.1",
     "babel-jest": "^22.4.3",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^5.1.1",
@@ -68,8 +69,7 @@
   },
   "dependencies": {
     "humps": "^2.0.1",
-    "prop-types": "^15.5.10",
-    "babel-preset-env": "^1.6.1"
+    "prop-types": "^15.5.10"
   },
   "files": ["index.js", "index.es.js", "index.d.ts"]
 }
