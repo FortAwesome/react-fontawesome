@@ -4,6 +4,12 @@
 
 Font Awesome 5 React component
 
+## Pre-release available!
+
+We currently have a 0.1.0 prerelease that improves tree shaking, uses the new SVG core library, and has updated API usage.
+
+The pre-release is at a **release candidate** level and we could use your help testing it out. If you want to live on the edge (you rebel) head over to the [development branch of this project](https://github.com/FortAwesome/react-fontawesome/tree/development).
+
 ## Installation
 
 ```
