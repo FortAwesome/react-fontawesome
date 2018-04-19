@@ -49,7 +49,10 @@ function normalizeIconArgs(icon) {
   }
 }
 
-export default function FontAwesomeIcon(props) {
+const useForwardRef = typeof React.forwardRef === 'function'
+const forwardRef = useForwardRef ? React.forwardRef : x => x
+
+const FontAwesomeIcon = forwardRef(function FontAwesome(props) {
   const { icon: iconArgs, mask: maskArgs, symbol, className } = props
 
   const iconLookup = normalizeIconArgs(iconArgs)
@@ -78,7 +81,9 @@ export default function FontAwesomeIcon(props) {
   }
 
   const { abstract } = renderedIcon
-  const extraProps = {}
+  const extraProps = {
+    ...(useForwardRef && { ref: arguments[1] })
+  }
 
   Object.keys(props).forEach(key => {
     if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
@@ -87,7 +92,7 @@ export default function FontAwesomeIcon(props) {
   })
 
   return convertCurry(abstract[0], extraProps)
-}
+})
 
 FontAwesomeIcon.propTypes = {
   border: PropTypes.bool,
@@ -162,3 +167,5 @@ FontAwesomeIcon.defaultProps = {
 }
 
 const convertCurry = convert.bind(null, React.createElement)
+
+export default FontAwesomeIcon
