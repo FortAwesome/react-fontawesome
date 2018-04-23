@@ -42,7 +42,7 @@ What does that mean?
 ~~Old way:~~
 
 ```javascript
-import fontawesome from '@fontawesome/fontawesome'
+import fontawesome from '@fortawesome/fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
 import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
