@@ -53,7 +53,7 @@ import fontaweome.library.add(solid, faTwitter)
 New way:
 
 ```javascript
-import { library } from '@fontawesome/fontawesome-svg-core'
+import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/fontawesome-free-solid'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
