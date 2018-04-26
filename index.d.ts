@@ -1,32 +1,33 @@
 /// <reference types="react" />
 import { CSSProperties } from 'react'
 import {
-  Transform,
-  IconProp,
+  FaSymbol,
   FlipProp,
-  SizeProp,
+  IconProp,
   PullProp,
   RotateProp,
-  FaSymbol
+  SizeProp,
+  Transform,
 } from '@fortawesome/fontawesome-svg-core'
 
 export function FontAwesomeIcon(props: Props): JSX.Element
 
 export interface Props {
-  icon: IconProp
-  mask?: IconProp
-  className?: string
-  spin?: boolean
-  pulse?: boolean
   border?: boolean
+  className?: string
+  color?: string
   fixedWidth?: boolean
+  flip?: FlipProp
+  icon: IconProp
   inverse?: boolean
   listItem?: boolean
-  flip?: FlipProp
-  size?: SizeProp
+  mask?: IconProp
   pull?: PullProp
+  pulse?: boolean
   rotation?: RotateProp
-  transform?: string | Transform
-  symbol?: FaSymbol
+  size?: SizeProp
+  spin?: boolean
   style?: CSSProperties
+  symbol?: FaSymbol
+  transform?: string | Transform
 }
