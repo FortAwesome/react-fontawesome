@@ -1,28 +1,14 @@
-import fontawesome from '@fortawesome/fontawesome';
+import { icon, parse } from '@fortawesome/fontawesome-svg-core';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
-
-
-
-
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
 var humps = createCommonjsModule(function (module) {
-// =========
-// = humps =
-// =========
-// Underscore-to-camelCase converter (and vice versa)
-// for strings and object keys
-
-// humps is copyright © 2012+ Dom Christie
-// Released under the MIT license.
-
-
 (function(global) {
 
   var _processKeys = function(convert, obj, options) {
@@ -162,135 +148,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
 };
 
-
-
-
-
-var asyncGenerator = function () {
-  function AwaitValue(value) {
-    this.value = value;
-  }
-
-  function AsyncGenerator(gen) {
-    var front, back;
-
-    function send(key, arg) {
-      return new Promise(function (resolve, reject) {
-        var request = {
-          key: key,
-          arg: arg,
-          resolve: resolve,
-          reject: reject,
-          next: null
-        };
-
-        if (back) {
-          back = back.next = request;
-        } else {
-          front = back = request;
-          resume(key, arg);
-        }
-      });
-    }
-
-    function resume(key, arg) {
-      try {
-        var result = gen[key](arg);
-        var value = result.value;
-
-        if (value instanceof AwaitValue) {
-          Promise.resolve(value.value).then(function (arg) {
-            resume("next", arg);
-          }, function (arg) {
-            resume("throw", arg);
-          });
-        } else {
-          settle(result.done ? "return" : "normal", result.value);
-        }
-      } catch (err) {
-        settle("throw", err);
-      }
-    }
-
-    function settle(type, value) {
-      switch (type) {
-        case "return":
-          front.resolve({
-            value: value,
-            done: true
-          });
-          break;
-
-        case "throw":
-          front.reject(value);
-          break;
-
-        default:
-          front.resolve({
-            value: value,
-            done: false
-          });
-          break;
-      }
-
-      front = front.next;
-
-      if (front) {
-        resume(front.key, front.arg);
-      } else {
-        back = null;
-      }
-    }
-
-    this._invoke = send;
-
-    if (typeof gen.return !== "function") {
-      this.return = undefined;
-    }
-  }
-
-  if (typeof Symbol === "function" && Symbol.asyncIterator) {
-    AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
-      return this;
-    };
-  }
-
-  AsyncGenerator.prototype.next = function (arg) {
-    return this._invoke("next", arg);
-  };
-
-  AsyncGenerator.prototype.throw = function (arg) {
-    return this._invoke("throw", arg);
-  };
-
-  AsyncGenerator.prototype.return = function (arg) {
-    return this._invoke("return", arg);
-  };
-
-  return {
-    wrap: function (fn) {
-      return function () {
-        return new AsyncGenerator(fn.apply(this, arguments));
-      };
-    },
-    await: function (value) {
-      return new AwaitValue(value);
-    }
-  };
-}();
-
-
-
-
-
-
-
-
-
-
-
-
-
 var defineProperty = function (obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
@@ -320,18 +177,6 @@ var _extends = Object.assign || function (target) {
   return target;
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
 var objectWithoutProperties = function (obj, keys) {
   var target = {};
 
@@ -343,26 +188,6 @@ var objectWithoutProperties = function (obj, keys) {
 
   return target;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var toConsumableArray = function (arr) {
   if (Array.isArray(arr)) {
@@ -437,13 +262,13 @@ try {
   PRODUCTION = process.env.NODE_ENV === 'production';
 } catch (e) {}
 
-var log = function () {
+function log () {
   if (!PRODUCTION && console && typeof console.error === 'function') {
     var _console;
 
     (_console = console).error.apply(_console, arguments);
   }
-};
+}
 
 function objectWithKey(key, value) {
   return Array.isArray(value) && value.length > 0 || !Array.isArray(value) && value ? defineProperty({}, key, value) : {};
@@ -456,6 +281,7 @@ function classList(props) {
     'fa-spin': props.spin,
     'fa-pulse': props.pulse,
     'fa-fw': props.fixedWidth,
+    'fa-inverse': props.inverse,
     'fa-border': props.border,
     'fa-li': props.listItem,
     'fa-flip-horizontal': props.flip === 'horizontal' || props.flip === 'both',
@@ -469,58 +295,59 @@ function classList(props) {
   });
 }
 
-function normalizeIconArgs(icon) {
-  if (icon === null) {
+function normalizeIconArgs(icon$$1) {
+  if (icon$$1 === null) {
     return null;
   }
 
-  if ((typeof icon === 'undefined' ? 'undefined' : _typeof(icon)) === 'object' && icon.prefix && icon.iconName) {
-    return icon;
+  if ((typeof icon$$1 === 'undefined' ? 'undefined' : _typeof(icon$$1)) === 'object' && icon$$1.prefix && icon$$1.iconName) {
+    return icon$$1;
   }
 
-  if (Array.isArray(icon) && icon.length === 2) {
-    return { prefix: icon[0], iconName: icon[1] };
+  if (Array.isArray(icon$$1) && icon$$1.length === 2) {
+    return { prefix: icon$$1[0], iconName: icon$$1[1] };
   }
 
-  if (typeof icon === 'string') {
-    return { prefix: 'fas', iconName: icon };
+  if (typeof icon$$1 === 'string') {
+    return { prefix: 'fas', iconName: icon$$1 };
   }
 }
 
-function FontAwesomeIcon$1(props) {
+function FontAwesomeIcon(props) {
   var iconArgs = props.icon,
       maskArgs = props.mask,
       symbol = props.symbol,
       className = props.className;
 
 
-  var icon = normalizeIconArgs(iconArgs);
+  var iconLookup = normalizeIconArgs(iconArgs);
   var classes = objectWithKey('classes', [].concat(toConsumableArray(classList(props)), toConsumableArray(className.split(' '))));
-  var transform = objectWithKey('transform', typeof props.transform === 'string' ? fontawesome.parse.transform(props.transform) : props.transform);
+  var transform = objectWithKey('transform', typeof props.transform === 'string' ? parse.transform(props.transform) : props.transform);
   var mask = objectWithKey('mask', normalizeIconArgs(maskArgs));
 
-  var renderedIcon = fontawesome.icon(icon, _extends({}, classes, transform, mask, {
+  var renderedIcon = icon(iconLookup, _extends({}, classes, transform, mask, {
     symbol: symbol
   }));
 
   if (!renderedIcon) {
-    log('Could not find icon', icon);
+    log('Could not find icon', iconLookup);
     return null;
   }
 
   var abstract = renderedIcon.abstract;
 
-  var convertCurry = convert.bind(null, React.createElement);
   var extraProps = {};
 
   Object.keys(props).forEach(function (key) {
-    if (!FontAwesomeIcon$1.defaultProps.hasOwnProperty(key)) extraProps[key] = props[key];
+    if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
+      extraProps[key] = props[key];
+    }
   });
 
   return convertCurry(abstract[0], extraProps);
 }
 
-FontAwesomeIcon$1.propTypes = {
+FontAwesomeIcon.propTypes = {
   border: PropTypes.bool,
 
   className: PropTypes.string,
@@ -528,6 +355,8 @@ FontAwesomeIcon$1.propTypes = {
   mask: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
 
   fixedWidth: PropTypes.bool,
+
+  inverse: PropTypes.bool,
 
   flip: PropTypes.oneOf(['horizontal', 'vertical', 'both']),
 
@@ -538,8 +367,6 @@ FontAwesomeIcon$1.propTypes = {
   pull: PropTypes.oneOf(['right', 'left']),
 
   pulse: PropTypes.bool,
-
-  name: PropTypes.string,
 
   rotation: PropTypes.oneOf([90, 180, 270]),
 
@@ -552,17 +379,17 @@ FontAwesomeIcon$1.propTypes = {
   transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
-FontAwesomeIcon$1.defaultProps = {
+FontAwesomeIcon.defaultProps = {
   border: false,
   className: '',
   mask: null,
   fixedWidth: false,
+  inverse: false,
   flip: null,
   icon: null,
   listItem: false,
   pull: null,
   pulse: false,
-  name: '',
   rotation: null,
   size: null,
   spin: false,
@@ -570,6 +397,6 @@ FontAwesomeIcon$1.defaultProps = {
   transform: null
 };
 
-fontawesome.noAuto();
+var convertCurry = convert.bind(null, React.createElement);
 
-export default FontAwesomeIcon$1;
+export { FontAwesomeIcon };
