@@ -16,6 +16,7 @@ export interface Props {
   icon: IconProp
   mask?: IconProp
   className?: string
+  color?: string
   spin?: boolean
   pulse?: boolean
   border?: boolean
