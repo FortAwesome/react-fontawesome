@@ -39,10 +39,7 @@ You might also be interested in the larger umbrella project [UPGRADING.md](https
 $ npm i --save @fortawesome/fontawesome-svg-core@prerelease
 $ npm i --save @fortawesome/free-solid-svg-icons@prerelease
 $ npm i --save @fortawesome/react-fontawesome@prerelease
-$ npm i --save prop-types
 ```
-
-This project uses the `prop-types` library. To give you, the developer, control over which version is installed we list this as a [peer dependency](https://nodejs.org/en/blog/npm/peer-dependencies/).
 
 ## Add more styles or Pro icons
 
@@ -88,19 +85,19 @@ _library_.
 This is one of the two ways you can use Font Awesome 5 with React. We'll
 summarize all three ways briefly and then get into the details of each below.
 
-1.  **Explicit Import**
+1. **Explicit Import**
 
-    Allows icons to be subsetted, optimizing your final bundle. Only the icons
-    you import are included in the bundle. However, explicitly importing icons
-    into each of many components in your app might become tedious, so you may
-    want to build a library.
+   Allows icons to be subsetted, optimizing your final bundle. Only the icons
+   you import are included in the bundle. However, explicitly importing icons
+   into each of many components in your app might become tedious, so you may
+   want to build a library.
 
-2.  **Build a Library**
+2. **Build a Library**
 
-    Explicitly import icons just once in some init module. Then add them to the
-    library. Then reference any of them by icon name as a string from any
-    component. No need to import the icons into each component once they're in
-    the library.
+   Explicitly import icons just once in some init module. Then add them to the
+   library. Then reference any of them by icon name as a string from any
+   component. No need to import the icons into each component once they're in
+   the library.
 
 ### Explicit Import
 
