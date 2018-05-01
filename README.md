@@ -59,10 +59,7 @@ The pre-release is at a **release candidate** level and we could use your help t
 $ npm i --save @fortawesome/fontawesome-svg-core@prerelease
 $ npm i --save @fortawesome/free-solid-svg-icons@prerelease
 $ npm i --save @fortawesome/react-fontawesome@prerelease
-$ npm i --save prop-types
 ```
-
-This project uses the `prop-types` library. To give you, the developer, control over which version is installed we list this as a [peer dependency](https://nodejs.org/en/blog/npm/peer-dependencies/).
 
 ## Add more styles or Pro icons
 
@@ -115,7 +112,7 @@ summarize all three ways briefly and then get into the details of each below.
    into each of many components in your app might become tedious, so you may
    want to build a library.
 
-2.  **Build a Library**
+2. **Build a Library**
 
    Explicitly import icons just once in some init module. Then add them to the
    library. Then reference any of them by icon name as a string from any
