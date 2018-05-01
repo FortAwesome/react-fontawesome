@@ -313,7 +313,12 @@ function normalizeIconArgs(icon$$1) {
   }
 }
 
-function FontAwesomeIcon(props) {
+var useForwardRef = typeof React.forwardRef === 'function';
+var forwardRef = useForwardRef ? React.forwardRef : function (x) {
+  return x;
+};
+
+var FontAwesomeIcon = forwardRef(function FontAwesome(props) {
   var iconArgs = props.icon,
       maskArgs = props.mask,
       symbol = props.symbol,
@@ -336,7 +341,7 @@ function FontAwesomeIcon(props) {
 
   var abstract = renderedIcon.abstract;
 
-  var extraProps = {};
+  var extraProps = _extends({}, useForwardRef && { ref: arguments[1] });
 
   Object.keys(props).forEach(function (key) {
     if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
@@ -345,7 +350,7 @@ function FontAwesomeIcon(props) {
   });
 
   return convertCurry(abstract[0], extraProps);
-}
+});
 
 FontAwesomeIcon.propTypes = {
   border: PropTypes.bool,
