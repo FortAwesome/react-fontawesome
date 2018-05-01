@@ -29,7 +29,6 @@
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
-    "prop-types": "15.x",
     "react": "16.x"
   },
   "devDependencies": {
@@ -64,7 +63,8 @@
     "rollup-plugin-node-resolve": "^3.3.0"
   },
   "dependencies": {
-    "humps": "^2.0.1"
+    "humps": "^2.0.1",
+    "prop-types": "^15.5.7"
   },
   "files": ["index.js", "index.es.js", "index.d.ts"]
 }
