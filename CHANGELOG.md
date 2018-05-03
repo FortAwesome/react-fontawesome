@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.0.19](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.0.19) - 2018-04-29
+
+### Changed
+
+* Moved prop-types from peerDependencies to dependencies #87
+
+---
+
 ## [0.0.18](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.0.18) - 2018-03-23
 
 ### Fixed
