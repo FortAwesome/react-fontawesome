@@ -13,7 +13,7 @@ import {
 export function FontAwesomeIcon(props: Props): JSX.Element
 
 export interface Props {
-  icon: IconProp
+  icon: IconProp | string
   mask?: IconProp
   className?: string
   color?: string
