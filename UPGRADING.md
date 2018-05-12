@@ -109,7 +109,7 @@ If you were previously relying on Font Awesome to replace any `<i>` tags in
 your page or app with `<svg>` you'll need to explicitly control that now.
 
 ```javascript
-import { watch } from '@fortawesome/fontawesome-svg-core'
+import { dom } from '@fortawesome/fontawesome-svg-core'
 
-watch() // This will kick of the replacement of i tags and configure a MutationObserver
+dom.watch() // This will kick of the replacement of i tags and configure a MutationObserver
 ```
