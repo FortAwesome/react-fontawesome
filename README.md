@@ -4,6 +4,16 @@
 
 Font Awesome 5 React component
 
+- [Pre-release available!](#pre-release-available)
+- [Installation](#installation)
+- [Usage](#usage)
+  * [Explicit Import](#explicit-import)
+  * [Build a Library](#build-a-library-to-reference-icons-throughout-your-app-more-conveniently)
+  * [External Loading](#external-loading)
+- [Features](#features)
+  * [Basic](#basic)
+  * [Advanced](#advanced)
+
 ## Pre-release available!
 
 We currently have a 0.1.0 prerelease that improves tree shaking, uses the new SVG core library, and has updated API usage.
