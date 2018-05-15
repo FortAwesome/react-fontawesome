@@ -76,6 +76,8 @@ function FontAwesomeIcon (props) {
   return convertCurry(abstract[0], extraProps)
 }
 
+FontAwesomeIcon.displayName = 'FontAwesomeIcon'
+
 FontAwesomeIcon.propTypes = {
   border: PropTypes.bool,
 
