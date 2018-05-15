@@ -3,11 +3,10 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
-    "@fortawesome/free-brands-svg-icons": "5.1.0-4",
-    "@fortawesome/free-solid-svg-icons": "^5.1.0-4",
-    "@fortawesome/react-fontawesome": "^0.1.0-6",
-    "prop-types": "^15.6.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-11",
+    "@fortawesome/free-brands-svg-icons": "^5.1.0-11",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "^0.1.0-11",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts-ts": "2.8.0"
