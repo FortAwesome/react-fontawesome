@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.0.19](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.0.20) - 2018-05-15
+
+### Added
+
+* Added displayName to FontAwesomeIcon component
+
+---
+
 ## [0.0.19](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.0.19) - 2018-04-29
 
 ### Changed
