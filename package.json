@@ -20,12 +20,17 @@
     "dist": "cross-env NODE_ENV=production npm run build",
     "lint": "eslint src",
     "prettier": "pretty-quick src --staged",
-    "precommit": "yarn lint && yarn prettier",
+    "precommit": "yarn lint && yarn prettier && lint-staged",
     "prepack": "yarn dist",
     "test": "jest"
   },
+  "lint-staged": {
+    "README.md": ["markdown-toc -i"]
+  },
   "peerDependencies": {
     "@fortawesome/fontawesome": ">=1.1.0",
+    "lint-staged": "^7.1.0",
+    "markdown-toc": "^1.2.0",
     "react": "16.x"
   },
   "devDependencies": {
