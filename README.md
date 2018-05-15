@@ -35,7 +35,6 @@ You might also be interested in the larger umbrella project [UPGRADING.md](https
 
 <!-- toc -->
 
-* [Pre-release available!](#pre-release-available)
 * [Installation](#installation)
 * [Usage](#usage)
   * [Explicit Import](#explicit-import)
@@ -46,12 +45,6 @@ You might also be interested in the larger umbrella project [UPGRADING.md](https
   * [Advanced](#advanced)
 
 <!-- tocstop -->
-
-## Pre-release available!
-
-We currently have a 0.1.0 prerelease that improves tree shaking, uses the new SVG core library, and has updated API usage.
-
-The pre-release is at a **release candidate** level and we could use your help testing it out. If you want to live on the edge (you rebel) head over to the [development branch of this project](https://github.com/FortAwesome/react-fontawesome/tree/development).
 
 ## Installation
 
@@ -105,19 +98,19 @@ _library_.
 This is one of the two ways you can use Font Awesome 5 with React. We'll
 summarize all three ways briefly and then get into the details of each below.
 
-1. **Explicit Import**
+1.  **Explicit Import**
 
-   Allows icons to be subsetted, optimizing your final bundle. Only the icons
-   you import are included in the bundle. However, explicitly importing icons
-   into each of many components in your app might become tedious, so you may
-   want to build a library.
+    Allows icons to be subsetted, optimizing your final bundle. Only the icons
+    you import are included in the bundle. However, explicitly importing icons
+    into each of many components in your app might become tedious, so you may
+    want to build a library.
 
-2. **Build a Library**
+2.  **Build a Library**
 
-   Explicitly import icons just once in some init module. Then add them to the
-   library. Then reference any of them by icon name as a string from any
-   component. No need to import the icons into each component once they're in
-   the library.
+    Explicitly import icons just once in some init module. Then add them to the
+    library. Then reference any of them by icon name as a string from any
+    component. No need to import the icons into each component once they're in
+    the library.
 
 ### Explicit Import
 
