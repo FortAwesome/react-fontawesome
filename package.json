@@ -20,7 +20,7 @@
     "dist": "cross-env NODE_ENV=production npm run build",
     "lint": "eslint src",
     "prettier": "pretty-quick src --staged",
-    "precommit": "yarn lint && yarn prettier ; lint-staged",
+    "precommit": "yarn lint && yarn prettier && lint-staged",
     "prepack": "yarn dist",
     "test": "jest"
   },
