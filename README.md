@@ -15,21 +15,21 @@ Hey there! We're glad you're here...
 If you've used Font Awesome in the past (version 4 or older) there are some
 things that you should learn before you dive in.
 
-> https://fontawesome.com/how-to-use/upgrading-from-4
+> https://fontawesome.com/how-to-use/on-the-web/setup/upgrading-from-version-4
 
 #### Get started
 
 This package is for integrating with React. If you aren't using React then it's
 not going to help you. Head over to our "Get Started" page for some guidance.
 
-> https://fontawesome.com/get-started
+> https://fontawesome.com/how-to-use/on-the-web/setup/getting-started
 
 #### Learn about our new SVG implementation
 
 This package, under the hood, uses SVG with JS and the `@fortawesome/fontawesome-svg-core` library. This implementation differs drastically from
 the web fonts implementation that was used in version 4 and older of Font Awesome. You might head over there to learn about how it works.
 
-> https://fontawesome.com/how-to-use/svg-with-js
+> https://fontawesome.com/how-to-use/on-the-web/advanced/svg-javascript-core
 
 #### Going from 0.0.x to 0.1.0
 
@@ -78,7 +78,7 @@ $ npm i --save @fortawesome/pro-regular-svg-icons@prerelease
 $ npm i --save @fortawesome/pro-light-svg-icons@prerelease
 ```
 
-Using the Pro packages requires [additional configuration](https://fontawesome.com/how-to-use/js-component-packages).
+Using the Pro packages requires [additional configuration](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers).
 
 ## or with Yarn
 
@@ -294,7 +294,7 @@ However, **if you cannot use these components everywhere in your app and still
 have `<i>` tags on your page that need to be converted to `<svg>` tags we can
 still help you**.
 
-A basic installation of [Font Awesome](https://fontawesome.com/get-started) has
+A basic installation of [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=svg-with-js) has
 the ability to automatically transform `<i class="fas fa-coffee"></i>` into
 `<svg class="...">...</svg>` icons. This technology works with the browser's
 DOM, [`requestAnimationFrame`][raf], and [`MutationObserver`][mo].
@@ -317,7 +317,7 @@ dom.watch() // This will kick of the initial replacement of i to svg tags and co
 
 ## Features
 
-The following features are available as [part of Font Awesome](https://fontawesome.com/how-to-use/svg-with-js).
+The following features are available as part of Font Awesome. Note that the syntax is different from our general web-use documentation.
 
 In the following code snippets, we'll use the shortcut notation for the
 icons—referencing the icons by their names as strings.
@@ -328,14 +328,15 @@ loaded an icon bundle. See the sections above for the details.
 
 ### Basic
 
-Spin and pulse animation:
+[Size](https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons):
 
 ```javascript
-<FontAwesomeIcon icon="spinner" spin />
-<FontAwesomeIcon icon="spinner" pulse />
+<FontAwesomeIcon icon="spinner" size="xs" />
+<FontAwesomeIcon icon="spinner" size="lg" />
+<FontAwesomeIcon icon="spinner" size="6x" />
 ```
 
-Fixed width:
+[Fixed width](https://fontawesome.com/how-to-use/on-the-web/styling/fixed-width-icons):
 
 ```javascript
 <FontAwesomeIcon icon="spinner" fixedWidth />
@@ -347,16 +348,18 @@ Inverse:
 <FontAwesomeIcon icon="spinner" inverse />
 ```
 
-Border:
-
-```javascript
-<FontAwesomeIcon icon="spinner" border />
-```
-
-List items:
+[List Items](https://fontawesome.com/how-to-use/on-the-web/styling/icons-in-a-list):
 
 ```javascript
 <FontAwesomeIcon icon="spinner" listItem />
+```
+
+[Rotate](https://fontawesome.com/how-to-use/on-the-web/styling/rotating-icons):
+
+```javascript
+<FontAwesomeIcon icon="spinner" rotation={90} />
+<FontAwesomeIcon icon="spinner" rotation={180} />
+<FontAwesomeIcon icon="spinner" rotation={270} />
 ```
 
 Flip horizontally, vertically, or both:
@@ -367,23 +370,20 @@ Flip horizontally, vertically, or both:
 <FontAwesomeIcon icon="spinner" flip="both" />
 ```
 
-Size:
+Spin and pulse [animation](https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons):
 
 ```javascript
-<FontAwesomeIcon icon="spinner" size="xs" />
-<FontAwesomeIcon icon="spinner" size="lg" />
-<FontAwesomeIcon icon="spinner" size="6x" />
+<FontAwesomeIcon icon="spinner" spin />
+<FontAwesomeIcon icon="spinner" pulse />
 ```
 
-Rotation:
+[Border](https://fontawesome.com/how-to-use/on-the-web/styling/bordered-pulled-icons):
 
 ```javascript
-<FontAwesomeIcon icon="spinner" rotation={90} />
-<FontAwesomeIcon icon="spinner" rotation={180} />
-<FontAwesomeIcon icon="spinner" rotation={270} />
+<FontAwesomeIcon icon="spinner" border />
 ```
 
-Pull left or right:
+[Pull left or right](https://fontawesome.com/how-to-use/on-the-web/styling/bordered-pulled-icons):
 
 ```javascript
 <FontAwesomeIcon icon="spinner" pull="left" />
@@ -398,27 +398,27 @@ Your own class names:
 
 ### Advanced
 
-Power Transforms:
+[Power Transforms]((https://fontawesome.com/how-to-use/on-the-web/styling/power-transforms)):
 
 ```javascript
 <FontAwesomeIcon icon="spinner" transform="shrink-6 left-4" />
 <FontAwesomeIcon icon="spinner" transform={{ rotate: 42 }} />
 ```
 
-Composition:
+[Masking](https://fontawesome.com/how-to-use/on-the-web/styling/masking):
 
 ```javascript
 <FontAwesomeIcon icon="coffee" mask={['far', 'circle']} />
 ```
 
-Symbols:
+[Symbols](https://fontawesome.com/how-to-use/on-the-web/advanced/svg-symbols):
 
 ```javascript
 <FontAwesomeIcon icon="edit" symbol />
 <FontAwesomeIcon icon="edit" symbol="edit-icon" />
 ```
 
-Layering:
+[Layers](https://fontawesome.com/how-to-use/on-the-web/styling/layering):
 
 ```javascript
 <span className="fa-layers fa-fw">
