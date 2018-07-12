@@ -100,7 +100,7 @@ That simple usage is made possible when you add the `"coffee"` icon, to the
 _library_.
 
 This is one of the two ways you can use Font Awesome 5 with React. We'll
-summarize all three ways briefly and then get into the details of each below.
+summarize both ways briefly and then get into the details of each below.
 
 1.  **Explicit Import**
 
