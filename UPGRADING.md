@@ -47,7 +47,7 @@ import solid from '@fortawesome/fontawesome-free-solid'
 import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
-import fontaweome.library.add(solid, faTwitter)
+fontaweome.library.add(solid, faTwitter)
 ```
 
 New way:
@@ -58,7 +58,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import library.add(fas, faTwitter)
+library.add(fas, faTwitter)
 ```
 
 This is also a valid way to import icons that works if your tool does not support tree shaking:
