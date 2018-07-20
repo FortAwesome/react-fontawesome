@@ -314,8 +314,24 @@
 	  }
 
 	  if (typeof icon === 'string') {
-	    return { prefix: 'fas', iconName: icon };
+	    var iconWithPrefixDefault = { prefix: 'fas', iconName: icon };
+
+	    var iconWithPrefixCustom = {
+	      prefix: icon.slice(0, icon.indexOf('-')),
+	      iconName: icon.slice(icon.indexOf('-') + 1)
+	    };
+
+	    var iconDefinition = fontawesomeSvgCore.findIconDefinition(iconWithPrefixDefault) || fontawesomeSvgCore.findIconDefinition(iconWithPrefixCustom);
+
+	    if (iconDefinition) {
+	      return {
+	        prefix: iconDefinition.prefix,
+	        iconName: iconDefinition.iconName
+	      };
+	    }
 	  }
+
+	  return null;
 	}
 
 	function FontAwesomeIcon(props) {
@@ -324,6 +340,10 @@
 	      symbol = props.symbol,
 	      className = props.className;
 
+
+	  if (!iconArgs) {
+	    return null;
+	  }
 
 	  var iconLookup = normalizeIconArgs(iconArgs);
 	  var classes = objectWithKey('classes', [].concat(toConsumableArray(classList(props)), toConsumableArray(className.split(' '))));

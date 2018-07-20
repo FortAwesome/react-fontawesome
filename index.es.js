@@ -1,4 +1,4 @@
-import { icon, parse } from '@fortawesome/fontawesome-svg-core';
+import { icon, parse, findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -309,8 +309,24 @@ function normalizeIconArgs(icon$$1) {
   }
 
   if (typeof icon$$1 === 'string') {
-    return { prefix: 'fas', iconName: icon$$1 };
+    var iconWithPrefixDefault = { prefix: 'fas', iconName: icon$$1 };
+
+    var iconWithPrefixCustom = {
+      prefix: icon$$1.slice(0, icon$$1.indexOf('-')),
+      iconName: icon$$1.slice(icon$$1.indexOf('-') + 1)
+    };
+
+    var iconDefinition = findIconDefinition(iconWithPrefixDefault) || findIconDefinition(iconWithPrefixCustom);
+
+    if (iconDefinition) {
+      return {
+        prefix: iconDefinition.prefix,
+        iconName: iconDefinition.iconName
+      };
+    }
   }
+
+  return null;
 }
 
 function FontAwesomeIcon(props) {
@@ -319,6 +335,10 @@ function FontAwesomeIcon(props) {
       symbol = props.symbol,
       className = props.className;
 
+
+  if (!iconArgs) {
+    return null;
+  }
 
   var iconLookup = normalizeIconArgs(iconArgs);
   var classes = objectWithKey('classes', [].concat(toConsumableArray(classList(props)), toConsumableArray(className.split(' '))));

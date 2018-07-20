@@ -1,5 +1,9 @@
 import convert from '../converter'
-import { icon, parse } from '@fortawesome/fontawesome-svg-core'
+import {
+  icon,
+  parse,
+  findIconDefinition as findIcon
+} from '@fortawesome/fontawesome-svg-core'
 import log from '../logger'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -45,12 +49,33 @@ function normalizeIconArgs(icon) {
   }
 
   if (typeof icon === 'string') {
-    return { prefix: 'fas', iconName: icon }
+    const iconWithPrefixDefault = { prefix: 'fas', iconName: icon }
+
+    const iconWithPrefixCustom = {
+      prefix: icon.slice(0, icon.indexOf('-')),
+      iconName: icon.slice(icon.indexOf('-') + 1)
+    }
+
+    const iconDefinition =
+      findIcon(iconWithPrefixDefault) || findIcon(iconWithPrefixCustom)
+
+    if (iconDefinition) {
+      return {
+        prefix: iconDefinition.prefix,
+        iconName: iconDefinition.iconName
+      }
+    }
   }
+
+  return null
 }
 
 export default function FontAwesomeIcon(props) {
   const { icon: iconArgs, mask: maskArgs, symbol, className } = props
+
+  if (!iconArgs) {
+    return null
+  }
 
   const iconLookup = normalizeIconArgs(iconArgs)
   const classes = objectWithKey('classes', [
