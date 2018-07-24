@@ -43,7 +43,8 @@ You might also be interested in the larger umbrella project [UPGRADING.md](https
 * [Usage](#usage)
   * [Explicit Import](#explicit-import)
   * [Build a Library to Reference Icons Throughout Your App More Conveniently](#build-a-library-to-reference-icons-throughout-your-app-more-conveniently)
-  * [External Loading](#external-loading)
+  * [Unit Testing](#unit-testing)
+  * [Processing `<i>` tags into `<svg>` using Font Awesome](#processing-i-tags-into-svg-using-font-awesome)
 * [Features](#features)
   * [Basic](#basic)
   * [Advanced](#advanced)
@@ -283,6 +284,28 @@ The `icon` prop expects a single object:
   so we've omitted them.)
 * Or it could be an `Array` of strings, where the first element is a prefix,
   and the second element is the icon name: `{["fab", "apple"]}`
+  
+### Unit Testing
+
+When testing components, you'll want to make sure that any icons referenced in those components are available for testing purposes.  You have a couple choices here:
+
+1.  If you want to test a child component on its own, you can [import its icons explicitly](#explicit-import).
+
+2.  If you've built a library instead, and your test doesn't include your root component that defines your library of icons, you may see errors like this:
+
+    `Could not find icon { prefix: 'fas', iconName: 'chevron-right' }`
+    
+    If this happens, and the icon isn't important to the particular test, you can mock FontAwesomeIcon like this:
+    
+    ```js
+    import React from "react";
+
+    export function FontAwesomeIcon(props) {
+      return <i className="fa" />;
+    }
+    ```
+    
+    With [create-react-app](https://github.com/facebook/create-react-app), you can put this code in `src/__mocks__/@fortawesome/react-fontawesome.js` to automatically include it in any tests, and alleviate errors.
 
 ### Processing `<i>` tags into `<svg>` using Font Awesome
 
