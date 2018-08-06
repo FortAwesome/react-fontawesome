@@ -28,7 +28,7 @@
     "clean": "rm -f index.js && rm -f index.es.js"
   },
   "lint-staged": {
-    "README.md": ["markdown-toc -i"]
+    "README.md": ["markdown-toc -i", "git add README.md"]
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
@@ -55,7 +55,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
     "jest": "^22.4.3",
-    "lint-staged": "^7.1.0",
+    "lint-staged": "^7.2.0",
     "markdown-toc": "^1.2.0",
     "prettier": "^1.11.1",
     "pretty-quick": "^1.2.2",

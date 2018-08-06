@@ -39,15 +39,21 @@ You might also be interested in the larger umbrella project [UPGRADING.md](https
 
 <!-- toc -->
 
-* [Installation](#installation)
-* [Usage](#usage)
+- [Installation](#installation)
+- [Add more styles or Pro icons](#add-more-styles-or-pro-icons)
+- [or with Yarn](#or-with-yarn)
+- [Usage](#usage)
   * [Explicit Import](#explicit-import)
   * [Build a Library to Reference Icons Throughout Your App More Conveniently](#build-a-library-to-reference-icons-throughout-your-app-more-conveniently)
   * [Unit Testing](#unit-testing)
-  * [Processing `<i>` tags into `<svg>` using Font Awesome](#processing-i-tags-into-svg-using-font-awesome)
-* [Features](#features)
+  * [Processing i elements into svg using Font Awesome](#processing-i-elements-into-svg-using-font-awesome)
+- [Features](#features)
   * [Basic](#basic)
   * [Advanced](#advanced)
+  * [TypeScript](#typescript)
+- [How to Help](#how-to-help)
+- [Contributors](#contributors)
+- [Releasing this project (only project owners can do this)](#releasing-this-project-only-project-owners-can-do-this)
 
 <!-- tocstop -->
 
@@ -284,30 +290,30 @@ The `icon` prop expects a single object:
   so we've omitted them.)
 * Or it could be an `Array` of strings, where the first element is a prefix,
   and the second element is the icon name: `{["fab", "apple"]}`
-  
+
 ### Unit Testing
 
-When testing components, you'll want to make sure that any icons referenced in those components are available for testing purposes.  You have a couple choices here:
+When testing components, you'll want to make sure that any icons referenced in those components are available for testing purposes. You have a couple choices here:
 
 1.  If you want to test a child component on its own, you can [import its icons explicitly](#explicit-import).
 
 2.  If you've built a library instead, and your test doesn't include your root component that defines your library of icons, you may see errors like this:
 
     `Could not find icon { prefix: 'fas', iconName: 'chevron-right' }`
-    
+
     If this happens, and the icon isn't important to the particular test, you can mock FontAwesomeIcon like this:
-    
+
     ```js
-    import React from "react";
+    import React from 'react'
 
     export function FontAwesomeIcon(props) {
-      return <i className="fa" />;
+      return <i className="fa" />
     }
     ```
-    
+
     With [create-react-app](https://github.com/facebook/create-react-app), you can put this code in `src/__mocks__/@fortawesome/react-fontawesome.js` to automatically include it in any tests, and alleviate errors.
 
-### Processing `<i>` tags into `<svg>` using Font Awesome
+### Processing i elements into svg using Font Awesome
 
 Our hope and intention is that React users will use this package (`react-fontawesome`)
 when using Font Awesome. This component leverages React's architecture and philosophy.
@@ -420,7 +426,7 @@ Your own class names:
 
 ### Advanced
 
-[Power Transforms]((https://fontawesome.com/how-to-use/on-the-web/styling/power-transforms)):
+[Power Transforms](https://fontawesome.com/how-to-use/on-the-web/styling/power-transforms):
 
 ```javascript
 <FontAwesomeIcon icon="spinner" transform="shrink-6 left-4" />
@@ -505,3 +511,41 @@ They are re-exported from both `@fortawesome/fontawesome-svg-core` and
 `@fortawesome/free-solid-svg-icons` (and other icon packs). This is just to
 make importing more convenient in some cases. Refer to the `index.d.ts` in any
 module to see which types it exports.
+
+## How to Help
+
+Review the following docs before diving in:
+
+* [CONTRIBUTING.md](CONTRIBUTING.md)
+* [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+
+And then:
+
+1.  Check the existing issue and see if you can help!
+
+## Contributors
+
+The following contributors have either hepled to start this project, have contributed
+code, are actively maintaining it (including documentation), or in other ways
+being awesome contributors to this project. **We'd like to take a moment to recognize them.**
+
+|                                                            | Name           | GitHub                                             |
+| :--------------------------------------------------------: | -------------- | -------------------------------------------------- |
+| <img src="https://github.com/NateRadebaugh.png?size=72" /> | Nate Radebaugh | [@NateRadebaugh](https://github.com/NateRadebaugh) |
+|   <img src="https://github.com/kirkbross.png?size=72" />   | Kirk Ross      | [@kirkbross](https://github.com/kirkbross)         |
+|                                                            | Prateek Goel   | [@prateekgoel](https://github.com/prateekgoel)     |
+
+If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
+
+The Font Awesome team:
+
+|                                                            | Name           | GitHub                                             |
+| :--------------------------------------------------------: | -------------- | -------------------------------------------------- |
+| <img src="https://github.com/supercodepoet.png?size=72" /> | Travis Chase   | [@supercodepoet](https://github.com/supercodepoet) |
+|   <img src="https://github.com/robmadole.png?size=72" />   | Rob Madole     | [@robmadole](https://github.com/robmadole)         |
+|  <img src="https://github.com/mlwilkerson.png?size=72" />  | Mike Wilkerson | [@mlwilkerson](https://github.com/mlwilkerson)     |
+|     <img src="https://github.com/talbs.png?size=72" />     | Brian Talbot   | [@talbs](https://github.com/talbs)                 |
+
+## Releasing this project (only project owners can do this)
+
+See [DEVELOPMENT.md](DEVELOPMENT.md#release)
