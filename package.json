@@ -28,7 +28,10 @@
     "clean": "rm -f index.js && rm -f index.es.js"
   },
   "lint-staged": {
-    "README.md": ["markdown-toc -i", "git add README.md"]
+    "README.md": [
+      "markdown-toc -i",
+      "git add README.md"
+    ]
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
@@ -36,25 +39,25 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
-    "@types/react": "^16.1.0",
+    "@types/react": "^16.4.8",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
-    "babel-jest": "^22.4.3",
+    "babel-jest": "^23.4.2",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^5.1.1",
-    "eslint": "^4.19.1",
+    "eslint": "^5.3.0",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jest": "^21.7.0",
-    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.5.1",
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
-    "jest": "^22.4.3",
+    "jest": "^23.4.2",
     "lint-staged": "^7.2.0",
     "markdown-toc": "^1.2.0",
     "prettier": "^1.11.1",
@@ -71,5 +74,9 @@
     "humps": "^2.0.1",
     "prop-types": "^15.5.10"
   },
-  "files": ["index.js", "index.es.js", "index.d.ts"]
+  "files": [
+    "index.js",
+    "index.es.js",
+    "index.d.ts"
+  ]
 }

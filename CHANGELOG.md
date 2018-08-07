@@ -6,11 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.1](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.1) - 2018-08-07
+
+### Changed
+
+- Added tabIndex to TypeScript definitions #168
+
+---
+
 ## [0.1.0](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.0) - 2018-06-20
 
 ### Changed
 
-* Upgraded to the newer Font Awesome 5.1 packages
+- Upgraded to the newer Font Awesome 5.1 packages
 
 ---
 
@@ -18,7 +26,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
-* Added displayName to FontAwesomeIcon component
+- Added displayName to FontAwesomeIcon component
 
 ---
 
@@ -26,7 +34,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Changed
 
-* Moved prop-types from peerDependencies to dependencies #87
+- Moved prop-types from peerDependencies to dependencies #87
 
 ---
 
@@ -34,7 +42,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Fixed
 
-* Peer dependency warnings #103
+- Peer dependency warnings #103
 
 ---
 
@@ -42,9 +50,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Changed
 
-* Documentation and example improvements
-* Use cross-env to support Windows
-* Support for @fortawesome/fontawesome 1.1.0
+- Documentation and example improvements
+- Use cross-env to support Windows
+- Support for @fortawesome/fontawesome 1.1.0
 
 ---
 
@@ -52,7 +60,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Changed
 
-* Better documentation in the README
+- Better documentation in the README
 
 ---
 
@@ -60,4 +68,4 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Fixed
 
-* Missing icons no longer return `undefined` which caused React to be noisy about a misbehaving component
+- Missing icons no longer return `undefined` which caused React to be noisy about a misbehaving component

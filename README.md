@@ -202,12 +202,12 @@ OK, so what's happening here?
 
 In our call to <span style="white-space:nowrap;">`library.add()`</span> we're passing
 
-* `fab`: which represents _all_ of the brand icons in
+- `fab`: which represents _all_ of the brand icons in
   <span style="white-space:nowrap;">`@fortawesome/free-brands-svg-icons`</span>.
   So any of the brand icons in that package may be referenced by icon name
   as a string anywhere else in our app.
   For example: `"apple"`, `"microsoft"`, or `"google"`.
-* `faCheckSquare` and `faCoffee`: Adding each of these icons individually
+- `faCheckSquare` and `faCoffee`: Adding each of these icons individually
   allows us to refer to them throughout our app by their icon string names,
   `"check-square"` and `"coffee"`, respectively.
 
@@ -253,15 +253,15 @@ export const Gadget = () => (
 
 Notice:
 
-* We used the `"check-square"` icon name again in this component, though we
+- We used the `"check-square"` icon name again in this component, though we
   didn't have to explicitly import it into this component. With one explicit import of
   that icon in `App.js`, and adding it to the library, we've managed to use
   it by name in multiple components.
-* We used the `"apple"`, `"microsoft"`, and `"google"` brand icons, which were
+- We used the `"apple"`, `"microsoft"`, and `"google"` brand icons, which were
   never explicitly _individually_ imported, but they're available to us by
   name as strings because `fab` was added to our library in `App.js`, and
   `fab` includes all of those icons.
-* We added the `fab` prefix to reference those brand icons.
+- We added the `fab` prefix to reference those brand icons.
 
 Adding a prefix—and the syntax we used to do it—are new. So what's
 going on here?
@@ -284,11 +284,11 @@ Now, what about that syntax?
 
 The `icon` prop expects a single object:
 
-* It could be an icon object, like `{faCoffee}`.
-* It could a string object, like `"coffee"`.
+- It could be an icon object, like `{faCoffee}`.
+- It could a string object, like `"coffee"`.
   (The curly braces around a string object supplied to a prop are optional,
   so we've omitted them.)
-* Or it could be an `Array` of strings, where the first element is a prefix,
+- Or it could be an `Array` of strings, where the first element is a prefix,
   and the second element is the icon name: `{["fab", "apple"]}`
 
 ### Unit Testing
@@ -516,8 +516,8 @@ module to see which types it exports.
 
 Review the following docs before diving in:
 
-* [CONTRIBUTING.md](CONTRIBUTING.md)
-* [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 And then:
 
@@ -534,6 +534,7 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 | <img src="https://github.com/NateRadebaugh.png?size=72" /> | Nate Radebaugh | [@NateRadebaugh](https://github.com/NateRadebaugh) |
 |   <img src="https://github.com/kirkbross.png?size=72" />   | Kirk Ross      | [@kirkbross](https://github.com/kirkbross)         |
 |                                                            | Prateek Goel   | [@prateekgoel](https://github.com/prateekgoel)     |
+|    <img src="https://github.com/naortor.png?size=72" />    | Naor Torgeman  | [@naortor](https://github.com/naortor)             |
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 
