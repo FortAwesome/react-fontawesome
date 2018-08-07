@@ -30,4 +30,5 @@ export interface Props {
   transform?: string | Transform
   symbol?: FaSymbol
   style?: CSSProperties
+  tabIndex?: number;
 }
