@@ -136,9 +136,7 @@
 	    }
 	  };
 
-	  if (typeof undefined === 'function' && undefined.amd) {
-	    undefined(humps);
-	  } else if ('object' !== 'undefined' && module.exports) {
+	  if (module.exports) {
 	    module.exports = humps;
 	  } else {
 	    global.humps = humps;
