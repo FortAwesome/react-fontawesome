@@ -57,7 +57,7 @@
     "eslint-plugin-react": "^7.5.1",
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
-    "jest": "^23.4.2",
+    "jest": "^23.5.0",
     "lint-staged": "^7.2.0",
     "markdown-toc": "^1.2.0",
     "prettier": "^1.11.1",
