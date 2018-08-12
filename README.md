@@ -8,6 +8,33 @@
 
 > Font Awesome 5 React component using SVG with JS
 
+<!-- toc -->
+
+- [Introduction](#introduction)
+    + [Upgrading Font Awesome?](#upgrading-font-awesome)
+    + [Get started](#get-started)
+    + [Learn about our new SVG implementation](#learn-about-our-new-svg-implementation)
+    + [Going from 0.0.x to 0.1.0](#going-from-00x-to-010)
+- [Installation](#installation)
+- [Add more styles or Pro icons](#add-more-styles-or-pro-icons)
+- [or with Yarn](#or-with-yarn)
+- [Usage](#usage)
+  * [Explicit Import](#explicit-import)
+  * [Build a Library to Reference Icons Throughout Your App More Conveniently](#build-a-library-to-reference-icons-throughout-your-app-more-conveniently)
+  * [Unit Testing](#unit-testing)
+  * [Processing i elements into svg using Font Awesome](#processing-i-elements-into-svg-using-font-awesome)
+- [Features](#features)
+  * [Basic](#basic)
+  * [Advanced](#advanced)
+  * [TypeScript](#typescript)
+- [How to Help](#how-to-help)
+- [Contributors](#contributors)
+- [Releasing this project (only project owners can do this)](#releasing-this-project-only-project-owners-can-do-this)
+
+<!-- tocstop -->
+
+## Introduction
+
 Hey there! We're glad you're here...
 
 #### Upgrading Font Awesome?
@@ -36,26 +63,6 @@ the web fonts implementation that was used in version 4 and older of Font Awesom
 See [UPGRADING.md](./UPGRADING.md).
 
 You might also be interested in the larger umbrella project [UPGRADING.md](https://github.com/FortAwesome/Font-Awesome/blob/master/UPGRADING.md)
-
-<!-- toc -->
-
-- [Installation](#installation)
-- [Add more styles or Pro icons](#add-more-styles-or-pro-icons)
-- [or with Yarn](#or-with-yarn)
-- [Usage](#usage)
-  * [Explicit Import](#explicit-import)
-  * [Build a Library to Reference Icons Throughout Your App More Conveniently](#build-a-library-to-reference-icons-throughout-your-app-more-conveniently)
-  * [Unit Testing](#unit-testing)
-  * [Processing i elements into svg using Font Awesome](#processing-i-elements-into-svg-using-font-awesome)
-- [Features](#features)
-  * [Basic](#basic)
-  * [Advanced](#advanced)
-  * [TypeScript](#typescript)
-- [How to Help](#how-to-help)
-- [Contributors](#contributors)
-- [Releasing this project (only project owners can do this)](#releasing-this-project-only-project-owners-can-do-this)
-
-<!-- tocstop -->
 
 ## Installation
 
