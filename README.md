@@ -84,15 +84,13 @@ $ npm i --save @fortawesome/free-brands-svg-icons@prerelease
 $ npm i --save @fortawesome/free-regular-svg-icons@prerelease
 ```
 
-If you are a [Font Awesome Pro](https://fontawesome.com/pro) subscriber you can install Pro packages.
+If you are a [Font Awesome Pro](https://fontawesome.com/pro) subscriber you can install Pro packages; this requires [additional configuration](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers).
 
 ```
 $ npm i --save @fortawesome/pro-solid-svg-icons@prerelease
 $ npm i --save @fortawesome/pro-regular-svg-icons@prerelease
 $ npm i --save @fortawesome/pro-light-svg-icons@prerelease
 ```
-
-Using the Pro packages requires [additional configuration](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers).
 
 ## or with Yarn
 
