@@ -67,9 +67,9 @@ You might also be interested in the larger umbrella project [UPGRADING.md](https
 ## Installation
 
 ```
-$ npm i --save @fortawesome/fontawesome-svg-core@prerelease
-$ npm i --save @fortawesome/free-solid-svg-icons@prerelease
-$ npm i --save @fortawesome/react-fontawesome@prerelease
+$ npm i --save @fortawesome/fontawesome-svg-core
+$ npm i --save @fortawesome/free-solid-svg-icons
+$ npm i --save @fortawesome/react-fontawesome
 ```
 
 ## Add more styles or Pro icons
@@ -80,24 +80,24 @@ version 4 to 5 we have a limited number of Regular icons available.
 **Visit [fontawesome.com/icons](https://fontawesome.com/icons) to search for free and Pro icons**
 
 ```
-$ npm i --save @fortawesome/free-brands-svg-icons@prerelease
-$ npm i --save @fortawesome/free-regular-svg-icons@prerelease
+$ npm i --save @fortawesome/free-brands-svg-icons
+$ npm i --save @fortawesome/free-regular-svg-icons
 ```
 
 If you are a [Font Awesome Pro](https://fontawesome.com/pro) subscriber you can install Pro packages; this requires [additional configuration](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers).
 
 ```
-$ npm i --save @fortawesome/pro-solid-svg-icons@prerelease
-$ npm i --save @fortawesome/pro-regular-svg-icons@prerelease
-$ npm i --save @fortawesome/pro-light-svg-icons@prerelease
+$ npm i --save @fortawesome/pro-solid-svg-icons
+$ npm i --save @fortawesome/pro-regular-svg-icons
+$ npm i --save @fortawesome/pro-light-svg-icons
 ```
 
 ## or with Yarn
 
 ```
-$ yarn add @fortawesome/fontawesome-svg-core@prerelease
-$ yarn add @fortawesome/free-solid-svg-icons@prerelease
-$ yarn add @fortawesome/react-fontawesome@prerelease
+$ yarn add @fortawesome/fontawesome-svg-core
+$ yarn add @fortawesome/free-solid-svg-icons
+$ yarn add @fortawesome/react-fontawesome
 ```
 
 ## Usage
@@ -134,13 +134,13 @@ For this example, we'll also reference the `@fortawesome/free-solid-svg-icons`
 module, so make sure you've added it to the project as well:
 
 ```
-$ npm i --save @fortawesome/free-solid-svg-icons@prerelease
+$ npm i --save @fortawesome/free-solid-svg-icons
 ```
 
 or
 
 ```
-$ yarn add @fortawesome/free-solid-svg-icons@prerelease
+$ yarn add @fortawesome/free-solid-svg-icons
 ```
 
 Now, a simple React component might look like this:
@@ -183,13 +183,13 @@ imagination as to how this might scale up with lots of icons.
 Don't forget to add `@fortawesome/free-brands-svg-icons`:
 
 ```
-$ npm i --save @fortawesome/free-brands-svg-icons@prerelease
+$ npm i --save @fortawesome/free-brands-svg-icons
 ```
 
 or
 
 ```
-$ yarn add @fortawesome/free-brands-svg-icons@prerelease
+$ yarn add @fortawesome/free-brands-svg-icons
 ```
 
 In `App.js`, where our app is initialized:
