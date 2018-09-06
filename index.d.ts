@@ -31,4 +31,5 @@ export interface Props {
   symbol?: FaSymbol
   style?: CSSProperties
   tabIndex?: number;
+  title?: string;
 }

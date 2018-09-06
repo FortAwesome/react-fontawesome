@@ -261,3 +261,16 @@ describe('symbol', () => {
     expect(spy.mock.calls[0][1].symbol).toBe('coffee-icon')
   })
 })
+
+describe('title', () => {
+  test('will not add a title element', () => {
+    const vm = mount({ icon: faCoffee })
+    expect(vm.children[0].type).not.toBe('title')
+  })
+
+  test('will add a title element', () => {
+    const vm = mount({ icon: faCoffee, title: 'Coffee' })
+    expect(vm.children[0].type).toBe('title')
+    expect(vm.children[0].children[0]).toBe('Coffee')
+  })
+})

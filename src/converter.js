@@ -23,6 +23,9 @@ function styleToObject(style) {
 }
 
 function convert(createElement, element, extraProps = {}) {
+  if (typeof element === 'string') {
+    return element
+  }
   const children = (element.children || []).map(
     convert.bind(null, createElement)
   )

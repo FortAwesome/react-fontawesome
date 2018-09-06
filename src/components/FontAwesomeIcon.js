@@ -50,7 +50,7 @@ function normalizeIconArgs(icon) {
 }
 
 export default function FontAwesomeIcon(props) {
-  const { icon: iconArgs, mask: maskArgs, symbol, className } = props
+  const { icon: iconArgs, mask: maskArgs, symbol, className, title } = props
 
   const iconLookup = normalizeIconArgs(iconArgs)
   const classes = objectWithKey('classes', [
@@ -69,7 +69,8 @@ export default function FontAwesomeIcon(props) {
     ...classes,
     ...transform,
     ...mask,
-    symbol
+    symbol,
+    title
   })
 
   if (!renderedIcon) {
@@ -142,6 +143,8 @@ FontAwesomeIcon.propTypes = {
 
   symbol: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 
+  title: PropTypes.string,
+
   transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 }
 
@@ -160,6 +163,7 @@ FontAwesomeIcon.defaultProps = {
   size: null,
   spin: false,
   symbol: false,
+  title: '',
   transform: null
 }
 
