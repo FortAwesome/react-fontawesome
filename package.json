@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome 5",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "index.js",
   "module": "index.es.js",
   "jsnext:main": "index.es.js",
@@ -14,7 +14,12 @@
   "contributors": [
     "Travis Chase <travis@fontawesome.com>",
     "Rob Madole <rob@fontawesome.com>",
-    "Mike Wilkerson <mwilkerson@gmail.com>"
+    "Mike Wilkerson <mwilkerson@gmail.com>",
+    "Nate Radebaugh <github.com/NateRadebaugh>",
+    "Kirk Ross <github.com/kirkbross>",
+    "Prateek Goel <github.com/prateekgoel>",
+    "Naor Torgeman <github.com/naortor>",
+    "Matthew Hand <github.com/mmhand123>"
   ],
   "license": "MIT",
   "scripts": {

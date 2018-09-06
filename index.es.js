@@ -220,6 +220,9 @@ function styleToObject(style) {
 function convert(createElement, element) {
   var extraProps = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
+  if (typeof element === 'string') {
+    return element;
+  }
   var children = (element.children || []).map(convert.bind(null, createElement));
 
   var mixins = Object.keys(element.attributes || {}).reduce(function (acc, key) {
@@ -315,7 +318,8 @@ function FontAwesomeIcon(props) {
   var iconArgs = props.icon,
       maskArgs = props.mask,
       symbol = props.symbol,
-      className = props.className;
+      className = props.className,
+      title = props.title;
 
 
   var iconLookup = normalizeIconArgs(iconArgs);
@@ -324,7 +328,8 @@ function FontAwesomeIcon(props) {
   var mask = objectWithKey('mask', normalizeIconArgs(maskArgs));
 
   var renderedIcon = icon(iconLookup, _extends({}, classes, transform, mask, {
-    symbol: symbol
+    symbol: symbol,
+    title: title
   }));
 
   if (!renderedIcon) {
@@ -376,6 +381,8 @@ FontAwesomeIcon.propTypes = {
 
   symbol: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 
+  title: PropTypes.string,
+
   transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
@@ -394,6 +401,7 @@ FontAwesomeIcon.defaultProps = {
   size: null,
   spin: false,
   symbol: false,
+  title: '',
   transform: null
 };
 

@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.3](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.3) - 2018-09-06
+
+### Added
+
+- Add title prop #180
+
+---
+
 ## [0.1.2](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.2) - 2018-08-12
 
 ### Changed
