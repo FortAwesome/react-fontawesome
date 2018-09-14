@@ -40,7 +40,7 @@
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
-    "react": "16.x"
+    "react": ">=15.x"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
