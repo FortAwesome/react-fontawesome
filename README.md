@@ -27,6 +27,9 @@
   * [Basic](#basic)
   * [Advanced](#advanced)
   * [TypeScript](#typescript)
+- [Frequent questions](#frequent-questions)
+  * [How do I import the same icon from two different styles?](#how-do-i-import-the-same-icon-from-two-different-styles)
+  * [I don't think tree-shaking is working; got any advice?](#i-dont-think-tree-shaking-is-working-got-any-advice)
 - [How to Help](#how-to-help)
 - [Contributors](#contributors)
 - [Releasing this project (only project owners can do this)](#releasing-this-project-only-project-owners-can-do-this)
@@ -516,6 +519,24 @@ They are re-exported from both `@fortawesome/fontawesome-svg-core` and
 `@fortawesome/free-solid-svg-icons` (and other icon packs). This is just to
 make importing more convenient in some cases. Refer to the `index.d.ts` in any
 module to see which types it exports.
+
+## Frequent questions
+
+### How do I import the same icon from two different styles?
+
+With ES modules and `import` statements we can rename:
+
+```javascript
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faStroopwafel as fasFaStroopwafel } from '@fortawesome/pro-solid-svg-icons'
+import { faStroopwafel as farFaStroopwafel } from '@fortawesome/pro-regular-svg-icons'
+
+library.add(fasFaStroopwafel, farFaStroopwafel)
+```
+
+### I don't think tree-shaking is working; got any advice?
+
+Check out our [docs here](https://fontawesome.com/how-to-use/with-the-api/other/tree-shaking).
 
 ## How to Help
 
