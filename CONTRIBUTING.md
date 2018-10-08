@@ -1,4 +1,4 @@
-This is the repository for the _official_ Font Awesome Angular component, _initialized_ by the team behind Font Awesome,
+This is the repository for the _official_ Font Awesome React component, _initialized_ by the team behind Font Awesome,
 but intended to evolve over time with _community_ contributions.
 
 # Ways to Contribute
@@ -24,16 +24,16 @@ Add tests if you add code.
 
 ## Everything Else
 
-* [Request a feature](https://github.com/FortAwesome/react-fontawesome/issues/new??title=Feature%20request:feature-name&template=feature-request.md)
-* [Request a new icon](https://github.com/FortAwesome/Font-Awesome/issues/new?title=Icon%20request:%20icon-name&template=icon-request.md)
+- [Request a feature](https://github.com/FortAwesome/react-fontawesome/issues/new??title=Feature%20request:feature-name&template=feature-request.md)
+- [Request a new icon](https://github.com/FortAwesome/Font-Awesome/issues/new?title=Icon%20request:%20icon-name&template=icon-request.md)
 
 # Project Goals
 
 1.  Achieve and maintain feature parity with Font Awesome's [SVG with JavaScript](https://fontawesome.com/how-to-use/svg-with-js) method.
 
-1.  Keep with best practices in the Angular development community.
+1.  Keep with best practices in the React development community.
 
-1.  Stay current with major developments in Angular and Angular-CLI
+1.  Stay current with major developments in React and create-react-app
 
 1.  Maintain a reasonable level of consistency between this component and the other Font Awesome official JavaScript
     framework components ([Vue](https://github.com/FortAwesome/vue-fontawesome), [Angular](https://github.com/FortAwesome/angular-fontawesome), [Ember](https://github.com/FortAwesome/react-fontawesome))
