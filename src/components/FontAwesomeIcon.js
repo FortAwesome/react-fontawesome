@@ -45,6 +45,11 @@ function normalizeIconArgs(icon) {
   }
 
   if (typeof icon === 'string') {
+    const prefixIconRegex = /^[a-z]{3} [a-z0-9-]+$/
+    if (prefixIconRegex.test(icon)) {
+      const [prefix, iconName] = icon.split(' ')
+      return { prefix, iconName }
+    }
     return { prefix: 'fas', iconName: icon }
   }
 }
