@@ -31,7 +31,6 @@ export default {
       jsnext: true,
       main: true
     }),
-    commonJs(),
     babel({
       babelrc: false,
       presets: [
@@ -48,6 +47,7 @@ export default {
       ],
       plugins: ['external-helpers'],
       exclude: 'node_modules/**'
-    })
+    }),
+    commonJs()
   ]
 }

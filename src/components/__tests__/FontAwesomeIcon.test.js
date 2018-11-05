@@ -32,8 +32,10 @@ const faCircle = {
 
 fontawesome.library.add(faCoffee, faCircle)
 
-function mount(props = {}) {
-  const component = renderer.create(<FontAwesomeIcon {...props} />)
+function mount(props = {}, { createNodeMock } = {}) {
+  const component = renderer.create(<FontAwesomeIcon {...props} />, {
+    createNodeMock
+  })
 
   return component.toJSON()
 }
@@ -272,5 +274,36 @@ describe('title', () => {
     const vm = mount({ icon: faCoffee, title: 'Coffee' })
     expect(vm.children[0].type).toBe('title')
     expect(vm.children[0].children[0]).toBe('Coffee')
+  })
+})
+
+describe('using ref', () => {
+  const node = {}
+
+  test('function', () => {
+    const spy = jest.fn(element => element)
+
+    mount(
+      { icon: faCoffee, ref: spy },
+      {
+        createNodeMock: () => node
+      }
+    )
+
+    expect(spy.mock.calls.length).toBe(1)
+    expect(spy.mock.results[0].value).toBe(node)
+  })
+
+  test('createRef', () => {
+    const ref = React.createRef()
+
+    mount(
+      { icon: faCoffee, ref },
+      {
+        createNodeMock: () => node
+      }
+    )
+
+    expect(ref.current).toBe(node)
   })
 })
