@@ -13,7 +13,7 @@ import {
 export function FontAwesomeIcon(props: Props): JSX.Element
 
 export interface Props {
-  ref: ((e: any) => void) | React.RefObject<any>
+  ref?: ((e: any) => void) | React.RefObject<any>
   icon: IconProp
   mask?: IconProp
   className?: string
