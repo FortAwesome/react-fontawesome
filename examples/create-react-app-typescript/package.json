@@ -1,27 +1,37 @@
 {
-  "name": "typescript",
-  "version": "0.1.1",
+  "name": "create-react-app-typescript",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.7",
-    "@fortawesome/free-brands-svg-icons": "^5.4.2",
-    "@fortawesome/free-solid-svg-icons": "^5.4.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.10",
+    "@fortawesome/free-brands-svg-icons": "^5.6.1",
+    "@fortawesome/free-solid-svg-icons": "^5.6.1",
     "@fortawesome/react-fontawesome": "^0.1.3",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts-ts": "2.8.0"
-  },
-  "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "2.1.1",
+    "typescript": "^3.2.2"
   },
   "devDependencies": {
     "@types/jest": "^21.1.9",
-    "@types/node": "^8.5.2",
-    "@types/prop-types": "^15.5.2",
-    "@types/react": "^16.0.31",
-    "@types/react-dom": "^16.0.3"
-  }
+    "@types/node": "^8.10.38",
+    "@types/prop-types": "^15.5.8",
+    "@types/react": "^16.7.17",
+    "@types/react-dom": "^16.0.11"
+  },
+  "scripts": {
+    "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
+    "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
+    "test": "SKIP_PREFLIGHT_CHECK=true react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
