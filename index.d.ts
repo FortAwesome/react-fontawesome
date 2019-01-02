@@ -12,7 +12,7 @@ import {
 
 export function FontAwesomeIcon(props: Props): JSX.Element
 
-export interface Props {
+export interface Props extends React.DOMAttributes<SVGImageElement> {
   icon: IconProp
   mask?: IconProp
   className?: string
