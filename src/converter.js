@@ -26,9 +26,10 @@ function convert(createElement, element, extraProps = {}) {
   if (typeof element === 'string') {
     return element
   }
-  const children = (element.children || []).map(
-    convert.bind(null, createElement)
-  )
+
+  const children = (element.children || []).map(child => {
+    return convert(createElement, child)
+  })
 
   const mixins = Object.keys(element.attributes || {}).reduce(
     (acc, key) => {
