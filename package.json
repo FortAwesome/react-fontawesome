@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome 5",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "index.js",
   "module": "index.es.js",
   "jsnext:main": "index.es.js",
@@ -19,7 +19,8 @@
     "Kirk Ross <github.com/kirkbross>",
     "Prateek Goel <github.com/prateekgoel>",
     "Naor Torgeman <github.com/naortor>",
-    "Matthew Hand <github.com/mmhand123>"
+    "Matthew Hand <github.com/mmhand123>",
+    "calvinf <github.com/calvinf>"
   ],
   "license": "MIT",
   "scripts": {

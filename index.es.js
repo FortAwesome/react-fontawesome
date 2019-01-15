@@ -269,7 +269,9 @@ function convert(createElement, element) {
     return element;
   }
 
-  var children = (element.children || []).map(convert.bind(null, createElement));
+  var children = (element.children || []).map(function (child) {
+    return convert(createElement, child);
+  });
   var mixins = Object.keys(element.attributes || {}).reduce(function (acc, key) {
     var val = element.attributes[key];
 

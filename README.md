@@ -562,6 +562,7 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 |                                                            | Prateek Goel   | [@prateekgoel](https://github.com/prateekgoel)     |
 |    <img src="https://github.com/naortor.png?size=72" />    | Naor Torgeman  | [@naortor](https://github.com/naortor)             |
 |   <img src="https://github.com/mmhand123.png?size=72" />   | Matthew Hand   | [@mmhand123](https://github.com/mmhand123)         |
+|    <img src="https://github.com/calvinf.png?size=72" />    | calvinf        | [@calvinf](https://github.com/calvinf)             |
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 

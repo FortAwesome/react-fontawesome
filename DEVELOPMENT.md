@@ -18,6 +18,7 @@ The following commands are available through `npm run`
 1.  Edit `package.json` and update the version number
 1.  Add new contributors to the `contributors` section
 1.  Update the `CHANGELOG.md`
+1.  Update the `README.md` contributors section
 1.  `npm run build` and `npm test`
 1.  `npm publish`
 1.  `git add . && git commit -m 'Release VERSION'`

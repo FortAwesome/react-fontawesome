@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.4](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.4) - 2019-01-15
+
+### Changed
+
+- Upgrade to Babel 7 and Rollup 1 #213
+
+### Fixed
+
+- Thrown error in IE11
+
+---
+
 ## [0.1.3](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.3) - 2018-09-06
 
 ### Added
