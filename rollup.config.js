@@ -36,17 +36,16 @@ export default {
       babelrc: false,
       presets: [
         [
-          'env',
+          '@babel/preset-env',
           {
             debug: true,
             targets: { browsers: ['> 1%', 'last 2 versions', 'ie > 9'] },
             modules: false
           }
         ],
-        'stage-3',
-        'react'
+        '@babel/preset-react'
       ],
-      plugins: ['external-helpers'],
+      plugins: ['@babel/plugin-external-helpers'],
       exclude: 'node_modules/**'
     })
   ]
