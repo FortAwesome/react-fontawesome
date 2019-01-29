@@ -45,7 +45,7 @@ function normalizeIconArgs(icon) {
   }
 
   if (typeof icon === 'string') {
-    return { prefix: 'fas', iconName: icon }
+    return { prefix: FontAwesomeIcon.prefix, iconName: icon }
   }
 }
 
@@ -166,5 +166,7 @@ FontAwesomeIcon.defaultProps = {
   title: '',
   transform: null
 }
+
+FontAwesomeIcon.prefix = 'fas'
 
 const convertCurry = convert.bind(null, React.createElement)
