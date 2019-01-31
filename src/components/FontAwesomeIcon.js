@@ -49,7 +49,7 @@ function normalizeIconArgs(icon) {
   }
 }
 
-export default function FontAwesomeIcon(props) {
+export default function FontAwesomeIcon({ forwardedRef, ...props }) {
   const { icon: iconArgs, mask: maskArgs, symbol, className, title } = props
 
   const iconLookup = normalizeIconArgs(iconArgs)
@@ -79,7 +79,7 @@ export default function FontAwesomeIcon(props) {
   }
 
   const { abstract } = renderedIcon
-  const extraProps = {}
+  const extraProps = { ref: forwardedRef }
 
   Object.keys(props).forEach(key => {
     if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {

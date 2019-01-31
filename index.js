@@ -374,7 +374,10 @@
     }
   }
 
-  function FontAwesomeIcon(props) {
+  function FontAwesomeIcon(_ref2) {
+    var forwardedRef = _ref2.forwardedRef,
+        props = _objectWithoutProperties(_ref2, ["forwardedRef"]);
+
     var iconArgs = props.icon,
         maskArgs = props.mask,
         symbol = props.symbol,
@@ -395,7 +398,9 @@
     }
 
     var abstract = renderedIcon.abstract;
-    var extraProps = {};
+    var extraProps = {
+      ref: forwardedRef
+    };
     Object.keys(props).forEach(function (key) {
       if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
         extraProps[key] = props[key];
