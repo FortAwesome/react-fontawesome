@@ -32,4 +32,5 @@ export interface Props {
   style?: CSSProperties
   tabIndex?: number;
   title?: string;
+  onClick?: (...args: any[]) => any;
 }
