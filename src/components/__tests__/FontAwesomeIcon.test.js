@@ -274,3 +274,17 @@ describe('title', () => {
     expect(vm.children[0].children[0]).toBe('Coffee')
   })
 })
+
+describe('ref', () => {
+  test('ref prop will point to svg element', () => {
+    const ref = React.createRef()
+    let type = null
+    const options = {
+      createNodeMock: element => {
+        type = element.type
+      }
+    }
+    renderer.create(<FontAwesomeIcon icon={faCoffee} ref={ref} />, options)
+    expect(type).toBe('svg')
+  })
+})
