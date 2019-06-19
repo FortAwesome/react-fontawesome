@@ -49,45 +49,54 @@ function normalizeIconArgs(icon) {
   }
 }
 
-export default function FontAwesomeIcon(props) {
-  const { icon: iconArgs, mask: maskArgs, symbol, className, title } = props
+export default class FontAwesomeIcon extends React.PureComponent {
+  render() {
+    const {
+      icon: iconArgs,
+      mask: maskArgs,
+      symbol,
+      className,
+      title,
+      transform: transformArgs
+    } = this.props
 
-  const iconLookup = normalizeIconArgs(iconArgs)
-  const classes = objectWithKey('classes', [
-    ...classList(props),
-    ...className.split(' ')
-  ])
-  const transform = objectWithKey(
-    'transform',
-    typeof props.transform === 'string'
-      ? parse.transform(props.transform)
-      : props.transform
-  )
-  const mask = objectWithKey('mask', normalizeIconArgs(maskArgs))
+    const iconLookup = normalizeIconArgs(iconArgs)
+    const classes = objectWithKey('classes', [
+      ...classList(this.props),
+      ...className.split(' ')
+    ])
+    const transform = objectWithKey(
+      'transform',
+      typeof transformArgs === 'string'
+        ? parse.transform(transformArgs)
+        : transformArgs
+    )
+    const mask = objectWithKey('mask', normalizeIconArgs(maskArgs))
 
-  const renderedIcon = icon(iconLookup, {
-    ...classes,
-    ...transform,
-    ...mask,
-    symbol,
-    title
-  })
+    const renderedIcon = icon(iconLookup, {
+      ...classes,
+      ...transform,
+      ...mask,
+      symbol,
+      title
+    })
 
-  if (!renderedIcon) {
-    log('Could not find icon', iconLookup)
-    return null
-  }
-
-  const { abstract } = renderedIcon
-  const extraProps = {}
-
-  Object.keys(props).forEach(key => {
-    if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
-      extraProps[key] = props[key]
+    if (!renderedIcon) {
+      log('Could not find icon', iconLookup)
+      return null
     }
-  })
 
-  return convertCurry(abstract[0], extraProps)
+    const { abstract } = renderedIcon
+    const extraProps = {}
+
+    Object.keys(this.props).forEach(key => {
+      if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
+        extraProps[key] = this.props[key]
+      }
+    })
+
+    return convertCurry(abstract[0], extraProps)
+  }
 }
 
 FontAwesomeIcon.displayName = 'FontAwesomeIcon'
