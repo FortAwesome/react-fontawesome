@@ -94,6 +94,7 @@ $ npm i --save @fortawesome/pro-solid-svg-icons
 $ npm i --save @fortawesome/pro-regular-svg-icons
 $ npm i --save @fortawesome/pro-light-svg-icons
 ```
+**Duotone icons are currently in pre-release and are coming soon to this component.**
 
 ## or with Yarn
 
