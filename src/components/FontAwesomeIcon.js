@@ -145,7 +145,9 @@ FontAwesomeIcon.propTypes = {
 
   title: PropTypes.string,
 
-  transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+  transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  
+  width: PropTypes.number
 }
 
 FontAwesomeIcon.defaultProps = {
@@ -164,7 +166,8 @@ FontAwesomeIcon.defaultProps = {
   spin: false,
   symbol: false,
   title: '',
-  transform: null
+  transform: null,
+  width: 0
 }
 
 const convertCurry = convert.bind(null, React.createElement)
