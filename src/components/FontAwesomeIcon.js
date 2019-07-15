@@ -146,7 +146,7 @@ FontAwesomeIcon.propTypes = {
   title: PropTypes.string,
 
   transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  
+
   width: PropTypes.number
 }
 
