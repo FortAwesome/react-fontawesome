@@ -10,9 +10,14 @@ import {
   FaSymbol
 } from '@fortawesome/fontawesome-svg-core'
 
-export function FontAwesomeIcon(props: Props): JSX.Element
+export function FontAwesomeIcon(props: FontAwesomeIconProps): JSX.Element
 
-export interface Props {
+/**
+ * @deprecated use FontAwesomeIconProps
+ */
+export type Props = FontAwesomeIconProps
+
+export interface FontAwesomeIconProps {
   icon: IconProp
   mask?: IconProp
   className?: string
