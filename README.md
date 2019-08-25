@@ -98,8 +98,8 @@ If you are a [Font Awesome Pro](https://fontawesome.com/pro) subscriber you can 
 $ npm i --save @fortawesome/pro-solid-svg-icons
 $ npm i --save @fortawesome/pro-regular-svg-icons
 $ npm i --save @fortawesome/pro-light-svg-icons
+$ npm i --save @fortawesome/pro-duotone-svg-icons
 ```
-**Duotone icons are currently in pre-release and are coming soon to this component.**
 
 ## Usage
 
@@ -423,6 +423,13 @@ Spin and pulse [animation](https://fontawesome.com/how-to-use/on-the-web/styling
 ```javascript
 <FontAwesomeIcon icon="spinner" pull="left" />
 <FontAwesomeIcon icon="spinner" pull="right" />
+```
+
+[Swap opacity](https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons) (duotone icons only):
+
+```javascript
+<FontAwesomeIcon icon={['fad', 'stroopwafel']} />
+<FontAwesomeIcon icon={['fad', 'stroopwafel']} swapOpacity />
 ```
 
 Your own class names:
