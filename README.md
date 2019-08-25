@@ -369,6 +369,7 @@ loaded an icon bundle. See the sections above for the details.
 <FontAwesomeIcon icon="spinner" size="lg" />
 <FontAwesomeIcon icon="spinner" size="6x" />
 ```
+Note that icon size can be controlled with the CSS `font-size` attribute, and `FontAwesomeIcon`'s `size` prop determines icon size relative to the current `font-size`.
 
 [Fixed width](https://fontawesome.com/how-to-use/on-the-web/styling/fixed-width-icons):
 
