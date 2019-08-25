@@ -17,7 +17,6 @@
     + [Going from 0.0.x to 0.1.0](#going-from-00x-to-010)
 - [Installation](#installation)
 - [Add more styles or Pro icons](#add-more-styles-or-pro-icons)
-- [or with Yarn](#or-with-yarn)
 - [Usage](#usage)
   * [Explicit Import](#explicit-import)
   * [Build a Library to Reference Icons Throughout Your App More Conveniently](#build-a-library-to-reference-icons-throughout-your-app-more-conveniently)
@@ -68,11 +67,17 @@ See [UPGRADING.md](./UPGRADING.md).
 You might also be interested in the larger umbrella project [UPGRADING.md](https://github.com/FortAwesome/Font-Awesome/blob/master/UPGRADING.md)
 
 ## Installation
-
+Using NPM:
 ```
 $ npm i --save @fortawesome/fontawesome-svg-core
 $ npm i --save @fortawesome/free-solid-svg-icons
 $ npm i --save @fortawesome/react-fontawesome
+```
+Or with Yarn:
+```
+$ yarn add @fortawesome/fontawesome-svg-core
+$ yarn add @fortawesome/free-solid-svg-icons
+$ yarn add @fortawesome/react-fontawesome
 ```
 
 ## Add more styles or Pro icons
@@ -95,14 +100,6 @@ $ npm i --save @fortawesome/pro-regular-svg-icons
 $ npm i --save @fortawesome/pro-light-svg-icons
 ```
 **Duotone icons are currently in pre-release and are coming soon to this component.**
-
-## or with Yarn
-
-```
-$ yarn add @fortawesome/fontawesome-svg-core
-$ yarn add @fortawesome/free-solid-svg-icons
-$ yarn add @fortawesome/react-fontawesome
-```
 
 ## Usage
 
