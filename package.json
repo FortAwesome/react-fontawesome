@@ -20,7 +20,7 @@
     "Prateek Goel <github.com/prateekgoel>",
     "Naor Torgeman <github.com/naortor>",
     "Matthew Hand <github.com/mmhand123>",
-    "calvinf <github.com/calvinf>"
+    "Calvin Freitas <github.com/calvinf>"
   ],
   "license": "MIT",
   "scripts": {
@@ -78,7 +78,6 @@
     "rollup-plugin-node-resolve": "^4.0.0"
   },
   "dependencies": {
-    "humps": "^2.0.1",
     "prop-types": "^15.5.10"
   },
   "files": [
