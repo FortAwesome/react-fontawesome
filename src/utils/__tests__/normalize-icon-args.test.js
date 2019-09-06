@@ -39,7 +39,7 @@ describe('normalize icon args', () => {
     const DEFAULT_PREFIX = 'fas'
     expect(normalizeIconArgs(FULLNAME)).toStrictEqual({
       prefix: FALPREFIX,
-      iconName: FULLNAME
+      iconName: NAME
     })
   })
 })
