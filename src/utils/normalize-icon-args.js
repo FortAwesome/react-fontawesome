@@ -18,6 +18,15 @@ export default function normalizeIconArgs(icon) {
 
   // if it's a string, use it as the icon name
   if (typeof icon === 'string') {
+    if (icon.startsWith('far-')) {
+      return { prefix: 'far', iconName: icon.replace('far-','') }
+    }
+    if (icon.startsWith('fas-')) {
+      return { prefix: 'fas', iconName: icon.replace('fas-','') }
+    }
+    if (icon.startsWith('fal-')) {
+      return { prefix: 'fal', iconName: icon.replace('fal-','') }
+    }
     return { prefix: 'fas', iconName: icon }
   }
 }
