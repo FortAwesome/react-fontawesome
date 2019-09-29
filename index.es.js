@@ -130,7 +130,7 @@ function classList(props) {
     'fa-li': listItem,
     'fa-flip-horizontal': flip === 'horizontal' || flip === 'both',
     'fa-flip-vertical': flip === 'vertical' || flip === 'both'
-  }, _defineProperty(_classes, "fa-".concat(size), typeof size !== 'undefined'), _defineProperty(_classes, "fa-rotate-".concat(rotation), typeof rotation !== 'undefined'), _defineProperty(_classes, "fa-pull-".concat(pull), typeof pull !== 'undefined'), _classes); // map over all the keys in the classes object
+  }, _defineProperty(_classes, "fa-".concat(size), typeof size !== 'undefined'), _defineProperty(_classes, "fa-rotate-".concat(rotation), typeof rotation !== 'undefined'), _defineProperty(_classes, "fa-pull-".concat(pull), typeof pull !== 'undefined'), _defineProperty(_classes, 'fa-swap-opacity', props.swapOpacity), _classes); // map over all the keys in the classes object
   // return an array of the keys where the value for the key is not null
 
   return Object.keys(classes).map(function (key) {
@@ -327,7 +327,8 @@ FontAwesomeIcon.propTypes = {
   spin: PropTypes.bool,
   symbol: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   title: PropTypes.string,
-  transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+  transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  swapOpacity: PropTypes.bool
 };
 FontAwesomeIcon.defaultProps = {
   border: false,
@@ -345,7 +346,8 @@ FontAwesomeIcon.defaultProps = {
   spin: false,
   symbol: false,
   title: '',
-  transform: null
+  transform: null,
+  swapOpacity: false
 };
 var convertCurry = convert.bind(null, React.createElement);
 
