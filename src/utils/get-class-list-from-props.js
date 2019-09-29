@@ -25,7 +25,8 @@ export default function classList(props) {
     'fa-flip-vertical': flip === 'vertical' || flip === 'both',
     [`fa-${size}`]: typeof size !== 'undefined',
     [`fa-rotate-${rotation}`]: typeof rotation !== 'undefined',
-    [`fa-pull-${pull}`]: typeof pull !== 'undefined'
+    [`fa-pull-${pull}`]: typeof pull !== 'undefined',
+    'fa-swap-opacity': props.swapOpacity
   }
 
   // map over all the keys in the classes object

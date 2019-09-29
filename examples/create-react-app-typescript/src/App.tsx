@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fad } from '@fortawesome/pro-duotone-svg-icons'
 import {
   faCoffee,
   faCog,
@@ -20,6 +21,7 @@ import {
 
 library.add(
   fab,
+  fad,
   faCoffee,
   faCog,
   faSpinner,
@@ -52,6 +54,9 @@ export class App extends React.Component {
               </li>
               <li className="pv3 ph2 ma0 link grow">
                 <FontAwesomeIcon icon={coffeeIconDefinition} size="4x" />
+              </li>
+              <li className="pv3 ph2 ma0 link grow">
+                <FontAwesomeIcon icon={['fad', 'stroopwafel']} size="4x" />
               </li>
               <li className="pv3 ph2 ma0 link grow">
                 <FontAwesomeIcon

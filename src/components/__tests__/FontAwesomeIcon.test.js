@@ -274,3 +274,18 @@ describe('title', () => {
     expect(vm.children[0].children[0]).toBe('Coffee')
   })
 })
+
+describe('swap opacity', () => {
+  test('setting swapOpacity prop to true adds fa-swap-opacity class', () => {
+    const vm = mount({ icon: faCoffee, swapOpacity: true })
+
+    expect(vm.props.className.includes('fa-swap-opacity')).toBeTruthy()
+  })
+
+  test('setting swapOpacity prop to false after setting it to true results in no fa-swap-opacity class', () => {
+    let vm = mount({ icon: faCoffee, swapOpacity: true })
+    expect(vm.props.className.includes('fa-swap-opacity')).toBeTruthy()
+    vm = mount({ icon: faCoffee, swapOpacity: false })
+    expect(vm.props.className.includes('fa-swap-opacity')).toBeFalsy()
+  })
+})
