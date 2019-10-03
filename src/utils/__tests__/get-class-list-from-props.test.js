@@ -78,4 +78,43 @@ describe('get class list', () => {
     testPull('left')
     testPull('right')
   })
+
+  describe('when some props are null', () => {
+    function testNulls(prop) {
+      const NUM_CLASSES = 6
+
+      const props = {
+        spin: true,
+        pulse: true,
+        fixedWidth: true,
+        inverse: true,
+        border: true,
+        listItem: true,
+        [prop]: null
+      }
+
+      const classList = getClassList(props)
+      expect(classList.length).toBe(NUM_CLASSES)
+      expect(classList).toStrictEqual([
+        'fa-spin',
+        'fa-pulse',
+        'fa-fw',
+        'fa-inverse',
+        'fa-border',
+        'fa-li'
+      ])
+    }
+
+    test('pull', () => {
+      testNulls('pull')
+    })
+
+    test('rotation', () => {
+      testNulls('rotation')
+    })
+
+    test('size', () => {
+      testNulls('size')
+    })
+  })
 })
