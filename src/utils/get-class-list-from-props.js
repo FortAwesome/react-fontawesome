@@ -23,9 +23,10 @@ export default function classList(props) {
     'fa-li': listItem,
     'fa-flip-horizontal': flip === 'horizontal' || flip === 'both',
     'fa-flip-vertical': flip === 'vertical' || flip === 'both',
-    [`fa-${size}`]: typeof size !== 'undefined',
-    [`fa-rotate-${rotation}`]: typeof rotation !== 'undefined',
-    [`fa-pull-${pull}`]: typeof pull !== 'undefined',
+    [`fa-${size}`]: typeof size !== 'undefined' && size !== null,
+    [`fa-rotate-${rotation}`]:
+      typeof rotation !== 'undefined' && rotation !== null,
+    [`fa-pull-${pull}`]: typeof pull !== 'undefined' && pull !== null,
     'fa-swap-opacity': props.swapOpacity
   }
 
