@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.6](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.6) - 2019-10-10
+
+### Fixed
+
+- Ignore null values for pull, rotation, and size props #289
+
+---
+
 ## [0.1.5](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.5) - 2019-09-29
 
 ### Added

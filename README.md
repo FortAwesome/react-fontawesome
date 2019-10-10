@@ -67,13 +67,17 @@ See [UPGRADING.md](./UPGRADING.md).
 You might also be interested in the larger umbrella project [UPGRADING.md](https://github.com/FortAwesome/Font-Awesome/blob/master/UPGRADING.md)
 
 ## Installation
+
 Using NPM:
+
 ```
 $ npm i --save @fortawesome/fontawesome-svg-core
 $ npm i --save @fortawesome/free-solid-svg-icons
 $ npm i --save @fortawesome/react-fontawesome
 ```
+
 Or with Yarn:
+
 ```
 $ yarn add @fortawesome/fontawesome-svg-core
 $ yarn add @fortawesome/free-solid-svg-icons
@@ -369,6 +373,7 @@ loaded an icon bundle. See the sections above for the details.
 <FontAwesomeIcon icon="spinner" size="lg" />
 <FontAwesomeIcon icon="spinner" size="6x" />
 ```
+
 Note that icon size can be controlled with the CSS `font-size` attribute, and `FontAwesomeIcon`'s `size` prop determines icon size relative to the current `font-size`.
 
 [Fixed width](https://fontawesome.com/how-to-use/on-the-web/styling/fixed-width-icons):
@@ -569,6 +574,7 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 |    <img src="https://github.com/naortor.png?size=72" />    | Naor Torgeman  | [@naortor](https://github.com/naortor)             |
 |   <img src="https://github.com/mmhand123.png?size=72" />   | Matthew Hand   | [@mmhand123](https://github.com/mmhand123)         |
 |    <img src="https://github.com/calvinf.png?size=72" />    | calvinf        | [@calvinf](https://github.com/calvinf)             |
+| <img src="https://github.com/chimericdream.png?size=72" /> | Bill Parrott   | [@chimericdream](https://github.com/chimericdream) |
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 
