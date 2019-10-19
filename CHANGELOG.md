@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.7](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.7) - 2019-10-19
+
+### Fixed
+
+- Add DOM attributes to FontAwesomeIconProps to Typescript definitions #151 #196
+
+---
+
 ## [0.1.6](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.6) - 2019-10-10
 
 ### Fixed

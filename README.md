@@ -575,6 +575,7 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 |   <img src="https://github.com/mmhand123.png?size=72" />   | Matthew Hand   | [@mmhand123](https://github.com/mmhand123)         |
 |    <img src="https://github.com/calvinf.png?size=72" />    | calvinf        | [@calvinf](https://github.com/calvinf)             |
 | <img src="https://github.com/chimericdream.png?size=72" /> | Bill Parrott   | [@chimericdream](https://github.com/chimericdream) |
+|    <img src="https://github.com/baelec.png?size=72" />     | baelec         | [@baelec](https://github.com/baelec)               |
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 
