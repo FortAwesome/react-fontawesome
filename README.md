@@ -26,6 +26,8 @@
   * [Basic](#basic)
   * [Advanced](#advanced)
   * [TypeScript](#typescript)
+- [Integrating with other tools and frameworks](#integrating-with-other-tools-and-frameworks)
+  * [ext.js](#extjs)
 - [Frequent questions](#frequent-questions)
   * [How do I import the same icon from two different styles?](#how-do-i-import-the-same-icon-from-two-different-styles)
   * [I don't think tree-shaking is working; got any advice?](#i-dont-think-tree-shaking-is-working-got-any-advice)
@@ -530,6 +532,98 @@ They are re-exported from both `@fortawesome/fontawesome-svg-core` and
 `@fortawesome/free-solid-svg-icons` (and other icon packs). This is just to
 make importing more convenient in some cases. Refer to the `index.d.ts` in any
 module to see which types it exports.
+
+## Integrating with other tools and frameworks
+
+### ext.js
+
+Next.js projects will experience an icon that is very large when the page first
+loads. The reason this occurs is that the necessary CSS has not been loaded
+before the icon is displayed.
+
+To fix this we need to make sure the CSS for Font Awesome is bundled with the
+Next.js app.
+
+Install `@zeit/next-css`:
+
+```
+npm install --save-dev @zeit-css
+```
+
+You may want to use `--save` instead of `--save-dev` depending on how your `package.json` is organized.
+
+Create or edit `next.config.js` in the root of your project:
+
+```javascript
+const withCSS = require('@zeit/next-css')
+module.exports = withCSS({
+  /* config options here */
+})
+```
+
+Create or edit `./pages/_app.js`:
+
+```javascript
+import React from 'react'
+import App, { Container } from 'next/app'
+
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css' // Import the CSS
+config.autoAddCss = false // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
+
+class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props
+    return <Component {...pageProps} />
+  }
+}
+
+export default MyApp
+```
+
+You may also wish to include your library calls in the `_app.js` code.
+
+```javascript
+import React from 'react'
+import App, { Container } from 'next/app'
+
+import { config, library } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
+
+import { faBars, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
+
+library.add(faBars, faUser, faTwitter, faFacebook)
+
+class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props
+    return <Component {...pageProps} />
+  }
+}
+
+export default MyApp
+```
+
+You can also use [explicit import](#explicit-import) instead of using the `library`.
+
+Create a new page:
+
+```javascript
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+
+const Index = () => (
+  <div>
+    <p>
+      <FontAwesomeIcon icon={faThumbsUp} /> Hello Next.js
+    </p>
+  </div>
+)
+
+export default Index
+```
 
 ## Frequent questions
 
