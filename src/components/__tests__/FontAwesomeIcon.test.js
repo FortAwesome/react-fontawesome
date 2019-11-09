@@ -140,6 +140,12 @@ test('using pulse', () => {
 })
 
 describe('using rotation', () => {
+  test('0', () => {
+    const vm = mount({ icon: faCoffee, rotation: 0 })
+
+    expect(vm.props.className.includes('fa-rotate-90')).toBeTruthy()
+  })
+
   test('90', () => {
     const vm = mount({ icon: faCoffee, rotation: 90 })
 
