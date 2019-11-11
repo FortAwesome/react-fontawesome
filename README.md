@@ -27,7 +27,7 @@
   * [Advanced](#advanced)
   * [TypeScript](#typescript)
 - [Integrating with other tools and frameworks](#integrating-with-other-tools-and-frameworks)
-  * [ext.js](#extjs)
+  * [Next.js](#nextjs)
 - [Frequent questions](#frequent-questions)
   * [How do I import the same icon from two different styles?](#how-do-i-import-the-same-icon-from-two-different-styles)
   * [I don't think tree-shaking is working; got any advice?](#i-dont-think-tree-shaking-is-working-got-any-advice)
@@ -535,7 +535,7 @@ module to see which types it exports.
 
 ## Integrating with other tools and frameworks
 
-### ext.js
+### Next.js
 
 Next.js projects will experience an icon that is very large when the page first
 loads. The reason this occurs is that the necessary CSS has not been loaded
