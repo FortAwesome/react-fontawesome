@@ -547,7 +547,7 @@ Next.js app.
 Install `@zeit/next-css`:
 
 ```
-npm install --save-dev @zeit-css
+npm install --save-dev @zeit/next-css
 ```
 
 You may want to use `--save` instead of `--save-dev` depending on how your `package.json` is organized.
