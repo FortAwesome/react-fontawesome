@@ -40,4 +40,5 @@ export interface FontAwesomeIconProps extends BackwardCompatibleOmit<DOMAttribut
   style?: CSSProperties
   tabIndex?: number;
   title?: string;
+  swapOpacity?: boolean;
 }
