@@ -29,7 +29,7 @@
     "build": "rollup -c rollup.config.js",
     "dist": "cross-env NODE_ENV=production npm run build",
     "lint": "eslint src",
-    "prettier": "pretty-quick src --staged",
+    "prettier": "pretty-quick --pattern src/** --staged",
     "precommit": "npm run lint && npm run prettier && lint-staged",
     "prepack": "npm run dist",
     "test": "jest",
