@@ -143,7 +143,7 @@ describe('using rotation', () => {
   test('0', () => {
     const vm = mount({ icon: faCoffee, rotation: 0 })
 
-    expect(vm.props.className.includes('fa-rotate-90')).toBeTruthy()
+    expect(vm.props.className.includes('fa-rotate-0')).toBeTruthy()
   })
 
   test('90', () => {
