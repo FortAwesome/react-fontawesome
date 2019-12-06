@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.8](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.8) - 2019-12-06
+
+### Fixed
+
+- Add swapOpacity to Typescript definitions #308
+
+---
+
 ## [0.1.7](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.7) - 2019-10-19
 
 ### Fixed
