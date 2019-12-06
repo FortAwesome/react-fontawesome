@@ -29,7 +29,7 @@
     "build": "rollup -c rollup.config.js",
     "dist": "cross-env NODE_ENV=production npm run build",
     "lint": "eslint src",
-    "prettier": "pretty-quick src --staged",
+    "prettier": "pretty-quick --pattern src/** --staged",
     "precommit": "npm run lint && npm run prettier && lint-staged",
     "prepack": "npm run dist",
     "test": "jest",
@@ -46,47 +46,57 @@
     "react": "16.x"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-external-helpers": "^7.2.0",
-    "@babel/preset-env": "^7.2.3",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-external-helpers": "^7.7.4",
+    "@babel/preset-env": "^7.7.5",
+    "@babel/preset-react": "^7.7.4",
     "@babel/preset-stage-3": "^7.0.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
-    "@types/react": "^16.4.8",
-    "babel-core": "^7.0.0-0",
-    "babel-eslint": "^10.0.0",
-    "babel-jest": "^23.6.0",
-    "browserslist": "^4.6.6",
-    "caniuse-lite": "^1.0.30000987",
-    "cross-env": "^5.1.1",
-    "eslint": "^5.3.0",
-    "eslint-config-standard": "^11.0.0-beta.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jest": "^21.7.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-react": "^7.5.1",
-    "eslint-plugin-standard": "^3.0.1",
-    "husky": "^0.14.3",
-    "jest": "^23.6.0",
-    "lint-staged": "^7.2.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@types/react": "^16.9.15",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "browserslist": "^4.8.2",
+    "caniuse-lite": "^1.0.30001015",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-compat": "^3.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.1.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
     "markdown-toc": "^1.2.0",
-    "prettier": "^1.11.1",
-    "pretty-quick": "^1.2.2",
-    "prop-types": "^15.5.10",
-    "react": "^16.2.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.12.0",
     "react-test-renderer": "^16.2.0",
-    "rollup": "^1.0.0",
-    "rollup-plugin-babel": "^4.2.0",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^4.0.0"
+    "rollup": "^1.27.8",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "dependencies": {
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.7.2"
   },
   "files": [
     "index.js",
     "index.es.js",
     "index.d.ts"
-  ]
+  ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "ie > 10"
+  ],
+  "jest": {
+    "roots": [
+      "src"
+    ]
+  }
 }

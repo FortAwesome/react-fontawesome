@@ -40,6 +40,7 @@ export default function FontAwesomeIcon(props) {
   const extraProps = {}
 
   Object.keys(props).forEach(key => {
+    // eslint-disable-next-line no-prototype-builtins
     if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
       extraProps[key] = props[key]
     }

@@ -1,0 +1,37 @@
+name: Tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [10.14.x]
+        react: [
+          16.2.x,
+          16.3.x,
+          16.4.x,
+          16.5.x,
+          16.6.x,
+          16.7.x,
+          16.8.x,
+          16.9.x,
+          16.10.x,
+          16.11.x,
+          16.12.x
+        ]
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: npm install and test
+        run: |
+          npm install
+          npm install react@${{ matrix.react }} react-dom@${{ matrix.react }} react-test-renderer@${{ matrix.react }}
+          npm list react react-dom react-test-renderer
+          npm run lint
+          npm run test

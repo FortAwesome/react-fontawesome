@@ -14,7 +14,7 @@ export default function classList(props) {
   } = props
 
   // map of CSS class names to properties
-  let classes = {
+  const classes = {
     'fa-spin': spin,
     'fa-pulse': pulse,
     'fa-fw': fixedWidth,
