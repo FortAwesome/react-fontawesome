@@ -39,13 +39,11 @@ export default {
           '@babel/preset-env',
           {
             debug: true,
-            targets: { browsers: ['> 1%', 'last 2 versions', 'ie > 9'] },
             modules: false
           }
         ],
         '@babel/preset-react'
       ],
-      plugins: ['@babel/plugin-external-helpers'],
       exclude: 'node_modules/**'
     })
   ]

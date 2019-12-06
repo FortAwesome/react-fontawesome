@@ -31,6 +31,7 @@ function convert(createElement, element, extraProps = {}) {
     return convert(createElement, child)
   })
 
+  /* eslint-disable dot-notation */
   const mixins = Object.keys(element.attributes || {}).reduce(
     (acc, key) => {
       const val = element.attributes[key]
@@ -59,6 +60,7 @@ function convert(createElement, element, extraProps = {}) {
   const { style: existingStyle = {}, ...remaining } = extraProps
 
   mixins.attrs['style'] = { ...mixins.attrs['style'], ...existingStyle }
+  /* eslint-enable */
 
   return createElement(
     element.tag,
