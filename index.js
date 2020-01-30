@@ -1,8 +1,8 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@fortawesome/fontawesome-svg-core'), require('prop-types'), require('react')) :
-  typeof define === 'function' && define.amd ? define(['exports', '@fortawesome/fontawesome-svg-core', 'prop-types', 'react'], factory) :
-  (global = global || self, factory(global['react-fontawesome'] = {}, global.FontAwesome, global.PropTypes, global.React));
-}(this, (function (exports, fontawesomeSvgCore, PropTypes, React) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('core-js/modules/web.dom.iterable.js'), require('core-js/modules/es6.array.iterator.js'), require('core-js/modules/es6.object.to-string.js'), require('core-js/modules/es6.object.keys.js'), require('core-js/modules/es6.regexp.split.js'), require('core-js/modules/es6.string.starts-with.js'), require('core-js/modules/es6.regexp.replace.js'), require('@fortawesome/fontawesome-svg-core'), require('prop-types'), require('react')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'core-js/modules/web.dom.iterable.js', 'core-js/modules/es6.array.iterator.js', 'core-js/modules/es6.object.to-string.js', 'core-js/modules/es6.object.keys.js', 'core-js/modules/es6.regexp.split.js', 'core-js/modules/es6.string.starts-with.js', 'core-js/modules/es6.regexp.replace.js', '@fortawesome/fontawesome-svg-core', 'prop-types', 'react'], factory) :
+  (global = global || self, factory(global['react-fontawesome'] = {}, null, null, null, null, null, null, null, global.FontAwesome, global.PropTypes, global.React));
+}(this, (function (exports, web_dom_iterable_js, es6_array_iterator_js, es6_object_toString_js, es6_object_keys_js, es6_regexp_split_js, es6_string_startsWith_js, es6_regexp_replace_js, fontawesomeSvgCore, PropTypes, React) { 'use strict';
 
   PropTypes = PropTypes && PropTypes.hasOwnProperty('default') ? PropTypes['default'] : PropTypes;
   React = React && React.hasOwnProperty('default') ? React['default'] : React;
@@ -328,8 +328,8 @@
     var abstract = renderedIcon.abstract;
     var extraProps = {};
     Object.keys(props).forEach(function (key) {
+      // eslint-disable-next-line no-prototype-builtins
       if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
-        // eslint-disable-line no-prototype-builtins
         extraProps[key] = props[key];
       }
     });
