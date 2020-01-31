@@ -57,6 +57,7 @@
     "babel-jest": "^24.9.0",
     "browserslist": "^4.8.2",
     "caniuse-lite": "^1.0.30001015",
+    "core-js": "^3.6.4",
     "cross-env": "^6.0.3",
     "eslint": "^6.7.2",
     "eslint-config-standard": "^14.1.0",
