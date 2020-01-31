@@ -39,7 +39,9 @@ export default {
           '@babel/preset-env',
           {
             debug: true,
-            modules: false
+            modules: false,
+            useBuiltIns: 'usage',
+            corejs: 3
           }
         ],
         '@babel/preset-react'
