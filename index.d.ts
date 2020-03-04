@@ -24,6 +24,7 @@ export interface FontAwesomeIconProps extends BackwardCompatibleOmit<DOMAttribut
   icon: IconProp
   mask?: IconProp
   className?: string
+  id?: string
   color?: string
   spin?: boolean
   pulse?: boolean
