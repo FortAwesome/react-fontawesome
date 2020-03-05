@@ -328,8 +328,8 @@
     var abstract = renderedIcon.abstract;
     var extraProps = {};
     Object.keys(props).forEach(function (key) {
+      // eslint-disable-next-line no-prototype-builtins
       if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
-        // eslint-disable-line no-prototype-builtins
         extraProps[key] = props[key];
       }
     });

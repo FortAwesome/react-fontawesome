@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome 5",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "index.js",
   "module": "index.es.js",
   "jsnext:main": "index.es.js",
@@ -22,7 +22,8 @@
     "Matthew Hand <github.com/mmhand123>",
     "Calvin Freitas <github.com/calvinf>",
     "Bill Parrott <github.com/chimericdream>",
-    "Mike Lynch <github.com/baelec>"
+    "Mike Lynch <github.com/baelec>",
+    "Lukáš Rod <github.com/rodlukas>"
   ],
   "license": "MIT",
   "scripts": {

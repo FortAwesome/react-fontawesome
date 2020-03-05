@@ -678,6 +678,7 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 |    <img src="https://github.com/calvinf.png?size=72" />    | calvinf        | [@calvinf](https://github.com/calvinf)             |
 | <img src="https://github.com/chimericdream.png?size=72" /> | Bill Parrott   | [@chimericdream](https://github.com/chimericdream) |
 |    <img src="https://github.com/baelec.png?size=72" />     | Mike Lynch     | [@baelec](https://github.com/baelec)               |
+|   <img src="https://github.com/rodlukas.png?size=72" />    | Lukáš Rod      | [@rodlukas](https://github.com/rodlukas)           |
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 

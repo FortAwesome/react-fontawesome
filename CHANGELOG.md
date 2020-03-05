@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.9](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.9) - 2020-03-05
+
+### Fixed
+
+- Have FontAwesomeIconProps interface extend SVGAttributes, fixes #324
+
+---
+
 ## [0.1.8](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.8) - 2019-12-06
 
 ### Fixed
