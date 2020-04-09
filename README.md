@@ -664,7 +664,7 @@ And then:
 
 ## Contributors
 
-The following contributors have either hepled to start this project, have contributed
+The following contributors have either helped to start this project, have contributed
 code, are actively maintaining it (including documentation), or in other ways
 being awesome contributors to this project. **We'd like to take a moment to recognize them.**
 
