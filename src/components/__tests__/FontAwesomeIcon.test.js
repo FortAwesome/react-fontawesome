@@ -240,7 +240,7 @@ describe('mask', () => {
     const vm = mount({ icon: faCoffee, mask: faCircle })
 
     expect(vm.children.length).toBe(2)
-    expect(vm.children[1].props.hasOwnProperty('clipPath')).toBeTruthy()
+    expect(vm.children[1].props.hasOwnProperty('clipPath')).toBeTruthy() // eslint-disable-line no-prototype-builtins
   })
 })
 
@@ -274,6 +274,21 @@ describe('title', () => {
     const vm = mount({ icon: faCoffee, title: 'Coffee' })
     expect(vm.children[0].type).toBe('title')
     expect(vm.children[0].children[0]).toBe('Coffee')
+  })
+})
+
+describe('swap opacity', () => {
+  test('setting swapOpacity prop to true adds fa-swap-opacity class', () => {
+    const vm = mount({ icon: faCoffee, swapOpacity: true })
+
+    expect(vm.props.className.includes('fa-swap-opacity')).toBeTruthy()
+  })
+
+  test('setting swapOpacity prop to false after setting it to true results in no fa-swap-opacity class', () => {
+    let vm = mount({ icon: faCoffee, swapOpacity: true })
+    expect(vm.props.className.includes('fa-swap-opacity')).toBeTruthy()
+    vm = mount({ icon: faCoffee, swapOpacity: false })
+    expect(vm.props.className.includes('fa-swap-opacity')).toBeFalsy()
   })
 })
 

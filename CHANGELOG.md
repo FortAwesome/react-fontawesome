@@ -6,6 +6,46 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.9](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.9) - 2020-03-05
+
+### Fixed
+
+- Have FontAwesomeIconProps interface extend SVGAttributes, fixes #324
+
+---
+
+## [0.1.8](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.8) - 2019-12-06
+
+### Fixed
+
+- Add swapOpacity to Typescript definitions #308
+
+---
+
+## [0.1.7](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.7) - 2019-10-19
+
+### Fixed
+
+- Add DOM attributes to FontAwesomeIconProps to Typescript definitions #151 #196
+
+---
+
+## [0.1.6](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.6) - 2019-10-10
+
+### Fixed
+
+- Ignore null values for pull, rotation, and size props #289
+
+---
+
+## [0.1.5](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.5) - 2019-09-29
+
+### Added
+
+- Full support for Duotone icons
+
+---
+
 ## [0.1.4](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.4) - 2019-01-15
 
 ### Changed

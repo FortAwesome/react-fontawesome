@@ -1,0 +1,23 @@
+{
+  "name": "nextjs-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
+    "@zeit/next-css": "^1.0.1",
+    "next": "^9.1.3",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  }
+}

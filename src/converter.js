@@ -1,4 +1,4 @@
-import humps from 'humps'
+import camelize from './utils/camelize'
 
 function capitalize(val) {
   return val.charAt(0).toUpperCase() + val.slice(1)
@@ -11,7 +11,7 @@ function styleToObject(style) {
     .filter(s => s)
     .reduce((acc, pair) => {
       const i = pair.indexOf(':')
-      const prop = humps.camelize(pair.slice(0, i))
+      const prop = camelize(pair.slice(0, i))
       const value = pair.slice(i + 1).trim()
 
       prop.startsWith('webkit')
@@ -31,6 +31,7 @@ function convert(createElement, element, extraProps = {}) {
     return convert(createElement, child)
   })
 
+  /* eslint-disable dot-notation */
   const mixins = Object.keys(element.attributes || {}).reduce(
     (acc, key) => {
       const val = element.attributes[key]
@@ -47,7 +48,7 @@ function convert(createElement, element, extraProps = {}) {
           if (key.indexOf('aria-') === 0 || key.indexOf('data-') === 0) {
             acc.attrs[key.toLowerCase()] = val
           } else {
-            acc.attrs[humps.camelize(key)] = val
+            acc.attrs[camelize(key)] = val
           }
       }
 
@@ -59,6 +60,7 @@ function convert(createElement, element, extraProps = {}) {
   const { style: existingStyle = {}, ...remaining } = extraProps
 
   mixins.attrs['style'] = { ...mixins.attrs['style'], ...existingStyle }
+  /* eslint-enable */
 
   return createElement(
     element.tag,

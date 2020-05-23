@@ -17,7 +17,6 @@
     + [Going from 0.0.x to 0.1.0](#going-from-00x-to-010)
 - [Installation](#installation)
 - [Add more styles or Pro icons](#add-more-styles-or-pro-icons)
-- [or with Yarn](#or-with-yarn)
 - [Usage](#usage)
   * [Explicit Import](#explicit-import)
   * [Build a Library to Reference Icons Throughout Your App More Conveniently](#build-a-library-to-reference-icons-throughout-your-app-more-conveniently)
@@ -27,6 +26,8 @@
   * [Basic](#basic)
   * [Advanced](#advanced)
   * [TypeScript](#typescript)
+- [Integrating with other tools and frameworks](#integrating-with-other-tools-and-frameworks)
+  * [Next.js](#nextjs)
 - [Frequent questions](#frequent-questions)
   * [How do I import the same icon from two different styles?](#how-do-i-import-the-same-icon-from-two-different-styles)
   * [I don't think tree-shaking is working; got any advice?](#i-dont-think-tree-shaking-is-working-got-any-advice)
@@ -69,10 +70,28 @@ You might also be interested in the larger umbrella project [UPGRADING.md](https
 
 ## Installation
 
+Using NPM:
+
 ```
 $ npm i --save @fortawesome/fontawesome-svg-core
 $ npm i --save @fortawesome/free-solid-svg-icons
 $ npm i --save @fortawesome/react-fontawesome
+```
+or
+```
+$ npm i --save @fortawesome/fontawesome-svg-core  @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+```
+
+Or with Yarn:
+
+```
+$ yarn add @fortawesome/fontawesome-svg-core
+$ yarn add @fortawesome/free-solid-svg-icons
+$ yarn add @fortawesome/react-fontawesome
+```
+or
+```
+$ yarn add @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
 ```
 
 ## Add more styles or Pro icons
@@ -93,14 +112,7 @@ If you are a [Font Awesome Pro](https://fontawesome.com/pro) subscriber you can 
 $ npm i --save @fortawesome/pro-solid-svg-icons
 $ npm i --save @fortawesome/pro-regular-svg-icons
 $ npm i --save @fortawesome/pro-light-svg-icons
-```
-
-## or with Yarn
-
-```
-$ yarn add @fortawesome/fontawesome-svg-core
-$ yarn add @fortawesome/free-solid-svg-icons
-$ yarn add @fortawesome/react-fontawesome
+$ npm i --save @fortawesome/pro-duotone-svg-icons
 ```
 
 ## Usage
@@ -372,6 +384,8 @@ loaded an icon bundle. See the sections above for the details.
 <FontAwesomeIcon icon="spinner" size="6x" />
 ```
 
+Note that icon size can be controlled with the CSS `font-size` attribute, and `FontAwesomeIcon`'s `size` prop determines icon size relative to the current `font-size`.
+
 [Fixed width](https://fontawesome.com/how-to-use/on-the-web/styling/fixed-width-icons):
 
 ```javascript
@@ -424,6 +438,13 @@ Spin and pulse [animation](https://fontawesome.com/how-to-use/on-the-web/styling
 ```javascript
 <FontAwesomeIcon icon="spinner" pull="left" />
 <FontAwesomeIcon icon="spinner" pull="right" />
+```
+
+[Swap opacity](https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons) (duotone icons only):
+
+```javascript
+<FontAwesomeIcon icon={['fad', 'stroopwafel']} />
+<FontAwesomeIcon icon={['fad', 'stroopwafel']} swapOpacity />
 ```
 
 Your own class names:
@@ -520,6 +541,98 @@ They are re-exported from both `@fortawesome/fontawesome-svg-core` and
 make importing more convenient in some cases. Refer to the `index.d.ts` in any
 module to see which types it exports.
 
+## Integrating with other tools and frameworks
+
+### Next.js
+
+Next.js projects will experience an icon that is very large when the page first
+loads. The reason this occurs is that the necessary CSS has not been loaded
+before the icon is displayed.
+
+To fix this we need to make sure the CSS for Font Awesome is bundled with the
+Next.js app.
+
+Install `@zeit/next-css`:
+
+```
+npm install --save-dev @zeit/next-css
+```
+
+You may want to use `--save` instead of `--save-dev` depending on how your `package.json` is organized.
+
+Create or edit `next.config.js` in the root of your project:
+
+```javascript
+const withCSS = require('@zeit/next-css')
+module.exports = withCSS({
+  /* config options here */
+})
+```
+
+Create or edit `./pages/_app.js`:
+
+```javascript
+import React from 'react'
+import App, { Container } from 'next/app'
+
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css' // Import the CSS
+config.autoAddCss = false // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
+
+class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props
+    return <Component {...pageProps} />
+  }
+}
+
+export default MyApp
+```
+
+You may also wish to include your library calls in the `_app.js` code.
+
+```javascript
+import React from 'react'
+import App, { Container } from 'next/app'
+
+import { config, library } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
+
+import { faBars, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
+
+library.add(faBars, faUser, faTwitter, faFacebook)
+
+class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props
+    return <Component {...pageProps} />
+  }
+}
+
+export default MyApp
+```
+
+You can also use [explicit import](#explicit-import) instead of using the `library`.
+
+Create a new page:
+
+```javascript
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+
+const Index = () => (
+  <div>
+    <p>
+      <FontAwesomeIcon icon={faThumbsUp} /> Hello Next.js
+    </p>
+  </div>
+)
+
+export default Index
+```
+
 ## Frequent questions
 
 ### How do I import the same icon from two different styles?
@@ -551,7 +664,7 @@ And then:
 
 ## Contributors
 
-The following contributors have either hepled to start this project, have contributed
+The following contributors have either helped to start this project, have contributed
 code, are actively maintaining it (including documentation), or in other ways
 being awesome contributors to this project. **We'd like to take a moment to recognize them.**
 
@@ -563,6 +676,9 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 |    <img src="https://github.com/naortor.png?size=72" />    | Naor Torgeman  | [@naortor](https://github.com/naortor)             |
 |   <img src="https://github.com/mmhand123.png?size=72" />   | Matthew Hand   | [@mmhand123](https://github.com/mmhand123)         |
 |    <img src="https://github.com/calvinf.png?size=72" />    | calvinf        | [@calvinf](https://github.com/calvinf)             |
+| <img src="https://github.com/chimericdream.png?size=72" /> | Bill Parrott   | [@chimericdream](https://github.com/chimericdream) |
+|    <img src="https://github.com/baelec.png?size=72" />     | Mike Lynch     | [@baelec](https://github.com/baelec)               |
+|   <img src="https://github.com/rodlukas.png?size=72" />    | Lukáš Rod      | [@rodlukas](https://github.com/rodlukas)           |
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 

@@ -21,6 +21,8 @@ The following commands are available through `npm run`
 1.  Update the `README.md` contributors section
 1.  `npm run build` and `npm test`
 1.  `npm publish`
+1.  `npm pack`
+1.  `CLOUDSMITH_API_KEY=API_TOKEN cloudsmith upload npm fortawesome/fontawesome-pro ./fortawesome-react-fontawesome-VERSION.tgz`
 1.  `git add . && git commit -m 'Release VERSION'`
 1.  `git push`
 1.  Create a [new release](https://github.com/FortAwesome/react-fontawesome/releases/new) with `CHANGELOG` details
