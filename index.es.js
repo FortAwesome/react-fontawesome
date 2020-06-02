@@ -300,9 +300,9 @@ function objectWithKey(key, value) {
   return Array.isArray(value) && value.length > 0 || !Array.isArray(value) && value ? _defineProperty({}, key, value) : {};
 }
 
-function FontAwesomeIcon(_ref2) {
-  var forwardedRef = _ref2.forwardedRef,
-      props = _objectWithoutProperties(_ref2, ["forwardedRef"]);
+function FontAwesomeIcon(_ref) {
+  var forwardedRef = _ref.forwardedRef,
+      props = _objectWithoutProperties(_ref, ["forwardedRef"]);
 
   var iconArgs = props.icon,
       maskArgs = props.mask,

@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.10](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.10) - 2020-06-02
+
+### Added
+
+- Support for forward ref #341
+
+---
+
 ## [0.1.9](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.9) - 2020-03-05
 
 ### Fixed
