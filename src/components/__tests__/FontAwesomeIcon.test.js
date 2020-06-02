@@ -32,8 +32,10 @@ const faCircle = {
 
 fontawesome.library.add(faCoffee, faCircle)
 
-function mount(props = {}) {
-  const component = renderer.create(<FontAwesomeIcon {...props} />)
+function mount(props = {}, { createNodeMock } = {}) {
+  const component = renderer.create(<FontAwesomeIcon {...props} />, {
+    createNodeMock
+  })
 
   return component.toJSON()
 }
@@ -287,5 +289,37 @@ describe('swap opacity', () => {
     expect(vm.props.className.includes('fa-swap-opacity')).toBeTruthy()
     vm = mount({ icon: faCoffee, swapOpacity: false })
     expect(vm.props.className.includes('fa-swap-opacity')).toBeFalsy()
+  })
+})
+
+describe('using ref', () => {
+  const node = {}
+
+  test('function', () => {
+    const spy = jest.fn(element => element)
+
+    mount(
+      { icon: faCoffee, forwardedRef: spy },
+      {
+        createNodeMock: () => node
+      }
+    )
+
+    expect(spy.mock.calls.length).toBe(1)
+    expect(spy.mock.results[0].value).toBe(node)
+  })
+
+  test('callback ref', () => {
+    let forwardedRef = null
+    const setForwardedRef = element => (forwardedRef = element)
+
+    mount(
+      { icon: faCoffee, forwardedRef: setForwardedRef },
+      {
+        createNodeMock: () => node
+      }
+    )
+
+    expect(forwardedRef).toBe(node)
   })
 })

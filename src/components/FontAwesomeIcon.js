@@ -7,7 +7,7 @@ import objectWithKey from '../utils/object-with-key'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export default function FontAwesomeIcon(props) {
+export default function FontAwesomeIcon({ forwardedRef, ...props }) {
   const { icon: iconArgs, mask: maskArgs, symbol, className, title } = props
 
   const iconLookup = normalizeIconArgs(iconArgs)
@@ -37,7 +37,7 @@ export default function FontAwesomeIcon(props) {
   }
 
   const { abstract } = renderedIcon
-  const extraProps = {}
+  const extraProps = { ref: forwardedRef }
 
   Object.keys(props).forEach(key => {
     // eslint-disable-next-line no-prototype-builtins

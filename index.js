@@ -305,7 +305,10 @@
     return Array.isArray(value) && value.length > 0 || !Array.isArray(value) && value ? _defineProperty({}, key, value) : {};
   }
 
-  function FontAwesomeIcon(props) {
+  function FontAwesomeIcon(_ref2) {
+    var forwardedRef = _ref2.forwardedRef,
+        props = _objectWithoutProperties(_ref2, ["forwardedRef"]);
+
     var iconArgs = props.icon,
         maskArgs = props.mask,
         symbol = props.symbol,
@@ -326,7 +329,9 @@
     }
 
     var abstract = renderedIcon.abstract;
-    var extraProps = {};
+    var extraProps = {
+      ref: forwardedRef
+    };
     Object.keys(props).forEach(function (key) {
       // eslint-disable-next-line no-prototype-builtins
       if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
