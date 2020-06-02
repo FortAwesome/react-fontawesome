@@ -80,7 +80,7 @@ FontAwesomeIcon.propTypes = {
 
   pulse: PropTypes.bool,
 
-  rotation: PropTypes.oneOf([90, 180, 270]),
+  rotation: PropTypes.oneOf([0, 90, 180, 270]),
 
   size: PropTypes.oneOf([
     'lg',
