@@ -25,7 +25,7 @@ export default function classList(props) {
     'fa-flip-vertical': flip === 'vertical' || flip === 'both',
     [`fa-${size}`]: typeof size !== 'undefined' && size !== null,
     [`fa-rotate-${rotation}`]:
-      typeof rotation !== 'undefined' && rotation !== null,
+      typeof rotation !== 'undefined' && rotation !== null && rotation !== 0,
     [`fa-pull-${pull}`]: typeof pull !== 'undefined' && pull !== null,
     'fa-swap-opacity': props.swapOpacity
   }

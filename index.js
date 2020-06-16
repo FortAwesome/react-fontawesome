@@ -150,7 +150,7 @@
       'fa-li': listItem,
       'fa-flip-horizontal': flip === 'horizontal' || flip === 'both',
       'fa-flip-vertical': flip === 'vertical' || flip === 'both'
-    }, _defineProperty(_classes, "fa-".concat(size), typeof size !== 'undefined' && size !== null), _defineProperty(_classes, "fa-rotate-".concat(rotation), typeof rotation !== 'undefined' && rotation !== null), _defineProperty(_classes, "fa-pull-".concat(pull), typeof pull !== 'undefined' && pull !== null), _defineProperty(_classes, 'fa-swap-opacity', props.swapOpacity), _classes); // map over all the keys in the classes object
+    }, _defineProperty(_classes, "fa-".concat(size), typeof size !== 'undefined' && size !== null), _defineProperty(_classes, "fa-rotate-".concat(rotation), typeof rotation !== 'undefined' && rotation !== null && rotation !== 0), _defineProperty(_classes, "fa-pull-".concat(pull), typeof pull !== 'undefined' && pull !== null), _defineProperty(_classes, 'fa-swap-opacity', props.swapOpacity), _classes); // map over all the keys in the classes object
     // return an array of the keys where the value for the key is not null
 
     return Object.keys(classes).map(function (key) {
@@ -352,7 +352,7 @@
     listItem: PropTypes.bool,
     pull: PropTypes.oneOf(['right', 'left']),
     pulse: PropTypes.bool,
-    rotation: PropTypes.oneOf([90, 180, 270]),
+    rotation: PropTypes.oneOf([0, 90, 180, 270]),
     size: PropTypes.oneOf(['lg', 'xs', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),
     spin: PropTypes.bool,
     symbol: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
