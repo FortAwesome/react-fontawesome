@@ -72,26 +72,18 @@ You might also be interested in the larger umbrella project [UPGRADING.md](https
 
 Using NPM:
 
-```
-$ npm i --save @fortawesome/fontawesome-svg-core
-$ npm i --save @fortawesome/free-solid-svg-icons
-$ npm i --save @fortawesome/react-fontawesome
-```
-or
-```
-$ npm i --save @fortawesome/fontawesome-svg-core  @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+```shell
+npm i --save @fortawesome/fontawesome-svg-core \
+             @fortawesome/free-solid-svg-icons \
+             @fortawesome/react-fontawesome
 ```
 
 Or with Yarn:
 
-```
-$ yarn add @fortawesome/fontawesome-svg-core
-$ yarn add @fortawesome/free-solid-svg-icons
-$ yarn add @fortawesome/react-fontawesome
-```
-or
-```
-$ yarn add @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+```shell
+yarn add @fortawesome/fontawesome-svg-core \
+         @fortawesome/free-solid-svg-icons \
+         @fortawesome/react-fontawesome
 ```
 
 ## Add more styles or Pro icons
@@ -101,18 +93,36 @@ version 4 to 5 we have a limited number of Regular icons available.
 
 **Visit [fontawesome.com/icons](https://fontawesome.com/icons) to search for free and Pro icons**
 
-```
-$ npm i --save @fortawesome/free-brands-svg-icons
-$ npm i --save @fortawesome/free-regular-svg-icons
+```shell
+npm i --save @fortawesome/free-brands-svg-icons
+npm i --save @fortawesome/free-regular-svg-icons
 ```
 
 If you are a [Font Awesome Pro](https://fontawesome.com/pro) subscriber you can install Pro packages; this requires [additional configuration](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers).
 
+```shell
+npm i --save @fortawesome/pro-solid-svg-icons
+npm i --save @fortawesome/pro-regular-svg-icons
+npm i --save @fortawesome/pro-light-svg-icons
+npm i --save @fortawesome/pro-duotone-svg-icons
 ```
-$ npm i --save @fortawesome/pro-solid-svg-icons
-$ npm i --save @fortawesome/pro-regular-svg-icons
-$ npm i --save @fortawesome/pro-light-svg-icons
-$ npm i --save @fortawesome/pro-duotone-svg-icons
+
+In order to use Pro icons, make sure to pass the type of icon you want to use into the `icon` prop of the component:
+
+```javascript
+// Light:
+<FontAwesomeIcon icon={["fal", "coffee"]} />
+
+// Regular:
+<FontAwesomeIcon icon={["far", "coffee"]} />
+
+// Solid
+<FontAwesomeIcon icon={["fas", "coffee"]} />
+// ...or, omit as FontAwesome defaults to solid, so no need to prefix:
+<FontAwesomeIcon icon="coffee" />
+
+// Brand:
+<FontAwesomeIcon icon={["fab", "github"]} />
 ```
 
 ## Usage
@@ -149,13 +159,13 @@ For this example, we'll also reference the `@fortawesome/free-solid-svg-icons`
 module, so make sure you've added it to the project as well:
 
 ```
-$ npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/free-solid-svg-icons
 ```
 
 or
 
 ```
-$ yarn add @fortawesome/free-solid-svg-icons
+yarn add @fortawesome/free-solid-svg-icons
 ```
 
 Now, a simple React component might look like this:
@@ -198,13 +208,13 @@ imagination as to how this might scale up with lots of icons.
 Don't forget to add `@fortawesome/free-brands-svg-icons`:
 
 ```
-$ npm i --save @fortawesome/free-brands-svg-icons
+npm i --save @fortawesome/free-brands-svg-icons
 ```
 
 or
 
 ```
-$ yarn add @fortawesome/free-brands-svg-icons
+yarn add @fortawesome/free-brands-svg-icons
 ```
 
 In `App.js`, where our app is initialized:
