@@ -5,9 +5,9 @@ import log from '../logger'
 import normalizeIconArgs from '../utils/normalize-icon-args'
 import objectWithKey from '../utils/object-with-key'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { memo } from 'react'
 
-export default function FontAwesomeIcon({ forwardedRef, ...props }) {
+function FontAwesomeIcon({ forwardedRef, ...props }) {
   const { icon: iconArgs, mask: maskArgs, symbol, className, title } = props
 
   const iconLookup = normalizeIconArgs(iconArgs)
@@ -130,3 +130,5 @@ FontAwesomeIcon.defaultProps = {
 }
 
 const convertCurry = convert.bind(null, React.createElement)
+
+export default memo(FontAwesomeIcon)
