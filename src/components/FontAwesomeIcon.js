@@ -2,7 +2,7 @@ import convert from '../converter'
 import { icon, parse } from '@fortawesome/fontawesome-svg-core'
 import log from '../logger'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { memo } from 'react'
 
 function objectWithKey(key, value) {
   return (Array.isArray(value) && value.length > 0) ||
@@ -49,7 +49,7 @@ function normalizeIconArgs(icon) {
   }
 }
 
-export default function FontAwesomeIcon(props) {
+function FontAwesomeIcon(props) {
   const { icon: iconArgs, mask: maskArgs, symbol, className } = props
 
   const iconLookup = normalizeIconArgs(iconArgs)
@@ -164,3 +164,5 @@ FontAwesomeIcon.defaultProps = {
 }
 
 const convertCurry = convert.bind(null, React.createElement)
+
+export default memo(FontAwesomeIcon)
