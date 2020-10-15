@@ -62,7 +62,7 @@
     "prettier": "^1.11.1",
     "pretty-quick": "^1.2.2",
     "prop-types": "^15.5.10",
-    "react": "^16.8.0",
+    "react": "^16.6.0",
     "react-test-renderer": "^16.2.0",
     "rollup": "^0.57.1",
     "rollup-plugin-babel": "^3.0.2",
