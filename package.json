@@ -28,7 +28,9 @@
     "clean": "rm -f index.js && rm -f index.es.js"
   },
   "lint-staged": {
-    "README.md": ["markdown-toc -i"]
+    "README.md": [
+      "markdown-toc -i"
+    ]
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
@@ -60,7 +62,7 @@
     "prettier": "^1.11.1",
     "pretty-quick": "^1.2.2",
     "prop-types": "^15.5.10",
-    "react": "^16.2.0",
+    "react": "^16.8.0",
     "react-test-renderer": "^16.2.0",
     "rollup": "^0.57.1",
     "rollup-plugin-babel": "^3.0.2",
@@ -71,5 +73,9 @@
     "humps": "^2.0.1",
     "prop-types": "^15.5.10"
   },
-  "files": ["index.js", "index.es.js", "index.d.ts"]
+  "files": [
+    "index.js",
+    "index.es.js",
+    "index.d.ts"
+  ]
 }
