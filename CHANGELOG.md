@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.12](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.12) - 2020-10-26
+
+### Fixed
+
+- Change peer dependency to support React 17
+
+---
+
 ## [0.1.11](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.11) - 2020-06-16
 
 ### Fixed

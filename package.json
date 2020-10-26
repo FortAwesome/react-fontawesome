@@ -45,7 +45,7 @@
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.20",
-    "react": "16.x"
+    "react": ">=16.x"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
