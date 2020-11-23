@@ -678,18 +678,19 @@ The following contributors have either helped to start this project, have contri
 code, are actively maintaining it (including documentation), or in other ways
 being awesome contributors to this project. **We'd like to take a moment to recognize them.**
 
-|                                                            | Name           | GitHub                                             |
-| :--------------------------------------------------------: | -------------- | -------------------------------------------------- |
-| <img src="https://github.com/NateRadebaugh.png?size=72" /> | Nate Radebaugh | [@NateRadebaugh](https://github.com/NateRadebaugh) |
-|   <img src="https://github.com/kirkbross.png?size=72" />   | Kirk Ross      | [@kirkbross](https://github.com/kirkbross)         |
-|                                                            | Prateek Goel   | [@prateekgoel](https://github.com/prateekgoel)     |
-|    <img src="https://github.com/naortor.png?size=72" />    | Naor Torgeman  | [@naortor](https://github.com/naortor)             |
-|   <img src="https://github.com/mmhand123.png?size=72" />   | Matthew Hand   | [@mmhand123](https://github.com/mmhand123)         |
-|    <img src="https://github.com/calvinf.png?size=72" />    | calvinf        | [@calvinf](https://github.com/calvinf)             |
-| <img src="https://github.com/chimericdream.png?size=72" /> | Bill Parrott   | [@chimericdream](https://github.com/chimericdream) |
-|    <img src="https://github.com/baelec.png?size=72" />     | Mike Lynch     | [@baelec](https://github.com/baelec)               |
-|   <img src="https://github.com/rodlukas.png?size=72" />    | Lukáš Rod      | [@rodlukas](https://github.com/rodlukas)           |
-|   <img src="https://github.com/proudust.png?size=72" />    | Proudust       | [@proudust](https://github.com/proudust)           |
+|                                                             | Name           | GitHub                                               |
+| :---------------------------------------------------------: | -------------- | ---------------------------------------------------- |
+| <img src="https://github.com/NateRadebaugh.png?size=72" />  | Nate Radebaugh | [@NateRadebaugh](https://github.com/NateRadebaugh)   |
+|   <img src="https://github.com/kirkbross.png?size=72" />    | Kirk Ross      | [@kirkbross](https://github.com/kirkbross)           |
+|                                                             | Prateek Goel   | [@prateekgoel](https://github.com/prateekgoel)       |
+|    <img src="https://github.com/naortor.png?size=72" />     | Naor Torgeman  | [@naortor](https://github.com/naortor)               |
+|   <img src="https://github.com/mmhand123.png?size=72" />    | Matthew Hand   | [@mmhand123](https://github.com/mmhand123)           |
+|    <img src="https://github.com/calvinf.png?size=72" />     | calvinf        | [@calvinf](https://github.com/calvinf)               |
+| <img src="https://github.com/chimericdream.png?size=72" />  | Bill Parrott   | [@chimericdream](https://github.com/chimericdream)   |
+|    <img src="https://github.com/baelec.png?size=72" />      | Mike Lynch     | [@baelec](https://github.com/baelec)                 |
+|   <img src="https://github.com/rodlukas.png?size=72" />     | Lukáš Rod      | [@rodlukas](https://github.com/rodlukas)             |
+|   <img src="https://github.com/proudust.png?size=72" />     | Proudust       | [@proudust](https://github.com/proudust)             |
+| <img src="https://github.com/TiagoPortfolio.png?size=72" /> | Tiago Sousa    | [@TiagoPortfolio](https://github.com/TiagoPortfolio) |
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.
 

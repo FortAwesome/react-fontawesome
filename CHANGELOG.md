@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.13](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.13) - 2020-11-23
+
+### Fixed
+
+- Update forwardRef Typescript definition #396
+
+---
+
 ## [0.1.12](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.12) - 2020-10-26
 
 ### Fixed
