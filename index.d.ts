@@ -21,7 +21,7 @@ export type Props = FontAwesomeIconProps
 type BackwardCompatibleOmit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
 
 export interface FontAwesomeIconProps extends BackwardCompatibleOmit<SVGAttributes<SVGSVGElement>, 'children' | 'mask' | 'transform'> {
-  forwardedRef?: ((e: any) => void) | React.RefObject<any>
+  forwardedRef?: ((e: any) => void) | React.MutableRefObject<any> | null
   icon: IconProp
   mask?: IconProp
   className?: string
