@@ -1,15 +1,17 @@
+import isObject from './is-object';
+
 // Normalize icon arguments
 export default function normalizeIconArgs(icon) {
   // if the icon is null, there's nothing to do
   if (icon === null) {
     return null
   }
-
+  
   // if the icon is an object and has a prefix and an icon name, return it
-  if (typeof icon === 'object' && icon.prefix && icon.iconName) {
+  if (isObject(icon) && icon.prefix && icon.iconName) {
     return icon
   }
-
+  
   // if it's an array with length of two
   if (Array.isArray(icon) && icon.length === 2) {
     // use the first item as prefix, second as icon name
