@@ -331,7 +331,7 @@ describe('using ref', () => {
 })
 
 describe('using titleId', () => {
-  test('setting setting titleId prop reflects in the aria-labelledby attribute', () => {
+  test('setting titleId prop reflects in the aria-labelledby attribute', () => {
     const titleId = 'foo'
     const vm = mount({ icon: faCoffee, titleId: titleId, title: 'Coffee' })
     const ariaLabelledby = vm.props['aria-labelledby']
