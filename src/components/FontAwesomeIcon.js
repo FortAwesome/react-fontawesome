@@ -8,7 +8,14 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 export default function FontAwesomeIcon({ forwardedRef, ...props }) {
-  const { icon: iconArgs, mask: maskArgs, symbol, className, title } = props
+  const {
+    icon: iconArgs,
+    mask: maskArgs,
+    symbol,
+    className,
+    title,
+    titleId
+  } = props
 
   const iconLookup = normalizeIconArgs(iconArgs)
   const classes = objectWithKey('classes', [
@@ -28,7 +35,8 @@ export default function FontAwesomeIcon({ forwardedRef, ...props }) {
     ...transform,
     ...mask,
     symbol,
-    title
+    title,
+    titleId
   })
 
   if (!renderedIcon) {

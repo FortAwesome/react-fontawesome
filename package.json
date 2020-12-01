@@ -45,7 +45,7 @@
     ]
   },
   "peerDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.20",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "react": ">=16.x"
   },
   "devDependencies": {
@@ -54,7 +54,7 @@
     "@babel/preset-env": "^7.7.5",
     "@babel/preset-react": "^7.7.4",
     "@babel/preset-stage-3": "^7.0.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@types/react": "^16.9.15",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
