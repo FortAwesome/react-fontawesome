@@ -39,7 +39,7 @@ jobs:
           npm run test.latest
           npm run test.next.proregistry
         env:
-          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
-      -name: dist
+        FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+      - name: dist
         run: |
           npm run dist
