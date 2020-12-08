@@ -1,24 +1,15 @@
 import * as fontawesome from '@fortawesome/fontawesome-svg-core'
-import FontAwesomeIcon from '../FontAwesomeIcon'
-import React from 'react'
-import renderer from 'react-test-renderer'
 import log from '../../logger'
 import { faCoffee, faCircle, faSpartan } from '../__fixtures__/icons'
-import { coreHasFeature, REFERENCE_ICON_BY_STYLE } from '../__fixtures__/helpers'
+import { coreHasFeature, REFERENCE_ICON_BY_STYLE, mount } from '../__fixtures__/helpers'
 
 jest.mock('../../logger')
 
-fontawesome.library.add(faCoffee, faCircle, faSpartan)
+beforeEach(() => {
+  fontawesome.library.add(faCoffee, faCircle, faSpartan)
+})
 
-function mount(props = {}, { createNodeMock } = {}) {
-  const component = renderer.create(<FontAwesomeIcon {...props} />, {
-    createNodeMock
-  })
-
-  return component.toJSON()
-}
-
-test('find a FAT icon using array syntax', () => {
+test('using a FAT icon using array format', () => {
   const vm = mount({
     icon: ['fat', 'spartan']
   })
