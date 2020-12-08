@@ -1,9 +1,9 @@
-name: Tests
+name: CI
 
 on: [push, pull_request]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -39,9 +39,8 @@ jobs:
           npm run test.latest
           npm run test.next.proregistry
         env:
-          Tests: true
+          CI: true
           FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
-
       -name: dist
         run: |
           npm run dist
