@@ -6,6 +6,14 @@ import log from '../../logger'
 
 jest.mock('../../logger')
 
+function coreHasFeature (feature) {
+  if (feature === REFERENCE_ICON_BY_STYLE) {
+    return fontawesome.icon
+  }
+}
+
+const REFERENCE_ICON_BY_STYLE = 0x00
+
 const faCoffee = {
   prefix: 'fas',
   iconName: 'coffee',
@@ -61,21 +69,21 @@ test('find a FAT icon using array syntax', () => {
   expect(vm.props.className.includes('fa-spartan')).toBeTruthy()
 })
 
-// if (coreHasFeature(REFERENCE_ICON_BY_STYLE)) {
-//   test('find a THIN icon with array format', () => {
-//     const vm = mountFromProps({ icon: ['thin', 'spartan'] })
+if (coreHasFeature(REFERENCE_ICON_BY_STYLE)) {
+  test('find a THIN icon with array format', () => {
+    const vm = mount({ icon: ['thin', 'spartan'] })
 
-//     expect(vm.$el.tagName).toBe('svg')
-//     expect(vm.$el.classList.contains('fa-spartan')).toBeTruthy()
-//   })
+    expect(vm.type).toBe('svg')
+    expect(vm.props.className.includes('fa-spartan')).toBeTruthy()
+  })
 
-//   test('find a FA-THIN icon with array format', () => {
-//     const vm = mountFromProps({ icon: ['fa-thin', 'spartan'] })
+  test('find a FA-THIN icon with array format', () => {
+    const vm = mount({ icon: ['fa-thin', 'spartan'] })
 
-//     expect(vm.$el.tagName).toBe('svg')
-//     expect(vm.$el.classList.contains('fa-spartan')).toBeTruthy()
-//   })
-// }
+    expect(vm.type).toBe('svg')
+    expect(vm.props.className.includes('fa-spartan')).toBeTruthy()
+  })
+}
 
 test('using pack and name', () => {
   const vm = mount({

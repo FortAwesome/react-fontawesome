@@ -7,15 +7,6 @@ import objectWithKey from '../utils/object-with-key'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export function coreHasFeature (feature) {
-  console.log('===== Made it to Core Has Feature =====')
-  if (feature === REFERENCE_ICON_BY_STYLE) {
-    return parse.icon
-  }
-}
-
-export const REFERENCE_ICON_BY_STYLE = 0x00
-
 export default function FontAwesomeIcon({ forwardedRef, ...props }) {
   const { icon: iconArgs, mask: maskArgs, symbol, className, title } = props
 
