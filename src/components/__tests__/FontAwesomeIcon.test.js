@@ -1,5 +1,6 @@
 import * as fontawesome from '@fortawesome/fontawesome-svg-core'
 import log from '../../logger'
+import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { faCoffee, faCircle, faSpartan } from '../__fixtures__/icons'
 import { coreHasFeature, REFERENCE_ICON_BY_STYLE, mount } from '../__fixtures__/helpers'
 
@@ -19,6 +20,24 @@ test('using a FAT icon using array format', () => {
 })
 
 if (coreHasFeature(REFERENCE_ICON_BY_STYLE)) {
+  test('find a free-solid-svg-icon with array format', () => {
+    fontawesome.library.reset()
+    fontawesome.library.add(faClose)
+    const vm = mount({ icon: ['fas', 'xmark'] })
+
+    expect(vm.type).toBe('svg')
+    expect(vm.props.className.includes('fa-xmark')).toBeTruthy()
+  })
+
+  test('find a free-solid-svg-icon that is an alias ', () => {
+    fontawesome.library.reset()
+    fontawesome.library.add(faClose)
+    const vm = mount({ icon: ['fas', 'close'] })
+
+    expect(vm.type).toBe('svg')
+    expect(vm.props.className.includes('fa-close')).toBeTruthy()
+  })
+
   test('find a THIN icon with array format', () => {
     const vm = mount({ icon: ['thin', 'spartan'] })
 
