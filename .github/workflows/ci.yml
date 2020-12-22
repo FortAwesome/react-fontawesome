@@ -1,9 +1,9 @@
-name: Tests
+name: CI
 
 on: [push, pull_request]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -29,10 +29,17 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-      - name: npm install and test
+      - name: npm install, build, and test
         run: |
           npm install
+          npm run build
           npm install react@${{ matrix.react }} react-dom@${{ matrix.react }} react-test-renderer@${{ matrix.react }}
           npm list react react-dom react-test-renderer
           npm run lint
-          npm run test
+          npm run test.latest
+          npm run test.next.proregistry
+        env:
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+      - name: dist
+        run: |
+          npm run dist

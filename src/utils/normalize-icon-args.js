@@ -1,5 +1,11 @@
+import { parse as faParse } from '@fortawesome/fontawesome-svg-core'
+
 // Normalize icon arguments
 export default function normalizeIconArgs(icon) {
+  if (faParse.icon) {
+    return faParse.icon(icon)
+  }
+
   // if the icon is null, there's nothing to do
   if (icon === null) {
     return null
