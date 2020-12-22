@@ -264,9 +264,12 @@
     }
   }
 
-  // Normalize icon arguments
   function normalizeIconArgs(icon) {
-    // if the icon is null, there's nothing to do
+    if (fontawesomeSvgCore.parse.icon) {
+      return fontawesomeSvgCore.parse.icon(icon);
+    } // if the icon is null, there's nothing to do
+
+
     if (icon === null) {
       return null;
     } // if the icon is an object and has a prefix and an icon name, return it
@@ -313,14 +316,16 @@
         maskArgs = props.mask,
         symbol = props.symbol,
         className = props.className,
-        title = props.title;
+        title = props.title,
+        titleId = props.titleId;
     var iconLookup = normalizeIconArgs(iconArgs);
     var classes = objectWithKey('classes', [].concat(_toConsumableArray(classList(props)), _toConsumableArray(className.split(' '))));
     var transform = objectWithKey('transform', typeof props.transform === 'string' ? fontawesomeSvgCore.parse.transform(props.transform) : props.transform);
     var mask = objectWithKey('mask', normalizeIconArgs(maskArgs));
     var renderedIcon = fontawesomeSvgCore.icon(iconLookup, _objectSpread2({}, classes, {}, transform, {}, mask, {
       symbol: symbol,
-      title: title
+      title: title,
+      titleId: titleId
     }));
 
     if (!renderedIcon) {

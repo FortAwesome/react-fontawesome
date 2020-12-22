@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.14](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.14) - 2020-12-22
+
+### Added
+
+- Support for the new parse.icon function from the Font Awesome version 6 @fortawesome/fontawesome-svg-core
+
+---
+
 ## [0.1.13](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.13) - 2020-11-23
 
 ### Fixed
