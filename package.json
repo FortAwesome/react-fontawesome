@@ -35,7 +35,10 @@
     "prettier": "pretty-quick --pattern src/** --staged",
     "precommit": "npm run lint && npm run prettier && lint-staged",
     "prepack": "npm run dist",
-    "test": "jest",
+    "test": "npm run test.latest && npm run test.next",
+    "test.latest": "npm --no-save install @fortawesome/fontawesome-svg-core@latest @fortawesome/free-solid-svg-icons@latest && jest --silent",
+    "test.next": "npm --no-save install @fortawesome/fontawesome-svg-core@next @fortawesome/free-solid-svg-icons@next && jest --silent",
+    "test.next.proregistry": "npm --userconfig .npmrc.proregistry --registry https://npm.fontawesome.com install --no-save @fortawesome/fontawesome-svg-core@next @fortawesome/free-solid-svg-icons@next && jest --silent",
     "clean": "rm -f index.js && rm -f index.es.js"
   },
   "lint-staged": {
@@ -46,6 +49,7 @@
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.20",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "react": ">=16.x"
   },
   "devDependencies": {
