@@ -344,3 +344,12 @@ describe('using ref', () => {
     expect(forwardedRef).toBe(node)
   })
 })
+
+describe('using titleId', () => {
+  test('setting titleId prop reflects in the aria-labelledby attribute', () => {
+    const titleId = 'foo'
+    const vm = mount({ icon: faCoffee, titleId: titleId, title: 'Coffee' })
+    const ariaLabelledby = vm.props['aria-labelledby']
+    expect(ariaLabelledby.includes(titleId)).toBeTruthy()
+  })
+})
