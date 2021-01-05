@@ -2,7 +2,7 @@ import * as fontawesome from '@fortawesome/fontawesome-svg-core'
 import log from '../../logger'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { faCoffee, faCircle, faSpartan } from '../__fixtures__/icons'
-import { coreHasFeature, REFERENCE_ICON_BY_STYLE, ICON_ALIASES, mount } from '../__fixtures__/helpers'
+import { coreHasFeature, REFERENCE_ICON_USING_STRING, REFERENCE_ICON_BY_STYLE, ICON_ALIASES, mount } from '../__fixtures__/helpers'
 
 jest.mock('../../logger')
 
@@ -36,6 +36,22 @@ if (coreHasFeature(ICON_ALIASES)) {
 
     expect(vm.type).toBe('svg')
     expect(vm.props.className.includes('fa-close')).toBeTruthy()
+  })
+}
+
+if (coreHasFeature(REFERENCE_ICON_USING_STRING)) {
+  test('find an icon using string format', () => {
+    const vm = mount({ icon: 'fa-coffee' })
+
+    expect(vm.type).toBe('svg')
+    expect(vm.props.className.includes('fa-coffee')).toBeTruthy()
+  })
+
+  test('find an icon using string format with style', () => {
+    const vm = mount({ icon: 'fa-solid fa-coffee' })
+
+    expect(vm.type).toBe('svg')
+    expect(vm.props.className.includes('fa-coffee')).toBeTruthy()
   })
 }
 
