@@ -362,6 +362,7 @@
     spin: PropTypes.bool,
     symbol: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     title: PropTypes.string,
+    titleId: PropTypes.string,
     transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     swapOpacity: PropTypes.bool
   };
@@ -381,6 +382,7 @@
     spin: false,
     symbol: false,
     title: '',
+    titleId: null,
     transform: null,
     swapOpacity: false
   };
