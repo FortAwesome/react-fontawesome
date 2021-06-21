@@ -64,7 +64,6 @@ The Font Awesome team:
 |   <img src="https://github.com/robmadole.png?size=72" />   | Rob Madole     | [@robmadole](https://github.com/robmadole)         |
 |  <img src="https://github.com/mlwilkerson.png?size=72" />  | Mike Wilkerson | [@mlwilkerson](https://github.com/mlwilkerson)     |
 |     <img src="https://github.com/talbs.png?size=72" />     | Brian Talbot   | [@talbs](https://github.com/talbs)                 |
-|     <img src="https://github.com/talbs.png?size=72" />     | Brian Talbot   | [@talbs](https://github.com/talbs)                 |
 | <img src="https://github.com/jasonlundien.png?size=72" />  | Jason Lundien  | [@jasonlundien](https://github.com/jasonlundien)   |
 
 ## Releasing this project (only project owners can do this)
