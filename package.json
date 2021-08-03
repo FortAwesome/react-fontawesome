@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome 5",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "main": "index.js",
   "module": "index.es.js",
   "jsnext:main": "index.es.js",
@@ -35,9 +35,8 @@
     "prettier": "pretty-quick --pattern src/** --staged",
     "precommit": "npm run lint && npm run prettier && lint-staged",
     "prepack": "npm run dist",
-    "test": "npm run test.latest && npm run test.next",
+    "test": "npm run test.latest && npm run test.next.proregistry",
     "test.latest": "npm --no-save install @fortawesome/fontawesome-svg-core@latest @fortawesome/free-solid-svg-icons@latest && jest --silent",
-    "test.next": "npm --no-save install @fortawesome/fontawesome-svg-core@next @fortawesome/free-solid-svg-icons@next && jest --silent",
     "test.next.proregistry": "npm --userconfig .npmrc.proregistry --registry https://npm.fontawesome.com install --no-save @fortawesome/fontawesome-svg-core@next @fortawesome/free-solid-svg-icons@next && jest --silent",
     "clean": "rm -f index.js && rm -f index.es.js"
   },

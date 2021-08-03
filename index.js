@@ -265,6 +265,12 @@
   }
 
   function normalizeIconArgs(icon) {
+    // this has everything that it needs to be rendered which means it was probably imported
+    // directly from an icon svg package
+    if (icon && _typeof(icon) === 'object' && icon.prefix && icon.iconName && icon.icon) {
+      return icon;
+    }
+
     if (fontawesomeSvgCore.parse.icon) {
       return fontawesomeSvgCore.parse.icon(icon);
     } // if the icon is null, there's nothing to do
@@ -275,7 +281,7 @@
     } // if the icon is an object and has a prefix and an icon name, return it
 
 
-    if (_typeof(icon) === 'object' && icon.prefix && icon.iconName) {
+    if (icon && _typeof(icon) === 'object' && icon.prefix && icon.iconName) {
       return icon;
     } // if it's an array with length of two
 

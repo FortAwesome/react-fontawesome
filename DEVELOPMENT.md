@@ -19,7 +19,8 @@ The following commands are available through `npm run`
 1. Add new contributors to the `contributors` section
 1. Update the `CHANGELOG.md`
 1. Update the `README.md` contributors section
-1. `npm run build` and `npm test`
+1. `npm run build`
+1. `FONTAWESOME_NPM_AUTH_TOKEN=TOKEN npm run test` where `TOKEN` is a valid Pro registry token
 1. `npm publish`
 1. `npm publish --registry https://npm.fontawesome.com` (publish to Pro registry)
 1. `git add . && git commit -m 'Release VERSION'`

@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.15](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.15) - 2021-08-03
+
+### Fixed
+
+- Skip parse.icon if the icon is imported directly from an icon package
+
+---
+
 ## [0.1.14](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.14) - 2020-12-22
 
 ### Added
