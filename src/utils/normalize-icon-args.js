@@ -2,6 +2,12 @@ import { parse as faParse } from '@fortawesome/fontawesome-svg-core'
 
 // Normalize icon arguments
 export default function normalizeIconArgs(icon) {
+  // this has everything that it needs to be rendered which means it was probably imported
+  // directly from an icon svg package
+  if (icon && typeof icon === 'object' && icon.prefix && icon.iconName && icon.icon) {
+    return icon
+  }
+
   if (faParse.icon) {
     return faParse.icon(icon)
   }
@@ -12,7 +18,7 @@ export default function normalizeIconArgs(icon) {
   }
 
   // if the icon is an object and has a prefix and an icon name, return it
-  if (typeof icon === 'object' && icon.prefix && icon.iconName) {
+  if (icon && typeof icon === 'object' && icon.prefix && icon.iconName) {
     return icon
   }
 

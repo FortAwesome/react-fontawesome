@@ -1,6 +1,6 @@
 import * as fontawesome from '@fortawesome/fontawesome-svg-core'
 import log from '../../logger'
-import { faClose } from '@fortawesome/free-solid-svg-icons'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faCoffee, faCircle, faSpartan } from '../__fixtures__/icons'
 import { coreHasFeature, REFERENCE_ICON_USING_STRING, REFERENCE_ICON_BY_STYLE, ICON_ALIASES, mount } from '../__fixtures__/helpers'
 
@@ -8,6 +8,10 @@ jest.mock('../../logger')
 
 beforeEach(() => {
   fontawesome.library.add(faCoffee, faCircle, faSpartan)
+})
+
+afterEach(() => {
+  fontawesome.library.reset()
 })
 
 test('using a FAT icon using array format', () => {
@@ -21,8 +25,7 @@ test('using a FAT icon using array format', () => {
 
 if (coreHasFeature(ICON_ALIASES)) {
   test('find a free-solid-svg-icon with array format', () => {
-    fontawesome.library.reset()
-    fontawesome.library.add(faClose)
+    fontawesome.library.add(faTimes)
     const vm = mount({ icon: ['fas', 'xmark'] })
 
     expect(vm.type).toBe('svg')
@@ -30,12 +33,11 @@ if (coreHasFeature(ICON_ALIASES)) {
   })
 
   test('find a free-solid-svg-icon that is an alias ', () => {
-    fontawesome.library.reset()
-    fontawesome.library.add(faClose)
+    fontawesome.library.add(faTimes)
     const vm = mount({ icon: ['fas', 'close'] })
 
     expect(vm.type).toBe('svg')
-    expect(vm.props.className.includes('fa-close')).toBeTruthy()
+    expect(vm.props.className.includes('fa-xmark')).toBeTruthy()
   })
 }
 
@@ -70,6 +72,14 @@ if (coreHasFeature(REFERENCE_ICON_BY_STYLE)) {
     expect(vm.props.className.includes('fa-spartan')).toBeTruthy()
   })
 }
+
+test('using imported object from svg icons package', () => {
+  const vm = mount({
+    icon: faTimes
+  })
+
+  expect(vm.type).toBe('svg')
+})
 
 test('using pack and name', () => {
   const vm = mount({

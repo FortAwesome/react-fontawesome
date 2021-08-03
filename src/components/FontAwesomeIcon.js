@@ -18,6 +18,7 @@ export default function FontAwesomeIcon({ forwardedRef, ...props }) {
   } = props
 
   const iconLookup = normalizeIconArgs(iconArgs)
+
   const classes = objectWithKey('classes', [
     ...classList(props),
     ...className.split(' ')
