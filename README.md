@@ -21,7 +21,7 @@
 
 Official documentation is hosted at fontawesome.com:
 
-[Check it out here](https://fontawesome.com/v6.0/docs/web/use-with/react/)
+[Check it out here](https://fontawesome.com/v6/docs/web/use-with/react/)
 
 ## How to Help
 
