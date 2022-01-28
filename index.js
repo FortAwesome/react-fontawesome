@@ -1,24 +1,48 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@fortawesome/fontawesome-svg-core'), require('prop-types'), require('react')) :
   typeof define === 'function' && define.amd ? define(['exports', '@fortawesome/fontawesome-svg-core', 'prop-types', 'react'], factory) :
-  (global = global || self, factory(global['react-fontawesome'] = {}, global.FontAwesome, global.PropTypes, global.React));
-}(this, (function (exports, fontawesomeSvgCore, PropTypes, React) { 'use strict';
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["react-fontawesome"] = {}, global.FontAwesome, global.PropTypes, global.React));
+})(this, (function (exports, fontawesomeSvgCore, PropTypes, React) { 'use strict';
 
-  PropTypes = PropTypes && PropTypes.hasOwnProperty('default') ? PropTypes['default'] : PropTypes;
-  React = React && React.hasOwnProperty('default') ? React['default'] : React;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-  function _typeof(obj) {
-    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-      _typeof = function (obj) {
-        return typeof obj;
-      };
-    } else {
-      _typeof = function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-      };
+  var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
+  var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      enumerableOnly && (symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      })), keys.push.apply(keys, symbols);
     }
 
-    return _typeof(obj);
+    return keys;
+  }
+
+  function _objectSpread2(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = null != arguments[i] ? arguments[i] : {};
+      i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+
+    return target;
+  }
+
+  function _typeof(obj) {
+    "@babel/helpers - typeof";
+
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+      return typeof obj;
+    } : function (obj) {
+      return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    }, _typeof(obj);
   }
 
   function _defineProperty(obj, key, value) {
@@ -34,40 +58,6 @@
     }
 
     return obj;
-  }
-
-  function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
-
-    if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
-      if (enumerableOnly) symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-      keys.push.apply(keys, symbols);
-    }
-
-    return keys;
-  }
-
-  function _objectSpread2(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-
-      if (i % 2) {
-        ownKeys(Object(source), true).forEach(function (key) {
-          _defineProperty(target, key, source[key]);
-        });
-      } else if (Object.getOwnPropertyDescriptors) {
-        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-      } else {
-        ownKeys(Object(source)).forEach(function (key) {
-          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-        });
-      }
-    }
-
-    return target;
   }
 
   function _objectWithoutPropertiesLoose(source, excluded) {
@@ -107,30 +97,48 @@
   }
 
   function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
   }
 
   function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) {
-      for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
-
-      return arr2;
-    }
+    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
   }
 
   function _iterableToArray(iter) {
-    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+    if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+  }
+
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+
+    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+    return arr2;
   }
 
   function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance");
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
   // Get CSS class list from a props object
   function classList(props) {
     var _classes;
 
-    var spin = props.spin,
+    var beat = props.beat,
+        fade = props.fade,
+        flash = props.flash,
+        spin = props.spin,
+        spinPulse = props.spinPulse,
+        spinReverse = props.spinReverse,
         pulse = props.pulse,
         fixedWidth = props.fixedWidth,
         inverse = props.inverse,
@@ -142,7 +150,12 @@
         pull = props.pull; // map of CSS class names to properties
 
     var classes = (_classes = {
+      'fa-beat': beat,
+      'fa-fade': fade,
+      'fa-flash': flash,
       'fa-spin': spin,
+      'fa-spin-reverse': spinReverse,
+      'fa-spin-pulse': spinPulse,
       'fa-pulse': pulse,
       'fa-fw': fixedWidth,
       'fa-inverse': inverse,
@@ -182,6 +195,8 @@
 
     return string.substr(0, 1).toLowerCase() + string.substr(1);
   }
+
+  var _excluded$1 = ["style"];
 
   function capitalize(val) {
     return val.charAt(0).toUpperCase() + val.slice(1);
@@ -242,12 +257,12 @@
 
     var _extraProps$style = extraProps.style,
         existingStyle = _extraProps$style === void 0 ? {} : _extraProps$style,
-        remaining = _objectWithoutProperties(extraProps, ["style"]);
+        remaining = _objectWithoutProperties(extraProps, _excluded$1);
 
-    mixins.attrs['style'] = _objectSpread2({}, mixins.attrs['style'], {}, existingStyle);
+    mixins.attrs['style'] = _objectSpread2(_objectSpread2({}, mixins.attrs['style']), existingStyle);
     /* eslint-enable */
 
-    return createElement.apply(void 0, [element.tag, _objectSpread2({}, mixins.attrs, {}, remaining)].concat(_toConsumableArray(children)));
+    return createElement.apply(void 0, [element.tag, _objectSpread2(_objectSpread2({}, mixins.attrs), remaining)].concat(_toConsumableArray(children)));
   }
 
   var PRODUCTION = false;
@@ -314,9 +329,10 @@
     return Array.isArray(value) && value.length > 0 || !Array.isArray(value) && value ? _defineProperty({}, key, value) : {};
   }
 
+  var _excluded = ["forwardedRef"];
   function FontAwesomeIcon(_ref) {
     var forwardedRef = _ref.forwardedRef,
-        props = _objectWithoutProperties(_ref, ["forwardedRef"]);
+        props = _objectWithoutProperties(_ref, _excluded);
 
     var iconArgs = props.icon,
         maskArgs = props.mask,
@@ -328,7 +344,7 @@
     var classes = objectWithKey('classes', [].concat(_toConsumableArray(classList(props)), _toConsumableArray(className.split(' '))));
     var transform = objectWithKey('transform', typeof props.transform === 'string' ? fontawesomeSvgCore.parse.transform(props.transform) : props.transform);
     var mask = objectWithKey('mask', normalizeIconArgs(maskArgs));
-    var renderedIcon = fontawesomeSvgCore.icon(iconLookup, _objectSpread2({}, classes, {}, transform, {}, mask, {
+    var renderedIcon = fontawesomeSvgCore.icon(iconLookup, _objectSpread2(_objectSpread2(_objectSpread2(_objectSpread2({}, classes), transform), mask), {}, {
       symbol: symbol,
       title: title,
       titleId: titleId
@@ -353,23 +369,28 @@
   }
   FontAwesomeIcon.displayName = 'FontAwesomeIcon';
   FontAwesomeIcon.propTypes = {
-    border: PropTypes.bool,
-    className: PropTypes.string,
-    mask: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
-    fixedWidth: PropTypes.bool,
-    inverse: PropTypes.bool,
-    flip: PropTypes.oneOf(['horizontal', 'vertical', 'both']),
-    icon: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
-    listItem: PropTypes.bool,
-    pull: PropTypes.oneOf(['right', 'left']),
-    pulse: PropTypes.bool,
-    rotation: PropTypes.oneOf([0, 90, 180, 270]),
-    size: PropTypes.oneOf(['lg', 'xs', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),
-    spin: PropTypes.bool,
-    symbol: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    title: PropTypes.string,
-    transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    swapOpacity: PropTypes.bool
+    beat: PropTypes__default["default"].bool,
+    border: PropTypes__default["default"].bool,
+    className: PropTypes__default["default"].string,
+    fade: PropTypes__default["default"].bool,
+    flash: PropTypes__default["default"].bool,
+    mask: PropTypes__default["default"].oneOfType([PropTypes__default["default"].object, PropTypes__default["default"].array, PropTypes__default["default"].string]),
+    fixedWidth: PropTypes__default["default"].bool,
+    inverse: PropTypes__default["default"].bool,
+    flip: PropTypes__default["default"].oneOf(['horizontal', 'vertical', 'both']),
+    icon: PropTypes__default["default"].oneOfType([PropTypes__default["default"].object, PropTypes__default["default"].array, PropTypes__default["default"].string]),
+    listItem: PropTypes__default["default"].bool,
+    pull: PropTypes__default["default"].oneOf(['right', 'left']),
+    pulse: PropTypes__default["default"].bool,
+    rotation: PropTypes__default["default"].oneOf([0, 90, 180, 270]),
+    size: PropTypes__default["default"].oneOf(['2xs', 'xs', 'sm', 'lg', 'xl', '2xl', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),
+    spin: PropTypes__default["default"].bool,
+    spinPulse: PropTypes__default["default"].bool,
+    spinReverse: PropTypes__default["default"].bool,
+    symbol: PropTypes__default["default"].oneOfType([PropTypes__default["default"].bool, PropTypes__default["default"].string]),
+    title: PropTypes__default["default"].string,
+    transform: PropTypes__default["default"].oneOfType([PropTypes__default["default"].string, PropTypes__default["default"].object]),
+    swapOpacity: PropTypes__default["default"].bool
   };
   FontAwesomeIcon.defaultProps = {
     border: false,
@@ -390,10 +411,10 @@
     transform: null,
     swapOpacity: false
   };
-  var convertCurry = convert.bind(null, React.createElement);
+  var convertCurry = convert.bind(null, React__default["default"].createElement);
 
   exports.FontAwesomeIcon = FontAwesomeIcon;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));

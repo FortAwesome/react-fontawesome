@@ -1,6 +1,6 @@
-import resolve from 'rollup-plugin-node-resolve'
-import commonJs from 'rollup-plugin-commonjs'
-import babel from 'rollup-plugin-babel'
+import resolve from '@rollup/plugin-node-resolve'
+import commonJs from '@rollup/plugin-commonjs'
+import babel from '@rollup/plugin-babel'
 
 const name = 'react-fontawesome'
 const globals = {
