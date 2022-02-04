@@ -2,7 +2,7 @@ import getClassList from '../get-class-list-from-props'
 
 describe('get class list', () => {
   test('test the booleans', () => {
-    // the six we're testing plus the three defaults
+    // the eight we're testing plus the three defaults
     const NUM_CLASSES = 8
 
     const props = {
