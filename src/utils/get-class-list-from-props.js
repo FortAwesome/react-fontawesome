@@ -1,7 +1,12 @@
 // Get CSS class list from a props object
 export default function classList(props) {
   const {
+    beat,
+    fade,
+    flash,
     spin,
+    spinPulse,
+    spinReverse,
     pulse,
     fixedWidth,
     inverse,
@@ -15,7 +20,12 @@ export default function classList(props) {
 
   // map of CSS class names to properties
   const classes = {
+    'fa-beat': beat,
+    'fa-fade': fade,
+    'fa-flash': flash,
     'fa-spin': spin,
+    'fa-spin-reverse': spinReverse,
+    'fa-spin-pulse': spinPulse,
     'fa-pulse': pulse,
     'fa-fw': fixedWidth,
     'fa-inverse': inverse,

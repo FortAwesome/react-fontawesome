@@ -210,9 +210,12 @@ describe('using rotation', () => {
 
 test('using size', () => {
   ;[
-    'lg',
+    '2xs',
     'xs',
     'sm',
+    'lg',
+    'xl',
+    '2xl',
     '1x',
     '2x',
     '3x',
@@ -235,6 +238,13 @@ describe('using spin', () => {
     const vm = mount({ icon: faCoffee, spin: true })
 
     expect(vm.props.className.includes('fa-spin')).toBeTruthy()
+  })
+
+  test('setting spinReverse and spinPulse prop to true adds fa-spin-reverse and fa-spin-pulse class', () => {
+    const vm = mount({ icon: faCoffee, spinReverse: true, spinPulse: true })
+
+    expect(vm.props.className.includes('fa-spin-reverse')).toBeTruthy()
+    expect(vm.props.className.includes('fa-spin-pulse')).toBeTruthy()
   })
 
   test('setting spin prop to false after setting it to true results in no fa-spin class', () => {

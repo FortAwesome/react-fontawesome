@@ -61,9 +61,15 @@ export default function FontAwesomeIcon({ forwardedRef, ...props }) {
 FontAwesomeIcon.displayName = 'FontAwesomeIcon'
 
 FontAwesomeIcon.propTypes = {
+  beat: PropTypes.bool,
+
   border: PropTypes.bool,
 
   className: PropTypes.string,
+
+  fade: PropTypes.bool,
+
+  flash: PropTypes.bool,
 
   mask: PropTypes.oneOfType([
     PropTypes.object,
@@ -92,9 +98,12 @@ FontAwesomeIcon.propTypes = {
   rotation: PropTypes.oneOf([0, 90, 180, 270]),
 
   size: PropTypes.oneOf([
-    'lg',
+    '2xs',
     'xs',
     'sm',
+    'lg',
+    'xl',
+    '2xl',
     '1x',
     '2x',
     '3x',
@@ -108,6 +117,10 @@ FontAwesomeIcon.propTypes = {
   ]),
 
   spin: PropTypes.bool,
+
+  spinPulse: PropTypes.bool,
+
+  spinReverse: PropTypes.bool,
 
   symbol: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 
