@@ -130,6 +130,8 @@ FontAwesomeIcon.propTypes = {
 
   title: PropTypes.string,
 
+  titleId: PropTypes.string,
+
   transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 
   swapOpacity: PropTypes.bool
@@ -156,6 +158,7 @@ FontAwesomeIcon.defaultProps = {
   shake: false,
   symbol: false,
   title: '',
+  titleId: null,
   transform: null,
   swapOpacity: false
 }
