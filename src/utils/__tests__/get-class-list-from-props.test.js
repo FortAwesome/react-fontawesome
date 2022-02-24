@@ -2,31 +2,36 @@ import getClassList from '../get-class-list-from-props'
 
 describe('get class list', () => {
   test('test the booleans', () => {
-    // the eight we're testing plus the three defaults
-    const NUM_CLASSES = 8
-
     const props = {
-      spin: true,
-      pulse: true,
+      border: true,
       fixedWidth: true,
       inverse: true,
-      border: true,
       listItem: true,
+      pulse: true,
+      spin: true,
+      beat: true,
+      fade: true,
+      beatFade: true,
+      bounce: true,
       shake: true,
-      bounce: true
+      swapOpacity: true
     }
 
     const classList = getClassList(props)
-    expect(classList.length).toBe(NUM_CLASSES)
+
     expect(classList).toStrictEqual([
+      'fa-beat',
+      'fa-fade',
+      'fa-beat-fade',
       'fa-bounce',
+      'fa-shake',
       'fa-spin',
       'fa-pulse',
       'fa-fw',
       'fa-inverse',
       'fa-border',
       'fa-li',
-      'fa-shake'
+      'fa-swap-opacity'
     ])
   })
 
@@ -129,20 +134,4 @@ describe('get class list', () => {
       testNulls('size')
     })
   })
-})
-
-test('bounce', () => {
-  function testBounce(bounce) {
-    expect(getClassList({ bounce })).toStrictEqual([`fa-${bounce}`])
-  }
-
-  testBounce('bounce')
-})
-
-test('shake', () => {
-  function testShake(shake) {
-    expect(getClassList({ shake })).toStrictEqual([`fa-${shake}`])
-  }
-
-  testShake('shake')
 })
