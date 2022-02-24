@@ -14,7 +14,8 @@ export default function FontAwesomeIcon({ forwardedRef, ...props }) {
     symbol,
     className,
     title,
-    titleId
+    titleId,
+    maskId
   } = props
 
   const iconLookup = normalizeIconArgs(iconArgs)
@@ -37,7 +38,8 @@ export default function FontAwesomeIcon({ forwardedRef, ...props }) {
     ...mask,
     symbol,
     title,
-    titleId
+    titleId,
+    maskId
   })
 
   if (!renderedIcon) {
@@ -78,6 +80,8 @@ FontAwesomeIcon.propTypes = {
     PropTypes.array,
     PropTypes.string
   ]),
+
+  maskId: PropTypes.string,
 
   fixedWidth: PropTypes.bool,
 
@@ -141,6 +145,7 @@ FontAwesomeIcon.defaultProps = {
   border: false,
   className: '',
   mask: null,
+  maskId: null,
   fixedWidth: false,
   inverse: false,
   flip: null,

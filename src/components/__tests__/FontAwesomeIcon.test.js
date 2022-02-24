@@ -322,12 +322,21 @@ describe('using transform', () => {
   })
 })
 
-describe('mask', () => {
+describe.only('mask', () => {
   test('will add icon', () => {
     const vm = mount({ icon: faCoffee, mask: faCircle })
 
     expect(vm.children.length).toBe(2)
     expect(vm.children[1].props.hasOwnProperty('clipPath')).toBeTruthy() // eslint-disable-line no-prototype-builtins
+  })
+
+  test('will use maskId', () => {
+    const vm = mount({ icon: faCoffee, mask: faCircle, maskId: 'circle-mask' })
+
+    expect(vm.children[0].children[0].props.id).toEqual('clip-circle-mask')
+    expect(vm.children[0].children[1].props.id).toEqual('mask-circle-mask')
+    expect(vm.children[1].props.mask).toEqual('url(#mask-circle-mask)')
+    expect(vm.children[1].props.clipPath).toEqual('url(#clip-circle-mask)')
   })
 })
 
