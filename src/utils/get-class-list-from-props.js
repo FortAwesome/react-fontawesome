@@ -2,7 +2,6 @@
 export default function classList(props) {
   const {
     beat,
-    bounce,
     fade,
     beatFade,
     bounce,
@@ -19,14 +18,12 @@ export default function classList(props) {
     flip,
     size,
     rotation,
-    pull,
-    shake
+    pull
   } = props
 
   // map of CSS class names to properties
   const classes = {
     'fa-beat': beat,
-    'fa-bounce': bounce,
     'fa-fade': fade,
     'fa-beat-fade': beatFade,
     'fa-bounce': bounce,
@@ -46,7 +43,6 @@ export default function classList(props) {
     [`fa-rotate-${rotation}`]:
       typeof rotation !== 'undefined' && rotation !== null && rotation !== 0,
     [`fa-pull-${pull}`]: typeof pull !== 'undefined' && pull !== null,
-    'fa-shake': shake,
     'fa-swap-opacity': props.swapOpacity
   }
 
