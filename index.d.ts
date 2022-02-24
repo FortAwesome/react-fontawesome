@@ -24,6 +24,7 @@ export interface FontAwesomeIconProps extends BackwardCompatibleOmit<SVGAttribut
   forwardedRef?: ((e: any) => void) | React.MutableRefObject<any> | null
   icon: IconProp
   mask?: IconProp
+  maskId?: string
   className?: string
   color?: string
   spin?: boolean
