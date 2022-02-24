@@ -65,6 +65,8 @@ FontAwesomeIcon.propTypes = {
 
   border: PropTypes.bool,
 
+  bounce: PropTypes.bool,
+
   className: PropTypes.string,
 
   fade: PropTypes.bool,
@@ -96,6 +98,8 @@ FontAwesomeIcon.propTypes = {
   pulse: PropTypes.bool,
 
   rotation: PropTypes.oneOf([0, 90, 180, 270]),
+
+  shake: PropTypes.bool,
 
   size: PropTypes.oneOf([
     '2xs',

@@ -233,6 +233,36 @@ test('using size', () => {
   })
 })
 
+describe('using bounce', () => {
+  test('setting bounce prop to true adds fa-bounce class', () => {
+    const vm = mount({ icon: faCoffee, bounce: true })
+
+    expect(vm.props.className.includes('fa-bounce')).toBeTruthy()
+  })
+
+  test('setting bounce prop to false after setting it to true results in no fa-bounce class', () => {
+    let vm = mount({ icon: faCoffee, bounce: true })
+    expect(vm.props.className.includes('fa-bounce')).toBeTruthy()
+    vm = mount({ icon: faCoffee, bounce: false })
+    expect(vm.props.className.includes('fa-bounce')).toBeFalsy()
+  })
+})
+
+describe('using shake', () => {
+  test('setting shake prop to true adds fa-shake class', () => {
+    const vm = mount({ icon: faCoffee, shake: true })
+
+    expect(vm.props.className.includes('fa-shake')).toBeTruthy()
+  })
+
+  test('setting shake prop to false after setting it to true results in no fa-shake class', () => {
+    let vm = mount({ icon: faCoffee, shake: true })
+    expect(vm.props.className.includes('fa-shake')).toBeTruthy()
+    vm = mount({ icon: faCoffee, shake: false })
+    expect(vm.props.className.includes('fa-shake')).toBeFalsy()
+  })
+})
+
 describe('using spin', () => {
   test('setting spin prop to true adds fa-spin class', () => {
     const vm = mount({ icon: faCoffee, spin: true })

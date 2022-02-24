@@ -2,8 +2,8 @@ import getClassList from '../get-class-list-from-props'
 
 describe('get class list', () => {
   test('test the booleans', () => {
-    // the six we're testing plus the three defaults
-    const NUM_CLASSES = 6
+    // the eight we're testing plus the three defaults
+    const NUM_CLASSES = 8
 
     const props = {
       spin: true,
@@ -11,19 +11,31 @@ describe('get class list', () => {
       fixedWidth: true,
       inverse: true,
       border: true,
-      listItem: true
+      listItem: true,
+      shake: true,
+      bounce: true
     }
 
     const classList = getClassList(props)
     expect(classList.length).toBe(NUM_CLASSES)
     expect(classList).toStrictEqual([
+      'fa-bounce',
       'fa-spin',
       'fa-pulse',
       'fa-fw',
       'fa-inverse',
       'fa-border',
-      'fa-li'
+      'fa-li',
+      'fa-shake'
     ])
+  })
+
+  test('size', () => {
+    function testSize(size) {
+      expect(getClassList({ size })).toStrictEqual([`fa-${size}`])
+    }
+
+    testSize('xs')
   })
 
   test('flip', () => {
@@ -117,4 +129,20 @@ describe('get class list', () => {
       testNulls('size')
     })
   })
+})
+
+test('bounce', () => {
+  function testBounce(bounce) {
+    expect(getClassList({ bounce })).toStrictEqual([`fa-${bounce}`])
+  }
+
+  testBounce('bounce')
+})
+
+test('shake', () => {
+  function testShake(shake) {
+    expect(getClassList({ shake })).toStrictEqual([`fa-${shake}`])
+  }
+
+  testShake('shake')
 })
