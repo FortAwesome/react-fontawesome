@@ -36,10 +36,8 @@ jobs:
           npm install react@${{ matrix.react }} react-dom@${{ matrix.react }} react-test-renderer@${{ matrix.react }}
           npm list react react-dom react-test-renderer
           npm run lint
-          npm run test.latest
-          npm run test.next.proregistry
-        env:
-          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+          npm run test.5
+          npm run test.6
       - name: dist
         run: |
           npm run dist
