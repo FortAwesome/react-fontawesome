@@ -3,6 +3,9 @@ export default function classList(props) {
   const {
     beat,
     fade,
+    beatFade,
+    bounce,
+    shake,
     flash,
     spin,
     spinPulse,
@@ -22,6 +25,9 @@ export default function classList(props) {
   const classes = {
     'fa-beat': beat,
     'fa-fade': fade,
+    'fa-beat-fade': beatFade,
+    'fa-bounce': bounce,
+    'fa-shake': shake,
     'fa-flash': flash,
     'fa-spin': spin,
     'fa-spin-reverse': spinReverse,
