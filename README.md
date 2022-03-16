@@ -53,6 +53,7 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 | Lukáš Rod         | [@rodlukas](https://github.com/rodlukas)                  |
 | Proudust          | [@proudust](https://github.com/proudust)                  |
 | Tiago Sousa       | [@TiagoPortfolio](https://github.com/TiagoPortfolio)      |
+| Alexey Victorov   | [@AliMamed](https://github.com/AliMamed)                  |
 | Font Awesome Team | [@FortAwesome](https://github.com/orgs/FortAwesome/people)|
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.

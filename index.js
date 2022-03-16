@@ -345,7 +345,8 @@
         symbol = props.symbol,
         className = props.className,
         title = props.title,
-        titleId = props.titleId;
+        titleId = props.titleId,
+        maskId = props.maskId;
     var iconLookup = normalizeIconArgs(iconArgs);
     var classes = objectWithKey('classes', [].concat(_toConsumableArray(classList(props)), _toConsumableArray(className.split(' '))));
     var transform = objectWithKey('transform', typeof props.transform === 'string' ? fontawesomeSvgCore.parse.transform(props.transform) : props.transform);
@@ -353,7 +354,8 @@
     var renderedIcon = fontawesomeSvgCore.icon(iconLookup, _objectSpread2(_objectSpread2(_objectSpread2(_objectSpread2({}, classes), transform), mask), {}, {
       symbol: symbol,
       title: title,
-      titleId: titleId
+      titleId: titleId,
+      maskId: maskId
     }));
 
     if (!renderedIcon) {
@@ -377,10 +379,12 @@
   FontAwesomeIcon.propTypes = {
     beat: PropTypes__default["default"].bool,
     border: PropTypes__default["default"].bool,
+    bounce: PropTypes__default["default"].bool,
     className: PropTypes__default["default"].string,
     fade: PropTypes__default["default"].bool,
     flash: PropTypes__default["default"].bool,
     mask: PropTypes__default["default"].oneOfType([PropTypes__default["default"].object, PropTypes__default["default"].array, PropTypes__default["default"].string]),
+    maskId: PropTypes__default["default"].string,
     fixedWidth: PropTypes__default["default"].bool,
     inverse: PropTypes__default["default"].bool,
     flip: PropTypes__default["default"].oneOf(['horizontal', 'vertical', 'both']),
@@ -389,12 +393,14 @@
     pull: PropTypes__default["default"].oneOf(['right', 'left']),
     pulse: PropTypes__default["default"].bool,
     rotation: PropTypes__default["default"].oneOf([0, 90, 180, 270]),
+    shake: PropTypes__default["default"].bool,
     size: PropTypes__default["default"].oneOf(['2xs', 'xs', 'sm', 'lg', 'xl', '2xl', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),
     spin: PropTypes__default["default"].bool,
     spinPulse: PropTypes__default["default"].bool,
     spinReverse: PropTypes__default["default"].bool,
     symbol: PropTypes__default["default"].oneOfType([PropTypes__default["default"].bool, PropTypes__default["default"].string]),
     title: PropTypes__default["default"].string,
+    titleId: PropTypes__default["default"].string,
     transform: PropTypes__default["default"].oneOfType([PropTypes__default["default"].string, PropTypes__default["default"].object]),
     swapOpacity: PropTypes__default["default"].bool
   };
@@ -402,6 +408,7 @@
     border: false,
     className: '',
     mask: null,
+    maskId: null,
     fixedWidth: false,
     inverse: false,
     flip: null,
@@ -419,6 +426,7 @@
     shake: false,
     symbol: false,
     title: '',
+    titleId: null,
     transform: null,
     swapOpacity: false
   };

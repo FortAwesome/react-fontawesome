@@ -338,7 +338,8 @@ function FontAwesomeIcon(_ref) {
       symbol = props.symbol,
       className = props.className,
       title = props.title,
-      titleId = props.titleId;
+      titleId = props.titleId,
+      maskId = props.maskId;
   var iconLookup = normalizeIconArgs(iconArgs);
   var classes = objectWithKey('classes', [].concat(_toConsumableArray(classList(props)), _toConsumableArray(className.split(' '))));
   var transform = objectWithKey('transform', typeof props.transform === 'string' ? parse.transform(props.transform) : props.transform);
@@ -346,7 +347,8 @@ function FontAwesomeIcon(_ref) {
   var renderedIcon = icon(iconLookup, _objectSpread2(_objectSpread2(_objectSpread2(_objectSpread2({}, classes), transform), mask), {}, {
     symbol: symbol,
     title: title,
-    titleId: titleId
+    titleId: titleId,
+    maskId: maskId
   }));
 
   if (!renderedIcon) {
@@ -370,10 +372,12 @@ FontAwesomeIcon.displayName = 'FontAwesomeIcon';
 FontAwesomeIcon.propTypes = {
   beat: PropTypes.bool,
   border: PropTypes.bool,
+  bounce: PropTypes.bool,
   className: PropTypes.string,
   fade: PropTypes.bool,
   flash: PropTypes.bool,
   mask: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
+  maskId: PropTypes.string,
   fixedWidth: PropTypes.bool,
   inverse: PropTypes.bool,
   flip: PropTypes.oneOf(['horizontal', 'vertical', 'both']),
@@ -382,12 +386,14 @@ FontAwesomeIcon.propTypes = {
   pull: PropTypes.oneOf(['right', 'left']),
   pulse: PropTypes.bool,
   rotation: PropTypes.oneOf([0, 90, 180, 270]),
+  shake: PropTypes.bool,
   size: PropTypes.oneOf(['2xs', 'xs', 'sm', 'lg', 'xl', '2xl', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),
   spin: PropTypes.bool,
   spinPulse: PropTypes.bool,
   spinReverse: PropTypes.bool,
   symbol: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   title: PropTypes.string,
+  titleId: PropTypes.string,
   transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   swapOpacity: PropTypes.bool
 };
@@ -395,6 +401,7 @@ FontAwesomeIcon.defaultProps = {
   border: false,
   className: '',
   mask: null,
+  maskId: null,
   fixedWidth: false,
   inverse: false,
   flip: null,
@@ -412,6 +419,7 @@ FontAwesomeIcon.defaultProps = {
   shake: false,
   symbol: false,
   title: '',
+  titleId: null,
   transform: null,
   swapOpacity: false
 };

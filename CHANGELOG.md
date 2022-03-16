@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.18](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.18) - 2022-03-16
+
+### Added
+
+- Animations bounce, shake, fade, and beat-fade
+- Property maskId and titleId to allow consistent rendering on client and server
+
+### Changed
+
+- Peer dependencies now include major version 6
+
+---
+
 ## [0.1.17](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.17) - 2022-01-28
 
 ### Added
