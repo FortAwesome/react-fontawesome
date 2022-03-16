@@ -322,7 +322,7 @@ describe('using transform', () => {
   })
 })
 
-describe.only('mask', () => {
+describe('mask', () => {
   test('will add icon', () => {
     const vm = mount({ icon: faCoffee, mask: faCircle })
 
