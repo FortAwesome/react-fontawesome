@@ -195,7 +195,7 @@ function camelize(string) {
   return string.substr(0, 1).toLowerCase() + string.substr(1);
 }
 
-var _excluded$1 = ["style"];
+var _excluded = ["style"];
 
 function capitalize(val) {
   return val.charAt(0).toUpperCase() + val.slice(1);
@@ -256,7 +256,7 @@ function convert(createElement, element) {
 
   var _extraProps$style = extraProps.style,
       existingStyle = _extraProps$style === void 0 ? {} : _extraProps$style,
-      remaining = _objectWithoutProperties(extraProps, _excluded$1);
+      remaining = _objectWithoutProperties(extraProps, _excluded);
 
   mixins.attrs['style'] = _objectSpread2(_objectSpread2({}, mixins.attrs['style']), existingStyle);
   /* eslint-enable */
@@ -328,11 +328,7 @@ function objectWithKey(key, value) {
   return Array.isArray(value) && value.length > 0 || !Array.isArray(value) && value ? _defineProperty({}, key, value) : {};
 }
 
-var _excluded = ["forwardedRef"];
-function FontAwesomeIcon(_ref) {
-  var forwardedRef = _ref.forwardedRef,
-      props = _objectWithoutProperties(_ref, _excluded);
-
+var FontAwesomeIcon = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var iconArgs = props.icon,
       maskArgs = props.mask,
       symbol = props.symbol,
@@ -358,7 +354,7 @@ function FontAwesomeIcon(_ref) {
 
   var abstract = renderedIcon.abstract;
   var extraProps = {
-    ref: forwardedRef
+    ref: ref
   };
   Object.keys(props).forEach(function (key) {
     // eslint-disable-next-line no-prototype-builtins
@@ -367,7 +363,7 @@ function FontAwesomeIcon(_ref) {
     }
   });
   return convertCurry(abstract[0], extraProps);
-}
+});
 FontAwesomeIcon.displayName = 'FontAwesomeIcon';
 FontAwesomeIcon.propTypes = {
   beat: PropTypes.bool,
