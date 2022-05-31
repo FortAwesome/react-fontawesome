@@ -374,7 +374,7 @@ describe('title', () => {
     expect(vm.children[0].children[0]).toBe('Coffee')
   })
 
-  test.only('will use an explicit titleId', () => {
+  test('will use an explicit titleId', () => {
     const vm = mount({ icon: faCoffee, title: 'Coffee', titleId: 'coffee-title' })
 
     expect(vm.props['aria-labelledby']).toBe('svg-inline--fa-title-coffee-title')
