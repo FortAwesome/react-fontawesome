@@ -154,6 +154,12 @@ describe('using flip', () => {
     expect(vm.props.className.includes('fa-flip-horizontal')).toBeTruthy()
     expect(vm.props.className.includes('fa-flip-vertical')).toBeTruthy()
   })
+
+  test('animation', () => {
+    const vm = mount({ icon: faCoffee, flip: true })
+
+    expect(vm.props.className.includes('fa-flip')).toBeTruthy()
+  })
 })
 
 test('using listItem', () => {
@@ -230,6 +236,21 @@ test('using size', () => {
     const vm = mount({ icon: faCoffee, size: size })
 
     expect(vm.props.className.includes(`fa-${size}`)).toBeTruthy()
+  })
+})
+
+describe('using beatFade', () => {
+  test('setting beatFade prop to true adds fa-beat-fade class', () => {
+    const vm = mount({ icon: faCoffee, beatFade: true })
+
+    expect(vm.props.className.includes('fa-beat-fade')).toBeTruthy()
+  })
+
+  test('setting beatFade prop to false after setting it to true results in no fa-beat-fade class', () => {
+    let vm = mount({ icon: faCoffee, beatFade: true })
+    expect(vm.props.className.includes('fa-beat-fade')).toBeTruthy()
+    vm = mount({ icon: faCoffee, beatFade: false })
+    expect(vm.props.className.includes('fa-beat-fade')).toBeFalsy()
   })
 })
 

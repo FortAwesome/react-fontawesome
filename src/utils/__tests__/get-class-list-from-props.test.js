@@ -9,12 +9,15 @@ describe('get class list', () => {
       listItem: true,
       pulse: true,
       spin: true,
+      spinPulse: true,
+      spinReverse: true,
       beat: true,
       fade: true,
       beatFade: true,
       bounce: true,
       shake: true,
-      swapOpacity: true
+      swapOpacity: true,
+      flip: true
     }
 
     const classList = getClassList(props)
@@ -26,11 +29,14 @@ describe('get class list', () => {
       'fa-bounce',
       'fa-shake',
       'fa-spin',
+      'fa-spin-reverse',
+      'fa-spin-pulse',
       'fa-pulse',
       'fa-fw',
       'fa-inverse',
       'fa-border',
       'fa-li',
+      'fa-flip',
       'fa-swap-opacity'
     ])
   })
@@ -46,6 +52,7 @@ describe('get class list', () => {
   test('flip', () => {
     const HORIZONTAL = 'fa-flip-horizontal'
     const VERTICAL = 'fa-flip-vertical'
+    const FLIP_ANIMATION = 'fa-flip'
 
     const horizontalList = getClassList({
       flip: 'horizontal'
@@ -59,12 +66,18 @@ describe('get class list', () => {
       flip: 'both'
     })
 
+    const flipAnimationOnly = getClassList({
+      flip: true
+    })
+
     expect(horizontalList).toContain(HORIZONTAL)
     expect(verticalList).toContain(VERTICAL)
 
     expect(bothList.length).toBe(2)
     expect(bothList).toContain(HORIZONTAL)
     expect(bothList).toContain(VERTICAL)
+
+    expect(flipAnimationOnly).toContain(FLIP_ANIMATION)
   })
 
   test('size', () => {

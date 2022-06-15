@@ -37,6 +37,7 @@ export default function classList(props) {
     'fa-inverse': inverse,
     'fa-border': border,
     'fa-li': listItem,
+    'fa-flip': flip === true,
     'fa-flip-horizontal': flip === 'horizontal' || flip === 'both',
     'fa-flip-vertical': flip === 'vertical' || flip === 'both',
     [`fa-${size}`]: typeof size !== 'undefined' && size !== null,
