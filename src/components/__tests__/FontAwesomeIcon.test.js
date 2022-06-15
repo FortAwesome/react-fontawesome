@@ -154,6 +154,12 @@ describe('using flip', () => {
     expect(vm.props.className.includes('fa-flip-horizontal')).toBeTruthy()
     expect(vm.props.className.includes('fa-flip-vertical')).toBeTruthy()
   })
+
+  test('animation', () => {
+    const vm = mount({ icon: faCoffee, flip: true })
+
+    expect(vm.props.className.includes('fa-flip')).toBeTruthy()
+  })
 })
 
 test('using listItem', () => {
@@ -248,18 +254,33 @@ describe('using bounce', () => {
   })
 })
 
-describe('using shake', () => {
-  test('setting shake prop to true adds fa-shake class', () => {
-    const vm = mount({ icon: faCoffee, shake: true })
+describe('using bounce', () => {
+  test('setting bounce prop to true adds fa-bounce class', () => {
+    const vm = mount({ icon: faCoffee, bounce: true })
 
-    expect(vm.props.className.includes('fa-shake')).toBeTruthy()
+    expect(vm.props.className.includes('fa-bounce')).toBeTruthy()
   })
 
-  test('setting shake prop to false after setting it to true results in no fa-shake class', () => {
-    let vm = mount({ icon: faCoffee, shake: true })
-    expect(vm.props.className.includes('fa-shake')).toBeTruthy()
-    vm = mount({ icon: faCoffee, shake: false })
-    expect(vm.props.className.includes('fa-shake')).toBeFalsy()
+  test('setting bounce prop to false after setting it to true results in no fa-bounce class', () => {
+    let vm = mount({ icon: faCoffee, bounce: true })
+    expect(vm.props.className.includes('fa-bounce')).toBeTruthy()
+    vm = mount({ icon: faCoffee, bounce: false })
+    expect(vm.props.className.includes('fa-bounce')).toBeFalsy()
+  })
+})
+
+describe('using beat-fade', () => {
+  test('setting beatFade prop to true adds fa-beat-fade class', () => {
+    const vm = mount({ icon: faCoffee, beatFade: true })
+
+    expect(vm.props.className.includes('fa-beat-fade')).toBeTruthy()
+  })
+
+  test('setting beatFade prop to false after setting it to true results in no fa-beat-fade class', () => {
+    let vm = mount({ icon: faCoffee, beatFade: true })
+    expect(vm.props.className.includes('fa-beat-fade')).toBeTruthy()
+    vm = mount({ icon: faCoffee, beatFade: false })
+    expect(vm.props.className.includes('fa-beat-fade')).toBeFalsy()
   })
 })
 
