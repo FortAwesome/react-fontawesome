@@ -471,7 +471,7 @@ describe('using ref', () => {
     const spy = jest.fn(element => element)
 
     mount(
-      { icon: faCoffee, forwardedRef: spy },
+      { icon: faCoffee, ref: spy },
       {
         createNodeMock: () => node
       }
@@ -486,7 +486,7 @@ describe('using ref', () => {
     const setForwardedRef = element => (forwardedRef = element)
 
     mount(
-      { icon: faCoffee, forwardedRef: setForwardedRef },
+      { icon: faCoffee, ref: setForwardedRef },
       {
         createNodeMock: () => node
       }

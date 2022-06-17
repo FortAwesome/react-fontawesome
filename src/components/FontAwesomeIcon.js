@@ -7,7 +7,7 @@ import objectWithKey from '../utils/object-with-key'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export default function FontAwesomeIcon({ forwardedRef, ...props }) {
+const FontAwesomeIcon = React.forwardRef((props, ref) => {
   const {
     icon: iconArgs,
     mask: maskArgs,
@@ -48,7 +48,7 @@ export default function FontAwesomeIcon({ forwardedRef, ...props }) {
   }
 
   const { abstract } = renderedIcon
-  const extraProps = { ref: forwardedRef }
+  const extraProps = { ref }
 
   Object.keys(props).forEach(key => {
     // eslint-disable-next-line no-prototype-builtins
@@ -58,7 +58,7 @@ export default function FontAwesomeIcon({ forwardedRef, ...props }) {
   })
 
   return convertCurry(abstract[0], extraProps)
-}
+})
 
 FontAwesomeIcon.displayName = 'FontAwesomeIcon'
 
@@ -171,5 +171,7 @@ FontAwesomeIcon.defaultProps = {
   transform: null,
   swapOpacity: false
 }
+
+export default FontAwesomeIcon
 
 const convertCurry = convert.bind(null, React.createElement)
