@@ -21,8 +21,8 @@ The following commands are available through `npm run`
 1. Update the `README.md` contributors section
 1. `npm run build`
 1. `npm run test`
-1. `npm publish`
-1. `npm publish --registry https://npm.fontawesome.com` (publish to Pro registry)
+1. `npm publish --tag 0.2.x --tag latest`
+1. `npm publish --tag 0.2.x --tag latest --registry https://npm.fontawesome.com` (publish to Pro registry)
 1. `git add . && git commit -m 'Release VERSION'`
 1. `git push`
 1. Create a [new release](https://github.com/FortAwesome/react-fontawesome/releases/new) with `CHANGELOG` details
