@@ -239,6 +239,36 @@ test('using size', () => {
   })
 })
 
+describe('using beat', () => {
+  test('setting beat prop to true adds fa-beat class', () => {
+    const vm = mount({ icon: faCoffee, beat: true })
+
+    expect(vm.props.className.includes('fa-beat')).toBeTruthy()
+  })
+
+  test('setting beat prop to false after setting it to true results in no fa-beat class', () => {
+    let vm = mount({ icon: faCoffee, beat: true })
+    expect(vm.props.className.includes('fa-beat')).toBeTruthy()
+    vm = mount({ icon: faCoffee, beat: false })
+    expect(vm.props.className.includes('fa-beat')).toBeFalsy()
+  })
+})
+
+describe('using fade', () => {
+  test('setting fade prop to true adds fa-fade class', () => {
+    const vm = mount({ icon: faCoffee, fade: true })
+
+    expect(vm.props.className.includes('fa-fade')).toBeTruthy()
+  })
+
+  test('setting fade prop to false after setting it to true results in no fa-fade class', () => {
+    let vm = mount({ icon: faCoffee, fade: true })
+    expect(vm.props.className.includes('fa-fade')).toBeTruthy()
+    vm = mount({ icon: faCoffee, fade: false })
+    expect(vm.props.className.includes('fa-fade')).toBeFalsy()
+  })
+})
+
 describe('using beatFade', () => {
   test('setting beatFade prop to true adds fa-beat-fade class', () => {
     const vm = mount({ icon: faCoffee, beatFade: true })
@@ -303,6 +333,20 @@ describe('using spin', () => {
     expect(vm.props.className.includes('fa-spin')).toBeTruthy()
     vm = mount({ icon: faCoffee, spin: false })
     expect(vm.props.className.includes('fa-spin')).toBeFalsy()
+  })
+
+  test('setting spinPulse prop to false after setting it to true results in no fa-spin-pulse class', () => {
+    let vm = mount({ icon: faCoffee, spinPulse: true })
+    expect(vm.props.className.includes('fa-spin-pulse')).toBeTruthy()
+    vm = mount({ icon: faCoffee, spinPulse: false })
+    expect(vm.props.className.includes('fa-spin-pulse')).toBeFalsy()
+  })
+
+  test('setting spinReverse prop to false after setting it to true results in no fa-spin-reverse class', () => {
+    let vm = mount({ icon: faCoffee, spinReverse: true })
+    expect(vm.props.className.includes('fa-spin-reverse')).toBeTruthy()
+    vm = mount({ icon: faCoffee, spinReverse: false })
+    expect(vm.props.className.includes('fa-spin-reverse')).toBeFalsy()
   })
 })
 

@@ -28,6 +28,8 @@ export interface FontAwesomeIconProps extends BackwardCompatibleOmit<SVGAttribut
   className?: string
   color?: string
   spin?: boolean
+  spinPulse?: boolean
+  spinReverse?: boolean
   pulse?: boolean
   beat?: boolean
   fade?: boolean
