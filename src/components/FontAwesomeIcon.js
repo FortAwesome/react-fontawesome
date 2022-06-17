@@ -67,6 +67,8 @@ FontAwesomeIcon.propTypes = {
 
   border: PropTypes.bool,
 
+  beatFade: PropTypes.bool,
+
   bounce: PropTypes.bool,
 
   className: PropTypes.string,
@@ -87,7 +89,7 @@ FontAwesomeIcon.propTypes = {
 
   inverse: PropTypes.bool,
 
-  flip: PropTypes.oneOf(['horizontal', 'vertical', 'both']),
+  flip: PropTypes.oneOf([true, false, 'horizontal', 'vertical', 'both']),
 
   icon: PropTypes.oneOfType([
     PropTypes.object,
@@ -148,7 +150,7 @@ FontAwesomeIcon.defaultProps = {
   maskId: null,
   fixedWidth: false,
   inverse: false,
-  flip: null,
+  flip: false,
   icon: null,
   listItem: false,
   pull: null,
@@ -156,6 +158,8 @@ FontAwesomeIcon.defaultProps = {
   rotation: null,
   size: null,
   spin: false,
+  spinPulse: false,
+  spinReverse: false,
   beat: false,
   fade: false,
   beatFade: false,
