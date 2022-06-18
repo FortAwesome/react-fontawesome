@@ -21,5 +21,5 @@ export default function camelize(string) {
   })
 
   // Ensure 1st char is always lowercase
-  return string.substr(0, 1).toLowerCase() + string.substr(1)
+  return string.slice(0, 1).toLowerCase() + string.slice(1)
 }
