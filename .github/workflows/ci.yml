@@ -22,6 +22,14 @@ jobs:
           16.12.x,
           17.0.x
         ]
+        fontawesome-svg-core: [
+          1.2.x,
+          6.x
+        ]
+        free-solid-svg-icons: [
+          5.x,
+          6.x
+        ]
 
     steps:
       - uses: actions/checkout@v1
@@ -32,11 +40,11 @@ jobs:
         run: |
           npm install
           npm run build
-          npm install react@${{ matrix.react }} react-dom@${{ matrix.react }} react-test-renderer@${{ matrix.react }}
-          npm list react react-dom react-test-renderer
+          npm install --no-save react@${{ matrix.react }} react-dom@${{ matrix.react }} react-test-renderer@${{ matrix.react }}
+          npm install --no-save @fortawesome/fontawesome-svg-core@${{ matrix.fontawesome-svg-core }} @fortawesome/free-solid-svg-icons@${{ matrix.free-solid-svg-icons }}
+          npm list react react-dom react-test-renderer @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons
           npm run lint
-          npm run test.5
-          npm run test.6
+          npm run test
       - name: dist
         run: |
           npm run dist

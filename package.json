@@ -35,9 +35,9 @@
     "lint": "eslint src",
     "prettier": "pretty-quick --pattern src/** --staged",
     "prepack": "npm run dist",
-    "test": "npm run test.5 && npm run test.6",
-    "test.5": "npm --no-save install @fortawesome/fontawesome-svg-core@1.2.x @fortawesome/free-solid-svg-icons@5.x && jest --silent",
-    "test.6": "npm --no-save install @fortawesome/fontawesome-svg-core@6.x @fortawesome/free-solid-svg-icons@6.x && jest --silent",
+    "test": "jest --silent",
+    "install.5": "npm --no-save install @fortawesome/fontawesome-svg-core@1.2.x @fortawesome/free-solid-svg-icons@5.x",
+    "install.6": "npm --no-save install @fortawesome/fontawesome-svg-core@6.x @fortawesome/free-solid-svg-icons@6.x",
     "clean": "rm -f index.js && rm -f index.es.js"
   },
   "lint-staged": {
