@@ -160,6 +160,7 @@ function classList(props) {
     'fa-inverse': inverse,
     'fa-border': border,
     'fa-li': listItem,
+    'fa-flip': flip === true,
     'fa-flip-horizontal': flip === 'horizontal' || flip === 'both',
     'fa-flip-vertical': flip === 'vertical' || flip === 'both'
   }, _defineProperty(_classes, "fa-".concat(size), typeof size !== 'undefined' && size !== null), _defineProperty(_classes, "fa-rotate-".concat(rotation), typeof rotation !== 'undefined' && rotation !== null && rotation !== 0), _defineProperty(_classes, "fa-pull-".concat(pull), typeof pull !== 'undefined' && pull !== null), _defineProperty(_classes, 'fa-swap-opacity', props.swapOpacity), _classes); // map over all the keys in the classes object
@@ -368,6 +369,7 @@ FontAwesomeIcon.displayName = 'FontAwesomeIcon';
 FontAwesomeIcon.propTypes = {
   beat: PropTypes.bool,
   border: PropTypes.bool,
+  beatFade: PropTypes.bool,
   bounce: PropTypes.bool,
   className: PropTypes.string,
   fade: PropTypes.bool,
@@ -376,7 +378,7 @@ FontAwesomeIcon.propTypes = {
   maskId: PropTypes.string,
   fixedWidth: PropTypes.bool,
   inverse: PropTypes.bool,
-  flip: PropTypes.oneOf(['horizontal', 'vertical', 'both']),
+  flip: PropTypes.oneOf([true, false, 'horizontal', 'vertical', 'both']),
   icon: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
   listItem: PropTypes.bool,
   pull: PropTypes.oneOf(['right', 'left']),
@@ -400,7 +402,7 @@ FontAwesomeIcon.defaultProps = {
   maskId: null,
   fixedWidth: false,
   inverse: false,
-  flip: null,
+  flip: false,
   icon: null,
   listItem: false,
   pull: null,
@@ -408,6 +410,8 @@ FontAwesomeIcon.defaultProps = {
   rotation: null,
   size: null,
   spin: false,
+  spinPulse: false,
+  spinReverse: false,
   beat: false,
   fade: false,
   beatFade: false,

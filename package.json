@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome 5",
-  "version": "0.1.18",
+  "version": "0.2.0",
   "main": "index.js",
   "module": "index.es.js",
   "jsnext:main": "index.es.js",
@@ -26,7 +26,8 @@
     "Lukáš Rod <github.com/rodlukas>",
     "Proudust <github.com/proudust>",
     "Tiago Sousa <github.com/TiagoPortfolio>",
-    "Alexey Victorov <github.com/AliMamed>"
+    "Alexey Victorov <github.com/AliMamed>",
+    "Calum Smith <github.com/cpmsmith>"
   ],
   "license": "MIT",
   "scripts": {
