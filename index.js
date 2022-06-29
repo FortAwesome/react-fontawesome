@@ -167,6 +167,7 @@
       'fa-inverse': inverse,
       'fa-border': border,
       'fa-li': listItem,
+      'fa-flip': flip === true,
       'fa-flip-horizontal': flip === 'horizontal' || flip === 'both',
       'fa-flip-vertical': flip === 'vertical' || flip === 'both'
     }, _defineProperty(_classes, "fa-".concat(size), typeof size !== 'undefined' && size !== null), _defineProperty(_classes, "fa-rotate-".concat(rotation), typeof rotation !== 'undefined' && rotation !== null && rotation !== 0), _defineProperty(_classes, "fa-pull-".concat(pull), typeof pull !== 'undefined' && pull !== null), _defineProperty(_classes, 'fa-swap-opacity', props.swapOpacity), _classes); // map over all the keys in the classes object
@@ -379,6 +380,7 @@
   FontAwesomeIcon.propTypes = {
     beat: PropTypes__default["default"].bool,
     border: PropTypes__default["default"].bool,
+    beatFade: PropTypes__default["default"].bool,
     bounce: PropTypes__default["default"].bool,
     className: PropTypes__default["default"].string,
     fade: PropTypes__default["default"].bool,
@@ -387,7 +389,7 @@
     maskId: PropTypes__default["default"].string,
     fixedWidth: PropTypes__default["default"].bool,
     inverse: PropTypes__default["default"].bool,
-    flip: PropTypes__default["default"].oneOf(['horizontal', 'vertical', 'both']),
+    flip: PropTypes__default["default"].oneOf([true, false, 'horizontal', 'vertical', 'both']),
     icon: PropTypes__default["default"].oneOfType([PropTypes__default["default"].object, PropTypes__default["default"].array, PropTypes__default["default"].string]),
     listItem: PropTypes__default["default"].bool,
     pull: PropTypes__default["default"].oneOf(['right', 'left']),
@@ -411,7 +413,7 @@
     maskId: null,
     fixedWidth: false,
     inverse: false,
-    flip: null,
+    flip: false,
     icon: null,
     listItem: false,
     pull: null,
@@ -419,6 +421,8 @@
     rotation: null,
     size: null,
     spin: false,
+    spinPulse: false,
+    spinReverse: false,
     beat: false,
     fade: false,
     beatFade: false,

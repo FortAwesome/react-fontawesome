@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.1.19](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.19) - 2022-06-29
+
+### Fixed
+
+- Added missing beatFade, spinPulse, and spinReverse animations
+
+---
+
 ## [0.1.18](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.1.18) - 2022-03-16
 
 ### Added
