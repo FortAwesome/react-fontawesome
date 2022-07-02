@@ -86,7 +86,8 @@
     "react": ">=17.x",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
-    "rollup": "^2.64.0"
+    "rollup": "^2.64.0",
+    "semver": "^7.3.7"
   },
   "dependencies": {
     "prop-types": "^15.8.1"
