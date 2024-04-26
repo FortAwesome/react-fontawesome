@@ -333,7 +333,8 @@ var FontAwesomeIcon = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var iconArgs = props.icon,
       maskArgs = props.mask,
       symbol = props.symbol,
-      className = props.className,
+      _props$className = props.className,
+      className = _props$className === void 0 ? "" : _props$className,
       title = props.title,
       titleId = props.titleId,
       maskId = props.maskId;

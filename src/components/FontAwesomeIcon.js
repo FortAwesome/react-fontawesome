@@ -12,7 +12,7 @@ const FontAwesomeIcon = React.forwardRef((props, ref) => {
     icon: iconArgs,
     mask: maskArgs,
     symbol,
-    className,
+    className = "",
     title,
     titleId,
     maskId
