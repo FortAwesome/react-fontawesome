@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.2.1](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.1) - 2024-05-16
+
+### Changed
+
+- Remove defaultProps to be compatible with React 19
+
 ## [0.2.0](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.0) - 2022-06-29
 
 ### Added

@@ -329,17 +329,47 @@ function objectWithKey(key, value) {
   return Array.isArray(value) && value.length > 0 || !Array.isArray(value) && value ? _defineProperty({}, key, value) : {};
 }
 
+var defaultProps = {
+  border: false,
+  className: '',
+  mask: null,
+  maskId: null,
+  fixedWidth: false,
+  inverse: false,
+  flip: false,
+  icon: null,
+  listItem: false,
+  pull: null,
+  pulse: false,
+  rotation: null,
+  size: null,
+  spin: false,
+  spinPulse: false,
+  spinReverse: false,
+  beat: false,
+  fade: false,
+  beatFade: false,
+  bounce: false,
+  shake: false,
+  symbol: false,
+  title: '',
+  titleId: null,
+  transform: null,
+  swapOpacity: false
+};
 var FontAwesomeIcon = /*#__PURE__*/React.forwardRef(function (props, ref) {
-  var iconArgs = props.icon,
-      maskArgs = props.mask,
-      symbol = props.symbol,
-      className = props.className,
-      title = props.title,
-      titleId = props.titleId,
-      maskId = props.maskId;
+  var allProps = _objectSpread2(_objectSpread2({}, defaultProps), props);
+
+  var iconArgs = allProps.icon,
+      maskArgs = allProps.mask,
+      symbol = allProps.symbol,
+      className = allProps.className,
+      title = allProps.title,
+      titleId = allProps.titleId,
+      maskId = allProps.maskId;
   var iconLookup = normalizeIconArgs(iconArgs);
-  var classes = objectWithKey('classes', [].concat(_toConsumableArray(classList(props)), _toConsumableArray(className.split(' '))));
-  var transform = objectWithKey('transform', typeof props.transform === 'string' ? parse.transform(props.transform) : props.transform);
+  var classes = objectWithKey('classes', [].concat(_toConsumableArray(classList(allProps)), _toConsumableArray(className.split(' '))));
+  var transform = objectWithKey('transform', typeof allProps.transform === 'string' ? parse.transform(allProps.transform) : allProps.transform);
   var mask = objectWithKey('mask', normalizeIconArgs(maskArgs));
   var renderedIcon = icon(iconLookup, _objectSpread2(_objectSpread2(_objectSpread2(_objectSpread2({}, classes), transform), mask), {}, {
     symbol: symbol,
@@ -357,10 +387,10 @@ var FontAwesomeIcon = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var extraProps = {
     ref: ref
   };
-  Object.keys(props).forEach(function (key) {
+  Object.keys(allProps).forEach(function (key) {
     // eslint-disable-next-line no-prototype-builtins
-    if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
-      extraProps[key] = props[key];
+    if (!defaultProps.hasOwnProperty(key)) {
+      extraProps[key] = allProps[key];
     }
   });
   return convertCurry(abstract[0], extraProps);
@@ -394,34 +424,6 @@ FontAwesomeIcon.propTypes = {
   titleId: PropTypes.string,
   transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   swapOpacity: PropTypes.bool
-};
-FontAwesomeIcon.defaultProps = {
-  border: false,
-  className: '',
-  mask: null,
-  maskId: null,
-  fixedWidth: false,
-  inverse: false,
-  flip: false,
-  icon: null,
-  listItem: false,
-  pull: null,
-  pulse: false,
-  rotation: null,
-  size: null,
-  spin: false,
-  spinPulse: false,
-  spinReverse: false,
-  beat: false,
-  fade: false,
-  beatFade: false,
-  bounce: false,
-  shake: false,
-  symbol: false,
-  title: '',
-  titleId: null,
-  transform: null,
-  swapOpacity: false
 };
 var convertCurry = convert.bind(null, React.createElement);
 
