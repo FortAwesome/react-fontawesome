@@ -37,13 +37,23 @@ const defaultProps = {
 }
 
 const FontAwesomeIcon = React.forwardRef((props, ref) => {
-  const allProps = {...defaultProps, ...props}
+  const allProps = { ...defaultProps, ...props }
 
-  const iconLookup = normalizeIconArgs(allProps.icon)
+  const {
+    icon: iconArgs,
+    mask: maskArgs,
+    symbol,
+    className,
+    title,
+    titleId,
+    maskId
+  } = allProps
+
+  const iconLookup = normalizeIconArgs(iconArgs)
 
   const classes = objectWithKey('classes', [
     ...classList(allProps),
-    ...allProps.className.split(' ')
+    ...className.split(' ')
   ])
   const transform = objectWithKey(
     'transform',
@@ -51,7 +61,7 @@ const FontAwesomeIcon = React.forwardRef((props, ref) => {
       ? parse.transform(allProps.transform)
       : allProps.transform
   )
-  const mask = objectWithKey('mask', normalizeIconArgs(allProps.mask))
+  const mask = objectWithKey('mask', normalizeIconArgs(maskArgs))
 
   const renderedIcon = icon(iconLookup, {
     ...classes,
