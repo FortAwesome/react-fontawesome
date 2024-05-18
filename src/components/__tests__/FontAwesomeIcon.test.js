@@ -504,3 +504,39 @@ describe('using titleId', () => {
     expect(ariaLabelledby.includes(titleId)).toBeTruthy()
   })
 })
+
+describe('using defaultProps', () => {
+  const UNDEFINED_DEFAULT_PROPS = {
+    border: undefined,
+    className: undefined,
+    mask: undefined,
+    maskId: undefined,
+    fixedWidth: undefined,
+    inverse: undefined,
+    flip: undefined,
+    listItem: undefined,
+    pull: undefined,
+    pulse: undefined,
+    rotation: undefined,
+    size: undefined,
+    spin: undefined,
+    spinPulse: undefined,
+    spinReverse: undefined,
+    beat: undefined,
+    fade: undefined,
+    beatFade: undefined,
+    bounce: undefined,
+    shake: undefined,
+    symbol: undefined,
+    title: undefined,
+    titleId: undefined,
+    transform: undefined,
+    swapOpacity: undefined
+  }
+
+  test('undefined props passed', () => {
+    expect(() =>
+      mount({ icon: faCoffee, ...UNDEFINED_DEFAULT_PROPS })
+    ).not.toThrow(TypeError)
+  })
+})
