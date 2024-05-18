@@ -37,7 +37,16 @@ const defaultProps = {
 }
 
 const FontAwesomeIcon = React.forwardRef((props, ref) => {
-  const allProps = { ...defaultProps, ...props }
+  const allProps = { ...props }
+
+  /**
+   * Loop through the default props and if any of the user prop is undefined then, replace the value with the correct value
+   * from defaultProps.
+   */
+  for (const propKey in defaultProps) {
+    const defaultPropValue = defaultProps[propKey]
+    if (typeof allProps[propKey] === 'undefined') allProps[propKey] = defaultPropValue
+  }
 
   const {
     icon: iconArgs,
