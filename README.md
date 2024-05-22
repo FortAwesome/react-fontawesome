@@ -64,6 +64,7 @@ being awesome contributors to this project. **We'd like to take a moment to reco
 | Alexey Victorov   | [@AliMamed](https://github.com/AliMamed)                  |
 | Calum Smith       | [@cpmsmith](https://github.com/cpmsmith)                  |
 | squiaios          | [@squiaios](https://github.com/squiaios)                  |
+| WyvernDrexx       | [@WyvernDrexx](https://github.com/WyvernDrexx)            |
 | Font Awesome Team | [@FortAwesome](https://github.com/orgs/FortAwesome/people)|
 
 If we've missed someone (which is quite likely) submit a Pull Request to us and we'll get it resolved.

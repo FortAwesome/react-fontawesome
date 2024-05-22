@@ -375,7 +375,7 @@
         titleId = allProps.titleId,
         maskId = allProps.maskId;
     var iconLookup = normalizeIconArgs(iconArgs);
-    var classes = objectWithKey('classes', [].concat(_toConsumableArray(classList(allProps)), _toConsumableArray(className.split(' '))));
+    var classes = objectWithKey('classes', [].concat(_toConsumableArray(classList(allProps)), _toConsumableArray((className || '').split(' '))));
     var transform = objectWithKey('transform', typeof allProps.transform === 'string' ? fontawesomeSvgCore.parse.transform(allProps.transform) : allProps.transform);
     var mask = objectWithKey('mask', normalizeIconArgs(maskArgs));
     var renderedIcon = fontawesomeSvgCore.icon(iconLookup, _objectSpread2(_objectSpread2(_objectSpread2(_objectSpread2({}, classes), transform), mask), {}, {

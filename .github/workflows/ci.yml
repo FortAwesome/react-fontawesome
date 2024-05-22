@@ -12,7 +12,8 @@ jobs:
         react: [
           16.x,
           17.x,
-          18.x
+          18.x,
+          beta
         ]
         fontawesome-svg-core: [
           1.2.x,
