@@ -73,7 +73,7 @@ if (coreHasFeature(REFERENCE_ICON_BY_STYLE)) {
   })
 }
 
-describe.only('using defaultProps', () => {
+describe('using defaultProps', () => {
   const UNDEFINED_DEFAULT_PROPS = {
     border: undefined,
     className: undefined,
