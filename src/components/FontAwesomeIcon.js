@@ -53,7 +53,7 @@ const FontAwesomeIcon = React.forwardRef((props, ref) => {
 
   const classes = objectWithKey('classes', [
     ...classList(allProps),
-    ...className.split(' ')
+    ...(className || '').split(' ')
   ])
   const transform = objectWithKey(
     'transform',
