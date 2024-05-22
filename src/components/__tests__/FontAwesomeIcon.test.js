@@ -73,6 +73,42 @@ if (coreHasFeature(REFERENCE_ICON_BY_STYLE)) {
   })
 }
 
+describe.only('using defaultProps', () => {
+  const UNDEFINED_DEFAULT_PROPS = {
+    border: undefined,
+    className: undefined,
+    mask: undefined,
+    maskId: undefined,
+    fixedWidth: undefined,
+    inverse: undefined,
+    flip: undefined,
+    listItem: undefined,
+    pull: undefined,
+    pulse: undefined,
+    rotation: undefined,
+    size: undefined,
+    spin: undefined,
+    spinPulse: undefined,
+    spinReverse: undefined,
+    beat: undefined,
+    fade: undefined,
+    beatFade: undefined,
+    bounce: undefined,
+    shake: undefined,
+    symbol: undefined,
+    title: undefined,
+    titleId: undefined,
+    transform: undefined,
+    swapOpacity: undefined
+  }
+
+  test('undefined props passed', () => {
+    expect(() =>
+      mount({ icon: faCoffee, ...UNDEFINED_DEFAULT_PROPS })
+    ).not.toThrow(TypeError)
+  })
+})
+
 test('using imported object from svg icons package', () => {
   const vm = mount({
     icon: faTimes
