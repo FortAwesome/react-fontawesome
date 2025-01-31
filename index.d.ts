@@ -22,34 +22,34 @@ type BackwardCompatibleOmit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K
 
 export interface FontAwesomeIconProps extends BackwardCompatibleOmit<SVGAttributes<SVGSVGElement>, 'children' | 'mask' | 'transform'>, RefAttributes<SVGSVGElement> {
   icon: IconProp
-  mask?: IconProp
-  maskId?: string
-  className?: string
-  color?: string
-  spin?: boolean
-  spinPulse?: boolean
-  spinReverse?: boolean
-  pulse?: boolean
-  beat?: boolean
-  fade?: boolean
-  beatFade?: boolean
-  bounce?: boolean
-  shake?: boolean
-  border?: boolean
-  fixedWidth?: boolean
-  inverse?: boolean
-  listItem?: boolean
-  flip?: FlipProp
-  size?: SizeProp
-  pull?: PullProp
-  rotation?: RotateProp
-  rotateBy?: boolean,
-  transform?: string | Transform
-  symbol?: FaSymbol
-  style?: CSSProperties
-  tabIndex?: number;
-  title?: string;
-  titleId?: string;
-  swapOpacity?: boolean;
-  widthAuto?: boolean
+  mask?: IconProp | undefined;
+  maskId?: string | undefined;
+  className?: string | undefined;
+  color?: string | undefined;
+  spin?: boolean | undefined;
+  spinPulse?: boolean | undefined;
+  spinReverse?: boolean | undefined;
+  pulse?: boolean | undefined;
+  beat?: boolean | undefined;
+  fade?: boolean | undefined;
+  beatFade?: boolean | undefined;
+  bounce?: boolean | undefined;
+  shake?: boolean | undefined;
+  border?: boolean | undefined;
+  fixedWidth?: boolean | undefined;
+  inverse?: boolean | undefined;
+  listItem?: boolean | undefined;
+  flip?: FlipProp | undefined;
+  size?: SizeProp | undefined;
+  pull?: PullProp | undefined;
+  rotation?: RotateProp | undefined;
+  rotateBy?: boolean | undefined;
+  transform?: string | Transform | undefined;
+  symbol?: FaSymbol | undefined;
+  style?: CSSProperties | undefined;
+  tabIndex?: number; | undefined;
+  title?: string; | undefined;
+  titleId?: string; | undefined;
+  swapOpacity?: boolean; | undefined;
+  widthAuto?: boolean | undefined;
 }
