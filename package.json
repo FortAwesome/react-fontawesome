@@ -94,7 +94,8 @@
     "semver": "^7.3.7"
   },
   "dependencies": {
-    "prop-types": "^15.8.1"
+    "prop-types": "^15.8.1",
+    "semver": "^7.7.1"
   },
   "files": [
     "index.js",

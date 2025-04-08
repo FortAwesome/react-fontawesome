@@ -1,3 +1,11 @@
+import semver from 'semver'
+
+export const ICON_PACKS_STARTING_VERSION = '7.0.0-alpha1'
+
+const svgCorePackageJson = require('@fortawesome/fontawesome-svg-core/package.json')
+
+export const SVG_CORE_VERSION = svgCorePackageJson.version
+
 // Get CSS class list from a props object
 export default function classList(props) {
   const {
@@ -11,14 +19,17 @@ export default function classList(props) {
     spinPulse,
     spinReverse,
     pulse,
-    fixedWidth,
+    fixedWidth, // the fixedWidth property has been deprecated as of version 7
     inverse,
     border,
     listItem,
     flip,
     size,
     rotation,
-    pull
+    pull,
+    swapOpacity,
+    rotateBy, // only supported in version 7.0.0 and later
+    widthAuto // only supported in version 7.0.0 and later
   } = props
 
   // map of CSS class names to properties
@@ -33,7 +44,8 @@ export default function classList(props) {
     'fa-spin-reverse': spinReverse,
     'fa-spin-pulse': spinPulse,
     'fa-pulse': pulse,
-    'fa-fw': fixedWidth,
+    'fa-fw':
+      semver.lt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION) && fixedWidth, // the fixedWidth property has been deprecated as of version 7
     'fa-inverse': inverse,
     'fa-border': border,
     'fa-li': listItem,
@@ -44,12 +56,16 @@ export default function classList(props) {
     [`fa-rotate-${rotation}`]:
       typeof rotation !== 'undefined' && rotation !== null && rotation !== 0,
     [`fa-pull-${pull}`]: typeof pull !== 'undefined' && pull !== null,
-    'fa-swap-opacity': props.swapOpacity
+    'fa-swap-opacity': swapOpacity,
+    'fa-rotate-by':
+      semver.gte(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION) && rotateBy, // the rotateBy property is only supported in version 7.0.0 and later
+    'fa-width-auto':
+      semver.gte(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION) && widthAuto // the widthAuto property is only supported in version 7.0.0 and later
   }
 
   // map over all the keys in the classes object
   // return an array of the keys where the value for the key is not null
   return Object.keys(classes)
-    .map(key => (classes[key] ? key : null))
-    .filter(key => key)
+    .map((key) => (classes[key] ? key : null))
+    .filter((key) => key)
 }
