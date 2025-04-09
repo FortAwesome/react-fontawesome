@@ -1,4 +1,4 @@
-import classList from '../utils/get-class-list-from-props'
+import { classList } from '../utils/get-class-list-from-props'
 import convert from '../converter'
 import { icon, parse } from '@fortawesome/fontawesome-svg-core'
 import log from '../logger'

@@ -7,7 +7,7 @@ const svgCorePackageJson = require('@fortawesome/fontawesome-svg-core/package.js
 export const SVG_CORE_VERSION = svgCorePackageJson.version
 
 // Get CSS class list from a props object
-export default function classList(props) {
+export function classList(props) {
   const {
     beat,
     fade,
