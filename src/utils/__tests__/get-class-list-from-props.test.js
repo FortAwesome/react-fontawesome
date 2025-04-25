@@ -23,38 +23,36 @@ describe('get class list', () => {
     shake: true,
     swapOpacity: true,
     flip: true,
+    rotateBy: true,
     widthAuto: true
   }
 
   const getPropsClassList = classList(props)
+  const expectedClasses = [
+    'fa-beat',
+    'fa-fade',
+    'fa-beat-fade',
+    'fa-bounce',
+    'fa-shake',
+    'fa-spin',
+    'fa-spin-reverse',
+    'fa-spin-pulse',
+    'fa-pulse',
+    'fa-fw',
+    'fa-inverse',
+    'fa-border',
+    'fa-li',
+    'fa-flip',
+    'fa-swap-opacity'
+  ]
+
+  // Add version 7 specific classes if using version 7 or later
+  if (semver.gte(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION)) {
+    expectedClasses.push('fa-rotate-by', 'fa-width-auto')
+  }
 
   test('test the booleans', () => {
-
-    expect(getPropsClassList).toStrictEqual([
-      'fa-beat',
-      'fa-fade',
-      'fa-beat-fade',
-      'fa-bounce',
-      'fa-shake',
-      'fa-spin',
-      'fa-spin-reverse',
-      'fa-spin-pulse',
-      'fa-pulse',
-      'fa-inverse',
-      'fa-border',
-      'fa-li',
-      'fa-flip',
-      'fa-swap-opacity',
-      'fa-width-auto'
-    ])
-
-    // version dependent checks
-    if (semver.lt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION)) {
-      expect(getPropsClassList).toContain('fa-fw')
-    } else {
-      expect(getPropsClassList).not.toContain('fa-fw')
-      expect(getPropsClassList).toContain('fa-width-auto')
-    }
+    expect(getPropsClassList).toStrictEqual(expectedClasses)
   })
 
   test('size', () => {
@@ -96,14 +94,6 @@ describe('get class list', () => {
     expect(flipAnimationOnly).toContain(FLIP_ANIMATION)
   })
 
-  test('size', () => {
-    function testSize(size) {
-      expect(classList({ size })).toStrictEqual([`fa-${size}`])
-    }
-
-    testSize('xs')
-  })
-
   test('rotation', () => {
     function testRotation(rotation) {
       expect(classList({ rotation })).toStrictEqual([`fa-rotate-${rotation}`])
@@ -130,33 +120,22 @@ describe('get class list', () => {
       const props = {
         spin: true,
         pulse: true,
-        fixedWidth:
-          semver.lt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION) && true,
+        fixedWidth: true,
         inverse: true,
         border: true,
         listItem: true,
-        [prop]: null,
-        widthAuto:
-          semver.gt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION) && true
+        [prop]: null
       }
 
       expect(classList(props).length).toBe(NUM_CLASSES)
       expect(classList(props)).toStrictEqual([
         'fa-spin',
         'fa-pulse',
+        'fa-fw',
         'fa-inverse',
         'fa-border',
-        'fa-li',
-        'fa-width-auto'
+        'fa-li'
       ])
-
-      // version dependent checks
-      if (semver.lt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION)) {
-        expect(getPropsClassList).toContain('fa-fw')
-      } else {
-        expect(getPropsClassList).not.toContain('fa-fw')
-        expect(getPropsClassList).toContain('fa-width-auto')
-      }
     }
 
     test('pull', () => {

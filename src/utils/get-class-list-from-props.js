@@ -2,9 +2,17 @@ import semver from 'semver'
 
 export const ICON_PACKS_STARTING_VERSION = '7.0.0-alpha1'
 
-const svgCorePackageJson = require('@fortawesome/fontawesome-svg-core/package.json')
+// Try to get version from installed package first, fallback to env var, then default
+let SVG_CORE_VERSION
+try {
+  const svgCorePackageJson = require('@fortawesome/fontawesome-svg-core/package.json')
+  SVG_CORE_VERSION = svgCorePackageJson.version
+} catch (e) {
+  // If package.json can't be loaded, try environment variable
+  SVG_CORE_VERSION = process.env.FA_VERSION || '7.0.0-alpha8'
+}
 
-export const SVG_CORE_VERSION = svgCorePackageJson.version
+export { SVG_CORE_VERSION }
 
 // Get CSS class list from a props object
 export function classList(props) {
@@ -19,7 +27,7 @@ export function classList(props) {
     spinPulse,
     spinReverse,
     pulse,
-    fixedWidth, // the fixedWidth property has been deprecated as of version 7
+    fixedWidth,
     inverse,
     border,
     listItem,
@@ -28,9 +36,15 @@ export function classList(props) {
     rotation,
     pull,
     swapOpacity,
-    rotateBy, // only supported in version 7.0.0 and later
-    widthAuto // only supported in version 7.0.0 and later
+    rotateBy,
+    widthAuto
   } = props
+
+  // Check if we're using version 7 or later
+  const isVersion7OrLater = semver.gte(
+    SVG_CORE_VERSION,
+    ICON_PACKS_STARTING_VERSION
+  )
 
   // map of CSS class names to properties
   const classes = {
@@ -44,8 +58,7 @@ export function classList(props) {
     'fa-spin-reverse': spinReverse,
     'fa-spin-pulse': spinPulse,
     'fa-pulse': pulse,
-    'fa-fw':
-      semver.lt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION) && fixedWidth, // the fixedWidth property has been deprecated as of version 7
+    'fa-fw': fixedWidth,
     'fa-inverse': inverse,
     'fa-border': border,
     'fa-li': listItem,
@@ -57,10 +70,8 @@ export function classList(props) {
       typeof rotation !== 'undefined' && rotation !== null && rotation !== 0,
     [`fa-pull-${pull}`]: typeof pull !== 'undefined' && pull !== null,
     'fa-swap-opacity': swapOpacity,
-    'fa-rotate-by':
-      semver.gte(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION) && rotateBy, // the rotateBy property is only supported in version 7.0.0 and later
-    'fa-width-auto':
-      semver.gte(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION) && widthAuto // the widthAuto property is only supported in version 7.0.0 and later
+    'fa-rotate-by': isVersion7OrLater && rotateBy,
+    'fa-width-auto': isVersion7OrLater && widthAuto
   }
 
   // map over all the keys in the classes object
