@@ -9,20 +9,14 @@ jobs:
     strategy:
       matrix:
         node: [14]
-        react: [
-          16.x,
-          17.x,
-          18.x,
-          beta
-        ]
-        fontawesome-svg-core: [
-          1.2.x,
-          6.x
-        ]
-        free-solid-svg-icons: [
-          5.x,
-          6.x
-        ]
+        react: [16.x, 17.x, 18.x, 19.x, beta]
+        fontawesome-svg-core: [1.2.x, 6.x, 7.x]
+        free-solid-svg-icons: [5.x, 6.x, 7.x]
+        exclude:
+          - free-solid-svg-icons: 7.x
+            fontawesome-svg-core: 1.2.x
+          - free-solid-svg-icons: 7.x
+            fontawesome-svg-core: 6.x
 
     steps:
       - uses: actions/checkout@v1
@@ -34,8 +28,12 @@ jobs:
           npm install
           npm run build
           npm install --no-save react@${{ matrix.react }} react-dom@${{ matrix.react }} react-test-renderer@${{ matrix.react }}
-          npm install --no-save @fortawesome/fontawesome-svg-core@${{ matrix.fontawesome-svg-core }} @fortawesome/free-solid-svg-icons@${{ matrix.free-solid-svg-icons }}
-          npm list react react-dom react-test-renderer @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons
+          if [ "${{ matrix.fontawesome-svg-core }}" = "7.x" ]; then
+            npm install --no-save ./fortawesome-fontawesome-svg-core-7.0.0-alpha8.tgz ./fortawesome-fontawesome-common-types-7.0.0-alpha8.tgz ./fortawesome-free-solid-svg-icons-7.0.0-alpha8.tgz
+          else
+            npm install --no-save @fortawesome/fontawesome-svg-core@${{ matrix.fontawesome-svg-core }} @fortawesome/free-solid-svg-icons@${{ matrix.free-solid-svg-icons }}
+          fi
+          npm list react @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons
           npm run lint
           npm run test
       - name: dist
