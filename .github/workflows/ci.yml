@@ -11,7 +11,7 @@ jobs:
         free-solid-svg-icons: [7.x, 6.x, 5.x]
         fontawesome-svg-core: [7.x, 6.x, 1.2.x]
         node-version: [20.x, 18.x]
-        react: [18.x, 17.x, 16.x]
+        react: [19.x, 18.x, 17.x, 16.x]
         exclude:
           # For v7.x core, allow all icon versions
           # For v6.x and v1.2.x core, exclude v7.x icons
