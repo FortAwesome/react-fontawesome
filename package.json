@@ -50,7 +50,7 @@
     ]
   },
   "peerDependencies": {
-    "@fortawesome/fontawesome-svg-core": "file:fortawesome-fontawesome-svg-core-7.0.0-alpha8.tgz",
+    "@fortawesome/fontawesome-svg-core": "~7 || ^7.0.0-alpha8",
     "react": "^16.3 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "devDependencies": {

@@ -2394,8 +2394,16 @@ var semver = {
 };
 
 var ICON_PACKS_STARTING_VERSION = '7.0.0-alpha1';
-var svgCorePackageJson = require('@fortawesome/fontawesome-svg-core/package.json');
-var SVG_CORE_VERSION = svgCorePackageJson.version;
+
+// Try to get version from installed package first, fallback to env var, then default
+var SVG_CORE_VERSION;
+try {
+  var svgCorePackageJson = require('@fortawesome/fontawesome-svg-core/package.json');
+  SVG_CORE_VERSION = svgCorePackageJson.version;
+} catch (e) {
+  // If package.json can't be loaded, try environment variable
+  SVG_CORE_VERSION = process.env.FA_VERSION || '7.0.0-alpha8';
+}
 
 // Get CSS class list from a props object
 function classList(props) {
@@ -2421,6 +2429,9 @@ function classList(props) {
     rotateBy = props.rotateBy,
     widthAuto = props.widthAuto;
 
+  // Check if we're using version 7 or later
+  var isVersion7OrLater = semver.gte(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION);
+
   // map of CSS class names to properties
   var classes = _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty({
     'fa-beat': beat,
@@ -2433,15 +2444,14 @@ function classList(props) {
     'fa-spin-reverse': spinReverse,
     'fa-spin-pulse': spinPulse,
     'fa-pulse': pulse,
-    'fa-fw': semver.lt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION) && fixedWidth,
-    // the fixedWidth property has been deprecated as of version 7
+    'fa-fw': fixedWidth,
     'fa-inverse': inverse,
     'fa-border': border,
     'fa-li': listItem,
     'fa-flip': flip === true,
     'fa-flip-horizontal': flip === 'horizontal' || flip === 'both',
     'fa-flip-vertical': flip === 'vertical' || flip === 'both'
-  }, "fa-".concat(size), typeof size !== 'undefined' && size !== null), "fa-rotate-".concat(rotation), typeof rotation !== 'undefined' && rotation !== null && rotation !== 0), "fa-pull-".concat(pull), typeof pull !== 'undefined' && pull !== null), 'fa-swap-opacity', swapOpacity), 'fa-rotate-by', semver.gte(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION) && rotateBy), 'fa-width-auto', semver.gte(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION) && widthAuto);
+  }, "fa-".concat(size), typeof size !== 'undefined' && size !== null), "fa-rotate-".concat(rotation), typeof rotation !== 'undefined' && rotation !== null && rotation !== 0), "fa-pull-".concat(pull), typeof pull !== 'undefined' && pull !== null), 'fa-swap-opacity', swapOpacity), 'fa-rotate-by', isVersion7OrLater && rotateBy), 'fa-width-auto', isVersion7OrLater && widthAuto);
 
   // map over all the keys in the classes object
   // return an array of the keys where the value for the key is not null
