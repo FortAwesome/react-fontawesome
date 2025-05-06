@@ -38,7 +38,7 @@ jobs:
           # Install v7 alpha packages from local tarballs
           npm install --no-save ./fortawesome-fontawesome-svg-core-7.0.0-alpha8.tgz ./fortawesome-fontawesome-common-types-7.0.0-alpha8.tgz ./fortawesome-free-solid-svg-icons-7.0.0-alpha8.tgz
           # Verify React version
-          npm list react
+          npm list react react-dom react-test-renderer
           # Build and test
           npm run build
           npm run lint
@@ -55,7 +55,7 @@ jobs:
           npm install --no-save ./fortawesome-fontawesome-svg-core-7.0.0-alpha8.tgz ./fortawesome-fontawesome-common-types-7.0.0-alpha8.tgz
           npm install --no-save @fortawesome/free-solid-svg-icons@${{ matrix.free-solid-svg-icons }}
           # Verify React version
-          npm list react
+          npm list react react-dom react-test-renderer
           # Build and test
           npm run build
           npm run lint
@@ -71,7 +71,7 @@ jobs:
           # Install Font Awesome packages from npm
           npm install --no-save @fortawesome/fontawesome-svg-core@${{ matrix.fontawesome-svg-core }} @fortawesome/free-solid-svg-icons@${{ matrix.free-solid-svg-icons }}
           # Verify React version
-          npm list react
+          npm list react react-dom react-test-renderer
           # Build and test
           npm run build
           npm run lint
