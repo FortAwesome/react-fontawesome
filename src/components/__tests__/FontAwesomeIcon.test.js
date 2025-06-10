@@ -1,8 +1,20 @@
 import * as fontawesome from '@fortawesome/fontawesome-svg-core'
 import log from '../../logger'
+import semver from 'semver'
+
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faCoffee, faCircle, faSpartan } from '../__fixtures__/icons'
-import { coreHasFeature, REFERENCE_ICON_USING_STRING, REFERENCE_ICON_BY_STYLE, ICON_ALIASES, mount } from '../__fixtures__/helpers'
+import {
+  ICON_PACKS_STARTING_VERSION,
+  SVG_CORE_VERSION
+} from '../../utils/get-class-list-from-props'
+import {
+  coreHasFeature,
+  REFERENCE_ICON_USING_STRING,
+  REFERENCE_ICON_BY_STYLE,
+  ICON_ALIASES,
+  mount
+} from '../__fixtures__/helpers'
 
 jest.mock('../../logger')
 
@@ -159,11 +171,13 @@ test('using border', () => {
   expect(vm.props.className.includes('fa-border')).toBeTruthy()
 })
 
-test('using fixedWidth', () => {
-  const vm = mount({ icon: faCoffee, fixedWidth: true })
+if (semver.lt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION)) {
+  test('using fixedWidth', () => {
+    const vm = mount({ icon: faCoffee, fixedWidth: true })
 
-  expect(vm.props.className.includes('fa-fw')).toBeTruthy()
-})
+    expect(vm.props.className.includes('fa-fw')).toBeTruthy()
+  })
+}
 
 test('using inverse', () => {
   const vm = mount({ icon: faCoffee, inverse: true })
@@ -268,7 +282,7 @@ test('using size', () => {
     '8x',
     '9x',
     '10x'
-  ].forEach(size => {
+  ].forEach((size) => {
     const vm = mount({ icon: faCoffee, size: size })
 
     expect(vm.props.className.includes(`fa-${size}`)).toBeTruthy()
@@ -461,29 +475,37 @@ describe('symbol', () => {
   })
 })
 
-describe('title', () => {
-  test('will not add a title element', () => {
-    const vm = mount({ icon: faCoffee })
+if (semver.lt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION)) {
+  describe('title', () => {
+    test('will not add a title element', () => {
+      const vm = mount({ icon: faCoffee })
 
-    expect(vm.children[0].type).not.toBe('title')
+      expect(vm.children[0].type).not.toBe('title')
+    })
+
+    test('will add a title element', () => {
+      const vm = mount({ icon: faCoffee, title: 'Coffee' })
+
+      expect(vm.children[0].type).toBe('title')
+      expect(vm.children[0].children[0]).toBe('Coffee')
+    })
+
+    test('will use an explicit titleId', () => {
+      const vm = mount({
+        icon: faCoffee,
+        title: 'Coffee',
+        titleId: 'coffee-title'
+      })
+
+      expect(vm.props['aria-labelledby']).toBe(
+        'svg-inline--fa-title-coffee-title'
+      )
+      expect(vm.children[0].props).toEqual(
+        expect.objectContaining({ id: 'svg-inline--fa-title-coffee-title' })
+      )
+    })
   })
-
-  test('will add a title element', () => {
-    const vm = mount({ icon: faCoffee, title: 'Coffee' })
-
-    expect(vm.children[0].type).toBe('title')
-    expect(vm.children[0].children[0]).toBe('Coffee')
-  })
-
-  test('will use an explicit titleId', () => {
-    const vm = mount({ icon: faCoffee, title: 'Coffee', titleId: 'coffee-title' })
-
-    expect(vm.props['aria-labelledby']).toBe('svg-inline--fa-title-coffee-title')
-    expect(vm.children[0].props).toEqual(
-      expect.objectContaining({ id: 'svg-inline--fa-title-coffee-title' })
-    )
-  })
-})
+}
 
 describe('swap opacity', () => {
   test('setting swapOpacity prop to true adds fa-swap-opacity class', () => {
@@ -504,7 +526,7 @@ describe('using ref', () => {
   const node = {}
 
   test('function', () => {
-    const spy = jest.fn(element => element)
+    const spy = jest.fn((element) => element)
 
     mount(
       { icon: faCoffee, ref: spy },
@@ -519,7 +541,7 @@ describe('using ref', () => {
 
   test('callback ref', () => {
     let forwardedRef = null
-    const setForwardedRef = element => (forwardedRef = element)
+    const setForwardedRef = (element) => (forwardedRef = element)
 
     mount(
       { icon: faCoffee, ref: setForwardedRef },
@@ -532,11 +554,13 @@ describe('using ref', () => {
   })
 })
 
-describe('using titleId', () => {
-  test('setting titleId prop reflects in the aria-labelledby attribute', () => {
-    const titleId = 'foo'
-    const vm = mount({ icon: faCoffee, titleId: titleId, title: 'Coffee' })
-    const ariaLabelledby = vm.props['aria-labelledby']
-    expect(ariaLabelledby.includes(titleId)).toBeTruthy()
+if (semver.lt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION)) {
+  describe('using titleId', () => {
+    test('setting titleId prop reflects in the aria-labelledby attribute', () => {
+      const titleId = 'foo'
+      const vm = mount({ icon: faCoffee, titleId: titleId, title: 'Coffee' })
+      const ariaLabelledby = vm.props['aria-labelledby']
+      expect(ariaLabelledby.includes(titleId)).toBeTruthy()
+    })
   })
-})
+}

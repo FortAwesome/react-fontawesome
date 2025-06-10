@@ -8,36 +8,75 @@ jobs:
 
     strategy:
       matrix:
-        node: [14]
-        react: [
-          16.x,
-          17.x,
-          18.x,
-          beta
-        ]
-        fontawesome-svg-core: [
-          1.2.x,
-          6.x
-        ]
-        free-solid-svg-icons: [
-          5.x,
-          6.x
-        ]
+        free-solid-svg-icons: [7.x, 6.x, 5.x]
+        fontawesome-svg-core: [7.x, 6.x, 1.2.x]
+        node-version: [20.x, 18.x]
+        react: [19.x, 18.x, 17.x, 16.x]
+        exclude:
+          # For v7.x core, allow all icon versions
+          # For v6.x and v1.2.x core, exclude v7.x icons
+          - free-solid-svg-icons: '7.x'
+            fontawesome-svg-core: '6.x'
+          - free-solid-svg-icons: '7.x'
+            fontawesome-svg-core: '1.2.x'
 
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node }}
-      - name: npm install, build, and test
+          node-version: ${{ matrix.node-version }}
+
+      - name: v7 core and icons install, build, and test
+        if: ${{ matrix.fontawesome-svg-core == '7.x' && matrix.free-solid-svg-icons == '7.x' }}
         run: |
-          npm install
-          npm run build
+          # Install base dependencies first
+          npm install --no-audit --no-save
+          # Install specific React version and its peer dependencies
           npm install --no-save react@${{ matrix.react }} react-dom@${{ matrix.react }} react-test-renderer@${{ matrix.react }}
-          npm install --no-save @fortawesome/fontawesome-svg-core@${{ matrix.fontawesome-svg-core }} @fortawesome/free-solid-svg-icons@${{ matrix.free-solid-svg-icons }}
-          npm list react react-dom react-test-renderer @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons
+          # Install v7 alpha packages from local tarballs
+          npm install --no-save ./fortawesome-fontawesome-svg-core-7.0.0-alpha8.tgz ./fortawesome-fontawesome-common-types-7.0.0-alpha8.tgz ./fortawesome-free-solid-svg-icons-7.0.0-alpha8.tgz
+          # Verify React version
+          npm list react react-dom react-test-renderer
+          # Build and test
+          npm run build
           npm run lint
           npm run test
+
+      - name: v7 core with v5/v6 icons install, build, and test
+        if: ${{ matrix.fontawesome-svg-core == '7.x' && matrix.free-solid-svg-icons != '7.x' }}
+        run: |
+          # Install base dependencies first
+          npm install --no-audit --no-save
+          # Install specific React version and its peer dependencies
+          npm install --no-save react@${{ matrix.react }} react-dom@${{ matrix.react }} react-test-renderer@${{ matrix.react }}
+          # Install v7 core and common types from local tarballs, but icons from npm
+          npm install --no-save ./fortawesome-fontawesome-svg-core-7.0.0-alpha8.tgz ./fortawesome-fontawesome-common-types-7.0.0-alpha8.tgz
+          npm install --no-save @fortawesome/free-solid-svg-icons@${{ matrix.free-solid-svg-icons }}
+          # Verify React version
+          npm list react react-dom react-test-renderer
+          # Build and test
+          npm run build
+          npm run lint
+          npm run test
+
+      - name: v6/v1.2.x install, build, and test
+        if: ${{ matrix.fontawesome-svg-core != '7.x' }}
+        run: |
+          # Install base dependencies first
+          npm install --no-audit --no-save
+          # Install specific React version and its peer dependencies
+          npm install --no-save react@${{ matrix.react }} react-dom@${{ matrix.react }} react-test-renderer@${{ matrix.react }}
+          # Install Font Awesome packages from npm
+          npm install --no-save @fortawesome/fontawesome-svg-core@${{ matrix.fontawesome-svg-core }} @fortawesome/free-solid-svg-icons@${{ matrix.free-solid-svg-icons }}
+          # Verify React version
+          npm list react react-dom react-test-renderer
+          # Build and test
+          npm run build
+          npm run lint
+          npm run test
+
       - name: dist
         run: |
           npm run dist
