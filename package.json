@@ -50,7 +50,7 @@
     ]
   },
   "peerDependencies": {
-    "@fortawesome/fontawesome-svg-core": "~1 || ~6 || ~7 || ^7.0.0-alpha8",
+    "@fortawesome/fontawesome-svg-core": "~1 || ~6 || ~7 || ^7.0.0-rc3",
     "react": "^16.3 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
@@ -59,10 +59,10 @@
     "@babel/preset-env": "^7.16.8",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-stage-3": "^7.8.3",
-    "@fortawesome/fontawesome-common-types": "file:fortawesome-fontawesome-common-types-7.0.0-alpha8.tgz",
-    "@fortawesome/fontawesome-svg-core": "file:fortawesome-fontawesome-svg-core-7.0.0-alpha8.tgz",
-    "@fortawesome/free-brands-svg-icons": "file:fortawesome-free-brands-svg-icons-7.0.0-alpha8.tgz",
-    "@fortawesome/free-solid-svg-icons": "file:fortawesome-free-solid-svg-icons-7.0.0-alpha8.tgz",
+    "@fortawesome/fontawesome-common-types": "file:../fontawesome/assets/npm-packages/fortawesome-fontawesome-common-types-7.0.0-rc3.tgz",
+    "@fortawesome/fontawesome-svg-core": "file:../fontawesome/assets/npm-packages/fortawesome-fontawesome-svg-core-7.0.0-rc3.tgz",
+    "@fortawesome/free-brands-svg-icons": "file:../fontawesome/assets/npm-packages/fortawesome-free-brands-svg-icons-7.0.0-rc3.tgz",
+    "@fortawesome/free-solid-svg-icons": "file:../fontawesome-buildsystem/dist/free/js-packages/@fortawesome/free-solid-svg-icons/fortawesome-free-solid-svg-icons-7.0.0-rc3.tgz",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.3",
