@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "index.js",
   "module": "index.es.js",
   "jsnext:main": "index.es.js",
@@ -41,6 +41,7 @@
     "test": "jest --silent",
     "install.5": "npm --no-save install @fortawesome/fontawesome-svg-core@1.2.x @fortawesome/free-solid-svg-icons@5.x",
     "install.6": "npm --no-save install @fortawesome/fontawesome-svg-core@6.x @fortawesome/free-solid-svg-icons@6.x",
+    "install.7": "npm --no-save install @fortawesome/fontawesome-svg-core@7.x @fortawesome/free-solid-svg-icons@7.x",
     "clean": "rm -f index.js && rm -f index.es.js"
   },
   "lint-staged": {
