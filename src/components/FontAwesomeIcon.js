@@ -1,4 +1,4 @@
-import classList from '../utils/get-class-list-from-props'
+import { classList } from '../utils/get-class-list-from-props'
 import convert from '../converter'
 import { icon, parse } from '@fortawesome/fontawesome-svg-core'
 import log from '../logger'
@@ -12,6 +12,7 @@ const defaultProps = {
   className: '',
   mask: null,
   maskId: null,
+  // the fixedWidth property has been deprecated as of version 7
   fixedWidth: false,
   inverse: false,
   flip: false,
@@ -20,6 +21,7 @@ const defaultProps = {
   pull: null,
   pulse: false,
   rotation: null,
+  rotateBy: false,
   size: null,
   spin: false,
   spinPulse: false,
@@ -33,7 +35,8 @@ const defaultProps = {
   title: '',
   titleId: null,
   transform: null,
-  swapOpacity: false
+  swapOpacity: false,
+  widthAuto: false
 }
 
 const FontAwesomeIcon = React.forwardRef((props, ref) => {
@@ -81,7 +84,7 @@ const FontAwesomeIcon = React.forwardRef((props, ref) => {
   const { abstract } = renderedIcon
   const extraProps = { ref }
 
-  Object.keys(allProps).forEach(key => {
+  Object.keys(allProps).forEach((key) => {
     // eslint-disable-next-line no-prototype-builtins
     if (!defaultProps.hasOwnProperty(key)) {
       extraProps[key] = allProps[key]
@@ -116,6 +119,7 @@ FontAwesomeIcon.propTypes = {
 
   maskId: PropTypes.string,
 
+  // the fixedWidth property has been deprecated as of version 7
   fixedWidth: PropTypes.bool,
 
   inverse: PropTypes.bool,
@@ -135,6 +139,8 @@ FontAwesomeIcon.propTypes = {
   pulse: PropTypes.bool,
 
   rotation: PropTypes.oneOf([0, 90, 180, 270]),
+
+  rotateBy: PropTypes.bool,
 
   shake: PropTypes.bool,
 
@@ -171,7 +177,9 @@ FontAwesomeIcon.propTypes = {
 
   transform: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 
-  swapOpacity: PropTypes.bool
+  swapOpacity: PropTypes.bool,
+
+  widthAuto: PropTypes.bool
 }
 
 export default FontAwesomeIcon
