@@ -43,6 +43,7 @@ export interface FontAwesomeIconProps extends BackwardCompatibleOmit<SVGAttribut
   size?: SizeProp
   pull?: PullProp
   rotation?: RotateProp
+  rotateBy?: boolean,
   transform?: string | Transform
   symbol?: FaSymbol
   style?: CSSProperties
@@ -50,4 +51,5 @@ export interface FontAwesomeIconProps extends BackwardCompatibleOmit<SVGAttribut
   title?: string;
   titleId?: string;
   swapOpacity?: boolean;
+  widthAuto?: boolean
 }

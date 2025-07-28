@@ -6,6 +6,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.2.3](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.3) - 2025-07-23
+
+### Changed
+
+- Font Awesome Pro+ icons are now available with an active Pro+ subscription.
+
+- Removed example directory and files
+
+- Deprecated `fa-fw` prop
+
+### Added
+
+- Added `widthAuto` prop
+
+- Added `rotateBy` prop
+
+---
+
 ## [0.2.2](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.2) - 2024-05-22
 
 ### Fixed

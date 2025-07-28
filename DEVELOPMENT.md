@@ -24,6 +24,8 @@ The following commands are available through `npm run`
 1. `npm run test`
 1. `npm run install.6`
 1. `npm run test`
+1. `npm run install.7`
+1. `npm run test`
 1. `npm publish --tag latest-0.2 --tag latest`
 1. `npm publish --tag latest-0.2 --tag latest --registry https://npm.fontawesome.com` (publish to Pro registry)
 1. `git add . && git commit -m 'Release VERSION'`
