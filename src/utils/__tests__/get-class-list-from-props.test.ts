@@ -1,10 +1,16 @@
 import {
+  PullProp,
+  RotateProp,
+  SizeProp,
+} from '@fortawesome/fontawesome-svg-core'
+import semver from 'semver'
+
+import { FontAwesomeIconProps } from '../../components/FontAwesomeIcon'
+import {
   classList,
   ICON_PACKS_STARTING_VERSION,
-  SVG_CORE_VERSION
+  SVG_CORE_VERSION,
 } from '../get-class-list-from-props'
-
-import semver from 'semver'
 
 describe('get class list', () => {
   const props = {
@@ -24,7 +30,7 @@ describe('get class list', () => {
     swapOpacity: true,
     flip: true,
     rotateBy: true,
-    widthAuto: true
+    widthAuto: true,
   }
 
   const getPropsClassList = classList(props)
@@ -43,7 +49,7 @@ describe('get class list', () => {
     'fa-border',
     'fa-li',
     'fa-flip',
-    'fa-swap-opacity'
+    'fa-swap-opacity',
   ]
 
   // Add version 7 specific classes if using version 7 or later
@@ -51,16 +57,28 @@ describe('get class list', () => {
     expectedClasses.push('fa-rotate-by', 'fa-width-auto')
   }
 
-  test('test the booleans', () => {
+  test('the booleans', () => {
     expect(getPropsClassList).toStrictEqual(expectedClasses)
   })
 
-  test('size', () => {
-    function testSize(size) {
-      expect(classList({ size })).toStrictEqual([`fa-${size}`])
-    }
-
-    testSize('xs')
+  test.each<SizeProp>([
+    'xs',
+    'sm',
+    'lg',
+    'xl',
+    '2xl',
+    '1x',
+    '2x',
+    '3x',
+    '4x',
+    '5x',
+    '6x',
+    '7x',
+    '8x',
+    '9x',
+    '10x',
+  ])('size %s', (size) => {
+    expect(classList({ size })).toStrictEqual([`fa-${size}`])
   })
 
   test('flip', () => {
@@ -69,19 +87,19 @@ describe('get class list', () => {
     const FLIP_ANIMATION = 'fa-flip'
 
     const horizontalList = classList({
-      flip: 'horizontal'
+      flip: 'horizontal',
     })
 
     const verticalList = classList({
-      flip: 'vertical'
+      flip: 'vertical',
     })
 
     const bothList = classList({
-      flip: 'both'
+      flip: 'both',
     })
 
     const flipAnimationOnly = classList({
-      flip: true
+      flip: true,
     })
 
     expect(horizontalList).toContain(HORIZONTAL)
@@ -94,27 +112,17 @@ describe('get class list', () => {
     expect(flipAnimationOnly).toContain(FLIP_ANIMATION)
   })
 
-  test('rotation', () => {
-    function testRotation(rotation) {
-      expect(classList({ rotation })).toStrictEqual([`fa-rotate-${rotation}`])
-    }
-
-    testRotation(90)
-    testRotation(180)
-    testRotation(270)
+  test.each<RotateProp>([90, 180, 270])('rotation %s', (rotation) => {
+    expect(classList({ rotation })).toStrictEqual([`fa-rotate-${rotation}`])
   })
 
-  test('pull', () => {
-    function testPull(pull) {
-      expect(classList({ pull })).toStrictEqual([`fa-pull-${pull}`])
-    }
-
-    testPull('left')
-    testPull('right')
+  test.each<PullProp>(['left', 'right'])('pull %s', (pull) => {
+    expect(classList({ pull })).toStrictEqual([`fa-pull-${pull}`])
   })
 
-  describe('when some props are null', () => {
-    function testNulls(prop) {
+  test.each<keyof FontAwesomeIconProps>(['pull', 'rotation', 'size'])(
+    'when prop "%s" is null',
+    (prop) => {
       const NUM_CLASSES = 6
 
       const props = {
@@ -124,7 +132,7 @@ describe('get class list', () => {
         inverse: true,
         border: true,
         listItem: true,
-        [prop]: null
+        [prop]: null,
       }
 
       expect(classList(props).length).toBe(NUM_CLASSES)
@@ -134,20 +142,8 @@ describe('get class list', () => {
         'fa-fw',
         'fa-inverse',
         'fa-border',
-        'fa-li'
+        'fa-li',
       ])
-    }
-
-    test('pull', () => {
-      testNulls('pull')
-    })
-
-    test('rotation', () => {
-      testNulls('rotation')
-    })
-
-    test('size', () => {
-      testNulls('size')
-    })
-  })
+    },
+  )
 })

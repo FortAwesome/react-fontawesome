@@ -16,21 +16,21 @@ The following commands are available through `npm run`
 <a name="release"></a>
 
 1. Edit `package.json` and update the version number
-1. Add new contributors to the `contributors` section
-1. Update the `CHANGELOG.md`
-1. Update the `README.md` contributors section
-1. `npm run build`
-1. `npm run install.5`
-1. `npm run test`
-1. `npm run install.6`
-1. `npm run test`
-1. `npm run install.7`
-1. `npm run test`
-1. `npm publish --tag latest-0.2 --tag latest`
-1. `npm publish --tag latest-0.2 --tag latest --registry https://npm.fontawesome.com` (publish to Pro registry)
-1. `git add . && git commit -m 'Release VERSION'`
-1. `git push`
-1. Create a [new release](https://github.com/FortAwesome/react-fontawesome/releases/new) with `CHANGELOG` details
+2. Add new contributors to the `contributors` section
+3. Update the `CHANGELOG.md`
+4. Update the `README.md` contributors section
+5. `npm run build`
+6. `npm run install.5`
+7. `npm run test`
+8. `npm run install.6`
+9. `npm run test`
+10. `npm run install.7`
+11. `npm run test`
+12. `npm publish --tag latest-0.2 --tag latest`
+13. `npm publish --tag latest-0.2 --tag latest --registry https://npm.fontawesome.com` (publish to Pro registry)
+14. `git add . && git commit -m 'Release VERSION'`
+15. `git push`
+16. Create a [new release](https://github.com/FortAwesome/react-fontawesome/releases/new) with `CHANGELOG` details
 
 ## Authenticating with the npm.fontawesome.com registry
 
@@ -38,8 +38,8 @@ Contributors with authorization to publish to npm.fontawesome.com will receive a
 from a Font Awesome project owner.
 
 1. Respond to the invite in your email
-1. Let the owner know when you've setup your account
-1. Owner will add you to the team
+2. Let the owner know when you've setup your account
+3. Owner will add you to the team
 
 You can then run:
 

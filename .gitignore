@@ -2,3 +2,5 @@ node_modules
 .DS_Store
 bin/act
 fortawesome-react-fontawesome-*.tgz
+dist/
+coverage/

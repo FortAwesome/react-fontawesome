@@ -10,8 +10,8 @@ jobs:
       matrix:
         free-solid-svg-icons: [7.x, 6.x, 5.x]
         fontawesome-svg-core: [7.x, 6.x, 1.2.x]
-        node-version: [20.x, 18.x]
-        react: [19.x, 18.x, 17.x, 16.x]
+        node-version: [24.x, 22.x, 20.x]
+        react: [19.x, 18.x]
         exclude:
           # For v7.x core, allow all icon versions
           # For v6.x and v1.2.x core, exclude v7.x icons
@@ -21,30 +21,33 @@ jobs:
             fontawesome-svg-core: '1.2.x'
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Install base dependencies
-        run: npm install --no-audit --no-save
+        run: npm ci --no-audit --no-save
 
       - name: Install React dependencies
-        run: npm install --no-save react@${{ matrix.react }} react-dom@${{ matrix.react }} react-test-renderer@${{ matrix.react }}
+        run: npm ci --no-save react@${{ matrix.react }} react-dom@${{ matrix.react }}
 
       - name: Install FontAwesome dependencies
-        run: npm install --no-save @fortawesome/fontawesome-svg-core@${{ matrix.fontawesome-svg-core }} @fortawesome/free-solid-svg-icons@${{ matrix.free-solid-svg-icons }}
+        run: npm ci --no-save @fortawesome/fontawesome-svg-core@${{ matrix.fontawesome-svg-core }} @fortawesome/free-solid-svg-icons@${{ matrix.free-solid-svg-icons }}
 
       - name: Verify React version
-        run: npm list react react-dom react-test-renderer
+        run: npm list react react-dom
 
-      - name: Build and test
+      - name: Lint and test
         run: |
-          npm run build
           npm run lint
+          npm run format:check
           npm run test
+
+      - name: Build
+        run: npm run build
 
       - name: Build distribution
         run: npm run dist

@@ -25,14 +25,15 @@
 
 ## Compatibility
 
-| React version | react-fontawesome version |
-| ------------- | ------------------------- |
-| < 16.3.0      | 0.1.x                     |
-| >= 16.3.0     | 0.2.x                     |
+| React version | react-fontawesome version | FontAwesome Core versions | Node versions    |
+| ------------- | ------------------------- | ------------------------- | ---------------- |
+| >= 18.0.0     | 1.x.x                     | 5.x, 6.x, 7.x             | 20.x, 22.x, 24.x |
+| >= 16.3.0     | 0.2.x                     | 5.x, 6.x, 7.x             | 18.x, 20.x       |
+| < 16.3.0      | 0.1.x                     | 5.x, 6.x                  | 14.x, 16.x       |
 
 Official documentation is hosted at fontawesome.com:
 
-[Check it out here](https://fontawesome.com/v6/docs/web/use-with/react/)
+[Check it out here](https://docs.fontawesome.com/web/use-with/react)
 
 ## How to Help
 
@@ -43,7 +44,7 @@ Review the following docs before diving in:
 
 And then:
 
-1.  Check the existing issue and see if you can help!
+- Check the [existing issues](https://github.com/FortAwesome/react-fontawesome/issues) and see if you can help!
 
 ## Contributors
 
