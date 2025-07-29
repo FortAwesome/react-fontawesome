@@ -1,6 +1,7 @@
 import { version as SVGCorePackageVersion } from '@fortawesome/fontawesome-svg-core/package.json'
 import semver from 'semver'
 
+import { PULL_CLASSES, ROTATE_CLASSES, SIZE_CLASSES } from './constants'
 import { FontAwesomeIconProps } from '../components/FontAwesomeIcon'
 
 export const ICON_PACKS_STARTING_VERSION = '7.0.0-alpha1'
@@ -69,15 +70,15 @@ export function getClassListFromProps(
     result.push('fa-flip-horizontal')
   }
   if (flip === 'vertical' || flip === 'both') result.push('fa-flip-vertical')
-  if (size !== undefined && size !== null) result.push(`fa-${size}`)
+  if (size !== undefined && size !== null) result.push(SIZE_CLASSES[size])
   if (
     rotation !== undefined &&
     rotation !== null &&
     (rotation as number) !== 0
   ) {
-    result.push(`fa-rotate-${rotation}`)
+    result.push(ROTATE_CLASSES[rotation])
   }
-  if (pull !== undefined && pull !== null) result.push(`fa-pull-${pull}`)
+  if (pull !== undefined && pull !== null) result.push(PULL_CLASSES[pull])
   if (swapOpacity) result.push('fa-swap-opacity')
 
   // Bail early if not version 7 or later

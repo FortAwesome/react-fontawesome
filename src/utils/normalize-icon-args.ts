@@ -13,10 +13,14 @@ import {
 export function normalizeIconArgs(
   icon?: IconProp | null,
 ): IconDefinition | IconLookup | undefined {
+  // if the icon is undefined or null, there's nothing to do
+  if (!icon) {
+    return undefined
+  }
+
   // this has everything that it needs to be rendered which means it was probably imported
   // directly from an icon svg package
   if (
-    icon &&
     typeof icon === 'object' &&
     'prefix' in icon &&
     'iconName' in icon &&
@@ -28,18 +32,12 @@ export function normalizeIconArgs(
     return icon
   }
 
-  // if the icon is undefined or null, there's nothing to do
-  if (!icon) {
-    return undefined
-  }
-
   if (faParse.icon) {
     return faParse.icon(icon)
   }
 
   // if the icon is an object and has a prefix and an icon name, return it
   if (
-    icon &&
     typeof icon === 'object' &&
     'prefix' in icon &&
     'iconName' in icon &&
