@@ -47,8 +47,11 @@ const config = tseslint.config(
       },
     },
     rules: {
+      // Base rules
+      curly: ['error', 'multi-line'],
       'no-nested-ternary': 'error',
 
+      // `eslint-plugin-import` rules
       'import/order': [
         'warn',
         {
@@ -72,6 +75,7 @@ const config = tseslint.config(
         },
       ],
 
+      // `eslint-plugin-unicorn` rules
       'unicorn/no-keyword-prefix': 'off',
       'unicorn/no-null': 'off',
       'unicorn/prevent-abbreviations': 'off',

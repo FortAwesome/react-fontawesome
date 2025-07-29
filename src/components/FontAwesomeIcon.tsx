@@ -13,7 +13,7 @@ import type {
 
 import { convert } from '../converter'
 import { Logger } from '../logger'
-import { classList } from '../utils/get-class-list-from-props'
+import { getClassListFromProps } from '../utils/get-class-list-from-props'
 import { normalizeIconArgs } from '../utils/normalize-icon-args'
 import { objectWithKey } from '../utils/object-with-key'
 import { typedObjectKeys } from '../utils/typed-object-keys'
@@ -164,7 +164,7 @@ export const FontAwesomeIcon = React.forwardRef(
     const iconLookup = normalizeIconArgs(iconArgs)
 
     const classes = objectWithKey('classes', [
-      ...classList(allProps),
+      ...getClassListFromProps(allProps),
       ...(className || '').split(' '),
     ])
     const transform = objectWithKey(

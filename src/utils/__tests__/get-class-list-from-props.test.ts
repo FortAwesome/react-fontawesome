@@ -7,7 +7,7 @@ import semver from 'semver'
 
 import { FontAwesomeIconProps } from '../../components/FontAwesomeIcon'
 import {
-  classList,
+  getClassListFromProps,
   ICON_PACKS_STARTING_VERSION,
   SVG_CORE_VERSION,
 } from '../get-class-list-from-props'
@@ -33,7 +33,7 @@ describe('get class list', () => {
     widthAuto: true,
   }
 
-  const getPropsClassList = classList(props)
+  const classList = getClassListFromProps(props)
   const expectedClasses = [
     'fa-beat',
     'fa-fade',
@@ -58,7 +58,7 @@ describe('get class list', () => {
   }
 
   test('the booleans', () => {
-    expect(getPropsClassList).toStrictEqual(expectedClasses)
+    expect(classList).toStrictEqual(expectedClasses)
   })
 
   test.each<SizeProp>([
@@ -78,7 +78,7 @@ describe('get class list', () => {
     '9x',
     '10x',
   ])('size %s', (size) => {
-    expect(classList({ size })).toStrictEqual([`fa-${size}`])
+    expect(getClassListFromProps({ size })).toStrictEqual([`fa-${size}`])
   })
 
   test('flip', () => {
@@ -86,19 +86,19 @@ describe('get class list', () => {
     const VERTICAL = 'fa-flip-vertical'
     const FLIP_ANIMATION = 'fa-flip'
 
-    const horizontalList = classList({
+    const horizontalList = getClassListFromProps({
       flip: 'horizontal',
     })
 
-    const verticalList = classList({
+    const verticalList = getClassListFromProps({
       flip: 'vertical',
     })
 
-    const bothList = classList({
+    const bothList = getClassListFromProps({
       flip: 'both',
     })
 
-    const flipAnimationOnly = classList({
+    const flipAnimationOnly = getClassListFromProps({
       flip: true,
     })
 
@@ -113,11 +113,13 @@ describe('get class list', () => {
   })
 
   test.each<RotateProp>([90, 180, 270])('rotation %s', (rotation) => {
-    expect(classList({ rotation })).toStrictEqual([`fa-rotate-${rotation}`])
+    expect(getClassListFromProps({ rotation })).toStrictEqual([
+      `fa-rotate-${rotation}`,
+    ])
   })
 
   test.each<PullProp>(['left', 'right'])('pull %s', (pull) => {
-    expect(classList({ pull })).toStrictEqual([`fa-pull-${pull}`])
+    expect(getClassListFromProps({ pull })).toStrictEqual([`fa-pull-${pull}`])
   })
 
   test.each<keyof FontAwesomeIconProps>(['pull', 'rotation', 'size'])(
@@ -135,8 +137,8 @@ describe('get class list', () => {
         [prop]: null,
       }
 
-      expect(classList(props).length).toBe(NUM_CLASSES)
-      expect(classList(props)).toStrictEqual([
+      expect(getClassListFromProps(props).length).toBe(NUM_CLASSES)
+      expect(getClassListFromProps(props)).toStrictEqual([
         'fa-spin',
         'fa-pulse',
         'fa-fw',
