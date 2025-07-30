@@ -4,6 +4,18 @@ import {
   SizeProp,
 } from '@fortawesome/fontawesome-svg-core'
 
+export const ANIMATION_CLASSES = {
+  beat: 'fa-beat',
+  fade: 'fa-fade',
+  beatFade: 'fa-beat-fade',
+  bounce: 'fa-bounce',
+  shake: 'fa-shake',
+  spin: 'fa-spin',
+  spinPulse: 'fa-spin-pulse',
+  spinReverse: 'fa-spin-reverse',
+  pulse: 'fa-pulse',
+} as const
+
 export const PULL_CLASSES: {
   [key in PullProp]: `fa-pull-${key}`
 } = {
@@ -39,3 +51,17 @@ export const SIZE_CLASSES: {
   '9x': 'fa-9x',
   '10x': 'fa-10x',
 }
+
+export const STYLE_CLASSES = {
+  border: 'fa-border',
+  /** @deprecated */
+  fixedWidth: 'fa-fw',
+  flip: 'fa-flip',
+  flipHorizontal: 'fa-flip-horizontal',
+  flipVertical: 'fa-flip-vertical',
+  inverse: 'fa-inverse',
+  listItem: 'fa-li',
+  rotateBy: 'fa-rotate-by',
+  swapOpacity: 'fa-swap-opacity',
+  widthAuto: 'fa-width-auto',
+} as const
