@@ -174,6 +174,13 @@ describe('FontAwesomeIcon', () => {
     })
   })
 
+  test('when icon is not provided, it returns null', () => {
+    const { container } = render(
+      <FontAwesomeIcon icon={null as unknown as fontawesome.IconProp} />,
+    )
+    expect(container).toBeEmptyDOMElement()
+  })
+
   test('using imported object from svg icons package', () => {
     render(<FontAwesomeIcon icon={faBacon} />)
 

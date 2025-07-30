@@ -61,6 +61,12 @@ describe('get class list', () => {
     expect(classList).toStrictEqual(expectedClasses)
   })
 
+  test('className prop', () => {
+    const className = 'custom-class'
+    const propsWithClassName = { ...props, className }
+    expect(getClassListFromProps(propsWithClassName)).toContain(className)
+  })
+
   test.each<SizeProp>([
     'xs',
     'sm',

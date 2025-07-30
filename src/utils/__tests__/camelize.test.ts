@@ -6,6 +6,15 @@ describe('camelize', () => {
     expect(camelize(numerical as unknown as string)).toBe(numerical)
   })
 
+  test('numerical strings return same value', () => {
+    const numericalString = '999'
+    expect(camelize(numericalString)).toBe(numericalString)
+  })
+
+  test('empty string returns empty string', () => {
+    expect(camelize('')).toBe('')
+  })
+
   test('first char is always lowercase', () => {
     expect(camelize('f-a')).toBe('fA')
     expect(camelize('F-a')).toBe('fA')

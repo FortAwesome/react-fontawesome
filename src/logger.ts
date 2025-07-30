@@ -1,11 +1,3 @@
-let IS_PROD = false
-
-try {
-  IS_PROD = process.env.NODE_ENV === 'production'
-} catch {
-  // If process.env is not available, assume we're not in production and do nothing.
-}
-
 /**
  * Logger class for logging messages in different environments.
  * It provides methods to log messages, warnings, and errors based on the environment.
@@ -24,7 +16,7 @@ try {
  * ```
  */
 export class Logger {
-  enabled = !IS_PROD
+  enabled = false
   scope: string
 
   constructor(
@@ -40,7 +32,8 @@ export class Logger {
     shouldLogInProduction = false,
   ) {
     this.scope = scope
-    this.enabled = shouldLogInProduction || !IS_PROD
+    this.enabled =
+      shouldLogInProduction || process.env.NODE_ENV !== 'production'
   }
 
   /**
