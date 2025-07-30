@@ -18,6 +18,13 @@ const config: Config = {
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
 
+  // An array of regexp pattern strings used to skip coverage collection
+  coveragePathIgnorePatterns: [
+    'src/global.d.ts',
+    'src/index.ts',
+    'src/components/__fixtures__',
+  ],
+
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'v8',
 
