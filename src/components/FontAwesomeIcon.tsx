@@ -22,7 +22,7 @@ import { typedObjectKeys } from '../utils/typed-object-keys'
 
 const logger = new Logger('FontAwesomeIcon')
 
-const defaultProps = {
+const DEFAULT_PROPS = {
   border: false,
   className: '',
   mask: undefined,
@@ -52,6 +52,8 @@ const defaultProps = {
   swapOpacity: false,
   widthAuto: false,
 }
+
+const DEFAULT_PROP_KEYS = new Set(Object.keys(DEFAULT_PROPS))
 
 export interface FontAwesomeIconProps
   extends Omit<SVGAttributes<SVGSVGElement>, 'children' | 'mask' | 'transform'>,
@@ -151,7 +153,7 @@ export const FontAwesomeIcon = React.forwardRef(
     props: FontAwesomeIconProps,
     ref: React.Ref<SVGSVGElement>,
   ): React.JSX.Element | null => {
-    const allProps: FontAwesomeIconProps = { ...defaultProps, ...props }
+    const allProps: FontAwesomeIconProps = { ...DEFAULT_PROPS, ...props }
 
     const {
       icon: iconArgs,
@@ -197,12 +199,14 @@ export const FontAwesomeIcon = React.forwardRef(
 
     for (const key of typedObjectKeys(allProps)) {
       // Skip default props
-      if (key in defaultProps) {
+      if (DEFAULT_PROP_KEYS.has(key)) {
         continue
       }
 
       // Add all other props to the extraProps object
-      // @ts-expect-error TypeScript doesn't know that allProps[key] is valid
+      // @ts-expect-error since `key` can be any of the keys in FontAwesomeIconProps,
+      // TypeScript widens the type of the `obj[key]` lookups to a union of all possible values,
+      // which will not correctly overlap each other.
       extraProps[key] = allProps[key]
     }
 
