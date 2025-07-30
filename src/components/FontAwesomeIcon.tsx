@@ -1,6 +1,9 @@
 import React, { CSSProperties, RefAttributes, SVGAttributes } from 'react'
 
-import { icon, parse } from '@fortawesome/fontawesome-svg-core'
+import {
+  icon as faIcon,
+  parse as faParse,
+} from '@fortawesome/fontawesome-svg-core'
 import type {
   FaSymbol,
   FlipProp,
@@ -15,7 +18,6 @@ import { convert } from '../converter'
 import { Logger } from '../logger'
 import { getClassListFromProps } from '../utils/get-class-list-from-props'
 import { normalizeIconArgs } from '../utils/normalize-icon-args'
-import { objectWithKey } from '../utils/object-with-key'
 import { typedObjectKeys } from '../utils/typed-object-keys'
 
 const logger = new Logger('FontAwesomeIcon')
@@ -155,35 +157,30 @@ export const FontAwesomeIcon = React.forwardRef(
       icon: iconArgs,
       mask: maskArgs,
       symbol,
-      className,
       title,
       titleId,
       maskId,
+      transform,
     } = allProps
 
     const iconLookup = normalizeIconArgs(iconArgs)
-
-    const classes = objectWithKey('classes', [
-      ...getClassListFromProps(allProps),
-      ...(className || '').split(' '),
-    ])
-    const transform = objectWithKey(
-      'transform',
-      typeof allProps.transform === 'string'
-        ? parse.transform(allProps.transform)
-        : allProps.transform,
-    )
-    const mask = objectWithKey('mask', normalizeIconArgs(maskArgs))
 
     if (!iconLookup) {
       logger.error('Icon lookup is undefined', iconArgs)
       return null
     }
 
-    const renderedIcon = icon(iconLookup, {
-      ...classes,
-      ...transform,
-      ...mask,
+    const classList = getClassListFromProps(allProps)
+
+    const transformProps =
+      typeof transform === 'string' ? faParse.transform(transform) : transform
+
+    const normalizedMaskArgs = normalizeIconArgs(maskArgs)
+
+    const renderedIcon = faIcon(iconLookup, {
+      ...(classList.length > 0 && { classes: classList }),
+      ...(transformProps && { transform: transformProps }),
+      ...(normalizedMaskArgs && { mask: normalizedMaskArgs }),
       symbol,
       title,
       titleId,

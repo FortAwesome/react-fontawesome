@@ -31,7 +31,7 @@ describe('get class list', () => {
     flip: true,
     rotateBy: true,
     widthAuto: true,
-  }
+  } as FontAwesomeIconProps
 
   const classList = getClassListFromProps(props)
   const expectedClasses = [
@@ -78,7 +78,9 @@ describe('get class list', () => {
     '9x',
     '10x',
   ])('size %s', (size) => {
-    expect(getClassListFromProps({ size })).toStrictEqual([`fa-${size}`])
+    expect(
+      getClassListFromProps({ size } as FontAwesomeIconProps),
+    ).toStrictEqual([`fa-${size}`])
   })
 
   test('flip', () => {
@@ -88,19 +90,19 @@ describe('get class list', () => {
 
     const horizontalList = getClassListFromProps({
       flip: 'horizontal',
-    })
+    } as FontAwesomeIconProps)
 
     const verticalList = getClassListFromProps({
       flip: 'vertical',
-    })
+    } as FontAwesomeIconProps)
 
     const bothList = getClassListFromProps({
       flip: 'both',
-    })
+    } as FontAwesomeIconProps)
 
     const flipAnimationOnly = getClassListFromProps({
       flip: true,
-    })
+    } as FontAwesomeIconProps)
 
     expect(horizontalList).toContain(HORIZONTAL)
     expect(verticalList).toContain(VERTICAL)
@@ -113,13 +115,15 @@ describe('get class list', () => {
   })
 
   test.each<RotateProp>([90, 180, 270])('rotation %s', (rotation) => {
-    expect(getClassListFromProps({ rotation })).toStrictEqual([
-      `fa-rotate-${rotation}`,
-    ])
+    expect(
+      getClassListFromProps({ rotation } as FontAwesomeIconProps),
+    ).toStrictEqual([`fa-rotate-${rotation}`])
   })
 
   test.each<PullProp>(['left', 'right'])('pull %s', (pull) => {
-    expect(getClassListFromProps({ pull })).toStrictEqual([`fa-pull-${pull}`])
+    expect(
+      getClassListFromProps({ pull } as FontAwesomeIconProps),
+    ).toStrictEqual([`fa-pull-${pull}`])
   })
 
   test.each<keyof FontAwesomeIconProps>(['pull', 'rotation', 'size'])(
@@ -135,7 +139,7 @@ describe('get class list', () => {
         border: true,
         listItem: true,
         [prop]: null,
-      }
+      } as unknown as FontAwesomeIconProps
 
       expect(getClassListFromProps(props).length).toBe(NUM_CLASSES)
       expect(getClassListFromProps(props)).toStrictEqual([

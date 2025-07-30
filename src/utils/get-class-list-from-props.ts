@@ -26,12 +26,10 @@ const IS_VERSION_7_OR_LATER = semver.gte(
  * Get CSS class list from a props object.
  * This function maps our React props to the corresponding CSS class names from Font Awesome.
  *
- * @param props Partial props object from which to extract CSS classes.
+ * @param props Props object from which to extract CSS classes.
  * @returns An array of CSS class names derived from the props.
  */
-export function getClassListFromProps(
-  props: Partial<FontAwesomeIconProps>,
-): string[] {
+export function getClassListFromProps(props: FontAwesomeIconProps): string[] {
   const {
     beat,
     fade,
@@ -53,11 +51,13 @@ export function getClassListFromProps(
     swapOpacity,
     rotateBy,
     widthAuto,
+    className,
   } = props
 
   const result: string[] = []
 
   // Add classes only if the condition is truthy
+  if (className) result.push(...className.split(' '))
   if (beat) result.push(ANIMATION_CLASSES.beat)
   if (fade) result.push(ANIMATION_CLASSES.fade)
   if (beatFade) result.push(ANIMATION_CLASSES.beatFade)
