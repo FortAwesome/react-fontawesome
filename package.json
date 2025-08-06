@@ -105,7 +105,14 @@
     "typescript-eslint": "^8.39.0"
   },
   "files": [
-    "./dist"
+    "./dist",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "DEVELOPMENT.md",
+    "LICENSE.txt",
+    "README.md",
+    "UPGRADING.md"
   ],
   "browserslist": [
     "> 1%",
