@@ -92,6 +92,18 @@ const config = tseslint.config(
       ],
     },
   },
+  {
+    files: ['**/hooks/**/*.ts', '**/use*.ts'],
+
+    rules: {
+      'unicorn/filename-case': [
+        'error',
+        {
+          case: 'camelCase',
+        },
+      ],
+    },
+  },
 )
 
 export default config

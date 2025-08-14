@@ -1,8 +1,8 @@
-import React, { CSSProperties } from 'react'
+import React, { type CSSProperties } from 'react'
 
-import { AbstractElement } from '@fortawesome/fontawesome-svg-core'
+import type { AbstractElement } from '@fortawesome/fontawesome-svg-core'
 
-import { FontAwesomeIconProps } from './components/FontAwesomeIcon'
+import type { FontAwesomeIconProps } from './types/icon-props'
 import { camelize } from './utils/camelize'
 
 function capitalize(val: string): string {

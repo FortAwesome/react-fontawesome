@@ -5,7 +5,7 @@ import {
 } from '@fortawesome/fontawesome-svg-core'
 import semver from 'semver'
 
-import { FontAwesomeIconProps } from '../../components/FontAwesomeIcon'
+import { FontAwesomeIconProps } from '../../types/icon-props'
 import {
   getClassListFromProps,
   ICON_PACKS_STARTING_VERSION,

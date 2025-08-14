@@ -39,7 +39,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsup",
-    "dist": "cross-env NODE_ENV=production npm run build",
+    "dist": "npm run clean && cross-env NODE_ENV=production npm run build",
     "lint": "eslint .",
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
@@ -51,7 +51,7 @@
     "install.5": "npm --no-save install @fortawesome/fontawesome-svg-core@1.2.x @fortawesome/free-solid-svg-icons@5.x",
     "install.6": "npm --no-save install @fortawesome/fontawesome-svg-core@6.x @fortawesome/free-solid-svg-icons@6.x",
     "install.7": "npm --no-save install @fortawesome/fontawesome-svg-core@7.x @fortawesome/free-solid-svg-icons@7.x",
-    "clean": "rm -rf dist"
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "semver": "^7.7.2"
@@ -66,7 +66,7 @@
     "@babel/preset-env": "^7.28.0",
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
-    "@eslint/js": "^9.32.0",
+    "@eslint/js": "^9.33.0",
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
     "@fortawesome/free-brands-svg-icons": "^7.0.0",
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
@@ -74,21 +74,21 @@
     "@testing-library/jest-dom": "^6.6.4",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^30.0.0",
-    "@types/react": "^19.1.9",
+    "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@types/semver": "^7.7.0",
-    "browserslist": "^4.25.1",
-    "caniuse-lite": "^1.0.30001731",
+    "browserslist": "^4.25.2",
+    "caniuse-lite": "^1.0.30001734",
     "cross-env": "^10.0.0",
-    "eslint": "^9.32.0",
+    "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jest": "^29.0.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.5.3",
+    "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-testing-library": "^7.6.3",
+    "eslint-plugin-testing-library": "^7.6.6",
     "eslint-plugin-unicorn": "^60.0.0",
     "globals": "^16.3.0",
     "husky": "^9.1.7",
@@ -98,26 +98,26 @@
     "pretty-quick": "^4.2.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "rimraf": "^6.0.1",
     "ts-jest": "^29.4.1",
     "ts-node": "^10.9.2",
     "tsup": "^8.5.0",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.39.0"
+    "typescript-eslint": "^8.39.1"
   },
   "files": [
     "./dist",
-    "CHANGELOG.md",
-    "CODE_OF_CONDUCT.md",
-    "CONTRIBUTING.md",
-    "DEVELOPMENT.md",
-    "LICENSE.txt",
-    "README.md",
-    "UPGRADING.md"
+    "./CHANGELOG.md",
+    "./CODE_OF_CONDUCT.md",
+    "./CONTRIBUTING.md",
+    "./DEVELOPMENT.md",
+    "./LICENSE.txt",
+    "./README.md",
+    "./UPGRADING.md"
   ],
   "browserslist": [
     "> 1%",
-    "last 2 versions",
-    "ie > 10"
+    "last 2 versions"
   ],
   "husky": {
     "hooks": {

@@ -8,7 +8,7 @@ import {
   SIZE_CLASSES,
   STYLE_CLASSES,
 } from './constants'
-import { FontAwesomeIconProps } from '../components/FontAwesomeIcon'
+import { FontAwesomeIconProps } from '../types/icon-props'
 
 export const ICON_PACKS_STARTING_VERSION = '7.0.0-alpha1'
 
