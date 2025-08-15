@@ -10,7 +10,7 @@ import {
   FaSymbol
 } from '@fortawesome/fontawesome-svg-core'
 
-export function FontAwesomeIcon(props: FontAwesomeIconProps): JSX.Element
+export function FontAwesomeIcon(props: FontAwesomeIconProps): React.JSX.Element
 
 /**
  * @deprecated use FontAwesomeIconProps
