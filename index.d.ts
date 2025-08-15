@@ -47,9 +47,9 @@ export interface FontAwesomeIconProps extends BackwardCompatibleOmit<SVGAttribut
   transform?: string | Transform | undefined;
   symbol?: FaSymbol | undefined;
   style?: CSSProperties | undefined;
-  tabIndex?: number; | undefined;
-  title?: string; | undefined;
-  titleId?: string; | undefined;
-  swapOpacity?: boolean; | undefined;
+  tabIndex?: number | undefined;
+  title?: string | undefined;
+  titleId?: string | undefined;
+  swapOpacity?: boolean | undefined;
   widthAuto?: boolean | undefined;
 }
