@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "index.js",
   "module": "index.es.js",
   "jsnext:main": "index.es.js",

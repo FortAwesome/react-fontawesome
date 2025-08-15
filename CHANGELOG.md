@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.2.5](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.5) - 20205-08-15
+
+### Fixed
+
+- Invalid TS syntax in `index.d.ts` (#583)
+
+---
+
 ## [0.2.4](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.4) - 2025-08-15
 
 ### Changed
