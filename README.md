@@ -21,13 +21,18 @@
 
 ## Documentation
 
+Version 3.0.0 is a major update for `react-fontawesome` with the library being rewritten from plain JS to TypeScript,
+amongst a number of performance improvements and optimisations to the `FontAwesomeIcon` React component.
+
+While it is a major update, there should be no breaking changes aside from those noted in the Compatibility section below.
+
+## Compatibility
+
 With the release of FontAwesome v7, we have marked v5 as End-of-Life. Both v6 and v7 will continue to be supported.
 
 In `react-fontawesome v3.0.0` we have also dropped support for End-of-Life versions of React and Node.js as well as IE11 browser support.
 
-If you need to use `react-fontawesome`
-
-## Compatibility
+If you need to use `react-fontawesome` with legacy versions, please consult the table below.
 
 | React version | react-fontawesome version | FontAwesome Core versions | Node versions    |
 | ------------- | ------------------------- | ------------------------- | ---------------- |
