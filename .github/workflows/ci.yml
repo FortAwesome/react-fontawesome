@@ -1,6 +1,6 @@
 name: CI
 
-on: [push, pull_request]
+on: [push, pull_request_target]
 
 jobs:
   build:
@@ -25,15 +25,24 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          registry-url: https://npm.fontawesome.com/
+          scope: '@fortawesome'
+          cache: 'npm'
 
       - name: Install base dependencies
         run: npm ci --no-audit --no-save
+        env:
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.NPM_CONFIG_FONT_AWESOME_TOKEN }}
 
       - name: Install React dependencies
         run: npm ci --no-save react@${{ matrix.react }} react-dom@${{ matrix.react }}
+        env:
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.NPM_CONFIG_FONT_AWESOME_TOKEN }}
 
       - name: Install FontAwesome dependencies
         run: npm ci --no-save @fortawesome/fontawesome-svg-core@${{ matrix.fontawesome-svg-core }} @fortawesome/free-solid-svg-icons@${{ matrix.free-solid-svg-icons }}
+        env:
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.NPM_CONFIG_FONT_AWESOME_TOKEN }}
 
       - name: Verify React version
         run: npm list react react-dom
