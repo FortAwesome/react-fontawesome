@@ -32,17 +32,17 @@ jobs:
       - name: Install base dependencies
         run: npm ci --no-audit --no-save
         env:
-          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.NPM_CONFIG_FONT_AWESOME_TOKEN }}
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
 
       - name: Install React dependencies
         run: npm ci --no-save react@${{ matrix.react }} react-dom@${{ matrix.react }}
         env:
-          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.NPM_CONFIG_FONT_AWESOME_TOKEN }}
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
 
       - name: Install FontAwesome dependencies
         run: npm ci --no-save @fortawesome/fontawesome-svg-core@${{ matrix.fontawesome-svg-core }} @fortawesome/free-solid-svg-icons@${{ matrix.free-solid-svg-icons }}
         env:
-          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.NPM_CONFIG_FONT_AWESOME_TOKEN }}
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
 
       - name: Verify React version
         run: npm list react react-dom
