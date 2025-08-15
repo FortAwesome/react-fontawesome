@@ -39,7 +39,6 @@
   "license": "MIT",
   "scripts": {
     "build": "tsup",
-    "dist": "npm run clean && cross-env NODE_ENV=production npm run build",
     "lint": "eslint .",
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",

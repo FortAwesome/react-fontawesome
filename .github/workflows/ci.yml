@@ -49,6 +49,3 @@ jobs:
 
       - name: Build
         run: npm run build
-
-      - name: Build distribution
-        run: npm run dist
