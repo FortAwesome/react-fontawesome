@@ -3,6 +3,7 @@ import type { CSSProperties, RefAttributes, SVGAttributes } from 'react'
 import type { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 import type { AnimationProps } from './animation-props'
+import { CSSVariables } from './css-variables'
 import type { TransformProps } from './transform-props'
 
 export interface FontAwesomeIconProps
@@ -50,7 +51,7 @@ export interface FontAwesomeIconProps
    */
   inverse?: boolean | undefined
   /** Any custom styles or CSS variable overrides for the icon element. */
-  style?: CSSProperties | undefined
+  style?: (CSSProperties & CSSVariables) | undefined
   tabIndex?: number | undefined
   /** An accessibility title for the icon to be read by screen-readers or assistive technologies. */
   title?: string | undefined
