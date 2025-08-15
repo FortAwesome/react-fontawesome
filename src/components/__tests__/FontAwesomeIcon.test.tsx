@@ -8,7 +8,7 @@ import semver from 'semver'
 import {
   ICON_PACKS_STARTING_VERSION,
   SVG_CORE_VERSION,
-} from '../../utils/get-class-list-from-props'
+} from '../../utils/constants'
 import {
   coreHasFeature,
   REFERENCE_ICON_USING_STRING,

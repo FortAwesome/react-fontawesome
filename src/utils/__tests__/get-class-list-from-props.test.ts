@@ -6,11 +6,8 @@ import {
 import semver from 'semver'
 
 import { FontAwesomeIconProps } from '../../types/icon-props'
-import {
-  getClassListFromProps,
-  ICON_PACKS_STARTING_VERSION,
-  SVG_CORE_VERSION,
-} from '../get-class-list-from-props'
+import { ICON_PACKS_STARTING_VERSION, SVG_CORE_VERSION } from '../constants'
+import { getClassListFromProps } from '../get-class-list-from-props'
 
 describe('get class list', () => {
   const props = {

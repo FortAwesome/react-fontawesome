@@ -1,26 +1,12 @@
-import { version as SVGCorePackageVersion } from '@fortawesome/fontawesome-svg-core/package.json'
-import semver from 'semver'
-
 import {
   ANIMATION_CLASSES,
+  IS_VERSION_7_OR_LATER,
   PULL_CLASSES,
   ROTATE_CLASSES,
   SIZE_CLASSES,
   STYLE_CLASSES,
 } from './constants'
 import { FontAwesomeIconProps } from '../types/icon-props'
-
-export const ICON_PACKS_STARTING_VERSION = '7.0.0-alpha1'
-
-// Try to get version from installed package first, fallback to env var, then default
-export const SVG_CORE_VERSION =
-  SVGCorePackageVersion || process.env.FA_VERSION || '7.0.0-alpha8'
-
-// Cache the version check result since it never changes during runtime
-const IS_VERSION_7_OR_LATER = semver.gte(
-  SVG_CORE_VERSION,
-  ICON_PACKS_STARTING_VERSION,
-)
 
 /**
  * Get CSS class list from a props object.
