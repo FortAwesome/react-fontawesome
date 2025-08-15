@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [0.2.4](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.4) - 2025-08-15
+
+### Changed
+
+- Update TypeScript to use the React.JSX namespace (#571)
+- Allow passing undefined to component props with exactOptionalPropertyTypes (#574)
+
+---
+
 ## [0.2.3](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.3) - 2025-07-23
 
 ### Changed
