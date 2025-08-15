@@ -8,17 +8,15 @@ jobs:
 
     strategy:
       matrix:
-        free-solid-svg-icons: [7.x, 6.x, 5.x]
-        fontawesome-svg-core: [7.x, 6.x, 1.2.x]
+        free-solid-svg-icons: [7.x, 6.x]
+        fontawesome-svg-core: [7.x, 6.x]
         node-version: [24.x, 22.x, 20.x]
         react: [19.x, 18.x]
         exclude:
           # For v7.x core, allow all icon versions
-          # For v6.x and v1.2.x core, exclude v7.x icons
+          # For v6.x exclude v7.x icons
           - free-solid-svg-icons: '7.x'
             fontawesome-svg-core: '6.x'
-          - free-solid-svg-icons: '7.x'
-            fontawesome-svg-core: '1.2.x'
 
     steps:
       - uses: actions/checkout@v4

@@ -6,12 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
-## [1.0.0](https://github.com/FortAwesome/react-fontawesome/releases/tag/1.0.0) - 2025-07-29
+## [3.0.0](https://github.com/FortAwesome/react-fontawesome/releases/tag/3.0.0) - 2025-07-29
 
 ### Changed
 
 - Rewrote the entire library from plain JavaScript to TypeScript
-- Dropped support for end-of-life Node versions (below 20.x) and React versions (below 18.x)
+- Dropped support for end-of-life FontAwesome versions (below v6), Node versions (below 20.x) and React versions (below 18.x)
 - Replaced `rollup` with `tsup` for providing both ESM and CJS exports from one TypeScript source
 - Removed `prop-types` in favour of colocated typings for React component props
 - Upgraded `eslint` from v6 to v9, rewrote config as Flat Config, modernised ESLint config, plugins and rules

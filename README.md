@@ -21,13 +21,17 @@
 
 ## Documentation
 
-`react-fontawesome` now supports `forwardRef` for version `0.2.x` or above. This was a breaking change so if you are using React older than version 16.3.0 choose the `0.1.x` version of this component.
+With the release of FontAwesome v7, we have marked v5 as End-of-Life. Both v6 and v7 will continue to be supported.
+
+In `react-fontawesome v3.0.0` we have also dropped support for End-of-Life versions of React and Node.js as well as IE11 browser support.
+
+If you need to use `react-fontawesome`
 
 ## Compatibility
 
 | React version | react-fontawesome version | FontAwesome Core versions | Node versions    |
 | ------------- | ------------------------- | ------------------------- | ---------------- |
-| >= 18.0.0     | 1.x.x                     | 5.x, 6.x, 7.x             | 20.x, 22.x, 24.x |
+| >= 18.0.0     | 3.x.x                     | 6.x, 7.x                  | 20.x, 22.x, 24.x |
 | >= 16.3.0     | 0.2.x                     | 5.x, 6.x, 7.x             | 18.x, 20.x       |
 | < 16.3.0      | 0.1.x                     | 5.x, 6.x                  | 14.x, 16.x       |
 

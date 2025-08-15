@@ -1,7 +1,7 @@
 {
   "name": "@fortawesome/react-fontawesome",
   "description": "Official React component for Font Awesome",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "type": "module",
   "exports": {
     "types": "./dist/index.d.ts",
@@ -48,7 +48,6 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "validate-types": "tsc --noEmit",
-    "install.5": "npm --no-save install @fortawesome/fontawesome-svg-core@1.2.x @fortawesome/free-solid-svg-icons@5.x",
     "install.6": "npm --no-save install @fortawesome/fontawesome-svg-core@6.x @fortawesome/free-solid-svg-icons@6.x",
     "install.7": "npm --no-save install @fortawesome/fontawesome-svg-core@7.x @fortawesome/free-solid-svg-icons@7.x",
     "clean": "rimraf dist"
@@ -57,7 +56,7 @@
     "semver": "^7.7.2"
   },
   "peerDependencies": {
-    "@fortawesome/fontawesome-svg-core": "~1 || ~6 || ~7",
+    "@fortawesome/fontawesome-svg-core": "~6 || ~7",
     "react": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {

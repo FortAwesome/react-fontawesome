@@ -20,17 +20,15 @@ The following commands are available through `npm run`
 3. Update the `CHANGELOG.md`
 4. Update the `README.md` contributors section
 5. `npm run build`
-6. `npm run install.5`
+6. `npm run install.6`
 7. `npm run test`
-8. `npm run install.6`
+8. `npm run install.7`
 9. `npm run test`
-10. `npm run install.7`
-11. `npm run test`
-12. `npm publish --tag latest-0.2 --tag latest`
-13. `npm publish --tag latest-0.2 --tag latest --registry https://npm.fontawesome.com` (publish to Pro registry)
-14. `git add . && git commit -m 'Release VERSION'`
-15. `git push`
-16. Create a [new release](https://github.com/FortAwesome/react-fontawesome/releases/new) with `CHANGELOG` details
+10. `npm publish --tag latest-0.2 --tag latest`
+11. `npm publish --tag latest-0.2 --tag latest --registry https://npm.fontawesome.com` (publish to Pro registry)
+12. `git add . && git commit -m 'Release VERSION'`
+13. `git push`
+14. Create a [new release](https://github.com/FortAwesome/react-fontawesome/releases/new) with `CHANGELOG` details
 
 ## Authenticating with the npm.fontawesome.com registry
 
