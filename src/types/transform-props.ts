@@ -3,24 +3,30 @@ import type {
   FlipProp,
   PullProp,
   RotateProp,
-  SizeProp,
   Transform,
 } from '@fortawesome/fontawesome-svg-core'
 
 export interface TransformProps {
   /**
-   * Use this property to indicate that the icon is to be used as the decorative bullet
-   * for a list item. Remember to mark-up the list with `<ul className="fa-ul">` and the list items with
-   * `<li className="fa-li">`.
+   * @deprecated Simply wrap the icon instead, no need to pass this property.
    *
-   * @see {@link https://docs.fontawesome.com/web/use-with/react/style#icons-in-a-list}
+   * @example
+   * ```tsx
+   * <ul className='fa-ul'>
+   *   <li>
+   *     <span className='fa-li'>
+   *       <FontAwesomeIcon icon={['fas', 'check']} />
+   *     </span>
+   *     List item with icon
+   *   </li>
+   * </ul>
+   * ```
+   *
    * @see {@link https://docs.fontawesome.com/web/style/lists}
    */
   listItem?: boolean | undefined
   /** Flip the icon horizontally, vertically or both. */
   flip?: FlipProp | boolean | undefined
-  /** The size of the icon from a predefined set of sizes. */
-  size?: SizeProp | undefined
   /** Wrap text around the icon by pulling it left or right. */
   pull?: PullProp | undefined
   /**

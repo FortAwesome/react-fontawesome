@@ -1,6 +1,6 @@
 import type { CSSProperties, RefAttributes, SVGAttributes } from 'react'
 
-import type { IconProp } from '@fortawesome/fontawesome-svg-core'
+import type { IconProp, SizeProp } from '@fortawesome/fontawesome-svg-core'
 
 import type { AnimationProps } from './animation-props'
 import { CSSVariables } from './css-variables'
@@ -16,6 +16,8 @@ export interface FontAwesomeIconProps
    * @see {@link https://docs.fontawesome.com/web/use-with/react/add-icons}
    */
   icon: IconProp
+  /** The size of the icon from a predefined set of sizes. */
+  size?: SizeProp | undefined
   /**
    * Grab the Mask utility when you want to layer two icons but have the inner icon cut out from the icon below so the parent element’s background shows through.
    * @see {@link https://docs.fontawesome.com/web/use-with/react/style#mask}

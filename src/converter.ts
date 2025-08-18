@@ -75,6 +75,9 @@ export function convert(
       default: {
         if (key.indexOf('aria-') === 0 || key.indexOf('data-') === 0) {
           mixins.attrs[key.toLowerCase()] = val
+          if (key === 'aria-label' && !!val) {
+            mixins.attrs['aria-hidden'] = 'false'
+          }
         } else {
           mixins.attrs[camelize(key)] = val
         }
