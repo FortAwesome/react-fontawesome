@@ -318,16 +318,6 @@ describe('FontAwesomeIcon', () => {
     })
   })
 
-  test('using listItem', () => {
-    render(<FontAwesomeIcon icon={faCoffee} listItem={true} />)
-
-    const element = screen.getByRole('img', { hidden: true })
-
-    expect(element).toBeDefined()
-    expect(element).toBeInstanceOf(SVGSVGElement)
-    expect(element).toHaveClass('fa-li')
-  })
-
   describe('using pull', () => {
     test('right', () => {
       render(<FontAwesomeIcon icon={faCoffee} pull="right" />)

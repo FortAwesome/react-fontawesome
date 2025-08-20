@@ -14,7 +14,6 @@ describe('get class list', () => {
     border: true,
     fixedWidth: true,
     inverse: true,
-    listItem: true,
     pulse: true,
     spin: true,
     spinPulse: true,
@@ -44,7 +43,6 @@ describe('get class list', () => {
     'fa-fw',
     'fa-inverse',
     'fa-border',
-    'fa-li',
     'fa-flip',
     'fa-swap-opacity',
   ]
@@ -132,7 +130,7 @@ describe('get class list', () => {
   test.each<keyof FontAwesomeIconProps>(['pull', 'rotation', 'size'])(
     'when prop "%s" is null',
     (prop) => {
-      const NUM_CLASSES = 6
+      const NUM_CLASSES = 5
 
       const props = {
         spin: true,
@@ -140,7 +138,6 @@ describe('get class list', () => {
         fixedWidth: true,
         inverse: true,
         border: true,
-        listItem: true,
         [prop]: null,
       } as unknown as FontAwesomeIconProps
 
@@ -151,7 +148,6 @@ describe('get class list', () => {
         'fa-fw',
         'fa-inverse',
         'fa-border',
-        'fa-li',
       ])
     },
   )
