@@ -2,16 +2,10 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
   name: 'react-fontawesome',
-  entry: [
-    'src',
-    '!src/**/*.d.ts',
-    '!src/**/*.test.tsx',
-    '!src/**/*.test.ts',
-    '!src/components/__fixtures__',
-  ],
+  entry: ['src/index.ts'],
   format: ['cjs', 'esm'],
   dts: true,
-  bundle: false,
+  bundle: true,
   clean: true,
   minify: false,
   treeshake: true,
