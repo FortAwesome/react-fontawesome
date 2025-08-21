@@ -29,22 +29,16 @@ describe('Logger', () => {
       expect(logger.scope).toBe('custom-scope')
     })
 
-    it('should be enabled by default in non-production', () => {
+    it('should be enabled in non-production', () => {
       process.env.NODE_ENV = 'development'
       const logger = new Logger()
       expect(logger.enabled).toBe(true)
     })
 
-    it('should be disabled by default in production', () => {
+    it('should be disabled in production', () => {
       process.env.NODE_ENV = 'production'
       const logger = new Logger()
       expect(logger.enabled).toBe(false)
-    })
-
-    it('should be enabled in production when shouldLogInProduction is true', () => {
-      process.env.NODE_ENV = 'production'
-      const logger = new Logger('test', true)
-      expect(logger.enabled).toBe(true)
     })
   })
 

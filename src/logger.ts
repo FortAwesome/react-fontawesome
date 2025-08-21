@@ -25,15 +25,18 @@ export class Logger {
      * @default 'react-fontawesome'
      */
     scope = 'react-fontawesome',
-    /**
-     * Whether to log messages from this Logger instance in production.
-     * @default false
-     */
-    shouldLogInProduction = false,
   ) {
+    let IS_DEV = false
+
+    try {
+      IS_DEV =
+        typeof process !== 'undefined' && process.env.NODE_ENV === 'development'
+    } catch {
+      // Do nothing.
+    }
+
     this.scope = scope
-    this.enabled =
-      shouldLogInProduction || process.env.NODE_ENV !== 'production'
+    this.enabled = IS_DEV
   }
 
   /**

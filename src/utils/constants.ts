@@ -8,9 +8,11 @@ import semver from 'semver'
 
 export const ICON_PACKS_STARTING_VERSION = '7.0.0-alpha1'
 
+const FA_VERSION =
+  (typeof process !== 'undefined' && process.env.FA_VERSION) || '7.0.0-alpha8'
+
 // Try to get version from installed package first, fallback to env var, then default
-export const SVG_CORE_VERSION =
-  SVGCorePackageVersion || process.env.FA_VERSION || '7.0.0-alpha8'
+export const SVG_CORE_VERSION = SVGCorePackageVersion || FA_VERSION
 
 // Cache the version check result since it never changes during runtime
 export const IS_VERSION_7_OR_LATER = semver.gte(
