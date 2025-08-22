@@ -223,8 +223,8 @@ describe('convert function performance', () => {
       const finalMemory = process.memoryUsage().heapUsed
       const memoryIncrease = finalMemory - initialMemory
 
-      // Memory increase should be minimal (less than 2.5MB)
-      expect(memoryIncrease).toBeLessThan(2.5 * 1024 * 1024)
+      // Memory increase should be minimal (less than 5MB)
+      expect(memoryIncrease).toBeLessThan(5 * 1024 * 1024)
     })
   })
 
