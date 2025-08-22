@@ -135,7 +135,7 @@ function _unsupportedIterableToArray(r, a) {
   }
 }
 
-var ICON_PACKS_STARTING_VERSION = '7.0.0-alpha1';
+var ICON_PACKS_STARTING_VERSION = '7.0.0';
 
 // Try to get version from installed package first, fallback to env var, then default
 var SVG_CORE_VERSION;
@@ -144,7 +144,7 @@ try {
   SVG_CORE_VERSION = svgCorePackageJson.version;
 } catch (e) {
   // If package.json can't be loaded, try environment variable
-  SVG_CORE_VERSION = process.env.FA_VERSION || '7.0.0-alpha8';
+  SVG_CORE_VERSION = typeof process !== 'undefined' && process.env.FA_VERSION || '7.0.0';
 }
 
 // Get CSS class list from a props object

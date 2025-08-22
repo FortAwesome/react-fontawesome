@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
-## [0.2.5](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.5) - 20205-08-15
+## [0.2.6](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.6) - 2025-08-22
+
+### Fixed
+
+- `'process' is not defined` errors when loaded as module in ES2021+ environments (#585)
+
+---
+
+## [0.2.5](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.5) - 2025-08-15
 
 ### Fixed
 
