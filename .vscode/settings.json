@@ -1,0 +1,32 @@
+{
+  // VSCode Core Settings
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "javascript.format.enable": false, // formatting is handled by prettier
+  "javascript.validate.enable": false, // validation is handled by typescript and eslint
+  "typescript.tsdk": "node_modules/typescript/lib", // ensure VSCode uses the local TypeScript version
+  // Language-specific Overrides
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Extension Settings
+  "eslint.enable": true,
+  "eslint.format.enable": false, // formatting is handled by prettier
+  "prettier.enable": true,
+  "jest.shell": "zsh"
+}

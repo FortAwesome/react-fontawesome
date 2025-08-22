@@ -1,9 +1,18 @@
-import camelize from '../camelize'
+import { camelize } from '../camelize'
 
 describe('camelize', () => {
   test('numerical values return same value', () => {
     const numerical = 999
-    expect(camelize(numerical)).toBe(numerical)
+    expect(camelize(numerical as unknown as string)).toBe(numerical)
+  })
+
+  test('numerical strings return same value', () => {
+    const numericalString = '999'
+    expect(camelize(numericalString)).toBe(numericalString)
+  })
+
+  test('empty string returns empty string', () => {
+    expect(camelize('')).toBe('')
   })
 
   test('first char is always lowercase', () => {

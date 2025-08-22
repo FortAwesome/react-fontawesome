@@ -83,9 +83,9 @@ module.exports = {
   resolve: {
     alias: {
       '@fortawesome/fontawesome-free-solid$':
-        '@fortawesome/fontawesome-free-solid/shakable.es.js'
-    }
-  }
+        '@fortawesome/fontawesome-free-solid/shakable.es.js',
+    },
+  },
 }
 ```
 
@@ -97,9 +97,9 @@ rollup({
   plugins: [
     alias({
       '@fortawesome/fontawesome-free-solid':
-        'node_modules/@fortawesome/fontawesome-free-solid/shakable.es.js'
-    })
-  ]
+        'node_modules/@fortawesome/fontawesome-free-solid/shakable.es.js',
+    }),
+  ],
 })
 ```
 
