@@ -49,9 +49,13 @@ function styleToObject(style: string): CSSProperties {
     start = end + 1
   }
 
-  // Prevent memory leaks by clearing cache when it gets too large
+  // Prevent memory leaks by removing the oldest item in the cache when it gets too large
   if (styleCache.size === STYLE_CACHE_LIMIT) {
-    styleCache.clear()
+    const oldestKey = styleCache.keys().next().value
+
+    if (oldestKey) {
+      styleCache.delete(oldestKey)
+    }
   }
 
   // Cache the result

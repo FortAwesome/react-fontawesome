@@ -6,10 +6,10 @@ import {
 import { version as SVGCorePackageVersion } from '@fortawesome/fontawesome-svg-core/package.json'
 import semver from 'semver'
 
-export const ICON_PACKS_STARTING_VERSION = '7.0.0-alpha1'
+export const ICON_PACKS_STARTING_VERSION = '7.0.0'
 
 const FA_VERSION =
-  (typeof process !== 'undefined' && process.env.FA_VERSION) || '7.0.0-alpha8'
+  (typeof process !== 'undefined' && process.env.FA_VERSION) || '7.0.0'
 
 // Try to get version from installed package first, fallback to env var, then default
 export const SVG_CORE_VERSION = SVGCorePackageVersion || FA_VERSION

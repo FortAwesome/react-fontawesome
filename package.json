@@ -43,7 +43,7 @@
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
     "format:staged": "pretty-quick --pattern src/** --staged",
-    "prepack": "npm run dist",
+    "prepack": "npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
     "validate-types": "tsc --noEmit",
@@ -59,9 +59,9 @@
     "react": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.0",
+    "@babel/core": "^7.28.3",
     "@babel/plugin-external-helpers": "^7.27.1",
-    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-env": "^7.28.3",
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
     "@eslint/js": "^9.33.0",
@@ -69,14 +69,14 @@
     "@fortawesome/free-brands-svg-icons": "^7.0.0",
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^30.0.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@types/semver": "^7.7.0",
-    "browserslist": "^4.25.2",
-    "caniuse-lite": "^1.0.30001734",
+    "browserslist": "^4.25.3",
+    "caniuse-lite": "^1.0.30001736",
     "cross-env": "^10.0.0",
     "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.1.8",
@@ -101,7 +101,7 @@
     "ts-node": "^10.9.2",
     "tsup": "^8.5.0",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.39.1"
+    "typescript-eslint": "^8.40.0"
   },
   "files": [
     "./dist",
@@ -121,5 +121,13 @@
     "hooks": {
       "pre-commit": "npm run lint && npm run format:staged && npm run validate-types"
     }
-  }
+  },
+  "keywords": [
+    "fontawesome",
+    "font-awesome",
+    "react",
+    "javascript",
+    "svg",
+    "icons"
+  ]
 }

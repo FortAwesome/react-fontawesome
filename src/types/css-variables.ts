@@ -1,4 +1,10 @@
-export interface CSSVariables {
+/**
+ * Adds support for FA's CSS variables to the React `style` prop.
+ *
+ * TODO: Move this to `fontawesome-common-types`
+ * @see https://github.com/FortAwesome/react-fontawesome/pull/581#discussion_r2291185167
+ */
+export interface CSSVariables extends FontFamilyVariables {
   '--fa-family'?: string | undefined
   '--fa-style'?: string | undefined
   '--fa-display'?: string | undefined
@@ -31,21 +37,8 @@ export interface CSSVariables {
   '--fa-primary-opacity'?: string | undefined
   '--fa-secondary-color'?: string | undefined
   '--fa-secondary-opacity'?: string | undefined
-  '--fa-font-solid'?: string | undefined
-  '--fa-font-regular'?: string | undefined
-  '--fa-font-light'?: string | undefined
-  '--fa-font-thin'?: string | undefined
-  '--fa-font-duotone'?: string | undefined
-  '--fa-font-duotone-regular'?: string | undefined
-  '--fa-font-duotone-light'?: string | undefined
-  '--fa-font-duotone-thin'?: string | undefined
-  '--fa-font-brands'?: string | undefined
-  '--fa-font-sharp-solid'?: string | undefined
-  '--fa-font-sharp-regular'?: string | undefined
-  '--fa-font-sharp-light'?: string | undefined
-  '--fa-font-sharp-thin'?: string | undefined
-  '--fa-font-sharp-duotone-solid'?: string | undefined
-  '--fa-font-sharp-duotone-regular'?: string | undefined
-  '--fa-font-sharp-duotone-light'?: string | undefined
-  '--fa-font-sharp-duotone-thin'?: string | undefined
+}
+
+type FontFamilyVariables = {
+  [K in `--fa-font-${string}`]?: string | undefined
 }
