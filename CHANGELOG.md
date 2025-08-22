@@ -6,75 +6,44 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
-## [3.0.0](https://github.com/FortAwesome/react-fontawesome/releases/tag/3.0.0) - 2025-07-29
+## [3.0.0](https://github.com/FortAwesome/react-fontawesome/releases/tag/3.0.0) - 2025-08-22
 
-### Changed
+### BREAKING
+
+- Dropped support for end-of-life FontAwesome versions (below v6), Node versions (below 20.x) and React versions (below 18.x)
+- Dropped support for browser versions that don't support the ES2020 standard, namely [JavaScript built-in: globalThis](https://caniuse.com/mdn-javascript_builtins_globalthis)
+
+### Changes
 
 - Rewrote the entire library from plain JavaScript to TypeScript
-- Dropped support for end-of-life FontAwesome versions (below v6), Node versions (below 20.x) and React versions (below 18.x)
 - Replaced `rollup` with `tsup` for providing both ESM and CJS exports from one TypeScript source
 - Removed `prop-types` in favour of colocated typings for React component props
+- Added better type definitions to each prop including examples of usage
 - Upgraded `eslint` from v6 to v9, rewrote config as Flat Config, modernised ESLint config, plugins and rules
 - Refactored all unit tests from the deprecated `react-test-renderer` to the industry standard `@testing-library/react`
-- Upgraded all other development dependencies to latest versions as of 2025-07-29
+- Upgraded all other development dependencies to latest versions as of release date
+- Optimised `FontAwesomeIcon` by reducing per-render function calls and memory allocations
+- Optimised `classList` function by removing runtime semver checks and array operations
+- Optimised `converter` with a full rewrite for significant performance increases (~70%)
+- Moved inline class strings from `getClassListFromProps` to pre-computed maps
+
+### Bug Fixes
+
+- Fixed accessibility ID generation (`titleId, maskId`) for SSR ensuring a consistent ID across server and client renders (#93, #550, #573)
+- Fixed TypeScript errors when styling duotone icons with CSS variables (#509)
+- Fixed `aria-hidden` so it is `false` if there is a non-empty `aria-label` attribute (#126)
+- Resolved large number of `npm audit` issues by removing and updating dependencies
 
 ---
 
-## [0.2.5](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.5) - 20205-08-15
+## 0.2.x
 
-### Fixed
-
-- Invalid TS syntax in `index.d.ts` (#583)
+**Previous [0.2.x change log available here](https://github.com/FortAwesome/react-fontawesome/blob/0.2.x/CHANGELOG.md)**
 
 ---
 
-## [0.2.4](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.4) - 2025-08-15
-
-### Changed
-
-- Update TypeScript to use the React.JSX namespace (#571)
-- Allow passing undefined to component props with exactOptionalPropertyTypes (#574)
-
----
-
-## [0.2.3](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.3) - 2025-07-23
-
-### Changed
-
-- Font Awesome Pro+ icons are now available with an active Pro+ subscription.
-
-- Removed example directory and files
-
-- Deprecated `fa-fw` prop
-
-### Added
-
-- Added `widthAuto` prop
-
-- Added `rotateBy` prop
-
----
-
-## [0.2.2](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.2) - 2024-05-22
-
-### Fixed
-
-- Props with nullable/undefined values no longer throw an error #562 #560
-
----
-
-## [0.2.1](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.1) - 2024-05-16
-
-### Changed
-
-- Remove defaultProps to be compatible with React 19
-
----
-
-## [0.2.0](https://github.com/FortAwesome/react-fontawesome/releases/tag/0.2.0) - 2022-06-29
-
-### Added
-
-- Support for React forwardRef if using React >= 16.3
+## 0.1.x
 
 **Previous [0.1.x change log available here](https://github.com/FortAwesome/react-fontawesome/blob/0.1.x/CHANGELOG.md)**
+
+---
