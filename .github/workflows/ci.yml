@@ -1,10 +1,12 @@
 name: CI
 
-on: [push, pull_request_target]
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
 
     strategy:
       matrix:
