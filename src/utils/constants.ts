@@ -3,7 +3,7 @@ import {
   RotateProp,
   SizeProp,
 } from '@fortawesome/fontawesome-svg-core'
-import { version as SVGCorePackageVersion } from '@fortawesome/fontawesome-svg-core/package.json'
+import SVGCorePackageJson from '@fortawesome/fontawesome-svg-core/package.json'
 import semver from 'semver'
 
 export const ICON_PACKS_STARTING_VERSION = '7.0.0'
@@ -12,7 +12,7 @@ const FA_VERSION =
   (typeof process !== 'undefined' && process.env.FA_VERSION) || '7.0.0'
 
 // Try to get version from installed package first, fallback to env var, then default
-export const SVG_CORE_VERSION = SVGCorePackageVersion || FA_VERSION
+export const SVG_CORE_VERSION = SVGCorePackageJson.version || FA_VERSION
 
 // Cache the version check result since it never changes during runtime
 export const IS_VERSION_7_OR_LATER = semver.gte(

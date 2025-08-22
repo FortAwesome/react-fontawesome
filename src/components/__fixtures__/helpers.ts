@@ -1,8 +1,8 @@
 import { parse } from '@fortawesome/fontawesome-svg-core'
-import { version } from '@fortawesome/free-solid-svg-icons/package.json'
+import SolidSVGIconsPackageJson from '@fortawesome/free-solid-svg-icons/package.json'
 import semver from 'semver'
 
-const SVG_ICONS_VERSION = semver.parse(version)
+const SVG_ICONS_VERSION = semver.parse(SolidSVGIconsPackageJson.version)
 
 export const REFERENCE_ICON_BY_STYLE = 0x00
 export const ICON_ALIASES = 0x01
