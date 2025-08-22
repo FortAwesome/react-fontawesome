@@ -1,4 +1,4 @@
-export const ICON_PACKS_STARTING_VERSION = '7.0.0-alpha1'
+export const ICON_PACKS_STARTING_VERSION = '7.0.0'
 
 // Try to get version from installed package first, fallback to env var, then default
 let SVG_CORE_VERSION
@@ -7,7 +7,7 @@ try {
   SVG_CORE_VERSION = svgCorePackageJson.version
 } catch (e) {
   // If package.json can't be loaded, try environment variable
-  SVG_CORE_VERSION = process.env.FA_VERSION || '7.0.0-alpha8'
+  SVG_CORE_VERSION = (typeof process !== 'undefined' && process.env.FA_VERSION) || '7.0.0'
 }
 
 export { SVG_CORE_VERSION }
