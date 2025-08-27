@@ -3,6 +3,7 @@ import React from 'react'
 import type { AbstractElement } from '@fortawesome/fontawesome-svg-core'
 
 import { convert, styleCache } from '../converter'
+import { FontAwesomeIconProps } from '../types/icon-props'
 
 // Mock data structures for testing
 const createMockElement = (
@@ -179,13 +180,15 @@ describe('convert function performance', () => {
     it('should process aria and data attributes correctly', () => {
       const element = createMockElement('svg', {
         'aria-hidden': 'true',
-        'aria-label': 'test icon',
+        'data-icon': 'some-icon',
         'data-testid': 'icon',
-        'data-custom': 'value',
       })
 
       const startTime = performance.now()
-      convert(mockCreateElement, element)
+      convert(mockCreateElement, element, {
+        'aria-label': 'test icon',
+        'data-custom': 'value',
+      } as Partial<FontAwesomeIconProps>)
       const endTime = performance.now()
 
       expect(endTime - startTime).toBeLessThan(5) // Should be very fast
@@ -193,9 +196,10 @@ describe('convert function performance', () => {
         'svg',
         expect.objectContaining({
           'aria-label': 'test icon',
-          'aria-hidden': 'false', // Should be overridden
+          'aria-hidden': 'false', // Should be overridden because `aria-label` is present
+          'data-icon': 'some-icon',
           'data-testid': 'icon',
-          'data-custom': 'value',
+          'data-custom': 'value', // Should add custom data attributes
         }),
       )
     })
