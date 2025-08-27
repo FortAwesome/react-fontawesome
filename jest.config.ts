@@ -1,13 +1,16 @@
 import type { Config } from 'jest'
-import { createDefaultPreset } from 'ts-jest'
+import { createDefaultEsmPreset } from 'ts-jest'
 
-const tsJestTransformCfg = createDefaultPreset().transform
+const preset = createDefaultEsmPreset({
+  tsconfig: './tsconfig.json',
+})
 
 /**
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
 const config: Config = {
+  ...preset,
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
 
@@ -35,11 +38,6 @@ const config: Config = {
 
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
-
-  // Transform files using ts-jest
-  transform: {
-    ...tsJestTransformCfg,
-  },
 }
 
 export default config

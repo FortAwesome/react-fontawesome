@@ -3,8 +3,30 @@ import {
   RotateProp,
   SizeProp,
 } from '@fortawesome/fontawesome-svg-core'
-import SVGCorePackageJson from '@fortawesome/fontawesome-svg-core/package.json'
 import semver from 'semver'
+
+import { Logger } from '../logger'
+
+const logger = new Logger()
+
+let SVGCoreVersion = ''
+
+const setSVGCoreVersion = async (): Promise<void> => {
+  if (SVGCoreVersion) return
+
+  try {
+    const SVGCorePackageJson = await import(
+      '@fortawesome/fontawesome-svg-core/package.json'
+    )
+
+    SVGCoreVersion = SVGCorePackageJson.default.version
+  } catch (error) {
+    logger.error('Error loading SVGCore version:', error)
+    return
+  }
+}
+
+void setSVGCoreVersion()
 
 export const ICON_PACKS_STARTING_VERSION = '7.0.0'
 
@@ -12,7 +34,7 @@ const FA_VERSION =
   (typeof process !== 'undefined' && process.env.FA_VERSION) || '7.0.0'
 
 // Try to get version from installed package first, fallback to env var, then default
-export const SVG_CORE_VERSION = SVGCorePackageJson.version || FA_VERSION
+export const SVG_CORE_VERSION = SVGCoreVersion || FA_VERSION
 
 // Cache the version check result since it never changes during runtime
 export const IS_VERSION_7_OR_LATER = semver.gte(
