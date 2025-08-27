@@ -9,12 +9,6 @@ import {
   ICON_PACKS_STARTING_VERSION,
   SVG_CORE_VERSION,
 } from '../../utils/constants'
-import {
-  coreHasFeature,
-  REFERENCE_ICON_USING_STRING,
-  REFERENCE_ICON_BY_STYLE,
-  ICON_ALIASES,
-} from '../__fixtures__/helpers'
 import { faCoffee, faCircle, faSpartan } from '../__fixtures__/icons'
 import { FontAwesomeIcon } from '../FontAwesomeIcon'
 
@@ -53,88 +47,82 @@ describe('FontAwesomeIcon', () => {
     expect(element).toHaveClass('fa-spartan')
   })
 
-  if (coreHasFeature(ICON_ALIASES)) {
-    test('find a free-solid-svg-icon with array format', () => {
-      fontawesome.library.add(faTimes)
-      render(<FontAwesomeIcon icon={['fas', 'xmark']} />)
+  test('find a free-solid-svg-icon with array format', () => {
+    fontawesome.library.add(faTimes)
+    render(<FontAwesomeIcon icon={['fas', 'xmark']} />)
 
-      const element = screen.getByRole('img', { hidden: true })
+    const element = screen.getByRole('img', { hidden: true })
 
-      expect(element).toBeDefined()
-      expect(element).toBeInstanceOf(SVGSVGElement)
-      expect(element).toHaveClass('fa-xmark')
-    })
+    expect(element).toBeDefined()
+    expect(element).toBeInstanceOf(SVGSVGElement)
+    expect(element).toHaveClass('fa-xmark')
+  })
 
-    test('find a free-solid-svg-icon that is an alias', () => {
-      fontawesome.library.add(faTimes)
-      render(<FontAwesomeIcon icon={['fas', 'close']} />)
+  test('find a free-solid-svg-icon that is an alias', () => {
+    fontawesome.library.add(faTimes)
+    render(<FontAwesomeIcon icon={['fas', 'close']} />)
 
-      const element = screen.getByRole('img', { hidden: true })
+    const element = screen.getByRole('img', { hidden: true })
 
-      expect(element).toBeDefined()
-      expect(element).toBeInstanceOf(SVGSVGElement)
-      expect(element).toHaveClass('fa-xmark')
-    })
-  }
+    expect(element).toBeDefined()
+    expect(element).toBeInstanceOf(SVGSVGElement)
+    expect(element).toHaveClass('fa-xmark')
+  })
 
-  if (coreHasFeature(REFERENCE_ICON_USING_STRING)) {
-    test('find an icon using string format', () => {
-      render(<FontAwesomeIcon icon="coffee" />)
+  test('find an icon using string format', () => {
+    render(<FontAwesomeIcon icon="coffee" />)
 
-      const element = screen.getByRole('img', { hidden: true })
+    const element = screen.getByRole('img', { hidden: true })
 
-      expect(element).toBeDefined()
-      expect(element).toBeInstanceOf(SVGSVGElement)
-      expect(element).toHaveClass('fa-coffee')
-    })
+    expect(element).toBeDefined()
+    expect(element).toBeInstanceOf(SVGSVGElement)
+    expect(element).toHaveClass('fa-coffee')
+  })
 
-    test('find an icon using string format with style', () => {
-      render(
-        <FontAwesomeIcon icon={'fa-solid fa-coffee' as fontawesome.IconProp} />,
-      )
+  test('find an icon using string format with style', () => {
+    render(
+      <FontAwesomeIcon icon={'fa-solid fa-coffee' as fontawesome.IconProp} />,
+    )
 
-      const element = screen.getByRole('img', { hidden: true })
+    const element = screen.getByRole('img', { hidden: true })
 
-      expect(element).toBeDefined()
-      expect(element).toBeInstanceOf(SVGSVGElement)
-      expect(element).toHaveClass('fa-coffee')
-    })
-  }
+    expect(element).toBeDefined()
+    expect(element).toBeInstanceOf(SVGSVGElement)
+    expect(element).toHaveClass('fa-coffee')
+  })
 
-  if (coreHasFeature(REFERENCE_ICON_BY_STYLE)) {
-    test('find a THIN icon with array format', () => {
-      render(
-        <FontAwesomeIcon
-          icon={[
-            'thin' as fontawesome.IconPrefix,
-            'spartan' as fontawesome.IconName,
-          ]}
-        />,
-      )
+  test('find a THIN icon with array format', () => {
+    render(
+      <FontAwesomeIcon
+        icon={[
+          'thin' as fontawesome.IconPrefix,
+          'spartan' as fontawesome.IconName,
+        ]}
+      />,
+    )
 
-      const element = screen.getByRole('img', { hidden: true })
+    const element = screen.getByRole('img', { hidden: true })
 
-      expect(element).toBeDefined()
-      expect(element).toBeInstanceOf(SVGSVGElement)
-      expect(element).toHaveClass('fa-spartan')
-    })
+    expect(element).toBeDefined()
+    expect(element).toBeInstanceOf(SVGSVGElement)
+    expect(element).toHaveClass('fa-spartan')
+  })
 
-    test('find a FA-THIN icon with array format', () => {
-      render(
-        <FontAwesomeIcon
-          icon={[
-            'fa-thin' as fontawesome.IconPrefix,
-            'spartan' as fontawesome.IconName,
-          ]}
-        />,
-      )
-      const element = screen.getByRole('img', { hidden: true })
+  test('find a FA-THIN icon with array format', () => {
+    render(
+      <FontAwesomeIcon
+        icon={[
+          'fa-thin' as fontawesome.IconPrefix,
+          'spartan' as fontawesome.IconName,
+        ]}
+      />,
+    )
+    const element = screen.getByRole('img', { hidden: true })
 
-      expect(element).toBeDefined()
-      expect(element).toBeInstanceOf(SVGSVGElement)
-      expect(element).toHaveClass('fa-spartan')
-    })
-  }
+    expect(element).toBeDefined()
+    expect(element).toBeInstanceOf(SVGSVGElement)
+    expect(element).toHaveClass('fa-spartan')
+  })
 
   describe('using defaultProps', () => {
     const UNDEFINED_DEFAULT_PROPS = {
