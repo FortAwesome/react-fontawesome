@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [3.0.1](https://github.com/FortAwesome/react-fontawesome/releases/tag/3.0.1) - 2025-08-27
+
+### Bug Fixes
+
+- Added additional module resolution configs in `package.json` (b078d99)
+- Refactored SVGCore version checks to use dynamic import to fix #589 (bc7cad0)
+
+---
+
 ## [3.0.0](https://github.com/FortAwesome/react-fontawesome/releases/tag/3.0.0) - 2025-08-22
 
 ### BREAKING
