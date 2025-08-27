@@ -1,32 +1,10 @@
 import {
+  config,
   PullProp,
   RotateProp,
   SizeProp,
 } from '@fortawesome/fontawesome-svg-core'
 import semver from 'semver'
-
-import { Logger } from '../logger'
-
-const logger = new Logger()
-
-let SVGCoreVersion = ''
-
-const setSVGCoreVersion = async (): Promise<void> => {
-  if (SVGCoreVersion) return
-
-  try {
-    const SVGCorePackageJson = await import(
-      '@fortawesome/fontawesome-svg-core/package.json'
-    )
-
-    SVGCoreVersion = SVGCorePackageJson.default.version
-  } catch (error) {
-    logger.error('Error loading SVGCore version:', error)
-    return
-  }
-}
-
-void setSVGCoreVersion()
 
 export const ICON_PACKS_STARTING_VERSION = '7.0.0'
 
@@ -34,7 +12,11 @@ const FA_VERSION =
   (typeof process !== 'undefined' && process.env.FA_VERSION) || '7.0.0'
 
 // Try to get version from installed package first, fallback to env var, then default
-export const SVG_CORE_VERSION = SVGCoreVersion || FA_VERSION
+export const SVG_CORE_VERSION =
+  // @ts-expect-error TS2872 - Expression is always truthy - This is true when v7 of SVGCore is used, but not when v6 is used.
+  // This is the point of this check - if the property exists on config, we have v7, otherwise we have v6.
+  // TS is checking this against the dev dependencies which uses v7, so it reports a false error here.
+  ('searchPseudoElementsFullScan' in config ? '7.0.0' : '6.0.0') || FA_VERSION
 
 // Cache the version check result since it never changes during runtime
 export const IS_VERSION_7_OR_LATER = semver.gte(
