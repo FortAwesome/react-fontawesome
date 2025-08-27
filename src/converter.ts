@@ -98,15 +98,6 @@ export function convert(
         attrs.style = styleToObject(String(val))
         break
       }
-      case key === 'aria-label': {
-        attrs['aria-label'] = val
-        attrs['aria-hidden'] = 'false' // Set aria-hidden to false when aria-label has a value
-        break
-      }
-      case key === 'aria-hidden': {
-        attrs['aria-hidden'] = attrs['aria-label'] ? 'false' : val
-        break
-      }
       case key.startsWith('aria-'):
       case key.startsWith('data-'): {
         attrs[key.toLowerCase()] = val
@@ -119,12 +110,22 @@ export function convert(
   }
 
   // Merge extraProps efficiently
-  const { style: existingStyle, ...remaining } = extraProps
+  const {
+    style: existingStyle,
+    'aria-label': ariaLabel,
+    ...remaining
+  } = extraProps
 
   if (existingStyle) {
     attrs.style = attrs.style
       ? { ...attrs.style, ...existingStyle }
       : existingStyle
+  }
+
+  // If an `aria-label` is set, ensure `aria-hidden` is false
+  if (ariaLabel) {
+    attrs['aria-label'] = ariaLabel
+    attrs['aria-hidden'] = 'false'
   }
 
   return createElement(element.tag, { ...remaining, ...attrs }, ...children)
