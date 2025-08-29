@@ -44,7 +44,9 @@ jobs:
         run: npm list react react-dom
 
       - name: Lint Commits
-        run: npx commitlint --from="$GITHUB_SHA" --verbose
+        uses: wagoid/commitlint-github-action@v6
+        with:
+          configFile: commitlint.config.ts
 
       - name: Lint and test
         run: |
