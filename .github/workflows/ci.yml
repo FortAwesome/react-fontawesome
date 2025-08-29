@@ -43,6 +43,9 @@ jobs:
       - name: Verify React version
         run: npm list react react-dom
 
+      - name: Lint Commits
+        run: npx commitlint --from="$GITHUB_SHA" --verbose
+
       - name: Lint and test
         run: |
           npm run lint
