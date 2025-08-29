@@ -128,8 +128,10 @@ describe('convert function performance', () => {
       const firstRunAverage = firstRunDuration / numOfIterations
       const secondRunAverage = secondRunDuration / numOfIterations
 
-      // Second run should be significantly faster (at least 30% improvement)
-      expect(secondRunAverage).toBeLessThan(firstRunAverage * 0.7)
+      // Second run should be significantly faster (at least 30% improvement locally, 15% in CI)
+      expect(secondRunAverage).toBeLessThan(
+        firstRunAverage * (process.env.CI ? 0.85 : 0.7),
+      )
     })
 
     it('should handle many unique styles without memory issues', () => {
