@@ -28,6 +28,7 @@ const config: Config = {
     'src/global.d.ts',
     'src/index.ts',
     'src/components/__fixtures__',
+    'src/types',
   ],
 
   // Indicates which provider should be used to instrument code for coverage
