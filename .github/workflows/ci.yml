@@ -20,8 +20,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 22.x
-          registry-url: https://registry.npmjs.org/
-          scope: '@fortawesome'
           cache: 'npm'
 
       - name: Install dependencies
@@ -59,12 +57,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: https://registry.npmjs.org/
-          scope: '@fortawesome'
           cache: 'npm'
 
       - name: Install base dependencies
-        run: npm ci --no-audit --no-save
+        run: npm ci
 
       - name: Install React dependencies
         run: npm ci --no-save react@${{ matrix.react }} react-dom@${{ matrix.react }}
@@ -77,6 +73,8 @@ jobs:
 
       - name: Test
         run: npm run test
+        env:
+          CI: true
 
       - name: Build
         run: npm run build
