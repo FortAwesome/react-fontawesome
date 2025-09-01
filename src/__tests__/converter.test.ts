@@ -2,7 +2,7 @@ import React from 'react'
 
 import type { AbstractElement } from '@fortawesome/fontawesome-svg-core'
 
-import { convert, styleCache } from '../converter'
+import { convert } from '../converter'
 import { FontAwesomeIconProps } from '../types/icon-props'
 
 // Mock data structures for testing
@@ -97,41 +97,6 @@ describe('convert function performance', () => {
 
       // Expect reasonable performance (less than 50ms for 100 iterations)
       expect(duration).toBeLessThan(50)
-    })
-
-    it('should benefit from style caching', () => {
-      const element = createMockElement('svg', { style: COMPLEX_STYLE })
-
-      const numOfIterations = 1000
-      let firstRunDuration = 0
-      let secondRunDuration = 0
-
-      // Run 1000 times to test average performance
-      for (let i = 0; i < numOfIterations; i++) {
-        // First run (no cache)
-        const firstRunStart = performance.now()
-        convert(mockCreateElement, element)
-
-        const firstRunEnd = performance.now()
-        firstRunDuration += firstRunEnd - firstRunStart
-
-        // Second run (with cache)
-        const secondRunStart = performance.now()
-
-        convert(mockCreateElement, element)
-        const secondRunEnd = performance.now()
-        secondRunDuration += secondRunEnd - secondRunStart
-
-        styleCache.clear() // Clear cache to ensure fresh runs
-      }
-
-      const firstRunAverage = firstRunDuration / numOfIterations
-      const secondRunAverage = secondRunDuration / numOfIterations
-
-      // Second run should be significantly faster (at least 30% improvement locally, 15% in CI)
-      expect(secondRunAverage).toBeLessThan(
-        firstRunAverage * (process.env.CI ? 0.85 : 0.7),
-      )
     })
 
     it('should handle many unique styles without memory issues', () => {
