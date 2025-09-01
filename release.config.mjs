@@ -1,3 +1,18 @@
+const ccPresetConfig = {
+  types: [
+    { type: 'feat', section: 'Features' },
+    { type: 'fix', section: 'Bug Fixes' },
+    { type: 'perf', section: 'Performance Improvements' },
+    { type: 'refactor', section: 'Code Refactoring' },
+    { type: 'test', section: 'Testing' },
+    { type: 'docs', section: 'Documentation' },
+    { type: 'chore', section: 'Chores' },
+    { type: 'style', section: 'Stylistic Changes' },
+    { type: 'build', section: 'Build System' },
+    { type: 'ci', section: 'CI/CD' },
+  ],
+}
+
 /** @type {import('semantic-release').GlobalConfig} */
 const semanticReleaseConfig = {
   ci: false,
@@ -5,6 +20,8 @@ const semanticReleaseConfig = {
     [
       '@semantic-release/commit-analyzer',
       {
+        preset: 'conventionalcommits',
+        presetConfig: ccPresetConfig,
         releaseRules: [
           {
             type: 'build',
@@ -19,25 +36,19 @@ const semanticReleaseConfig = {
             release: 'patch',
           },
           {
-            type: 'docs',
-            release: 'patch',
-          },
-          {
             type: 'refactor',
-            release: 'patch',
-          },
-          {
-            type: 'style',
-            release: 'patch',
-          },
-          {
-            type: 'test',
             release: 'patch',
           },
         ],
       },
     ],
-    '@semantic-release/release-notes-generator',
+    [
+      '@semantic-release/release-notes-generator',
+      {
+        preset: 'conventionalcommits',
+        presetConfig: ccPresetConfig,
+      },
+    ],
     [
       '@semantic-release/changelog',
       {
