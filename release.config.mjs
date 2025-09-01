@@ -80,8 +80,7 @@ const semanticReleaseConfig = {
           'CHANGELOG.md',
           'README.md',
         ],
-        message:
-          'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
+        message: 'chore(release): ${nextRelease.version} [skip ci]',
       },
     ],
   ],
