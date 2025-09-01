@@ -32,15 +32,6 @@ Running semantic-release will:
 - create relevant tags and release notes on GitHub
 - push release-related changes to GitHub with `chore(release): vX.X.X [skip ci]`
 
-### Environment variables
-
-Part of the semantic-release process requires a few environment variables to be set in order to work. You can configure this with a `.env` file:
-
-- Copy the example env file: `cp .env.example .env`
-- Modify the `.env` file, adding the relevant tokens for NPM and Cloudsmith
-  - `PUBLIC_NPM_TOKEN` is your access token for the NPM public registry
-  - `PRIVATE_NPM_TOKEN` is your access token for the Cloudsmith registry
-
 ### Release Step-by-step Process
 
 1. Add any new contributors to the `contributors` section in `package.json` (if relevant)
