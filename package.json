@@ -68,9 +68,6 @@
   "engines": {
     "node": ">=20"
   },
-  "dependencies": {
-    "semver": "^7.7.2"
-  },
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "~6 || ~7",
     "react": "^18.0.0 || ^19.0.0"
@@ -96,7 +93,6 @@
     "@types/jest": "^30.0.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
-    "@types/semver": "^7.7.0",
     "browserslist": "^4.25.3",
     "caniuse-lite": "^1.0.30001736",
     "cross-env": "^10.0.0",

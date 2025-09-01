@@ -3,10 +3,9 @@ import {
   RotateProp,
   SizeProp,
 } from '@fortawesome/fontawesome-svg-core'
-import semver from 'semver'
 
 import { FontAwesomeIconProps } from '../../types/icon-props'
-import { ICON_PACKS_STARTING_VERSION, SVG_CORE_VERSION } from '../constants'
+import { IS_VERSION_7_OR_LATER } from '../constants'
 import { getClassListFromProps } from '../get-class-list-from-props'
 
 describe('get class list', () => {
@@ -48,7 +47,7 @@ describe('get class list', () => {
   ]
 
   // Add version 7 specific classes if using version 7 or later
-  if (semver.gte(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION)) {
+  if (IS_VERSION_7_OR_LATER) {
     expectedClasses.push('fa-rotate-by', 'fa-width-auto')
   }
 

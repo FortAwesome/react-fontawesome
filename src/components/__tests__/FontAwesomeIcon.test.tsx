@@ -3,12 +3,8 @@ import React from 'react'
 import * as fontawesome from '@fortawesome/fontawesome-svg-core'
 import { faBacon, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { render, screen } from '@testing-library/react'
-import semver from 'semver'
 
-import {
-  ICON_PACKS_STARTING_VERSION,
-  SVG_CORE_VERSION,
-} from '../../utils/constants'
+import { IS_VERSION_7_OR_LATER } from '../../utils/constants'
 import { faCoffee, faCircle, faSpartan } from '../__fixtures__/icons'
 import { FontAwesomeIcon } from '../FontAwesomeIcon'
 
@@ -241,7 +237,7 @@ describe('FontAwesomeIcon', () => {
     expect(element).toHaveClass('fa-border')
   })
 
-  if (semver.lt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION)) {
+  if (!IS_VERSION_7_OR_LATER) {
     test('using fixedWidth', () => {
       render(<FontAwesomeIcon icon={faCoffee} fixedWidth />)
 
@@ -661,7 +657,7 @@ describe('FontAwesomeIcon', () => {
     })
   })
 
-  if (semver.lt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION)) {
+  if (!IS_VERSION_7_OR_LATER) {
     describe('title', () => {
       test('will not add a title element', () => {
         render(<FontAwesomeIcon icon={faCoffee} />)
@@ -746,7 +742,7 @@ describe('FontAwesomeIcon', () => {
     })
   })
 
-  if (semver.lt(SVG_CORE_VERSION, ICON_PACKS_STARTING_VERSION)) {
+  if (!IS_VERSION_7_OR_LATER) {
     describe('using titleId', () => {
       test('setting titleId prop reflects in the aria-labelledby attribute', () => {
         const titleId = 'foo'
