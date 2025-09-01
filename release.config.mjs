@@ -57,12 +57,9 @@ const semanticReleaseConfig = {
       },
     ],
     [
-      '@amanda-mitchell/semantic-release-npm-multiple',
+      '@semantic-release/exec',
       {
-        registries: {
-          public: {},
-          private: {},
-        },
+        publishCmd: './scripts/publish.sh ${nextRelease.version}',
       },
     ],
     [
