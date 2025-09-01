@@ -3,11 +3,41 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  build:
+  # Check commit lint, code lint, formatting etc.
+  # Used to validate before continuing the full build and test matrix.
+  validate:
     runs-on: ubuntu-latest
-    env:
-      FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
+      - name: Lint Commits against conventional commits spec with commitlint
+        uses: wagoid/commitlint-github-action@v6
+        with:
+          configFile: commitlint.config.ts
+
+      - name: Setup Node.js 22.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint Code with ESLint
+        run: npm run lint
+
+      - name: Check Code Formatting with Prettier
+        run: npm run format:check
+
+      - name: Validate TypeScript Types
+        run: npm run validate-types
+
+  # Build and test against supported versions of React, Node and SVG Core.
+  build-and-test:
+    runs-on: ubuntu-latest
+    needs: validate
     strategy:
       matrix:
         free-solid-svg-icons: [7.x, 6.x]
@@ -27,12 +57,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: https://npm.fontawesome.com/
-          scope: '@fortawesome'
           cache: 'npm'
 
       - name: Install base dependencies
-        run: npm ci --no-audit --no-save
+        run: npm ci
 
       - name: Install React dependencies
         run: npm ci --no-save react@${{ matrix.react }} react-dom@${{ matrix.react }}
@@ -43,11 +71,10 @@ jobs:
       - name: Verify React version
         run: npm list react react-dom
 
-      - name: Lint and test
-        run: |
-          npm run lint
-          npm run format:check
-          npm run test
+      - name: Test
+        run: npm run test
+        env:
+          CI: true
 
       - name: Build
         run: npm run build

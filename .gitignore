@@ -4,3 +4,4 @@ bin/act
 fortawesome-react-fontawesome-*.tgz
 dist/
 coverage/
+.env

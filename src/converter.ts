@@ -12,7 +12,7 @@ function capitalize(val: string): string {
 // Cache for parsed styles to avoid re-parsing identical style strings
 // This is beneficial for performance not only due to the fact this function is called on each React render
 // but also when multiple icons are rendered on a page, since many icon SVGs share similar built-in styles.
-export const styleCache = new Map<string, CSSProperties>()
+const styleCache = new Map<string, CSSProperties>()
 const STYLE_CACHE_LIMIT = 1000
 
 function styleToObject(style: string): CSSProperties {
