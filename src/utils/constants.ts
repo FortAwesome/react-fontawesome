@@ -4,9 +4,6 @@ import {
   RotateProp,
   SizeProp,
 } from '@fortawesome/fontawesome-svg-core'
-import semver from 'semver'
-
-export const ICON_PACKS_STARTING_VERSION = '7.0.0'
 
 const FA_VERSION =
   (typeof process !== 'undefined' && process.env.FA_VERSION) || '7.0.0'
@@ -19,10 +16,7 @@ export const SVG_CORE_VERSION =
   ('searchPseudoElementsFullScan' in config ? '7.0.0' : '6.0.0') || FA_VERSION
 
 // Cache the version check result since it never changes during runtime
-export const IS_VERSION_7_OR_LATER = semver.gte(
-  SVG_CORE_VERSION,
-  ICON_PACKS_STARTING_VERSION,
-)
+export const IS_VERSION_7_OR_LATER = Number.parseInt(SVG_CORE_VERSION) >= 7
 
 export const ANIMATION_CLASSES = {
   beat: 'fa-beat',
