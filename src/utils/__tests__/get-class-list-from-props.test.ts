@@ -1,4 +1,5 @@
 import {
+  config,
   PullProp,
   RotateProp,
   SizeProp,
@@ -150,4 +151,20 @@ describe('get class list', () => {
       ])
     },
   )
+
+  describe('with custom cssPrefix configured', () => {
+    const customPrefix = 'custom-prefix'
+
+    beforeEach(() => {
+      config.cssPrefix = customPrefix
+    })
+
+    it('should use custom cssPrefix for all classes', () => {
+      const classList = getClassListFromProps(props)
+      const classes = expectedClasses.map((cls) =>
+        cls.replace('fa-', `${customPrefix}-`),
+      )
+      expect(classList).toStrictEqual(classes)
+    })
+  })
 })

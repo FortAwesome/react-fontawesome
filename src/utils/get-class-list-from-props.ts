@@ -1,12 +1,19 @@
+import { config } from '@fortawesome/fontawesome-svg-core'
+
 import {
   ANIMATION_CLASSES,
-  IS_VERSION_7_OR_LATER,
   PULL_CLASSES,
   ROTATE_CLASSES,
   SIZE_CLASSES,
   STYLE_CLASSES,
+  IS_VERSION_7_OR_LATER,
 } from './constants'
 import { FontAwesomeIconProps } from '../types/icon-props'
+
+function withCustomPrefix(cls: string): string {
+  const customPrefix = config.cssPrefix || config.familyPrefix || 'fa'
+  return customPrefix === 'fa' ? cls : cls.replace('fa-', `${customPrefix}-`)
+}
 
 /**
  * Get CSS class list from a props object.
@@ -80,5 +87,11 @@ export function getClassListFromProps(props: FontAwesomeIconProps): string[] {
   if (rotateBy) result.push(STYLE_CLASSES.rotateBy)
   if (widthAuto) result.push(STYLE_CLASSES.widthAuto)
 
-  return result
+  const prefix = config.cssPrefix || config.familyPrefix || 'fa'
+
+  return prefix === 'fa'
+    ? result
+    : // TODO: see if we can achieve custom prefix support without iterating
+      // eslint-disable-next-line unicorn/no-array-callback-reference
+      result.map(withCustomPrefix)
 }
