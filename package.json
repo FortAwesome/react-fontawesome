@@ -14,6 +14,12 @@
       "require": "./dist/index.cjs",
       "default": "./dist/index.js"
     },
+    "./components/rsc/CustomPrefixProvider": {
+      "types": "./dist/components/rsc/CustomPrefixProvider.d.ts",
+      "import": "./dist/components/rsc/CustomPrefixProvider.js",
+      "require": "./dist/components/rsc/CustomPrefixProvider.cjs",
+      "default": "./dist/components/rsc/CustomPrefixProvider.js"
+    },
     "./package.json": "./package.json"
   },
   "homepage": "https://github.com/FortAwesome/react-fontawesome",
