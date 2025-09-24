@@ -14,11 +14,11 @@
       "require": "./dist/index.cjs",
       "default": "./dist/index.js"
     },
-    "./components/rsc/CustomPrefixProvider": {
-      "types": "./dist/components/rsc/CustomPrefixProvider.d.ts",
-      "import": "./dist/components/rsc/CustomPrefixProvider.js",
-      "require": "./dist/components/rsc/CustomPrefixProvider.cjs",
-      "default": "./dist/components/rsc/CustomPrefixProvider.js"
+    "./CustomPrefixProvider": {
+      "types": "./dist/CustomPrefixProvider.d.ts",
+      "import": "./dist/CustomPrefixProvider.js",
+      "require": "./dist/CustomPrefixProvider.cjs",
+      "default": "./dist/CustomPrefixProvider.js"
     },
     "./package.json": "./package.json"
   },
