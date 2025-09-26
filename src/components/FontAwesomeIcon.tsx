@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { RefAttributes, SVGAttributes } from 'react'
 
 import {
   icon as faIcon,
   parse as faParse,
 } from '@fortawesome/fontawesome-svg-core'
 
-import { convert } from '../converter'
+import { makeReactConverter } from '../converter'
 import { useAccessibilityId } from '../hooks/useAccessibilityId'
 import { Logger } from '../logger'
 import { FontAwesomeIconProps } from '../types/icon-props'
@@ -100,7 +100,11 @@ export const FontAwesomeIcon = React.forwardRef<
   }
 
   const { abstract } = renderedIcon
-  const extraProps: Partial<FontAwesomeIconProps> = { ref }
+  const extraProps: Omit<
+    SVGAttributes<SVGSVGElement>,
+    'children' | 'mask' | 'transform'
+  > &
+    RefAttributes<SVGSVGElement> = { ref }
 
   for (const key of typedObjectKeys(allProps)) {
     // Skip default props
@@ -115,9 +119,7 @@ export const FontAwesomeIcon = React.forwardRef<
     extraProps[key] = allProps[key]
   }
 
-  return convertCurry(abstract[0], extraProps)
+  return makeReactConverter(abstract[0], extraProps)
 })
 
 FontAwesomeIcon.displayName = 'FontAwesomeIcon'
-
-const convertCurry = convert.bind(null, React.createElement)

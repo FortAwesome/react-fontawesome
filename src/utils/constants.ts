@@ -18,6 +18,8 @@ export const SVG_CORE_VERSION =
 // Cache the version check result since it never changes during runtime
 export const IS_VERSION_7_OR_LATER = Number.parseInt(SVG_CORE_VERSION) >= 7
 
+export const DEFAULT_CLASSNAME_PREFIX = 'fa'
+
 export const ANIMATION_CLASSES = {
   beat: 'fa-beat',
   fade: 'fa-fade',
@@ -78,4 +80,8 @@ export const STYLE_CLASSES = {
   rotateBy: 'fa-rotate-by',
   swapOpacity: 'fa-swap-opacity',
   widthAuto: 'fa-width-auto',
+} as const
+
+export const LAYER_CLASSES = {
+  default: 'fa-layers',
 } as const

@@ -1,8 +1,12 @@
-import React, { type CSSProperties } from 'react'
+import React, {
+  HTMLAttributes,
+  RefAttributes,
+  SVGAttributes,
+  type CSSProperties,
+} from 'react'
 
 import type { AbstractElement } from '@fortawesome/fontawesome-svg-core'
 
-import type { FontAwesomeIconProps } from './types/icon-props'
 import { camelize } from './utils/camelize'
 
 function capitalize(val: string): string {
@@ -68,12 +72,15 @@ type AttributesOverride = Record<string, unknown> & {
   style?: React.CSSProperties
 }
 
-export function convert(
+export function convert<
+  El extends Element = SVGSVGElement,
+  Attr extends HTMLAttributes<El> = SVGAttributes<El>,
+>(
   createElement: typeof React.createElement,
   element: Omit<AbstractElement, 'attributes'> & {
     attributes: AttributesOverride
   },
-  extraProps: Partial<FontAwesomeIconProps> = {},
+  extraProps: Attr & RefAttributes<El> = {} as Attr & RefAttributes<El>,
 ): React.JSX.Element {
   if (typeof element === 'string') {
     return element
@@ -91,7 +98,6 @@ export function convert(
     switch (true) {
       case key === 'class': {
         attrs.className = val
-        delete elementAttributes.class
         break
       }
       case key === 'style': {
@@ -130,3 +136,5 @@ export function convert(
 
   return createElement(element.tag, { ...remaining, ...attrs }, ...children)
 }
+
+export const makeReactConverter = convert.bind(null, React.createElement)

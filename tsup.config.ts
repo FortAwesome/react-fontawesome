@@ -17,12 +17,12 @@ export default defineConfig([
     entry: ['src/index.ts'],
     outDir: 'dist',
   },
-  // Build config for React Server Components
+  // Build config for Client Components for SSR Apps (NextJS, Remix, etc.)
   {
     ...defaultConfig,
     name: 'react-fontawesome-rsc',
     entry: ['src/components/rsc/*.tsx'],
-    outDir: 'dist/components/rsc',
+    outDir: 'dist',
     bundle: false,
     treeshake: false,
   },
