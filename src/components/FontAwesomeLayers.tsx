@@ -144,8 +144,6 @@ const LayersText = ({
           : transform,
     })
 
-    console.log(textObject.abstract[0])
-
     return textObject.abstract[0]
   }, [text, transform, className, inverse])
 

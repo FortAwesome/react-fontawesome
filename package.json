@@ -65,6 +65,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:prepublish": "npm run install.6 && npm run test && npm run install.7 && npm run test",
+    "validate": "npm run lint && npm run format:check && npm run validate-types && npm run test",
     "validate-types": "tsc --noEmit",
     "install.6": "npm --no-save install @fortawesome/fontawesome-svg-core@6.x @fortawesome/free-solid-svg-icons@6.x",
     "install.7": "npm --no-save install @fortawesome/fontawesome-svg-core@7.x @fortawesome/free-solid-svg-icons@7.x",
