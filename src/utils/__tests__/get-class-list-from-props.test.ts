@@ -7,7 +7,7 @@ import {
 
 import { FontAwesomeIconProps } from '../../types/icon-props'
 import { IS_VERSION_7_OR_LATER } from '../constants'
-import { getClassListFromProps } from '../get-class-list-from-props'
+import { getClassListFromProps, withPrefix } from '../get-class-list-from-props'
 
 describe('get class list', () => {
   const props = {
@@ -166,5 +166,31 @@ describe('get class list', () => {
       )
       expect(classList).toStrictEqual(classes)
     })
+  })
+})
+
+describe('withPrefix utility function', () => {
+  const customPrefix = 'custom-prefix'
+
+  beforeEach(() => {
+    config.cssPrefix = customPrefix
+  })
+
+  it('should prefix a single class', () => {
+    expect(withPrefix('fa-icon')).toBe('custom-prefix-icon')
+  })
+
+  it('should prefix multiple space-separated classes', () => {
+    expect(withPrefix('fa-icon fa-spin fa-lg')).toBe(
+      'custom-prefix-icon custom-prefix-spin custom-prefix-lg',
+    )
+  })
+
+  it('should return empty string when given empty string', () => {
+    expect(withPrefix('')).toBe('')
+  })
+
+  it('should do nothing and return same string when given only whitespace', () => {
+    expect(withPrefix('   ')).toBe('   ')
   })
 })
