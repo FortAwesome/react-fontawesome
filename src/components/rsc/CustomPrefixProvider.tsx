@@ -22,7 +22,7 @@ interface CustomPrefixProviderProps {
  * // In Next.js App Router - `app/layout.tsx`
  * import '@fortawesome/fontawesome-svg-core/styles.css'
  * import { config } from '@fortawesome/fontawesome-svg-core'
- * import { CustomPrefixProvider } from '@fortawesome/react-fontawesome/components/rsc/CustomPrefixProvider'
+ * import { CustomPrefixProvider } from '@fortawesome/react-fontawesome/CustomPrefixProvider'
  *
  * const CUSTOM_FA_CSS_PREFIX = 'my-custom-prefix'
  *

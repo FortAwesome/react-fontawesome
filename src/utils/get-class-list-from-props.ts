@@ -7,12 +7,19 @@ import {
   SIZE_CLASSES,
   STYLE_CLASSES,
   IS_VERSION_7_OR_LATER,
+  DEFAULT_CLASSNAME_PREFIX,
 } from './constants'
 import { FontAwesomeIconProps } from '../types/icon-props'
 
-function withCustomPrefix(cls: string): string {
-  const customPrefix = config.cssPrefix || config.familyPrefix || 'fa'
-  return customPrefix === 'fa' ? cls : cls.replace('fa-', `${customPrefix}-`)
+export function withPrefix(cls: string): string {
+  const prefix =
+    config.cssPrefix || config.familyPrefix || DEFAULT_CLASSNAME_PREFIX
+  return prefix === DEFAULT_CLASSNAME_PREFIX
+    ? cls
+    : cls.replaceAll(
+        new RegExp(`(?<=^|\\s)${DEFAULT_CLASSNAME_PREFIX}-`, 'g'),
+        `${prefix}-`,
+      )
 }
 
 /**
@@ -87,11 +94,12 @@ export function getClassListFromProps(props: FontAwesomeIconProps): string[] {
   if (rotateBy) result.push(STYLE_CLASSES.rotateBy)
   if (widthAuto) result.push(STYLE_CLASSES.widthAuto)
 
-  const prefix = config.cssPrefix || config.familyPrefix || 'fa'
+  const prefix =
+    config.cssPrefix || config.familyPrefix || DEFAULT_CLASSNAME_PREFIX
 
-  return prefix === 'fa'
+  return prefix === DEFAULT_CLASSNAME_PREFIX
     ? result
     : // TODO: see if we can achieve custom prefix support without iterating
       // eslint-disable-next-line unicorn/no-array-callback-reference
-      result.map(withCustomPrefix)
+      result.map(withPrefix)
 }
