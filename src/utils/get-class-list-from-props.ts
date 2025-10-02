@@ -16,7 +16,7 @@ export function withPrefix(cls: string): string {
     config.cssPrefix || config.familyPrefix || DEFAULT_CLASSNAME_PREFIX
   return prefix === DEFAULT_CLASSNAME_PREFIX
     ? cls
-    : cls.replaceAll(
+    : cls.replace(
         new RegExp(`(?<=^|\\s)${DEFAULT_CLASSNAME_PREFIX}-`, 'g'),
         `${prefix}-`,
       )
