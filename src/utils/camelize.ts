@@ -20,7 +20,7 @@ export function camelize(string: string): string {
     return string
   }
 
-  string = string.replaceAll(/[_-]+(.)?/g, (_: string, chr: string): string => {
+  string = string.replace(/[_-]+(.)?/g, (_: string, chr: string): string => {
     return chr ? chr.toUpperCase() : ''
   })
 
