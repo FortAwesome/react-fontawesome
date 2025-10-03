@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.0](https://github.com/FortAwesome/react-fontawesome/compare/v3.0.2...v3.1.0) (2025-10-03)
+
+### Features
+
+* custom cssPrefix support ([ad42835](https://github.com/FortAwesome/react-fontawesome/commit/ad42835fccc8d5d5eb1af9da4417ad9c51612bd6))
+* **layers:** add support for layers with FontAwesomeLayers component ([2c84902](https://github.com/FortAwesome/react-fontawesome/commit/2c84902442bf36a564896ef51d56f3551bf0b303))
+
+### Bug Fixes
+
+* better export path for CustomPrefixProvider ([663cd25](https://github.com/FortAwesome/react-fontawesome/commit/663cd25881af8b631cf2212bb50970be339f9af2))
+* **browser-support:** don't use string.replaceAll to fix safari 12 support ([1776e3a](https://github.com/FortAwesome/react-fontawesome/commit/1776e3a35bfc1e0ad17d783036cd16bc3791add3))
+
+### Testing
+
+* **layers:** add unit tests for FontAwesomeLayers ([d31480b](https://github.com/FortAwesome/react-fontawesome/commit/d31480b118855fc727ed1c8a2dd1fdbf9ddc426e))
+* **utils:** unit tests for withPrefix utility ([982f649](https://github.com/FortAwesome/react-fontawesome/commit/982f649820d0ea14537d7a21812e561ec4dc8b9d))
+
+### Documentation
+
+* add inline documentation for CustomPrefixProvider ([46f69d4](https://github.com/FortAwesome/react-fontawesome/commit/46f69d4509e71a0db56ac8e90757cde6628fc375))
+* remove .env requirement ([c942c6a](https://github.com/FortAwesome/react-fontawesome/commit/c942c6a5f054fa298e8e6d5214635e38fea78e1e))
+
+### Chores
+
+* **release:** use @semantic-release/exec for multi-publish rather than third-party plugin ([5a47e13](https://github.com/FortAwesome/react-fontawesome/commit/5a47e1398b2de84e460b5b666dee884b123fb62e))
+
+## [3.1.0](https://github.com/FortAwesome/react-fontawesome/compare/v3.0.2...v3.1.0) (2025-10-03)
+
+### Features
+
+* custom cssPrefix support ([ad42835](https://github.com/FortAwesome/react-fontawesome/commit/ad42835fccc8d5d5eb1af9da4417ad9c51612bd6))
+* **layers:** add support for layers with FontAwesomeLayers component ([2c84902](https://github.com/FortAwesome/react-fontawesome/commit/2c84902442bf36a564896ef51d56f3551bf0b303))
+
+### Bug Fixes
+
+* better export path for CustomPrefixProvider ([663cd25](https://github.com/FortAwesome/react-fontawesome/commit/663cd25881af8b631cf2212bb50970be339f9af2))
+* **browser-support:** don't use string.replaceAll to fix safari 12 support ([1776e3a](https://github.com/FortAwesome/react-fontawesome/commit/1776e3a35bfc1e0ad17d783036cd16bc3791add3))
+
+### Testing
+
+* **layers:** add unit tests for FontAwesomeLayers ([d31480b](https://github.com/FortAwesome/react-fontawesome/commit/d31480b118855fc727ed1c8a2dd1fdbf9ddc426e))
+* **utils:** unit tests for withPrefix utility ([982f649](https://github.com/FortAwesome/react-fontawesome/commit/982f649820d0ea14537d7a21812e561ec4dc8b9d))
+
+### Documentation
+
+* add inline documentation for CustomPrefixProvider ([46f69d4](https://github.com/FortAwesome/react-fontawesome/commit/46f69d4509e71a0db56ac8e90757cde6628fc375))
+* remove .env requirement ([c942c6a](https://github.com/FortAwesome/react-fontawesome/commit/c942c6a5f054fa298e8e6d5214635e38fea78e1e))
+
+### Chores
+
+* **release:** use @semantic-release/exec for multi-publish rather than third-party plugin ([5a47e13](https://github.com/FortAwesome/react-fontawesome/commit/5a47e1398b2de84e460b5b666dee884b123fb62e))
+
 ## [3.0.2](https://github.com/FortAwesome/react-fontawesome/compare/v3.0.1...v3.0.2) (2025-09-01)
 
 ### Bug Fixes
