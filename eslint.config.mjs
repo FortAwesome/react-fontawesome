@@ -25,7 +25,7 @@ const config = tseslint.config(
       eslintPluginJsxA11y.flatConfigs.recommended,
       eslintPluginPrettierConfigRecommended,
       eslintPluginReact.configs.flat.recommended,
-      eslintPluginReactHooks.configs['recommended-latest'],
+      eslintPluginReactHooks.configs.flat['recommended-latest'],
       eslintPluginTestingLibrary.configs['flat/react'],
       eslintPluginUnicorn.configs.all,
     ],
@@ -41,7 +41,6 @@ const config = tseslint.config(
         ecmaFeatures: {
           jsx: true,
         },
-        project: ['./tsconfig.json'],
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },

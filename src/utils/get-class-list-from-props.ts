@@ -17,7 +17,7 @@ export function withPrefix(cls: string): string {
   return prefix === DEFAULT_CLASSNAME_PREFIX
     ? cls
     : cls.replace(
-        new RegExp(`(?<=^|\\s)${DEFAULT_CLASSNAME_PREFIX}-`, 'g'),
+        new RegExp(String.raw`(?<=^|\s)${DEFAULT_CLASSNAME_PREFIX}-`, 'g'),
         `${prefix}-`,
       )
 }

@@ -116,9 +116,13 @@ export const FontAwesomeIcon = React.forwardRef<
     // @ts-expect-error since `key` can be any of the keys in FontAwesomeIconProps,
     // TypeScript widens the type of the `obj[key]` lookups to a union of all possible values,
     // which will not correctly overlap each other.
+    // TODO: remove eslint-disable when react hooks rules are fixed properly to stop false flags on refs
+    // eslint-disable-next-line react-hooks/refs
     extraProps[key] = allProps[key]
   }
 
+  // TODO: remove eslint-disable when react hooks rules are fixed properly to stop false flags on refs
+  // eslint-disable-next-line react-hooks/refs
   return makeReactConverter(abstract[0], extraProps)
 })
 
