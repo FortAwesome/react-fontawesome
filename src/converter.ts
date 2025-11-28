@@ -118,6 +118,7 @@ export function convert<
   // Merge extraProps efficiently
   const {
     style: existingStyle,
+    role: existingRole,
     'aria-label': ariaLabel,
     ...remaining
   } = extraProps
@@ -126,6 +127,10 @@ export function convert<
     attrs.style = attrs.style
       ? { ...attrs.style, ...existingStyle }
       : existingStyle
+  }
+
+  if (existingRole) {
+    attrs.role = existingRole
   }
 
   // If an `aria-label` is set, ensure `aria-hidden` is false
