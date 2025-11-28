@@ -57,9 +57,10 @@ const semanticReleaseConfig = {
       },
     ],
     [
-      '@semantic-release/exec',
+      '@semantic-release/npm',
       {
-        publishCmd: './scripts/publish.sh ${nextRelease.version}',
+        npmPublish: false,
+        tarballDir: 'dist',
       },
     ],
     [
@@ -78,6 +79,12 @@ const semanticReleaseConfig = {
           'README.md',
         ],
         message: 'chore(release): ${nextRelease.version} [skip ci]',
+      },
+    ],
+    [
+      '@semantic-release/exec',
+      {
+        publishCmd: './scripts/publish.sh ${nextRelease.version}',
       },
     ],
   ],
