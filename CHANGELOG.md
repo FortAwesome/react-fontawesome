@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/FortAwesome/react-fontawesome/compare/v3.1.0...v3.1.1) (2025-11-28)
+
+### Bug Fixes
+
+* **WCAG:** allow custom role attribute on svgs like previous versions ([ef4986b](https://github.com/FortAwesome/react-fontawesome/commit/ef4986b06a3ef922b21d12453fc0b8fc62e2bcd0))
+
+### Documentation
+
+* remove irrelevant upgrade guide from 0.1-0.2x ([7d41077](https://github.com/FortAwesome/react-fontawesome/commit/7d4107742ce7d58a239a1b87b7f95606c576c182))
+
+### Chores
+
+* **deps:** fix GH advisory GHSA-5j98-mcp5-4vw2 ([2cd0c3f](https://github.com/FortAwesome/react-fontawesome/commit/2cd0c3f838bb97f9e0f8ec13339cd5ef445f15fe))
+* **deps:** regenerate lockfile ([779488e](https://github.com/FortAwesome/react-fontawesome/commit/779488ed84d4ecf18b0aadeb830272a4f2eb5f34))
+* **deps:** upgrade all dev deps ([b92e5a7](https://github.com/FortAwesome/react-fontawesome/commit/b92e5a703fedc311f38007fd5e83f3b09145b8d9))
+* **release:** explicit registry in publish script ([2aee952](https://github.com/FortAwesome/react-fontawesome/commit/2aee952ec61f00c31e4cfc2893042faac553ee9d))
+* **release:** fix semantic release config missing npm plugin ([ebabf46](https://github.com/FortAwesome/react-fontawesome/commit/ebabf46f81dd03cea2d1b429be9253754daca34d))
+
 ## [3.1.0](https://github.com/FortAwesome/react-fontawesome/compare/v3.0.2...v3.1.0) (2025-10-03)
 
 ### Features
