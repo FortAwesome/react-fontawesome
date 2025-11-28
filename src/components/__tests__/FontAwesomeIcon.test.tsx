@@ -559,6 +559,17 @@ describe('FontAwesomeIcon', () => {
     expect(element).toHaveClass('highlight')
   })
 
+  test('using custom WCAG role attribute', () => {
+    render(
+      <FontAwesomeIcon icon={faCoffee} role="button" aria-label="Buy Coffee" />,
+    )
+
+    const element = screen.getByLabelText('Buy Coffee')
+    expect(element).toBeDefined()
+    expect(element).toBeInstanceOf(SVGSVGElement)
+    expect(element).toHaveRole('button')
+  })
+
   describe('using transform', () => {
     test('string', () => {
       render(
