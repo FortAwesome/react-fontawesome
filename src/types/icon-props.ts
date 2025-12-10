@@ -61,7 +61,7 @@ export interface FontAwesomeIconProps
    *
    * Starting in FontAwesome 7.0.0, icons are decorative by default.
    * Instead of using a `title` prop, use the `aria-label` attribute instead.
-   * 
+   *
    * @see {@link https://docs.fontawesome.com/upgrade/whats-changed#simpler-accessibility}
    */
   title?: string | undefined
@@ -71,7 +71,7 @@ export interface FontAwesomeIconProps
    *
    * Starting in FontAwesome 7.0.0, icons are decorative by default.
    * Instead of using a `titleId` prop, use an `aria-label` attribute instead.
-   * 
+   *
    * @see {@link https://docs.fontawesome.com/upgrade/whats-changed#simpler-accessibility}
    */
   titleId?: string | undefined
