@@ -55,9 +55,25 @@ export interface FontAwesomeIconProps
   /** Any custom styles or CSS variable overrides for the icon element. */
   style?: (CSSProperties & CSSVariables) | undefined
   tabIndex?: number | undefined
-  /** An accessibility title for the icon to be read by screen-readers or assistive technologies. */
+  /**
+   * @deprecated
+   * @since 7.0.0
+   *
+   * Starting in FontAwesome 7.0.0, icons are decorative by default.
+   * Instead of using a `title` prop, use the `aria-label` attribute instead.
+   * 
+   * @see {@link https://docs.fontawesome.com/upgrade/whats-changed#simpler-accessibility}
+   */
   title?: string | undefined
-  /** A unique ID for the accessibility title element. */
+  /**
+   * @deprecated
+   * @since 7.0.0
+   *
+   * Starting in FontAwesome 7.0.0, icons are decorative by default.
+   * Instead of using a `titleId` prop, use an `aria-label` attribute instead.
+   * 
+   * @see {@link https://docs.fontawesome.com/upgrade/whats-changed#simpler-accessibility}
+   */
   titleId?: string | undefined
   /**
    * When using Duotone icons, this property will swap the opacity of the two colors.
