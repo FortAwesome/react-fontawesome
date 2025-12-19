@@ -193,6 +193,14 @@ describe('FontAwesomeIcon', () => {
     expect(element.style.backgroundColor).toEqual('white')
   })
 
+  test('respects custom viewBox prop', () => {
+    render(<FontAwesomeIcon icon={faCoffee} viewBox="-100 -100 712 712" />)
+
+    const element = screen.getByRole('img', { hidden: true })
+
+    expect(element.getAttribute('viewBox')).toBe('-100 -100 712 712')
+  })
+
   test('using pack common names', () => {
     render(<FontAwesomeIcon icon="coffee" />)
 
