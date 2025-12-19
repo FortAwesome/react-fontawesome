@@ -139,7 +139,7 @@ export function convert<
     attrs['aria-hidden'] = 'false'
   }
 
-  return createElement(element.tag, { ...remaining, ...attrs }, ...children)
+  return createElement(element.tag, { ...attrs, ...remaining }, ...children)
 }
 
 export const makeReactConverter = convert.bind(null, React.createElement)
