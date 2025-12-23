@@ -30,7 +30,8 @@ export class Logger {
 
     try {
       IS_DEV =
-        typeof process !== 'undefined' && process.env.NODE_ENV === 'development'
+        typeof process !== 'undefined' &&
+        process.env?.NODE_ENV === 'development'
     } catch {
       // Do nothing.
     }

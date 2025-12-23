@@ -6,7 +6,7 @@ import {
 } from '@fortawesome/fontawesome-svg-core'
 
 const FA_VERSION =
-  (typeof process !== 'undefined' && process.env.FA_VERSION) || '7.0.0'
+  (typeof process !== 'undefined' && process.env?.FA_VERSION) || '7.0.0'
 
 // Try to get version from installed package first, fallback to env var, then default
 export const SVG_CORE_VERSION =
