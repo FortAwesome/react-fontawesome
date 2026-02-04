@@ -7,7 +7,8 @@ import { CSSVariables } from './css-variables'
 import type { TransformProps } from './transform-props'
 
 export interface FontAwesomeIconProps
-  extends AnimationProps,
+  extends
+    AnimationProps,
     TransformProps,
     Omit<SVGAttributes<SVGSVGElement>, 'children' | 'mask' | 'transform'>,
     RefAttributes<SVGSVGElement> {
