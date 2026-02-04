@@ -1,5 +1,6 @@
 export * from './components/FontAwesomeIcon'
 export * from './components/FontAwesomeLayers'
 export * from './types/animation-props'
+export * from './types/css-variables'
 export * from './types/icon-props'
 export * from './types/transform-props'
