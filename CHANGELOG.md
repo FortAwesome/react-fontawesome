@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.0](https://github.com/FortAwesome/react-fontawesome/compare/v3.1.1...v3.2.0) (2026-02-06)
+
+### Features
+
+* **types:** export CSSVariables type for user consumption ([0e68290](https://github.com/FortAwesome/react-fontawesome/commit/0e68290dcda0cc5f6159e06f31600f72a49a4b6e))
+
+### Bug Fixes
+
+* **env:** support for defined process but undefined process.env ([243a273](https://github.com/FortAwesome/react-fontawesome/commit/243a27386346b8ac7b636e7f33cae3e71cbd3b17))
+* remove some stray spaces ([77f64d8](https://github.com/FortAwesome/react-fontawesome/commit/77f64d809cb72e4612c73f997abcd33e6327f3c6))
+* switch order of spread to allow given props to override ([1f0690a](https://github.com/FortAwesome/react-fontawesome/commit/1f0690a0133a6bd0bc289100280c199b16eb7bdb))
+* undo local package-lock change ([7242428](https://github.com/FortAwesome/react-fontawesome/commit/7242428263d8a90fa0c75a1dccf88bb94f8c5aa4))
+
+### Chores
+
+* add a deprecation notice to the title and titleId props ([1953e29](https://github.com/FortAwesome/react-fontawesome/commit/1953e2930ae8d24abe73d86ea9316acf2e797f68))
+* **deps:** upgrade all dev deps ([018fa1f](https://github.com/FortAwesome/react-fontawesome/commit/018fa1f193b6f7ae94e8ec1cabae57a06f6d9d47))
+* **format:** fix format issue in changelog ([64b449d](https://github.com/FortAwesome/react-fontawesome/commit/64b449d5e31c52d6977b50cdf99970ee18d19253))
+* **format:** ignore changelog from prettier as it is autogen'd ([ec1c118](https://github.com/FortAwesome/react-fontawesome/commit/ec1c118889b0e1081b182bfb5fa0224b8b1d4db8))
+
 ## [3.1.1](https://github.com/FortAwesome/react-fontawesome/compare/v3.1.0...v3.1.1) (2025-11-28)
 
 ### Bug Fixes
