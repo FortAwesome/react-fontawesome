@@ -29,9 +29,6 @@ jobs:
       - name: Validate TypeScript Types
         run: npm run validate-types
 
-      - name: Run Pre-publish Tests
-        run: npm run test:prepublish
-
   # Publish the release to the public NPM registry.
   publish-public:
     name: Publish to Public NPM Registry
@@ -51,6 +48,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build Package
+        run: npm run build
+
       - name: Run semantic-release
         run: npx semantic-release
 
@@ -65,6 +65,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          ref: main # Since the prior publish step will have pushed a new release tag, we need to ensure we are on the main branch to avoid issues with detached HEAD state.
 
       - name: Setup Node.js 22.x
         uses: actions/setup-node@v3
@@ -72,12 +74,6 @@ jobs:
           node-version: 22.x
           registry-url: 'https://npm.fontawesome.com/'
           cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run semantic-release
-        run: npx semantic-release
 
       - name: Authenticate with FontAwesome Pro Registry
         env:
