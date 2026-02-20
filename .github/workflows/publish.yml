@@ -1,0 +1,88 @@
+name: Publish Release
+
+on: [workflow_dispatch]
+
+jobs:
+  # Ensure the code is in a releasable state before attempting to publish.
+  validate:
+    name: Validate Release Readiness
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint Code with ESLint
+        run: npm run lint
+
+      - name: Check Code Formatting with Prettier
+        run: npm run format:check
+
+      - name: Validate TypeScript Types
+        run: npm run validate-types
+
+      - name: Run Pre-publish Tests
+        run: npm run test:prepublish
+
+  # Publish the release to the public NPM registry.
+  publish-public:
+    name: Publish to Public NPM Registry
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.x
+          registry-url: 'https://registry.npmjs.org/'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run semantic-release
+        run: npx semantic-release
+
+      - name: Publish Release on NPM
+        run: npm publish --tag latest --registry=https://registry.npmjs.org/
+
+  # Publish the release to the private FontAwesome Pro registry.
+  publish-private:
+    name: Publish to FontAwesome Pro Registry
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.x
+          registry-url: 'https://npm.fontawesome.com/'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run semantic-release
+        run: npx semantic-release
+
+      - name: Authenticate with FontAwesome Pro Registry
+        env:
+          TOKEN: ${{ secrets.CLOUDSMITH_PUBLISH_TOKEN }}
+        run: echo -e "token\n${TOKEN}\n" | npm login --registry=https://npm.fontawesome.com/
+
+      - name: Publish Release on FontAwesome Pro Registry
+        run: npm publish --tag latest --registry=https://npm.fontawesome.com/

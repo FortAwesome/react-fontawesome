@@ -66,7 +66,8 @@ const semanticReleaseConfig = {
     [
       '@semantic-release/github',
       {
-        assets: 'dist',
+        successComment:
+          ':tada: This issue has been resolved in version ${nextRelease.version} :tada:\n\nThe release is now available on [npm](https://www.npmjs.com/package/@fortawesome/react-fontawesome/v/${nextRelease.version})',
       },
     ],
     [
@@ -79,12 +80,6 @@ const semanticReleaseConfig = {
           'README.md',
         ],
         message: 'chore(release): ${nextRelease.version} [skip ci]',
-      },
-    ],
-    [
-      '@semantic-release/exec',
-      {
-        publishCmd: './scripts/publish.sh ${nextRelease.version}',
       },
     ],
   ],
