@@ -7,6 +7,7 @@ import React, {
 
 import type { AbstractElement } from '@fortawesome/fontawesome-svg-core'
 
+import type { FontAwesomeIconProps } from './types/icon-props'
 import { camelize } from './utils/camelize'
 
 function capitalize(val: string): string {
@@ -80,14 +81,32 @@ export function convert<
   element: Omit<AbstractElement, 'attributes'> & {
     attributes: AttributesOverride
   },
-  extraProps: Attr & RefAttributes<El> = {} as Attr & RefAttributes<El>,
+  extraProps: Attr &
+    RefAttributes<El> & {
+      radialGradient?: FontAwesomeIconProps['radialGradient']
+      linearGradient?: FontAwesomeIconProps['linearGradient']
+    } = {} as Attr & RefAttributes<El>,
 ): React.JSX.Element {
   if (typeof element === 'string') {
     return element
   }
 
   const children = (element.children || []).map((child) => {
-    return convert(createElement, child)
+    let element = child
+
+    if (
+      ('fill' in extraProps ||
+        extraProps.radialGradient ||
+        extraProps.linearGradient) &&
+      child.tag === 'path' &&
+      'fill' in child.attributes
+    ) {
+      // If a `fill` prop or a gradient is provided, remove the `fill` attribute from child elements to allow the prop to take precedence
+      element = { ...child }
+      delete (element.attributes as AttributesOverride).fill
+    }
+
+    return convert(createElement, element)
   })
 
   const elementAttributes: AttributesOverride = element.attributes || {}
@@ -120,6 +139,8 @@ export function convert<
     style: existingStyle,
     role: existingRole,
     'aria-label': ariaLabel,
+    linearGradient,
+    radialGradient,
     ...remaining
   } = extraProps
 
@@ -137,6 +158,51 @@ export function convert<
   if (ariaLabel) {
     attrs['aria-label'] = ariaLabel
     attrs['aria-hidden'] = 'false'
+  }
+
+  if (linearGradient) {
+    attrs.fill = `url(#${linearGradient.id})`
+
+    children.unshift(
+      createElement('linearGradient', {
+        id: linearGradient.id,
+        x1: linearGradient.x1,
+        x2: linearGradient.x2,
+        y1: linearGradient.y1,
+        y2: linearGradient.y2,
+        children: linearGradient.stops.map((stop, index) =>
+          createElement('stop', {
+            key: `${index}-${stop.offset}`,
+            offset: stop.offset,
+            stopColor: stop.color,
+            ...(stop.opacity !== undefined && { stopOpacity: stop.opacity }),
+          }),
+        ),
+      }),
+    )
+  }
+
+  if (radialGradient) {
+    attrs.fill = `url(#${radialGradient.id})`
+
+    children.unshift(
+      createElement('radialGradient', {
+        id: radialGradient.id,
+        cx: radialGradient.cx,
+        cy: radialGradient.cy,
+        r: radialGradient.r,
+        fx: radialGradient.fx,
+        fy: radialGradient.fy,
+        children: radialGradient.stops.map((stop, index) =>
+          createElement('stop', {
+            key: `${index}-${stop.offset}`,
+            offset: stop.offset,
+            stopColor: stop.color,
+            ...(stop.opacity !== undefined && { stopOpacity: stop.opacity }),
+          }),
+        ),
+      }),
+    )
   }
 
   return createElement(element.tag, { ...attrs, ...remaining }, ...children)
