@@ -38,6 +38,8 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     needs: validate
+    # Ensure we only run the full test matrix for pull requests and pushes to the main branch to save resources being spent on in-progress work.
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
     strategy:
       matrix:
         free-solid-svg-icons: [7.x, 6.x]

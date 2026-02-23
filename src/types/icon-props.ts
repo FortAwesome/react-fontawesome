@@ -31,6 +31,51 @@ export interface FontAwesomeIconProps
   /** The color of the icon. Can be any valid CSS color value */
   color?: string | undefined
   /**
+   * Creates a `<linearGradient />` element inside the icon svg, and applies it as a fill to the icon.
+   *
+   * If you also provide a `fill` prop, the `fill` prop will take precedence over the gradient.
+   * Omit the `fill` prop to allow the gradient to be applied correctly.
+   *
+   * NOTE: Only supports one gradient type, providing both linear and radial gradient props will have undesired side-effects.
+   */
+  linearGradient?:
+    | {
+        /**
+         * The `id` of the gradient, which is used to reference the gradient in the `fill` attribute of the icon's svg element.
+         * This must be a unique value to prevent conflicts with other elements on the page.
+         */
+        id: string
+        x1?: number | string | undefined
+        x2?: number | string | undefined
+        y1?: number | string | undefined
+        y2?: number | string | undefined
+        stops: { offset: string; color: string; opacity?: number | undefined }[]
+      }
+    | undefined
+  /**
+   * Creates a `<radialGradient />` element inside the icon svg, and applies it as a fill to the icon.
+   *
+   * If you also provide a `fill` prop, the `fill` prop will take precedence over the gradient.
+   * Omit the `fill` prop to allow the gradient to be applied correctly.
+   *
+   * NOTE: Only supports one gradient type, providing both linear and radial gradient props will have undesired side-effects.
+   */
+  radialGradient?:
+    | {
+        /**
+         * The `id` of the gradient, which is used to reference the gradient in the `fill` attribute of the icon's svg element.
+         * This must be a unique value to prevent conflicts with other elements on the page.
+         */
+        id: string
+        cx?: number | string | undefined
+        cy?: number | string | undefined
+        r?: number | string | undefined
+        fx?: number | string | undefined
+        fy?: number | string | undefined
+        stops: { offset: string; color: string; opacity?: number | undefined }[]
+      }
+    | undefined
+  /**
    * Applies a border to the icon
    * @see {@link https://docs.fontawesome.com/web/use-with/react/style#bordered-icons}
    */
