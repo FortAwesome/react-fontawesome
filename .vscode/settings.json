@@ -24,6 +24,9 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // Extension Settings
   "eslint.enable": true,
   "eslint.format.enable": false, // formatting is handled by prettier
