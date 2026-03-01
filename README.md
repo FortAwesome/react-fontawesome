@@ -4,7 +4,7 @@
 
 # react-fontawesome
 
-[![npm](https://img.shields.io/npm/v/@fortawesome/react-fontawesome.svg?style=flat-square)](https://www.npmjs.com/package/@fortawesome/react-fontawesome)
+[![npm](https://img.shields.io/npm/v/@fortawesome/react-fontawesome.svg?style=flat-square)](https://www.npmjs.com/package/@fortawesome/react-fontawesome) [![Meercode CI Score](https://meercode.io/badge/FortAwesome/react-fontawesome?type=ci-score&branch=master)](https://meercode.io/FortAwesome/react-fontawesome)
 
 > Font Awesome 5 React component using SVG with JS
 
