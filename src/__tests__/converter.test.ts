@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { SVGAttributes } from 'react'
 
 import type { AbstractElement } from '@fortawesome/fontawesome-svg-core'
 
@@ -78,6 +78,76 @@ describe('convert function performance', () => {
       convert(mockCreateElement, parent)
 
       expect(mockCreateElement).toHaveBeenCalledTimes(2)
+    })
+
+    it('should handle custom fill prop precedence', () => {
+      const child = createMockElement('path', { fill: 'red', d: 'M0,0 L10,10' })
+      const parent = createMockElement('svg', {}, [child])
+
+      convert(mockCreateElement, parent, {
+        fill: 'blue',
+      } as SVGAttributes<SVGSVGElement>)
+
+      expect(mockCreateElement).toHaveBeenNthCalledWith(
+        1,
+        'path',
+        expect.objectContaining({
+          fill: undefined, // Should be removed to allow prop to take precedence
+          d: 'M0,0 L10,10',
+        }),
+      )
+
+      expect(mockCreateElement).toHaveBeenNthCalledWith(
+        2,
+        'svg',
+        expect.objectContaining({
+          fill: 'blue', // Should be applied to parent
+        }),
+        expect.objectContaining({
+          props: {
+            children: [],
+            d: 'M0,0 L10,10',
+          },
+          type: 'path',
+        }),
+      )
+    })
+
+    it('should handle gradientFill prop precedence', () => {
+      const child = createMockElement('path', { fill: 'red', d: 'M0,0 L10,10' })
+      const parent = createMockElement('svg', {}, [child])
+
+      convert(mockCreateElement, parent, {
+        gradientFill: { id: 'gradient1' },
+      } as FontAwesomeIconProps)
+
+      expect(mockCreateElement).toHaveBeenNthCalledWith(
+        1,
+        'path',
+        expect.objectContaining({
+          fill: undefined, // Should be removed to allow gradient to take precedence
+          d: 'M0,0 L10,10',
+        }),
+      )
+
+      expect(mockCreateElement).toHaveBeenNthCalledWith(
+        2,
+        'radialGradient',
+        expect.objectContaining({
+          id: 'gradient1',
+        }),
+        expect.anything(), // Gradient stops would be here
+      )
+
+      expect(mockCreateElement).toHaveBeenNthCalledWith(
+        3,
+        'svg',
+        expect.objectContaining({
+          fill: `url(#gradient1)`, // Should be applied to parent
+        }),
+        expect.anything(),
+        expect.anything(),
+      )
     })
   })
 

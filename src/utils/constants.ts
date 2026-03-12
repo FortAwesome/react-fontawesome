@@ -13,10 +13,15 @@ export const SVG_CORE_VERSION =
   // @ts-expect-error TS2872 - Expression is always truthy - This is true when v7 of SVGCore is used, but not when v6 is used.
   // This is the point of this check - if the property exists on config, we have v7, otherwise we have v6.
   // TS is checking this against the dev dependencies which uses v7, so it reports a false error here.
-  ('searchPseudoElementsFullScan' in config ? '7.0.0' : '6.0.0') || FA_VERSION
+  ('searchPseudoElementsFullScan' in config &&
+  typeof config.searchPseudoElementsFullScan === 'boolean'
+    ? '7.0.0'
+    : '6.0.0') || FA_VERSION
 
 // Cache the version check result since it never changes during runtime
 export const IS_VERSION_7_OR_LATER = Number.parseInt(SVG_CORE_VERSION) >= 7
+
+export const getIsVersion7OrLater = (): boolean => IS_VERSION_7_OR_LATER
 
 export const DEFAULT_CLASSNAME_PREFIX = 'fa'
 

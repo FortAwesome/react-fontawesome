@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-array-callback-reference */
 import React, {
   HTMLAttributes,
   RefAttributes,
@@ -7,7 +8,9 @@ import React, {
 
 import type { AbstractElement } from '@fortawesome/fontawesome-svg-core'
 
+import type { FontAwesomeIconProps } from './types/icon-props'
 import { camelize } from './utils/camelize'
+import { createGradientStops } from './utils/gradients'
 
 function capitalize(val: string): string {
   return val.charAt(0).toUpperCase() + val.slice(1)
@@ -80,14 +83,34 @@ export function convert<
   element: Omit<AbstractElement, 'attributes'> & {
     attributes: AttributesOverride
   },
-  extraProps: Attr & RefAttributes<El> = {} as Attr & RefAttributes<El>,
+  extraProps: Attr &
+    RefAttributes<El> & {
+      gradientFill?: FontAwesomeIconProps['gradientFill']
+    } = {} as Attr & RefAttributes<El>,
 ): React.JSX.Element {
   if (typeof element === 'string') {
     return element
   }
 
   const children = (element.children || []).map((child) => {
-    return convert(createElement, child)
+    let element = child
+
+    if (
+      ('fill' in extraProps || extraProps.gradientFill) &&
+      child.tag === 'path' &&
+      'fill' in child.attributes
+    ) {
+      // If a `fill` prop or a gradient is provided, remove the `fill` attribute from child elements to allow the prop to take precedence
+      element = {
+        ...child,
+        attributes: {
+          ...child.attributes,
+          fill: undefined,
+        } as AttributesOverride,
+      }
+    }
+
+    return convert(createElement, element)
   })
 
   const elementAttributes: AttributesOverride = element.attributes || {}
@@ -120,6 +143,7 @@ export function convert<
     style: existingStyle,
     role: existingRole,
     'aria-label': ariaLabel,
+    gradientFill,
     ...remaining
   } = extraProps
 
@@ -137,6 +161,28 @@ export function convert<
   if (ariaLabel) {
     attrs['aria-label'] = ariaLabel
     attrs['aria-hidden'] = 'false'
+  }
+
+  // If a `gradientFill` prop is provided, set the fill attribute to reference the gradient and create the gradient element
+  if (gradientFill) {
+    attrs.fill = `url(#${gradientFill.id})`
+
+    const {
+      type: gradientType,
+      stops: gradientStops = [],
+      ...gradientProps
+    } = gradientFill
+
+    children.unshift(
+      createElement(
+        gradientType === 'linear' ? 'linearGradient' : 'radialGradient',
+        {
+          ...gradientProps,
+          id: gradientFill.id,
+        },
+        gradientStops.map(createGradientStops),
+      ),
+    )
   }
 
   return createElement(element.tag, { ...attrs, ...remaining }, ...children)

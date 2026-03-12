@@ -7,7 +7,13 @@ import {
 
 import { FontAwesomeIconProps } from '../../types/icon-props'
 import { IS_VERSION_7_OR_LATER } from '../constants'
+import * as constants from '../constants'
 import { getClassListFromProps, withPrefix } from '../get-class-list-from-props'
+
+const resetPrefixConfig = () => {
+  config.cssPrefix = ''
+  config.familyPrefix = ''
+}
 
 describe('get class list', () => {
   const props = {
@@ -166,6 +172,66 @@ describe('get class list', () => {
       )
       expect(classList).toStrictEqual(classes)
     })
+
+    afterEach(resetPrefixConfig)
+  })
+
+  describe('with custom cssPrefix configured via config.familyPrefix', () => {
+    const customPrefix = 'custom-prefix'
+
+    beforeEach(() => {
+      config.cssPrefix = ''
+      config.familyPrefix = customPrefix
+    })
+
+    it('should use custom familyPrefix for all classes', () => {
+      const classList = getClassListFromProps(props)
+      const classes = expectedClasses.map((cls) =>
+        cls.replace('fa-', `${customPrefix}-`),
+      )
+      expect(classList).toStrictEqual(classes)
+    })
+
+    afterEach(resetPrefixConfig)
+  })
+
+  describe('when using fontawesome-svg-core pre-v7', () => {
+    beforeEach(() => {
+      jest.spyOn(constants, 'getIsVersion7OrLater').mockReturnValue(false)
+    })
+
+    it('should not apply rotateBy or widthAuto classnames', () => {
+      const classList = getClassListFromProps({
+        rotateBy: true,
+        widthAuto: true,
+      } as unknown as FontAwesomeIconProps)
+
+      expect(classList).not.toContain('fa-rotate-by')
+      expect(classList).not.toContain('fa-width-auto')
+    })
+
+    it('should not apply custom prefixes', () => {
+      const customPrefix = 'custom-prefix'
+      config.cssPrefix = customPrefix
+
+      const classList = getClassListFromProps({
+        spin: true,
+        pulse: true,
+        fixedWidth: true,
+        inverse: true,
+        border: true,
+      } as FontAwesomeIconProps)
+
+      const expectedClasses = [
+        'fa-spin',
+        'fa-pulse',
+        'fa-fw',
+        'fa-inverse',
+        'fa-border',
+      ]
+
+      expect(classList).toStrictEqual(expectedClasses)
+    })
   })
 })
 
@@ -193,4 +259,27 @@ describe('withPrefix utility function', () => {
   it('should do nothing and return same string when given only whitespace', () => {
     expect(withPrefix('   ')).toBe('   ')
   })
+
+  describe('when using config.familyPrefix instead of config.cssPrefix', () => {
+    beforeEach(() => {
+      config.cssPrefix = ''
+      config.familyPrefix = customPrefix
+    })
+
+    it('should use familyPrefix for prefixing', () => {
+      expect(withPrefix('fa-icon')).toBe('custom-prefix-icon')
+    })
+  })
+
+  describe('when cssPrefix is the default', () => {
+    beforeEach(() => {
+      config.cssPrefix = ''
+    })
+
+    it('should return the same class without modification', () => {
+      expect(withPrefix('fa-icon')).toBe('fa-icon')
+    })
+  })
+
+  afterEach(resetPrefixConfig)
 })
