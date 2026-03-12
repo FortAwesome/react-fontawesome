@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-array-callback-reference */
 import React, {
   HTMLAttributes,
   RefAttributes,
@@ -9,6 +10,7 @@ import type { AbstractElement } from '@fortawesome/fontawesome-svg-core'
 
 import type { FontAwesomeIconProps } from './types/icon-props'
 import { camelize } from './utils/camelize'
+import { createGradientStops } from './utils/gradients'
 
 function capitalize(val: string): string {
   return val.charAt(0).toUpperCase() + val.slice(1)
@@ -83,8 +85,7 @@ export function convert<
   },
   extraProps: Attr &
     RefAttributes<El> & {
-      radialGradient?: FontAwesomeIconProps['radialGradient']
-      linearGradient?: FontAwesomeIconProps['linearGradient']
+      gradientFill?: FontAwesomeIconProps['gradientFill']
     } = {} as Attr & RefAttributes<El>,
 ): React.JSX.Element {
   if (typeof element === 'string') {
@@ -95,9 +96,7 @@ export function convert<
     let element = child
 
     if (
-      ('fill' in extraProps ||
-        extraProps.radialGradient ||
-        extraProps.linearGradient) &&
+      ('fill' in extraProps || extraProps.gradientFill) &&
       child.tag === 'path' &&
       'fill' in child.attributes
     ) {
@@ -144,8 +143,7 @@ export function convert<
     style: existingStyle,
     role: existingRole,
     'aria-label': ariaLabel,
-    linearGradient,
-    radialGradient,
+    gradientFill,
     ...remaining
   } = extraProps
 
@@ -165,48 +163,25 @@ export function convert<
     attrs['aria-hidden'] = 'false'
   }
 
-  if (linearGradient) {
-    attrs.fill = `url(#${linearGradient.id})`
+  // If a `gradientFill` prop is provided, set the fill attribute to reference the gradient and create the gradient element
+  if (gradientFill) {
+    attrs.fill = `url(#${gradientFill.id})`
+
+    const {
+      type: gradientType,
+      stops: gradientStops = [],
+      ...gradientProps
+    } = gradientFill
 
     children.unshift(
-      createElement('linearGradient', {
-        id: linearGradient.id,
-        x1: linearGradient.x1,
-        x2: linearGradient.x2,
-        y1: linearGradient.y1,
-        y2: linearGradient.y2,
-        children: linearGradient.stops.map((stop, index) =>
-          createElement('stop', {
-            key: `${index}-${stop.offset}`,
-            offset: stop.offset,
-            stopColor: stop.color,
-            ...(stop.opacity !== undefined && { stopOpacity: stop.opacity }),
-          }),
-        ),
-      }),
-    )
-  }
-
-  if (radialGradient) {
-    attrs.fill = `url(#${radialGradient.id})`
-
-    children.unshift(
-      createElement('radialGradient', {
-        id: radialGradient.id,
-        cx: radialGradient.cx,
-        cy: radialGradient.cy,
-        r: radialGradient.r,
-        fx: radialGradient.fx,
-        fy: radialGradient.fy,
-        children: radialGradient.stops.map((stop, index) =>
-          createElement('stop', {
-            key: `${index}-${stop.offset}`,
-            offset: stop.offset,
-            stopColor: stop.color,
-            ...(stop.opacity !== undefined && { stopOpacity: stop.opacity }),
-          }),
-        ),
-      }),
+      createElement(
+        gradientType === 'linear' ? 'linearGradient' : 'radialGradient',
+        {
+          ...gradientProps,
+          id: gradientFill.id,
+        },
+        gradientStops.map(createGradientStops),
+      ),
     )
   }
 

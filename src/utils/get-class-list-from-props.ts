@@ -6,8 +6,8 @@ import {
   ROTATE_CLASSES,
   SIZE_CLASSES,
   STYLE_CLASSES,
-  IS_VERSION_7_OR_LATER,
   DEFAULT_CLASSNAME_PREFIX,
+  getIsVersion7OrLater,
 } from './constants'
 import { FontAwesomeIconProps } from '../types/icon-props'
 
@@ -88,7 +88,7 @@ export function getClassListFromProps(props: FontAwesomeIconProps): string[] {
   if (swapOpacity) result.push(STYLE_CLASSES.swapOpacity)
 
   // Bail early if not version 7 or later
-  if (!IS_VERSION_7_OR_LATER) return result
+  if (!getIsVersion7OrLater()) return result
 
   // Add classes specific to version 7+
   if (rotateBy) result.push(STYLE_CLASSES.rotateBy)
