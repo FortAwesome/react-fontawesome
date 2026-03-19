@@ -11,7 +11,15 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 const config = tseslint.config(
-  { ignores: ['**/dist/**', '**/node_modules/**', '**/coverage/**'] },
+  {
+    ignores: [
+      '**/dist/**',
+      '**/node_modules/**',
+      '**/coverage/**',
+      '**/examples/**',
+      '**/docs/dist/**',
+    ],
+  },
   {
     files: ['**/*.ts', '**/*.tsx'],
     extends: [

@@ -2,7 +2,7 @@
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 
-interface CustomPrefixProviderProps {
+export interface CustomPrefixProviderProps {
   customPrefix: string
 }
 
@@ -45,6 +45,7 @@ interface CustomPrefixProviderProps {
  * }
  * ```
  *
+ * @param props
  * @returns null - This is a "void" component used purely for side effects.
  */
 export const CustomPrefixProvider = ({
