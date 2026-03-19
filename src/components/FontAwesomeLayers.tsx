@@ -190,4 +190,4 @@ const LayersCounter = ({
   return makeReactConverter(counterAbstractElement, { ...attributes, style })
 }
 
-export { FontAwesomeLayers, LayersText, LayersCounter }
+export { FontAwesomeLayers, FontAwesomeLayersProps, LayersText, LayersCounter }

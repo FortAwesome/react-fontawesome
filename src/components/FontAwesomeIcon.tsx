@@ -1,4 +1,4 @@
-import React, { RefAttributes, SVGAttributes } from 'react'
+import React from 'react'
 
 import {
   icon as faIcon,
@@ -49,7 +49,11 @@ const DEFAULT_PROPS = {
 const DEFAULT_PROP_KEYS = new Set(Object.keys(DEFAULT_PROPS))
 
 /**
- * FontAwesomeIcon component.
+ * React Component for rendering Font Awesome icons.
+ *
+ * @function FontAwesomeIcon
+ * @param props - The properties for the FontAwesomeIcon component, including icon definition and styling options.
+ * @returns A React element representing the Font Awesome icon, or null if the icon cannot be rendered.
  */
 export const FontAwesomeIcon = React.forwardRef<
   SVGSVGElement,
@@ -101,10 +105,10 @@ export const FontAwesomeIcon = React.forwardRef<
 
   const { abstract } = renderedIcon
   const extraProps: Omit<
-    SVGAttributes<SVGSVGElement>,
+    React.SVGAttributes<SVGSVGElement>,
     'children' | 'mask' | 'transform'
   > &
-    RefAttributes<SVGSVGElement> = { ref }
+    React.RefAttributes<SVGSVGElement> = { ref }
 
   for (const key of typedObjectKeys(allProps)) {
     // Skip default props

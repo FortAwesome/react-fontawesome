@@ -3,5 +3,6 @@ node_modules
 bin/act
 fortawesome-react-fontawesome-*.tgz
 dist/
+docs/dist/
 coverage/
 .env
