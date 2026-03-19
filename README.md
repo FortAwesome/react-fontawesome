@@ -21,6 +21,9 @@
 
 ## Documentation
 
+- [FontAwesome Docs: "Use With React"](https://docs.fontawesome.com/web/use-with/react/)
+- [react-fontawesome API Reference](https://fortawesome.github.io/react-fontawesome/)
+
 Version 3.0.0 is a major update for `react-fontawesome` with the library being rewritten from plain JS to TypeScript,
 amongst a number of performance improvements and optimisations to the `FontAwesomeIcon` React component.
 
