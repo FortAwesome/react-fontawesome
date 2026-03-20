@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js 22.x
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: 22.x
           cache: 'npm'
@@ -36,10 +36,10 @@ jobs:
     needs: validate
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js 22.x
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: 22.x
           registry-url: 'https://registry.npmjs.org/'
@@ -64,12 +64,12 @@ jobs:
     needs: validate
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: main # Since the prior publish step will have pushed a new release tag, we need to ensure we are on the main branch to avoid issues with detached HEAD state.
 
       - name: Setup Node.js 22.x
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: 22.x
           registry-url: 'https://npm.fontawesome.com/'
@@ -78,7 +78,7 @@ jobs:
       - name: Authenticate with FontAwesome Pro Registry
         env:
           TOKEN: ${{ secrets.CLOUDSMITH_PUBLISH_TOKEN }}
-        run: echo -e "token\n${TOKEN}\n" | npm login --registry=https://npm.fontawesome.com/
+        run: echo "//npm.fontawesome.com/:_authToken=${TOKEN}" > ./.npmrc
 
       - name: Publish Release on FontAwesome Pro Registry
         run: npm publish --tag latest --registry=https://npm.fontawesome.com/
