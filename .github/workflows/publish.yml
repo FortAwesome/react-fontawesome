@@ -29,11 +29,15 @@ jobs:
       - name: Validate TypeScript Types
         run: npm run validate-types
 
-  # Publish the release to the public NPM registry.
-  publish-public:
+  # Publish the release to the public NPM registry and the private FontAwesome Pro registry.
+  publish-packages:
     name: Publish to Public NPM Registry
     runs-on: ubuntu-latest
     needs: validate
+    env:
+      NPM_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      CLOUDSMITH_TOKEN: ${{ secrets.CLOUDSMITH_PUBLISH_TOKEN }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v6
@@ -57,28 +61,8 @@ jobs:
       - name: Publish Release on NPM
         run: npm publish --tag latest --registry=https://registry.npmjs.org/
 
-  # Publish the release to the private FontAwesome Pro registry.
-  publish-private:
-    name: Publish to FontAwesome Pro Registry
-    runs-on: ubuntu-latest
-    needs: validate
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v6
-        with:
-          ref: main # Since the prior publish step will have pushed a new release tag, we need to ensure we are on the main branch to avoid issues with detached HEAD state.
-
-      - name: Setup Node.js 22.x
-        uses: actions/setup-node@v6
-        with:
-          node-version: 22.x
-          registry-url: 'https://npm.fontawesome.com/'
-          cache: 'npm'
-
       - name: Authenticate with FontAwesome Pro Registry
-        env:
-          TOKEN: ${{ secrets.CLOUDSMITH_PUBLISH_TOKEN }}
-        run: echo "//npm.fontawesome.com/:_authToken=${TOKEN}" > ./.npmrc
+        run: echo "//npm.fontawesome.com/:_authToken=${CLOUDSMITH_TOKEN}" > ./.npmrc
 
       - name: Publish Release on FontAwesome Pro Registry
         run: npm publish --tag latest --registry=https://npm.fontawesome.com/
