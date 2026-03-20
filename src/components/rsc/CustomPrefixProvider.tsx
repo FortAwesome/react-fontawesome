@@ -1,3 +1,5 @@
+/** @module CustomPrefixProvider */
+
 'use client'
 
 import { config } from '@fortawesome/fontawesome-svg-core'

@@ -7,7 +7,7 @@ but intended to evolve over time with _community_ contributions.
 
 Trying to figure out how to make it work? Or how to use it in your scenario?
 
-1.  Review the [README](README.md)
+1.  Review the [README](https://github.com/FortAwesome/react-fontawesome?tab=readme-ov-file)
 2.  Get familiar with the documentation for the [SVG with JavaScript](https://fontawesome.com/how-to-use/svg-with-js) implementation,
     the framework upon which this component is built. Sometimes the answers you need may be there.
 3.  Post any remaining questions on [StackOverflow](https://stackoverflow.com/questions/tagged/react-fontawesome) with the tag `react-fontawesome`.
