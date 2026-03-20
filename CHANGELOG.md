@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.0](https://github.com/FortAwesome/react-fontawesome/compare/v3.2.0...v3.3.0) (2026-03-20)
+
+### Features
+
+* **style:** add support for custom gradient fills ([d14cdc5](https://github.com/FortAwesome/react-fontawesome/commit/d14cdc5f16fd16b88ceab31fd02aa99fd146694f))
+* **style:** use single prop for gradient fills, add unit tests ([2282d16](https://github.com/FortAwesome/react-fontawesome/commit/2282d163059463ae08eae4d2859b8fb9635e4404))
+
+### Chores
+
+* **docs:** add typedoc-generated API reference docs ([5894156](https://github.com/FortAwesome/react-fontawesome/commit/589415610f394cf3bc2f21bd24c24b75252366ff))
+* **docs:** clean up API docs output structure, rewrite html links ([a7782b8](https://github.com/FortAwesome/react-fontawesome/commit/a7782b87d69cb4add2d04f5b40eddb43b789ebe2))
+* **docs:** update README with FontAwesome documentation links ([c540f90](https://github.com/FortAwesome/react-fontawesome/commit/c540f9086c3bdc61e0f9406295426b10033f471d))
+
+### CI/CD
+
+* **actions:** fix publish action env setting ([eb4b40a](https://github.com/FortAwesome/react-fontawesome/commit/eb4b40a8c6ae8ef17cae87c8edb467d9fa15915a))
+* **actions:** only run full test matrix on PRs and main ([3434d60](https://github.com/FortAwesome/react-fontawesome/commit/3434d60c0fbd4f18cc455b1e3b0065b00dfe5fbe))
+* **actions:** update deprecated actions ([6382b20](https://github.com/FortAwesome/react-fontawesome/commit/6382b209176a357dfe2b2756ab0e9f3d56ac3561))
+* **publish:** enable publishing releases from CI ([5d46150](https://github.com/FortAwesome/react-fontawesome/commit/5d461505cf3ed03a0f557c0190f5d5368d3117d5))
+* **publish:** ensure private publish uses hard main ref ([f54a9c2](https://github.com/FortAwesome/react-fontawesome/commit/f54a9c2da032562e8fc7aed0636bdbbce2f29ef5))
+
 ## [3.2.0](https://github.com/FortAwesome/react-fontawesome/compare/v3.1.1...v3.2.0) (2026-02-06)
 
 ### Features
