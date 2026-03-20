@@ -1,4 +1,4 @@
-# Overview <i color="#428fdc" class="fa-solid fa-font-awesome" aria-label="FontAwesome"></i>
+# Overview <i color="#428fdc" class="fa-solid fa-font-awesome"></i>
 
 This documentation serves purely as an API Reference for the modules contained in the latest version of the `react-fontawesome` library.
 
@@ -15,8 +15,8 @@ For more detailed documentation on how to use FontAwesome with React in general,
 
 In the side-bar menu, the top level items are the two key module entry points that are exported by the library:
 
-- `index` - includes anything exported via the main entry point
+- `main` - includes anything exported via the main entry point
   - e.g. `import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'`
-- `components/rsc/CustomPrefixProvider` - special module for using custom FA prefixes with server-side rendering
+- `CustomPrefixProvider` - special module for using custom FA prefixes with server-side rendering
   - e.g. `import { CustomPrefixProvider } from '@fortawesome/react-fontawesome/components/rsc/CustomPrefixProvider'`
 - `<internal>` - refers to types and interfaces that are used internally within the package but are not exported by the package to consumers

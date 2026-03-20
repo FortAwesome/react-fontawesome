@@ -1,3 +1,4 @@
+/** @module main */
 export * from './components/FontAwesomeIcon'
 export * from './components/FontAwesomeLayers'
 export * from './types/animation-props'
