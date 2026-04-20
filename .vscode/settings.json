@@ -30,6 +30,7 @@
   // Extension Settings
   "eslint.enable": true,
   "eslint.format.enable": false, // formatting is handled by prettier
+  "eslint.runtime": "/Users/charles.harwood/.local/share/mise/installs/node/22.22.2/bin/node",
   "prettier.enable": true,
   "jest.shell": "zsh"
 }
