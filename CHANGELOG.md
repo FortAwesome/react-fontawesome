@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.1](https://github.com/FortAwesome/react-fontawesome/compare/v3.3.0...v3.3.1) (2026-04-20)
+
+### Chores
+
+* **deps-dev:** bump handlebars from 4.7.8 to 4.7.9 ([f1d6d94](https://github.com/FortAwesome/react-fontawesome/commit/f1d6d943d0f1a014c5cec77d244fc021c0a09c93))
+* **deps-dev:** bump lodash-es from 4.17.23 to 4.18.1 ([212496a](https://github.com/FortAwesome/react-fontawesome/commit/212496a5b3cc2a054da0400db608296e8ac59c4c))
+* **deps-dev:** bump picomatch from 2.3.1 to 2.3.2 ([557ceaf](https://github.com/FortAwesome/react-fontawesome/commit/557ceaf5f47b45df48bb70385ecbe54aa0eb340f))
+* **deps:** bump lodash from 4.17.23 to 4.18.1 ([2d06890](https://github.com/FortAwesome/react-fontawesome/commit/2d06890530c90d019f33b5c361f436deb13261f9))
+* **deps:** node 22.22.2, bump all dev dependencies ([99ba500](https://github.com/FortAwesome/react-fontawesome/commit/99ba500ede9a68c3973c1fe0d6c2475d9d40b699))
+
 ## [3.3.0](https://github.com/FortAwesome/react-fontawesome/compare/v3.2.0...v3.3.0) (2026-03-20)
 
 ### Features
