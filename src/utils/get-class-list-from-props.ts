@@ -50,6 +50,15 @@ export function getClassListFromProps(props: FontAwesomeIconProps): string[] {
     swapOpacity,
     rotateBy,
     widthAuto,
+    flip360,
+    buzz,
+    float,
+    jello,
+    spinSnap,
+    spinSnap4,
+    spinSnap8,
+    swing,
+    wag,
     className,
   } = props
 
@@ -93,6 +102,17 @@ export function getClassListFromProps(props: FontAwesomeIconProps): string[] {
   // Add classes specific to version 7+
   if (rotateBy) result.push(STYLE_CLASSES.rotateBy)
   if (widthAuto) result.push(STYLE_CLASSES.widthAuto)
+
+  // Add animation classes specific to version 7.3.0+
+  if (flip360) result.push(ANIMATION_CLASSES.flip360)
+  if (buzz) result.push(ANIMATION_CLASSES.buzz)
+  if (float) result.push(ANIMATION_CLASSES.float)
+  if (jello) result.push(ANIMATION_CLASSES.jello)
+  if (spinSnap) result.push(ANIMATION_CLASSES.spinSnap)
+  if (spinSnap4) result.push(ANIMATION_CLASSES.spinSnap4)
+  if (spinSnap8) result.push(ANIMATION_CLASSES.spinSnap8)
+  if (swing) result.push(ANIMATION_CLASSES.swing)
+  if (wag) result.push(ANIMATION_CLASSES.wag)
 
   const prefix =
     config.cssPrefix || config.familyPrefix || DEFAULT_CLASSNAME_PREFIX
