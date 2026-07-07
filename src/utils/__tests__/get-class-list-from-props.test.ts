@@ -33,6 +33,15 @@ describe('get class list', () => {
     flip: true,
     rotateBy: true,
     widthAuto: true,
+    flip360: true,
+    buzz: true,
+    float: true,
+    jello: true,
+    spinSnap: true,
+    spinSnap4: true,
+    spinSnap8: true,
+    swing: true,
+    wag: true,
   } as FontAwesomeIconProps
 
   const classList = getClassListFromProps(props)
@@ -55,7 +64,19 @@ describe('get class list', () => {
 
   // Add version 7 specific classes if using version 7 or later
   if (IS_VERSION_7_OR_LATER) {
-    expectedClasses.push('fa-rotate-by', 'fa-width-auto')
+    expectedClasses.push(
+      'fa-rotate-by',
+      'fa-width-auto',
+      'fa-flip-360',
+      'fa-buzz',
+      'fa-float',
+      'fa-jello',
+      'fa-spin-snap',
+      'fa-spin-snap-4',
+      'fa-spin-snap-8',
+      'fa-swing',
+      'fa-wag',
+    )
   }
 
   test('the booleans', () => {

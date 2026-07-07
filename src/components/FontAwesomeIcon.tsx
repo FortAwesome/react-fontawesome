@@ -44,6 +44,15 @@ const DEFAULT_PROPS = {
   transform: undefined,
   swapOpacity: false,
   widthAuto: false,
+  flip360: false,
+  buzz: false,
+  float: false,
+  jello: false,
+  spinSnap: false,
+  spinSnap4: false,
+  spinSnap8: false,
+  swing: false,
+  wag: false,
 } as const satisfies Partial<FontAwesomeIconProps>
 
 const DEFAULT_PROP_KEYS = new Set(Object.keys(DEFAULT_PROPS))
@@ -120,13 +129,9 @@ export const FontAwesomeIcon = React.forwardRef<
     // @ts-expect-error since `key` can be any of the keys in FontAwesomeIconProps,
     // TypeScript widens the type of the `obj[key]` lookups to a union of all possible values,
     // which will not correctly overlap each other.
-    // TODO: remove eslint-disable when react hooks rules are fixed properly to stop false flags on refs
-    // eslint-disable-next-line react-hooks/refs
     extraProps[key] = allProps[key]
   }
 
-  // TODO: remove eslint-disable when react hooks rules are fixed properly to stop false flags on refs
-  // eslint-disable-next-line react-hooks/refs
   return makeReactConverter(abstract[0], extraProps)
 })
 

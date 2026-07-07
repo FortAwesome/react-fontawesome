@@ -48,4 +48,58 @@ export interface AnimationProps {
    * @see {@link https://docs.fontawesome.com/web/style/animate#shake}
    */
   shake?: boolean | undefined
+  /**
+   * Makes the icon flip 360deg.
+   * @since 7.3.0
+   * @see {@link https://docs.fontawesome.com/web/style/animate}
+   */
+  flip360?: boolean | undefined
+  /**
+   * Makes the icon buzz.
+   * @since 7.3.0
+   * @see {@link https://docs.fontawesome.com/web/style/animate}
+   */
+  buzz?: boolean | undefined
+  /**
+   * Makes the icon float.
+   * @since 7.3.0
+   * @see {@link https://docs.fontawesome.com/web/style/animate}
+   */
+  float?: boolean | undefined
+  /**
+   * Makes the icon jello.
+   * @since 7.3.0
+   * @see {@link https://docs.fontawesome.com/web/style/animate}
+   */
+  jello?: boolean | undefined
+  /**
+   * Makes the icon spin, snapping to each step.
+   * @since 7.3.0
+   * @see {@link https://docs.fontawesome.com/web/style/animate}
+   */
+  spinSnap?: boolean | undefined
+  /**
+   * Makes the icon spin, snapping to 4 steps.
+   * @since 7.3.0
+   * @see {@link https://docs.fontawesome.com/web/style/animate}
+   */
+  spinSnap4?: boolean | undefined
+  /**
+   * Makes the icon spin, snapping to 8 steps.
+   * @since 7.3.0
+   * @see {@link https://docs.fontawesome.com/web/style/animate}
+   */
+  spinSnap8?: boolean | undefined
+  /**
+   * Makes the icon swing.
+   * @since 7.3.0
+   * @see {@link https://docs.fontawesome.com/web/style/animate}
+   */
+  swing?: boolean | undefined
+  /**
+   * Makes the icon wag.
+   * @since 7.3.0
+   * @see {@link https://docs.fontawesome.com/web/style/animate}
+   */
+  wag?: boolean | undefined
 }

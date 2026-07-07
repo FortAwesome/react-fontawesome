@@ -35,6 +35,16 @@ export const ANIMATION_CLASSES = {
   spinPulse: 'fa-spin-pulse',
   spinReverse: 'fa-spin-reverse',
   pulse: 'fa-pulse',
+  // the following animations are only supported in version 7.3.0 and later
+  flip360: 'fa-flip-360',
+  buzz: 'fa-buzz',
+  float: 'fa-float',
+  jello: 'fa-jello',
+  spinSnap: 'fa-spin-snap',
+  spinSnap4: 'fa-spin-snap-4',
+  spinSnap8: 'fa-spin-snap-8',
+  swing: 'fa-swing',
+  wag: 'fa-wag',
 } as const
 
 export const PULL_CLASSES: {
