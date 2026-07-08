@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file. See
 
 ## [3.4.0](https://github.com/FortAwesome/react-fontawesome/compare/v3.3.1...v3.4.0) (2026-07-08)
 
+### Features
+
+* Support for new animations introduced in FontAwesome v7.3.0 ([#651](https://github.com/FortAwesome/react-fontawesome/pull/651))
+
+### Chores
+
+* **deps:** bump fast-uri from 3.1.0 to 3.1.2 ([a193c11](https://github.com/FortAwesome/react-fontawesome/commit/a193c1180b7165dbcf99640ddbdfa00591ebcfdb))
+* **deps-dev:** bump dev dependencies to use FA 7.3.0 ([cc540d8](https://github.com/FortAwesome/react-fontawesome/commit/cc540d8094760e2b5d6f326c6b5b97ac14d94c62))
+
 ## [3.3.1](https://github.com/FortAwesome/react-fontawesome/compare/v3.3.0...v3.3.1) (2026-04-20)
 
 ### Chores
