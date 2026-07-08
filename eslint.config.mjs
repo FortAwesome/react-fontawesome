@@ -83,6 +83,12 @@ const config = tseslint.config(
       ],
 
       // `eslint-plugin-unicorn` rules
+      'unicorn/filename-case': [
+        'error',
+        {
+          checkDirectories: false,
+        },
+      ],
       'unicorn/no-keyword-prefix': 'off',
       'unicorn/no-null': 'off',
       'unicorn/prefer-string-replace-all': 'off', // Since FA still supports Safari 12, which doesn't support String.prototype.replaceAll
@@ -96,6 +102,7 @@ const config = tseslint.config(
         'error',
         {
           case: 'pascalCase',
+          checkDirectories: false,
         },
       ],
     },
@@ -108,6 +115,7 @@ const config = tseslint.config(
         'error',
         {
           case: 'camelCase',
+          checkDirectories: false,
         },
       ],
     },

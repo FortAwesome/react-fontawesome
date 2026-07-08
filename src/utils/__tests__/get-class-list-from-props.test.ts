@@ -278,7 +278,7 @@ describe('withPrefix utility function', () => {
   })
 
   it('should do nothing and return same string when given only whitespace', () => {
-    expect(withPrefix('   ')).toBe('   ')
+    expect(withPrefix(' '.repeat(3))).toBe(' '.repeat(3))
   })
 
   describe('when using config.familyPrefix instead of config.cssPrefix', () => {

@@ -191,7 +191,7 @@ describe('useAccessibilityId', () => {
 
   describe('edge cases', () => {
     it('should handle whitespace-only id strings', () => {
-      const whitespaceId = '   '
+      const whitespaceId = ' '.repeat(3)
       const { result } = renderHook(() =>
         useAccessibilityId(whitespaceId, true),
       )

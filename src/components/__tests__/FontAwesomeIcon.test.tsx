@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 import React from 'react'
 
 import * as fontawesome from '@fortawesome/fontawesome-svg-core'

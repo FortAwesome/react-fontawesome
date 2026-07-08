@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 import React, { SVGAttributes } from 'react'
 
 import type { AbstractElement } from '@fortawesome/fontawesome-svg-core'

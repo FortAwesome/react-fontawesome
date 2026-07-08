@@ -28,6 +28,7 @@ export class Logger {
   ) {
     let IS_DEV = false
 
+    // eslint-disable-next-line unicorn/try-complexity
     try {
       IS_DEV =
         typeof process !== 'undefined' &&
