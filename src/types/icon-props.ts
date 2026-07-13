@@ -143,4 +143,18 @@ export interface FontAwesomeIconProps
    * @since 7.0.0
    */
   widthAuto?: boolean | undefined
+  /**
+   * When set to `true`, the icon will be rendered in a square canvas.
+   *
+   * @see {@link https://docs.fontawesome.com/web/style/icon-canvas}
+   * @since 7.3.0
+   */
+  canvasSquare?: boolean | undefined
+  /**
+   * When set to `true`, the icon will be rendered in a square canvas with extra padding.
+   *
+   * @see {@link https://docs.fontawesome.com/web/style/icon-canvas}
+   * @since 7.3.0
+   */
+  canvasRoomy?: boolean | undefined
 }

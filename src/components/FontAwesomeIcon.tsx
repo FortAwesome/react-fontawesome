@@ -44,6 +44,8 @@ const DEFAULT_PROPS = {
   transform: undefined,
   swapOpacity: false,
   widthAuto: false,
+  canvasSquare: false,
+  canvasRoomy: false,
   flip360: false,
   buzz: false,
   float: false,
