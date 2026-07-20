@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.0](https://github.com/FortAwesome/react-fontawesome/compare/v3.4.0...v3.5.0) (2026-07-20)
+
+### Features
+
+* add new canvas options ([c5333b9](https://github.com/FortAwesome/react-fontawesome/commit/c5333b9abb30cefa989c367dc4541073eb48bf73))
+
+### Chores
+
+* **deps:** roll back commitlint to fix release notes generation ([d5f3376](https://github.com/FortAwesome/react-fontawesome/commit/d5f33764b6b882e5fbb59c90041c046034af07e5))
+* fix missing changelog for 3.4.0 ([e33cff5](https://github.com/FortAwesome/react-fontawesome/commit/e33cff5fd78cefb62a1d2cfefc378419d02843fd))
+
 ## [3.4.0](https://github.com/FortAwesome/react-fontawesome/compare/v3.3.1...v3.4.0) (2026-07-08)
 
 ### Features
