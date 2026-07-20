@@ -50,6 +50,8 @@ export function getClassListFromProps(props: FontAwesomeIconProps): string[] {
     swapOpacity,
     rotateBy,
     widthAuto,
+    canvasSquare,
+    canvasRoomy,
     flip360,
     buzz,
     float,
@@ -102,6 +104,10 @@ export function getClassListFromProps(props: FontAwesomeIconProps): string[] {
   // Add classes specific to version 7+
   if (rotateBy) result.push(STYLE_CLASSES.rotateBy)
   if (widthAuto) result.push(STYLE_CLASSES.widthAuto)
+
+  // Add canvas classes specific to version 7.3.0+
+  if (canvasSquare) result.push(STYLE_CLASSES.canvasSquare)
+  if (canvasRoomy) result.push(STYLE_CLASSES.canvasRoomy)
 
   // Add animation classes specific to version 7.3.0+
   if (flip360) result.push(ANIMATION_CLASSES.flip360)

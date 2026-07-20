@@ -95,6 +95,9 @@ export const STYLE_CLASSES = {
   rotateBy: 'fa-rotate-by',
   swapOpacity: 'fa-swap-opacity',
   widthAuto: 'fa-width-auto',
+  // the following style classes are only supported in version 7.3.0 and later
+  canvasSquare: 'fa-canvas-square',
+  canvasRoomy: 'fa-canvas-roomy',
 } as const
 
 export const LAYER_CLASSES = {

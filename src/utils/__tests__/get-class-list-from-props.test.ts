@@ -33,6 +33,8 @@ describe('get class list', () => {
     flip: true,
     rotateBy: true,
     widthAuto: true,
+    canvasSquare: true,
+    canvasRoomy: true,
     flip360: true,
     buzz: true,
     float: true,
@@ -67,6 +69,8 @@ describe('get class list', () => {
     expectedClasses.push(
       'fa-rotate-by',
       'fa-width-auto',
+      'fa-canvas-square',
+      'fa-canvas-roomy',
       'fa-flip-360',
       'fa-buzz',
       'fa-float',
