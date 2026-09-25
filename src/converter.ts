@@ -163,6 +163,11 @@ export function convert<
     attrs['aria-hidden'] = 'false'
   }
 
+  // An `aria-labelledby` reference also labels the icon, so it must not stay hidden
+  if (remaining['aria-labelledby']) {
+    attrs['aria-hidden'] = 'false'
+  }
+
   // If a `gradientFill` prop is provided, set the fill attribute to reference the gradient and create the gradient element
   if (gradientFill) {
     attrs.fill = `url(#${gradientFill.id})`

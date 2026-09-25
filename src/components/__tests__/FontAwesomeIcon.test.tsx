@@ -579,6 +579,19 @@ describe('FontAwesomeIcon', () => {
     expect(element).toHaveRole('button')
   })
 
+  test('an aria-labelledby prop exposes the icon to assistive technology', () => {
+    render(
+      <>
+        <span id="coffee-label">Buy Coffee</span>
+        <FontAwesomeIcon icon={faCoffee} aria-labelledby="coffee-label" />
+      </>,
+    )
+
+    const element = screen.getByRole('img', { name: 'Buy Coffee' })
+    expect(element).toHaveAttribute('aria-labelledby', 'coffee-label')
+    expect(element).toHaveAttribute('aria-hidden', 'false')
+  })
+
   describe('using transform', () => {
     test('string', () => {
       render(
