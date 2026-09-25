@@ -23,6 +23,10 @@ jest.mock('../../logger', () => ({
 }))
 /* eslint-enable @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-argument */
 
+const getPathFills = (element: HTMLElement) =>
+  // eslint-disable-next-line testing-library/no-node-access
+  [...element.querySelectorAll('path')].map((path) => path.getAttribute('fill'))
+
 describe('FontAwesomeIcon', () => {
   beforeEach(() => {
     fontawesome.library.add(faCoffee, faCircle, faSpartan)
@@ -717,6 +721,53 @@ describe('FontAwesomeIcon', () => {
       })
     })
   }
+
+  describe('fill and gradientFill on nested paths', () => {
+    const faDuotoneCoffee = {
+      prefix: 'fad',
+      iconName: 'coffee',
+      icon: [640, 512, [], 'f0f4', ['M0 0h10v10H0z', 'M10 10h10v10H10z']],
+    } as fontawesome.IconDefinition
+
+    test('a fill prop reaches the paths of a transformed icon', () => {
+      render(
+        <FontAwesomeIcon icon={faCoffee} transform="shrink-6" fill="red" />,
+      )
+
+      const element = screen.getByRole('img', { hidden: true })
+      expect(element).toHaveAttribute('fill', 'red')
+      expect(getPathFills(element)).toStrictEqual([null])
+    })
+
+    test('a fill prop reaches both paths of a duotone icon', () => {
+      render(<FontAwesomeIcon icon={faDuotoneCoffee} fill="red" />)
+
+      const element = screen.getByRole('img', { hidden: true })
+      expect(element).toHaveAttribute('fill', 'red')
+      expect(getPathFills(element)).toStrictEqual([null, null])
+    })
+
+    test('a gradientFill reaches the paths of a transformed icon', () => {
+      render(
+        <FontAwesomeIcon
+          icon={faCoffee}
+          transform="shrink-6"
+          gradientFill={{
+            id: 'coffee-gradient',
+            type: 'linear',
+            stops: [
+              { offset: '0%', color: 'red' },
+              { offset: '100%', color: 'blue' },
+            ],
+          }}
+        />,
+      )
+
+      const element = screen.getByRole('img', { hidden: true })
+      expect(element).toHaveAttribute('fill', 'url(#coffee-gradient)')
+      expect(getPathFills(element)).toStrictEqual([null])
+    })
+  })
 
   describe('swap opacity', () => {
     test('setting swapOpacity prop to true adds fa-swap-opacity class', () => {
