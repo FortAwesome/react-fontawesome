@@ -75,6 +75,27 @@ type AttributesOverride = Record<string, unknown> & {
   style?: React.CSSProperties
 }
 
+function stripPathFills(element: AbstractElement): AbstractElement {
+  if (typeof element === 'string') {
+    return element
+  }
+
+  const children = element.children?.map(stripPathFills)
+
+  if (element.tag === 'path' && 'fill' in element.attributes) {
+    return {
+      ...element,
+      attributes: {
+        ...element.attributes,
+        fill: undefined,
+      } as AttributesOverride,
+      children,
+    }
+  }
+
+  return children ? { ...element, children } : element
+}
+
 export function convert<
   El extends Element = SVGSVGElement,
   Attr extends HTMLAttributes<El> = SVGAttributes<El>,
@@ -92,26 +113,14 @@ export function convert<
     return element
   }
 
-  const children = (element.children || []).map((child) => {
-    let element = child
+  // If a `fill` prop or a gradient is provided, remove the `fill` attribute from descendant paths to allow the prop to take precedence.
+  // Paths can be nested in groups, e.g. for duotone icons or when a `transform` is applied.
+  const shouldStripFills =
+    'fill' in extraProps || Boolean(extraProps.gradientFill)
 
-    if (
-      ('fill' in extraProps || extraProps.gradientFill) &&
-      child.tag === 'path' &&
-      'fill' in child.attributes
-    ) {
-      // If a `fill` prop or a gradient is provided, remove the `fill` attribute from child elements to allow the prop to take precedence
-      element = {
-        ...child,
-        attributes: {
-          ...child.attributes,
-          fill: undefined,
-        } as AttributesOverride,
-      }
-    }
-
-    return convert(createElement, element)
-  })
+  const children = (element.children || []).map((child) =>
+    convert(createElement, shouldStripFills ? stripPathFills(child) : child),
+  )
 
   const elementAttributes: AttributesOverride = element.attributes || {}
   const attrs: AttributesOverride = {}
