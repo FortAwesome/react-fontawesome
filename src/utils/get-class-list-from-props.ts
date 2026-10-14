@@ -43,6 +43,7 @@ export function getClassListFromProps(props: FontAwesomeIconProps): string[] {
     fixedWidth,
     inverse,
     border,
+    listItem,
     flip,
     size,
     rotation,
@@ -80,6 +81,7 @@ export function getClassListFromProps(props: FontAwesomeIconProps): string[] {
   if (fixedWidth) result.push(STYLE_CLASSES.fixedWidth)
   if (inverse) result.push(STYLE_CLASSES.inverse)
   if (border) result.push(STYLE_CLASSES.border)
+  if (listItem) result.push(STYLE_CLASSES.listItem)
   if (flip === true) result.push(STYLE_CLASSES.flip)
   if (flip === 'horizontal' || flip === 'both') {
     result.push(STYLE_CLASSES.flipHorizontal)
